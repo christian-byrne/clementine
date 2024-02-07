@@ -13,7 +13,7 @@ import {
   MDBInputGroup,
   MDBBadge
 } from 'mdb-react-ui-kit';
-import IconGenerator from "./icon-handlers/getIcon";
+import IconGenerator from "../utils/getIcon";
 const iconGen = new IconGenerator();
 
 
