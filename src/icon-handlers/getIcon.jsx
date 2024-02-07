@@ -1,7 +1,7 @@
 class IconGenerator {
     constructor() {
         // Icons
-        this.ICONS_PATH = "/icons/"
+        this.ICONS_PATH = "icons/"
 
         this.iconTypeDirs = {
             "badges" : "badges/",
