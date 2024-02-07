@@ -48,7 +48,7 @@ function Navbar() {
           <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
         <MDBCollapse navbar open={openNav}>
-          <MDBNavbarBrand>
+          <MDBNavbarBrand className="clickable" href="/">
             {iconGen.createIcon("mainBrand", "54px")}
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
@@ -60,6 +60,9 @@ function Navbar() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href="#">Browse</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href="/leaderboards">Leaderboards</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href="#">Creator Dashboard</MDBNavbarLink>
@@ -83,7 +86,6 @@ function Navbar() {
           <MDBNavbarNav right className="w-auto ms-auto align-items-center">
             <MDBNavbarItem className="me-0">
               <MDBNavbarLink href="#">
-                {/* <MDBBadge pill color='danger'>179</MDBBadge> */}
                 <div className="d-flex flex-row align-items-center justify-content-center">
                   {iconGen.createIcon("mainCurrency")}
                   <span className="text-muted">79&nbsp;RUBIES</span>
@@ -91,7 +93,7 @@ function Navbar() {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className="ml-4 ml-lg-0">
-              <MDBNavbarLink href="#">
+              <MDBNavbarLink href="/profile">
                 <MDBIcon fas icon="user" />
               </MDBNavbarLink>
             </MDBNavbarItem>

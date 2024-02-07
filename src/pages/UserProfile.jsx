@@ -13,10 +13,10 @@ function UserProfilePage() {
   return (
     <MDBContainer fluid>
       <div className="row mt-3">
-        <div class="col-md-3 d-none d-md-block bg-light sidebar">
+        <div className="col-md-3 d-none d-md-block bg-light sidebar">
           <UserProfileSidebar {...userProfileData} />
         </div>
-        <main role="main" class="col-md-9 ms-sm-auto col-lg-9 px-md-4">
+        <main role="main" className="col-md-9 ms-sm-auto col-lg-9 px-md-4">
           <MDBContainer fluid className="mt-5">
             {/* Most Popular Models */}
             <MDBRow>

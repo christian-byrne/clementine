@@ -112,40 +112,40 @@ function UserProfileSidebar({ username, joinDate, ranks, titles, socialIcons, st
         {/* Statistics Section */}
         <MDBContainer className="mb-3 d-flex flex-wrap">
           {/* <!-- Likes Badge --> */}
-          <div class="badge badge-secondary me-2 mb-2 p-2">
-            <div class="d-flex justify-content-center align-items-center">
+          <div className="badge badge-secondary me-2 mb-2 p-2">
+            <div className="d-flex justify-content-center align-items-center">
               {/* <!-- Font Awesome heart icon --> */}
-              <i class="fas fa-heart me-2"></i> 
-              <span class="font-weight-bold">8.4k</span>
+              <i className="fas fa-heart me-2"></i> 
+              <span className="font-weight-bold">8.4k</span>
             </div>
-            <p class="mb-0 mt-1 small text-muted">LIKES</p>
+            <p className="mb-0 mt-1 small text-muted">LIKES</p>
           </div>
           {/* <!-- Downloads Badge --> */}
-          <div class="badge badge-secondary me-2 mb-2 p-2">
-            <div class="d-flex justify-content-center align-items-center">
+          <div className="badge badge-secondary me-2 mb-2 p-2">
+            <div className="d-flex justify-content-center align-items-center">
               {/* <!-- Font Awesome download icon --> */}
-              <i class="fas fa-download me-2"></i> 
-              <span class="font-weight-bold">200</span>
+              <i className="fas fa-download me-2"></i> 
+              <span className="font-weight-bold">200</span>
             </div>
-            <p class="mb-0 mt-1 small text-muted">DOWNLOADS</p>
+            <p className="mb-0 mt-1 small text-muted">DOWNLOADS</p>
           </div>
           {/* <!-- Favorites Badge --> */}
-          <div class="badge badge-secondary me-2 mb-2 p-2">
-            <div class="d-flex justify-content-center align-items-center">
+          <div className="badge badge-secondary me-2 mb-2 p-2">
+            <div className="d-flex justify-content-center align-items-center">
               {/* <!-- Font Awesome star icon --> */}
-              <i class="fas fa-star me-2"></i> 
-              <span class="font-weight-bold">300</span>
+              <i className="fas fa-star me-2"></i> 
+              <span className="font-weight-bold">300</span>
             </div>
-            <p class="mb-0 mt-1 small text-muted">FAVORITES</p>
+            <p className="mb-0 mt-1 small text-muted">FAVORITES</p>
           </div>
           {/* <!-- Rating Badge --> */}
-          <div class="badge badge-secondary me-2 mb-2 p-2">
-            <div class="d-flex justify-content-center align-items-center">
+          <div className="badge badge-secondary me-2 mb-2 p-2">
+            <div className="d-flex justify-content-center align-items-center">
               {/* <!-- Font Awesome star icon --> */}
-              <i class="fas fa-star me-2"></i>
-              <span class="font-weight-bold">4.94</span>
+              <i className="fas fa-star me-2"></i>
+              <span className="font-weight-bold">4.94</span>
             </div>
-            <p class="mb-0 mt-1 small text-muted">697 ratings</p>
+            <p className="mb-0 mt-1 small text-muted">697 ratings</p>
           </div>
         </MDBContainer> 
         
@@ -201,7 +201,7 @@ function UserProfileSidebar({ username, joinDate, ranks, titles, socialIcons, st
         <h5 className="mt-3 mb-3">Achievements</h5>
         <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
           {achievements.map((achievement, index) => (
-            <div class="me-3 mb-3 w-25">
+            <div className="me-3 mb-3 w-25">
               <img src={achievement.src} alt={achievement.alt} class="img-fluid rounded-circle" title={achievement.title} />
             </div>
           ))}
