@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/clementine/static/css/main.0c865438.css",
-    "main.js": "/clementine/static/js/main.a363b4b8.js",
+    "main.js": "/clementine/static/js/main.3ea3e80d.js",
     "static/js/592.8baa052a.chunk.js": "/clementine/static/js/592.8baa052a.chunk.js",
     "static/media/fa-solid-900.ttf": "/clementine/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/fa-brands-400.ttf": "/clementine/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
@@ -11,14 +11,13 @@
     "static/media/fa-regular-400.woff2": "/clementine/static/media/fa-regular-400.e931bc0d14f5bbb1da22.woff2",
     "static/media/fa-v4compatibility.ttf": "/clementine/static/media/fa-v4compatibility.2eb7b3ef25042305f3ff.ttf",
     "static/media/fa-v4compatibility.woff2": "/clementine/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
-    "static/media/logo.svg": "/clementine/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/clementine/index.html",
     "main.0c865438.css.map": "/clementine/static/css/main.0c865438.css.map",
-    "main.a363b4b8.js.map": "/clementine/static/js/main.a363b4b8.js.map",
+    "main.3ea3e80d.js.map": "/clementine/static/js/main.3ea3e80d.js.map",
     "592.8baa052a.chunk.js.map": "/clementine/static/js/592.8baa052a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c865438.css",
-    "static/js/main.a363b4b8.js"
+    "static/js/main.3ea3e80d.js"
   ]
 }
