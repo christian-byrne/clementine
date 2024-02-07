@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build --homepage=https://christian-byrne.github.io/clementine && mv build docs",
+    "build": "react-scripts build --homepage=https://christian-byrne.github.io/clementine",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
