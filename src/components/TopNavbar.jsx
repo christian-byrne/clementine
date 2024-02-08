@@ -20,7 +20,7 @@ function Navbar() {
   const [openNav, setOpenNav] = useState(true);
 
   const handleResize = () => {
-    const isSmallScreen = window.matchMedia("(max-width: 600px)").matches;
+    const isSmallScreen = window.matchMedia("(max-width: 992px)").matches;
     setOpenNav(!isSmallScreen);
   };
 

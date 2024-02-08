@@ -1,35 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBCard,
   MDBCardTitle,
   MDBCardBody,
-  MDBBadge,
-  MDBBtn,
   MDBTable,
   MDBTableHead,
   MDBTableBody,
+  MDBCardText,
 } from "mdb-react-ui-kit";
 import { camelCaseToTitle } from "../utils/camelCaseToTitle";
-import PlaceholderImg from "../data/placeholder-image.json";
+import SocialStatsBadges from "./SocialStatsBadges";
 
-function LeaderBoardCard({ leaderBoardData }) {
+function LeaderBoardCard({
+  leaderBoardData,
+  visibleColumns,
+  maxRows,
+  leaderBoardName,
+  description,
+}) {
+  const sortedData = leaderBoardData ? leaderBoardData : [];
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 992) {
+        setNumVisibleColumns(4);
+      } else if (window.innerWidth > 768) {
+        setNumVisibleColumns(3);
+      } else {
+        setNumVisibleColumns(5);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [numVisibleColumns, setNumVisibleColumns] = useState(
+    visibleColumns.length || 4
+  ); // Initial number of visible columns is 4
+
   return (
     leaderBoardData &&
     leaderBoardData.members &&
     leaderBoardData.members.length > 0 && (
-      <MDBContainer className="col-md-6 col-lg-6 col-sm-12 my-3">
-        <MDBCard className="h-100 d-flex d-column">
-          <MDBCardTitle className="mt-4 ms-4">
-            <h2>&nbsp;{leaderBoardData.name || ""}</h2>
+      <MDBContainer className="col-md-12 col-lg-6 col-sm-12 my-3">
+        <MDBCard
+          className="h-100 d-flex d-column"
+          style={{ overflowX: "scroll" }}
+        >
+          <MDBCardTitle className="mt-4 ms-3 mb-1">
+            <h2>
+              &nbsp;{leaderBoardName || leaderBoardData.name || "Leaderboard"}
+            </h2>
           </MDBCardTitle>
+          {description && (
+            <MDBCardText className="ms-4 mb-4 text-muted">
+              {description}
+            </MDBCardText>
+          )}
           <MDBCardBody>
             <MDBTable align="middle">
               <MDBTableHead>
                 <tr>
-                  {leaderBoardData.columns &&
-                    leaderBoardData.columns.length > 0 &&
-                    leaderBoardData.columns.map((column, index) => (
+                  <th scope="col">Name</th>
+                  <th scope="col">Social Stats</th>
+                  {visibleColumns &&
+                    visibleColumns.length > 0 &&
+                    visibleColumns.map((column, index) => (
                       <th key={index} scope="col">
                         {camelCaseToTitle(column)}
                       </th>
@@ -39,137 +77,86 @@ function LeaderBoardCard({ leaderBoardData }) {
               <MDBTableBody>
                 {leaderBoardData.members &&
                   leaderBoardData.members.length > 0 &&
-                  leaderBoardData.members.map((member, index) => (
-                    <tr key={index}>
-                      {leaderBoardData.columns &&
-                        leaderBoardData.columns.length > 0 &&
-                        leaderBoardData.columns.map((column, index) => (
-                          <>
-                            {column.includes("name") ? (
-                              <td key={index}>
-                                <div className="d-flex align-items-center">
-                                  <img
-                                    src={
-                                      member["profilePicSrc"] ||
-                                      PlaceholderImg.src
-                                    }
-                                    alt=""
-                                    style={{ width: "45px", height: "45px" }}
-                                    className="rounded-circle"
-                                  />
-                                  <div className="ms-3">
-                                    <p className="fw-bold mb-1">
-                                      {member["username"] || member[column] || ""}
-                                    </p>
-                                    <p className="text-muted mb-0">
-                                      {member[column] || ""}
-                                    </p>
-                                  </div>
+                  leaderBoardData.members
+                    .slice(0, maxRows)
+                    .map((member, index) => (
+                      <tr
+                        key={index}
+                        style={
+                          index == 0
+                            ? { backgroundColor: "rgba(255, 248, 208, .52" }
+                            : index == 1
+                            ? { backgroundColor: "rgba(244, 233, 230, .5)" }
+                            : index == 2
+                            ? { backgroundColor: "rgba(255, 218, 208, .2)" }
+                            : {}
+                        }
+                      >
+                        {/** first, the name/picture column */}
+                        {member.name && (
+                          <td key={index} className="clickable">
+                            <div className="d-flex align-items-center">
+                              <a
+                                href={
+                                  "/" +
+                                  member.name.replaceAll(" ", "-").toLowerCase()
+                                }
+                                style={{
+                                  color: "inherit",
+                                  textDecoration: "inherit",
+                                }}
+                              >
+                                <img
+                                  src={
+                                    "pictures/pfps/" +
+                                    member["name"]
+                                      .replaceAll(" ", "-")
+                                      .toLowerCase() +
+                                    "-3.png"
+                                  }
+                                  alt=""
+                                  style={{ width: "80px", height: "80px" }}
+                                  className="rounded-circle"
+                                />
+                              </a>
+                              <a
+                                href={
+                                  "/" +
+                                  member.name.replaceAll(" ", "-").toLowerCase()
+                                }
+                                style={{
+                                  color: "inherit",
+                                  textDecoration: "inherit",
+                                }}
+                              >
+                                <div className="ms-3">
+                                  <p className="fw-bold mb-1">
+                                    {member["username"] || member["name"] || ""}
+                                  </p>
+                                  <p className="text-muted mb-0">
+                                    {member["name"] || ""}
+                                  </p>
                                 </div>
-                              </td>
-                            ) : (
+                              </a>
+                            </div>
+                          </td>
+                        )}
+                        {/** second, get the social stats badges and put them in a column */}
+                        <td>
+                          <SocialStatsBadges
+                            {...member}
+                            style={{ flexWrap: "nowrap" }}
+                          />
+                        </td>
+                        {visibleColumns &&
+                          visibleColumns.length > 0 &&
+                          visibleColumns.map((column, index) => (
+                            <>
                               <td key={index}>{member[column] || ""}</td>
-                            )}
-                          </>
-                        ))}
-                    </tr>
-                  ))}
-
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <img
-                        src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                        alt=""
-                        style={{ width: "45px", height: "45px" }}
-                        className="rounded-circle"
-                      />
-                      <div className="ms-3">
-                        <p className="fw-bold mb-1">John Doe</p>
-                        <p className="text-muted mb-0">john.doe@gmail.com</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="fw-normal mb-1">Software engineer</p>
-                    <p className="text-muted mb-0">IT department</p>
-                  </td>
-                  <td>
-                    <MDBBadge color="success" pill>
-                      Active
-                    </MDBBadge>
-                  </td>
-                  <td>Senior</td>
-                  <td>
-                    <MDBBtn color="link" rounded size="sm">
-                      Edit
-                    </MDBBtn>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <img
-                        src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                        alt=""
-                        style={{ width: "45px", height: "45px" }}
-                        className="rounded-circle"
-                      />
-                      <div className="ms-3">
-                        <p className="fw-bold mb-1">Alex Ray</p>
-                        <p className="text-muted mb-0">alex.ray@gmail.com</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="fw-normal mb-1">Consultant</p>
-                    <p className="text-muted mb-0">Finance</p>
-                  </td>
-                  <td>
-                    <MDBBadge color="primary" pill>
-                      Onboarding
-                    </MDBBadge>
-                  </td>
-                  <td>Junior</td>
-                  <td>
-                    <MDBBtn color="link" rounded size="sm">
-                      Edit
-                    </MDBBtn>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <img
-                        src="https://mdbootstrap.com/img/new/avatars/7.jpg"
-                        alt=""
-                        style={{ width: "45px", height: "45px" }}
-                        className="rounded-circle"
-                      />
-                      <div className="ms-3">
-                        <p className="fw-bold mb-1">Kate Hunington</p>
-                        <p className="text-muted mb-0">
-                          kate.hunington@gmail.com
-                        </p>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <p className="fw-normal mb-1">Designer</p>
-                    <p className="text-muted mb-0">UI/UX</p>
-                  </td>
-                  <td>
-                    <MDBBadge color="warning" pill>
-                      Awaiting
-                    </MDBBadge>
-                  </td>
-                  <td>Senior</td>
-                  <td>
-                    <MDBBtn color="link" rounded size="sm">
-                      Edit
-                    </MDBBtn>
-                  </td>
-                </tr>
+                            </>
+                          ))}
+                      </tr>
+                    ))}
               </MDBTableBody>
             </MDBTable>
           </MDBCardBody>

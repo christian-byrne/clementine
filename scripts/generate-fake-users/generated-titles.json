@@ -1,0 +1,670 @@
+[
+  {
+    "name": "Sonmi-451",
+    "titles": ["Revolutionary Chic", "Future Fashion Icon", "Dystopian Diva"]
+  },
+  {
+    "name": "Erica Albright",
+    "titles": ["Social Network Style Maven", "Digital Darling", "Startup Sensation"]
+  },
+  {
+    "name": "Marla Singer",
+    "titles": ["Grunge Goddess", "Anarchy Aesthetic", "Rebel Couture"]
+  },
+  {
+    "name": "Eowyn of Rohan",
+    "titles": ["Warrior Princess Chic", "Shieldmaiden Style", "Horseback Heroine"]
+  },
+  {
+    "name": "Arwen Undómiel",
+    "titles": ["Elven Elegance", "Middle-earth Muse", "Enchanted Enigma"]
+  },
+  {
+    "name": "Fran Walsh",
+    "titles": ["Fantasy Fashionista", "Cinematic Siren", "Kiwi Creativity Queen"]
+  },
+  {
+    "name": "Amber Waves",
+    "titles": ["70s Seductress", "Golden Age Glamour", "California Dreamin' Diva"]
+  },
+  {
+    "name": "Becky Barnett",
+    "titles": ["High School Haute Couture", "Cheerleader Chic", "Teenage Trendsetter"]
+  },
+  {
+    "name": "Luisa Rey",
+    "titles": ["Investigative Instinct", "Journalistic Journey", "Reporter Radiance"]
+  },
+  {
+    "name": "Leslie Matos",
+    "titles": ["Urban Artistry", "Graffiti Glam", "Street Style Sovereign"]
+  },
+  {
+    "name": "Ava",
+    "titles": ["Robotic Royalty", "Artificial Intelligence Avant-Garde", "Synthetic Sensation"]
+  },
+  {
+    "name": "Kyoko",
+    "titles": ["Silent Serenity", "Mechanical Modesty", "Android Aura"]
+  },
+  {
+    "name": "Briony Tallis",
+    "titles": ["Innocence Interrupted", "Literary Luminary", "Storybook Sophistication"]
+  },
+  {
+    "name": "Lola Quincy",
+    "titles": ["Rebel Rebel", "Motorcycle Maven", "Leather & Lace Luminary"]
+  },
+  {
+    "name": "Cecilia Tallis",
+    "titles": ["English Rose Revival", "Vintage Virtuoso", "Library Luminance"]
+  },
+  {
+    "name": "Claudia Wilson Gator",
+    "titles": ["Suburban Seduction", "Ambitious Allure", "Mysterious Melancholy"]
+  },
+  {
+    "name": "Linda Partridge",
+    "titles": ["Terminal Elegance", "Medicated Magnificence", "Floral Fantasy"]
+  },
+  {
+    "name": "Virginia Woolf",
+    "titles": ["Modernist Maven", "Stream of Consciousness Couture", "Bloomsbury Belle"]
+  },
+  {
+    "name": "Harmony Faith Lane",
+    "titles": ["Struggling Starlet", "Dreams Deferred Diva", "Hollywood Hopeful"]
+  },
+  {
+    "name": "Harry Lockhart",
+    "titles": ["Noir Novice", "Detective Dandy", "Gumshoe Glamour"]
+  },
+  {
+    "name": "Kate Mercer",
+    "titles": ["Matrimonial Magnificence", "Eternal Elegance", "Gray Grace"]
+  },
+  {
+    "name": "Alejandro Gillick",
+    "titles": ["Borderland Badass", "Cartel Chic", "Revenge Renegade"]
+  },
+  {
+    "name": "Lady Bird",
+    "titles": ["Sacremento Style Icon", "Coming-of-Age Couture", "Teenage Trailblazer"]
+  },
+  {
+    "name": "Patrick Bateman",
+    "titles": ["Yuppie Couture", "Designer Dandy", "Psycho Sartorialist"]
+  },
+  {
+    "name": "Paul Allen",
+    "titles": ["Wall Street Wonder", "Power Suit Prince", "Business Card Baron"]
+  },
+  {
+    "name": "Evelyn Williams",
+    "titles": ["Wealthy Widow Chic", "Mysterious Matriarch", "Dark Dame"]
+  },
+  {
+    "name": "Angela Hayes",
+    "titles": ["Teenage Temptress", "Suburban Siren", "Plastic Princess"]
+  },
+  {
+    "name": "Ricky Fitts",
+    "titles": ["Suburban Surrealist", "Beauty in the Banal", "Rose Petal Rebel"]
+  },
+  {
+    "name": "Lester Burnham",
+    "titles": ["Midlife Modernist", "American Beauty Icon", "Plastic Bag Philosopher"]
+  },
+  {
+    "name": "Terence Fletcher",
+    "titles": ["Jazz Juggernaut", "Drumbeat Dynamo", "Maestro Maven"]
+  },
+  {
+    "name": "Luke Glanton",
+    "titles": ["Carnival Couture", "Roadside Rebel", "Neon Nomad"]
+  },
+  {
+    "name": "Avery Cross",
+    "titles": ["Blue Blood Baron", "Savile Row Royalty", "Monogrammed Magnate"]
+  },
+  {
+    "name": "Jason Glanton",
+    "titles": ["Carnival Couture", "Roadside Rebel", "Neon Nomad"]
+  },
+  {
+    "name": "Romina Mendes",
+    "titles": ["Single Mother Chic", "Struggling Starlet", "Beachside Beauty"]
+  },
+  {
+    "name": "Lee Chandler",
+    "titles": ["Custodian Couture", "Sea Salt Serenity", "Harbor Hero"]
+  },
+  {
+    "name": "Joe Chandler",
+    "titles": ["Salty Sailor Style", "Maritime Maverick", "Nautical Nomad"]
+  },
+  {
+    "name": "Randi Chandler",
+    "titles": ["Blue Collar Beauty", "Neighborhood Nomad", "Oceanic Odyssey"]
+  },
+  {
+    "name": "Elaine Robinson",
+    "titles": ["College Cutie", "Ivy League Ingenue", "Academic Allure"]
+  },
+  {
+    "name": "Benjamin Braddock",
+    "titles": ["Graduate Glamour", "Poolside Prince", "Plastic Passion"]
+  },
+  {
+    "name": "Mrs. Robinson",
+    "titles": ["Seductive Siren", "Mature Muse", "Cougar Couture"]
+  },
+  {
+    "name": "Rosemary Woodhouse",
+    "titles": ["Expectant Elegance", "Motherhood Maven", "Baby Bump Beauty"]
+  },
+  {
+    "name": "Ben Bradlee",
+    "titles": ["Editorial Excellence", "Newsroom Noble", "Pressroom Prince"]
+  },
+  {
+    "name": "Bob Woodward",
+    "titles": ["Investigative Icon", "Deep Throat Dandy", "Political Powerhouse"]
+  },
+  {
+    "name": "Rick Blaine",
+    "titles": ["Casablanca Chic", "Bogie's Best", "Cocktail Classic"]
+  },
+  {
+    "name": "Victor Laszlo",
+    "titles": ["Resistance Royalty", "Freedom Fighter Fashion", "Refugee Rebel"]
+  },
+  {
+    "name": "Ilsa Lund",
+    "titles": ["Femme Fatale Fabulous", "Casablanca Coquette", "Love's Lost Legacy"]
+  },
+  {
+    "name": "Annina Brandel",
+    "titles": ["Casablanca Chic", "Innocence in Exile", "Refugee Romance"]
+  },
+  {
+    "name": "Cass Sheppard",
+    "titles": ["Detective Diva", "Hardboiled Heroine", "Femme Fatale Fashion"]
+  },
+  {
+    "name": "Anya Thorensen",
+    "titles": ["Eastern European Elegance", "Refugee Rhapsody", "Snowy Siren"]
+  },
+  {
+    "name": "Josie Radek",
+    "titles": ["Snowy Siren", "Tundra Temptress", "Arctic Angel"]
+  },
+  {
+    "name": "Lena Double",
+    "titles": ["Double Trouble", "Mysterious Mirror Image", "Twofold Temptation"]
+  },
+  {
+    "name": "Dwayne Hoover",
+    "titles": ["Car Dealer Chic", "Midwestern Maverick", "Convertible Connoisseur"]
+  },
+  {
+    "name": "Olive Hoover",
+    "titles": ["Little Miss Sunshine", "Quirky Queen", "Pageant Princess"]
+  },
+  {
+    "name": "Frank Ginsburg",
+    "titles": ["Hipster Harmonica Hero", "Beatnik Bard", "Poet in Plaid"]
+  },
+  {
+    "name": "Jim Sullivan",
+    "titles": ["Western Wanderer", "Cowboy Couture", "Desert Dandy"]
+  },
+  {
+    "name": "Michael Rezendes",
+    "titles": ["Spotlight Style", "Investigative Icon", "Reporter Royalty"]
+  },
+  {
+    "name": "Sacha Pfeiffer",
+    "titles": ["Spotlight Sensation", "Journalistic Jewel", "Print Press Princess"]
+  },
+  {
+    "name": "Sgt. William James",
+    "titles": ["Warrior Wear", "Combat Couture", "Soldier Style"]
+  },
+  {
+    "name": "Ramona Flower",
+    "titles": ["Ramona Realness", "Skateboard Siren", "Alternative Angel"]
+  },
+  {
+    "name": "Scott Pilgrim",
+    "titles": ["Indie Icon", "Video Game Vanguard", "Bass Battle Boss"]
+  },
+  {
+    "name": "Julie Powers",
+    "titles": ["Rockstar Romance", "Gamer Girl Glamour", "Graphic Novel Goddess"]
+  },
+  {
+    "name": "Steven Murphy",
+    "titles": ["Hypnotic Hipster", "Suburban Seducer", "Cult Classic Cinephile"]
+  },
+  {
+    "name": "Anna Murphy",
+    "titles": ["Suburban Siren", "Cult Classic Chic", "Domestic Diva"]
+  },
+  {
+    "name": "Clementine Kruczynski",
+    "titles": ["Eternal Sunshine Style", "Memory Maker Maven", "Technicolor Temptress"]
+  },
+  {
+    "name": "Joel Barish",
+    "titles": ["Memory Maker Maven", "Lost Love Luminary", "Romantic Revolutionary"]
+  },
+  {
+    "name": "Travis Bickle",
+    "titles": ["Taxi Driver Trendsetter", "Urban Outlaw", "Taxicab Couture"]
+  },
+  {
+    "name": "Tom Hansen",
+    "titles": ["Love Story Luminary", "Greeting Card Guru", "Romantic Revolutionary"]
+  },
+  {
+    "name": "Summer",
+    "titles": ["Summer Siren", "Seasonal Style Sensation", "Sun-kissed Sweetheart"]
+  },
+  {
+    "name": "Jake Gittes",
+    "titles": ["Noir Novice", "Chinatown Chic", "Gumshoe Glam"]
+  },
+  {
+    "name": "Ida Sessions",
+    "titles": ["Jazz Singer Style", "Smoke-Filled Songstress", "Swingin' Sensation"]
+  },
+  {
+    "name": "Evelyn Cross Mulwray",
+    "titles": ["Water Widow", "Chinatown Chic", "Film Noir Femme"]
+  },
+  {
+    "name": "Lisa Rowe",
+    "titles": ["Psych Ward Pundit", "Crazy Couture", "Institutional Icon"]
+  },
+  {
+    "name": "Daisy Randone",
+    "titles": ["Girl, Interrupted Glamour", "Mental Health Maven", "Institutional Ingenue"]
+  },
+  {
+    "name": "Susanna Kaysen",
+    "titles": ["Psych Ward Princess", "Asylum Angel", "Memoir Maven"]
+  },
+  {
+    "name": "Frank Costello",
+    "titles": ["Mafia Magnate", "Gangster Glam", "Crime Boss Couture"]
+  },
+  {
+    "name": "Colin Sullivan",
+    "titles": ["Undercover Ubermensch", "Mole Maven", "Deep Cover Dandy"]
+  },
+  {
+    "name": "Barry Egan",
+    "titles": ["Pudding Pop Prince", "Plunge Party Pioneer", "Telephone Temptation"]
+  },
+  {
+    "name": "Lena Leonard",
+    "titles": ["Hawaiian Heartbreaker", "Phone Sex Siren", "Late Night Lover"]
+  },
+  {
+    "name": "Juno MacGuff",
+    "titles": ["Indie Icon", "Teenage Trendsetter", "Maternity Maven"]
+  },
+  {
+    "name": "Pat Solitano",
+    "titles": ["Silver Linings Style", "Philly Phenom", "Mental Health Maverick"]
+  },
+  {
+    "name": "Imperator Furiosa",
+    "titles": ["Wasteland Warrior", "Desert Diva", "Revolutionary Roadster"]
+  },
+  {
+    "name": "Gogo Yubari",
+    "titles": ["Schoolgirl Slaughterer", "Tokyo Terror", "Deadly Doll"]
+  },
+  {
+    "name": "O-Ren Ishii",
+    "titles": ["Tokyo Temptress", "Yakuza Yen", "Katana Queen"]
+  },
+  {
+    "name": "Elle Driver",
+    "titles": ["Blonde Bombshell", "Deadly Diva", "Viper Vixen"]
+  },
+  {
+    "name": "Vernita Green",
+    "titles": ["Motherhood Maven", "Assassin Chic", "Knife-Fighting Femme"]
+  },
+  {
+    "name": "Paul Atreides",
+    "titles": ["Desert Dynasty", "Sci-Fi Sovereign", "Dune Duke"]
+  },
+  {
+    "name": "Park Dong-ik",
+    "titles": ["Suburban Schemer", "Class Conscious Couture", "Household Hegemon"]
+  },
+  {
+    "name": "Waymond Wang",
+    "titles": ["Entrepreneurial Elegance", "Tech Titan", "Silicon Valley Style"]
+  },
+  {
+    "name": "Evelyn Quan Wang",
+    "titles": ["Tech Tycoon", "Silicon Valley Socialite", "Startup Sensation"]
+  },
+  {
+    "name": "Robert Neville",
+    "titles": ["Apocalyptic Avenger", "Zombie Slayer", "Last Man Standing"]
+  },
+  {
+    "name": "Joanna Anderson",
+    "titles": ["Viral Vixen", "Social Media Starlet", "Internet Influencer"]
+  },
+  {
+    "name": "Billy Mack",
+    "titles": ["Christmas Crooner", "Rockin' Reindeer", "Yuletide Yelper"]
+  },
+  {
+    "name": "Ramiz Rafi Mirza",
+    "titles": ["Bollywood Heartthrob", "Indian Idol", "Mumbai Maverick"]
+  },
+  {
+    "name": "Robin Swift",
+    "titles": ["Feathered Fashionista", "Avian Avant-Garde", "Birdwatching Beauty"]
+  },
+  {
+    "name": "Mookie",
+    "titles": ["Pizza Proprietor", "Brooklyn Boy", "Do the Right Thing Dude"]
+  },
+  {
+    "name": "Roger Verbal Kint",
+    "titles": ["Kaiser of Kozy Koffee", "Café Connoisseur", "Verbal Virtuoso"]
+  },
+  {
+    "name": "Keyser Soze",
+    "titles": ["Mysterious Mastermind", "Shadowy Specter", "Criminal Kingpin"]
+  },
+  {
+    "name": "Mona Lisa Vito",
+    "titles": ["Automotive Ace", "Legal Luminary", "Jury-Box Jewel"]
+  },
+  {
+    "name": "Vinny Gambini",
+    "titles": ["Brooklyn Barrister", "Legal Legend", "Wisecracking Witness"]
+  },
+  {
+    "name": "Jenny Carey Mulligan",
+    "titles": ["Indie Ingenue", "British Bombshell", "Cinema Sensation"]
+  },
+  {
+    "name": "Elizabeth Shaw",
+    "titles": ["Space Sleuth", "Alien Archaeologist", "Extraterrestrial Explorer"]
+  },
+  {
+    "name": "Ellen Ripley",
+    "titles": ["Space Survivor", "Xenomorph Exterminator", "Sci-Fi Siren"]
+  },
+  {
+    "name": "Louise Banks",
+    "titles": ["Linguistic Luminary", "Alien Ambassador", "Extraterrestrial Emissary"]
+  },
+  {
+    "name": "Olivia Dunham",
+    "titles": ["Fringe Fashionista", "Parallel Universe Pioneer", "Agent of Anomalies"]
+  },
+  {
+    "name": "Zoe Washburne",
+    "titles": ["Space Cowgirl", "Firefly Fashionista", "Serenity Siren"]
+  },
+  {
+    "name": "Kathryn Janeway",
+    "titles": ["Starship Stylista", "Captain Couture", "Voyager Visionary"]
+  },
+  {
+    "name": "Dana Scully",
+    "titles": ["Paranormal Professional", "Alien Analyst", "X-Files Fashionista"]
+  },
+  {
+    "name": "Buffy Summers",
+    "titles": ["Vampire Vixen", "Sunnydale Slayer", "Hellmouth Heroine"]
+  },
+  {
+    "name": "Laura Roslin",
+    "titles": ["Colonial Couture", "Battlestar Belle", "Presidential Powerhouse"]
+  },
+  {
+    "name": "Sarah Connor",
+    "titles": ["Terminator Trendsetter", "Cybernetic Survivor", "Apocalyptic Avenger"]
+  },
+  {
+    "name": "Kara Thrace",
+    "titles": ["Starbuck Style", "Viper Vixen", "Galactica Goddess"]
+  },
+  {
+    "name": "Cherry Darling",
+    "titles": ["Grindhouse Glamour", "Zombie Slayer", "Machine Gun Maiden"]
+  },
+  {
+    "name": "Vivian Ward",
+    "titles": ["Hollywood Hooker", "Rodeo Drive Royalty", "Pretty Woman"]
+  },
+  {
+    "name": "Samantha Baker",
+    "titles": ["Sixteen Candles Style", "John Hughes Heroine", "Teenage Temptress"]
+  },
+  {
+    "name": "Stifler's Mom",
+    "titles": ["MILF Maven", "American Pie Queen", "Sultry Seductress"]
+  },
+  {
+    "name": "Marquise de Merteuil",
+    "titles": ["Seductive Schemer", "Liaison Luminary", "Dangerous Duchess"]
+  },
+  {
+    "name": "Karen Silkwood",
+    "titles": ["Nuclear Nemesis", "Whistleblower Warrior", "Radiation Rebel"]
+  },
+  {
+    "name": "Marnie Edgar",
+    "titles": ["Mysterious Marnie", "Hitchcock Heroine", "Master of Disguise"]
+  },
+  {
+    "name": "Gilda Mundson Farrell",
+    "titles": ["Femme Fatale Fabulous", "Film Noir Siren", "Double-Cross Diva"]
+  },
+  {
+    "name": "Matty Walker",
+    "titles": ["Double Indemnity Dame", "Femme Fatale Fashionista", "Insurance Ingenue"]
+  },
+  {
+    "name": "Annie Savoy",
+    "titles": ["Baseball Beauty", "Bull Durham Belle", "Diamond Diva"]
+  },
+  {
+    "name": "Sverine Serizy",
+    "titles": ["Belle de Jour", "French Femme Fatale", "Sultry Seductress"]
+  },
+  {
+    "name": "Gloria Swenson",
+    "titles": ["Mother of the Year", "Mommy Maverick", "Tough Love Trendsetter"]
+  },
+  {
+    "name": "Catherine Tramell",
+    "titles": ["Basic Instinct Babe", "Dangerous Diva", "Killer Couture"]
+  },
+  {
+    "name": "Phyllis Dietrichson",
+    "titles": ["Femme Fatale Fabulous", "Double Indemnity Dame", "Insurance Ingenue"]
+  },
+  {
+    "name": "Bess McNeil",
+    "titles": ["Outback Outlaw", "Australia's Sweetheart", "Desert Dreamer"]
+  },
+  {
+    "name": "Thelma Dickinson",
+    "titles": ["Desert Diva", "Outlaw Icon", "Thunderbird Trendsetter"]
+  },
+  {
+    "name": "Alabama Whitman",
+    "titles": ["True Romance Trendsetter", "Tarantino Tart", "Tattooed Temptress"]
+  },
+  {
+    "name": "Annie Porter",
+    "titles": ["Speedy Style", "Heroine on the Highway", "Bus Bomber Babe"]
+  },
+  {
+    "name": "Marge Gunderson",
+    "titles": ["Midwest Matron", "Fargo Fashionista", "Frigid Fargoan"]
+  },
+  {
+    "name": "Elisabet Vogler",
+    "titles": ["Persona Princess", "Bergman Beauty", "Silent Siren"]
+  },
+  {
+    "name": "Sally Albright",
+    "titles": ["When Harry Met Sally Style", "Romantic Revolutionary", "Katz's Deli Diva"]
+  },
+  {
+    "name": "Bonnie Parker",
+    "titles": ["Gangster Glamour", "Bank Robber Beauty", "Crime Spree Couture"]
+  },
+  {
+    "name": "Ada McGrath",
+    "titles": ["Piano Prodigy", "Victorian Virtuoso", "Sultry Siren"]
+  },
+  {
+    "name": "Shoshanna Dreyfus",
+    "titles": ["Vengeance Vixen", "Inglourious Ingenue", "Nazi Nemesis"]
+  },
+  {
+    "name": "Alice Hyatt",
+    "titles": ["Backroads Beauty", "Trucker Temptress", "Desert Diva"]
+  },
+  {
+    "name": "Lee Holloway",
+    "titles": ["Secretary Style", "BDSM Babe", "Office Obsession"]
+  },
+  {
+    "name": "Mildred Pierce",
+    "titles": ["Restaurant Royalty", "Culinary Couture", "Diner Diva"]
+  },
+  {
+    "name": "Margo Channing",
+    "titles": ["Theater Titan", "Broadway Belle", "Stage Star"]
+  },
+  {
+    "name": "Adrian Pennino Balboa",
+    "titles": ["Rocky's Right Hand", "Philly Fashionista", "Boxing Babe"]
+  },
+  {
+    "name": "Judy Barton",
+    "titles": ["Vertigo Vixen", "Hitchcock Heroine", "San Francisco Siren"]
+  },
+  {
+    "name": "Madeleine Elster",
+    "titles": ["Hitchcock Heroine", "Vertigo Vision", "San Francisco Siren"]
+  },
+  {
+    "name": "Debby Marsh",
+    "titles": ["Film Noir Femme", "Dangerous Dame", "Sultry Siren"]
+  },
+  {
+    "name": "Amelie",
+    "titles": ["Parisian Pixie", "Montmartre Maven", "Whimsical Waif"]
+  },
+  {
+    "name": "Alex Forrest",
+    "titles": ["Fatal Attraction Fashionista", "Mistress Maven", "Stalker Style"]
+  },
+  {
+    "name": "Blanche Dubois",
+    "titles": ["Southern Siren", "Streetcar Style", "Tennessee Temptress"]
+  },
+  {
+    "name": "Paikea Apirana",
+    "titles": ["Whale Rider Warrior", "Oceanic Outlaw", "Maori Maven"]
+  },
+  {
+    "name": "Margot Tenenbaum",
+    "titles": ["Royal Tenenbaum's Rebel", "Quirky Queen", "Family Fashionista"]
+  },
+  {
+    "name": "Holly Golightly",
+    "titles": ["Breakfast at Tiffany's Beauty", "Tiffany's Trendsetter", "Glamour Galore"]
+  },
+  {
+    "name": "Mia Williams",
+    "titles": ["La La Land Luminary", "City of Stars Starlet", "Audition Angel"]
+  },
+  {
+    "name": "Jessica Rabbit",
+    "titles": ["Toon Temptress", "Animated Aphrodite", "Cartoon Couture"]
+  },
+  {
+    "name": "Betty Elms",
+    "titles": ["Mystery Maven", "Mulholland Muse", "Hollywood Hopeful"]
+  },
+  {
+    "name": "Diane Selwyn",
+    "titles": ["Mulholland Mystery", "Lost in L.A. Luminary", "Hollywood Hopeful"]
+  },
+  {
+    "name": "Scarlett O'Hara",
+    "titles": ["Southern Siren", "Belle of the Ball", "Gone with the Wind Goddess"]
+  },
+  {
+    "name": "Louise Sawyer",
+    "titles": ["Thelma & Louise Trendsetter", "Outlaw Icon", "Rebel with a Cause"]
+  },
+  {
+    "name": "Nina Sayers",
+    "titles": ["Black Swan Beauty", "Balletic Babe", "Dancer Diva"]
+  },
+  {
+    "name": "Veronic Sawyer",
+    "titles": ["Heathers Heroine", "Teenage Trendsetter", "High School Hottie"]
+  },
+  {
+    "name": "Mia Wallace",
+    "titles": ["Pulp Fiction Princess", "Vincent's Vixen", "Flaming Flapper"]
+  },
+  {
+    "name": "Clarice Starling",
+    "titles": ["Silence of the Lambs Style", "FBI Fashionista", "Serial Killer Sleuth"]
+  },
+  {
+    "name": "Laurie Strode",
+    "titles": ["Halloween Heroine", "Scream Queen", "Final Girl Fashion"]
+  },
+  {
+    "name": "Carrie White",
+    "titles": ["Prom Queen Pariah", "Telekinetic Trendsetter", "Scream Queen"]
+  },
+  {
+    "name": "Bridget Gregory",
+    "titles": ["Femme Fatale Fabulous", "Double Indemnity Dame", "Insurance Ingenue"]
+  },
+  {
+    "name": "Lisbeth Salander",
+    "titles": ["Hacker Heroine", "Swedish Savant", "Dragon Tattoo Temptress"]
+  },
+  {
+    "name": "Jackie Brown",
+    "titles": ["Pam Grier Power", "Blaxploitation Babe", "Flight Attendant Fashion"]
+  },
+  {
+    "name": "Sugar Kane Kowalcyzk",
+    "titles": ["Some Like It Hot", "Bombshell Blonde", "Beachside Beauty"]
+  },
+  {
+    "name": "Hildy Johnson",
+    "titles": ["Front Page Fashionista", "Headline Hottie", "Newsroom Nymph"]
+  },
+  {
+    "name": "Annie Hall",
+    "titles": ["Neurotic New Yorker", "Woody's Woman", "Manhattan Maven"]
+  }
+]
