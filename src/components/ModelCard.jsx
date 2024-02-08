@@ -23,7 +23,11 @@ function ModelCard({ modelData }) {
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4">
         <MDBCard className="h-100 d-flex d-column">
           <MDBCardImage
-            src={ modelData.imageSrc || placeholderImg.imageSrc}
+            src={
+              modelData.imageSrc
+                ? process.env.PUBLIC_URL + modelData.imageSrc
+                : placeholderImg.imageSrc
+            }
             alt={modelData.title || placeholderImg.alt}
             title={modelData.title || placeholderImg.title}
             position="top"

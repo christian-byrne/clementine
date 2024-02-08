@@ -71,9 +71,6 @@ function UserProfileSidebar({ userData }) {
     }
   };
 
-
-  console.log(userData["name"])
-
   return (
     <MDBCard>
       <MDBCardHeader className="text-center">
@@ -90,8 +87,10 @@ function UserProfileSidebar({ userData }) {
         {/* Profile Picture */}
         <img
           src={
-            process.env.PUBLIC_URL + "/pictures/pfps/" +
-            userData["name"].replaceAll(" ", "-").toLowerCase() + "-3.png"
+            process.env.PUBLIC_URL +
+            "/pictures/pfps/" +
+            userData["name"].replaceAll(" ", "-").toLowerCase() +
+            "-3.png"
           }
           alt="User Avatar"
           className="img-fluid rounded-circle mb-3"

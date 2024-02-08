@@ -1,5 +1,12 @@
 import React from "react";
-import { MDBContainer, MDBCard, MDBCardImage, MDBCardBody, MDBCardText, MDBTypography } from "mdb-react-ui-kit";
+import {
+  MDBContainer,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+  MDBCardText,
+  MDBTypography,
+} from "mdb-react-ui-kit";
 import { padNumber } from "../utils/padNumber";
 import placeholderImg from "../data/placeholder-image.json";
 
@@ -10,9 +17,18 @@ function PhotoCard({ photoData }) {
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0">
         <MDBCard className="h-100 d-flex d-column">
           <MDBCardImage
-            src={photoData.imageUrl || placeholderImg.imageSrc}
+            src={
+              photoData.imageUrl
+                ? process.env.PUBLIC_URL + photoData.imageUrl
+                : placeholderImg.imageSrc
+            }
             alt={photoData.model || placeholderImg.alt}
-            title={photoData.model && photoData.creator && photoData.model + " by " + photoData.creator || placeholderImg.title}
+            title={
+              (photoData.model &&
+                photoData.creator &&
+                photoData.model + " by " + photoData.creator) ||
+              placeholderImg.title
+            }
             position="top"
           />
           <MDBCardBody>
@@ -33,7 +49,8 @@ function PhotoCard({ photoData }) {
               <div class="d-flex justify-content-center align-items-center">
                 <i class="fas fa-star me-2"></i>
                 <span class="font-weight-bold">
-                    {photoData.favorites && padNumber(photoData.favorites, 5) || padNumber(0, 5)}
+                  {(photoData.favorites && padNumber(photoData.favorites, 5)) ||
+                    padNumber(0, 5)}
                 </span>
               </div>
               <p class="mb-0 mt-1 small text-muted">FAVORITES</p>
@@ -45,7 +62,10 @@ function PhotoCard({ photoData }) {
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {photoData.model && photoData.creator && photoData.model + "by" + photoData.creator || ""}
+              {(photoData.model &&
+                photoData.creator &&
+                photoData.model + "by" + photoData.creator) ||
+                ""}
             </MDBTypography>
           </MDBCardText>
         </MDBCard>

@@ -15,7 +15,6 @@ function UserProfilePage() {
   const { name } = useParams();
   const userProfileData = getOneUser(allUserData, name);
 
-  console.log("userProfileData", userProfileData);
   return (
     userProfileData && (
       <MDBContainer fluid>
