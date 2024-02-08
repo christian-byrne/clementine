@@ -9,6 +9,7 @@ import {
 } from "mdb-react-ui-kit";
 import { padNumber } from "../utils/padNumber";
 import placeholderImg from "../data/placeholder-image.json";
+import { pathPrefix } from "../constants/routerConfig";
 
 function PhotoCard({ photoData }) {
   return (
@@ -62,10 +63,26 @@ function PhotoCard({ photoData }) {
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {(photoData.model &&
-                photoData.creator &&
-                photoData.model + "by" + photoData.creator) ||
-                ""}
+              {photoData.model ? photoData.model : ""}
+              {photoData.model && photoData.creator ? (
+                <span className="text-muted">&nbsp;by&nbsp;</span>
+              ) : (
+                ""
+              )}
+              {photoData.creator ? (
+                <>
+                  <a
+                    href={pathPrefix(
+                      "/user/" +
+                        photoData.creator.replaceAll(" ", "-").toLowerCase()
+                    )}
+                  >
+                    {photoData.creator}
+                  </a>
+                </>
+              ) : (
+                ""
+              )}
             </MDBTypography>
           </MDBCardText>
         </MDBCard>

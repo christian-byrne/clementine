@@ -13,6 +13,7 @@ import {
   MDBInputGroup,
 } from "mdb-react-ui-kit";
 import ProgressBar from "./ProgressBar";
+import { pathPrefix } from "../constants/routerConfig";
 import IconGenerator from "../utils/getIcon";
 const iconGen = new IconGenerator();
 
@@ -48,27 +49,27 @@ function Navbar() {
           <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
         <MDBCollapse navbar open={openNav}>
-          <MDBNavbarBrand className="clickable" href={process.env.PUBLIC_URL + "/"}>
+          <MDBNavbarBrand className="clickable" href={pathPrefix("/")}>
             {iconGen.createIcon("mainBrand", "54px")}
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/dress"}>Dress</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/dress")}>Dress</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/upload"}>Upload</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/upload")}>Upload</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/leaderboards"}>Browse</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/leaderboards")}>Browse</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/leaderboards"}>Leaderboards</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/leaderboards")}>Leaderboards</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/creator-dashboard"}>Creator Dashboard</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/creator-dashboard")}>Creator Dashboard</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink className="my-0" href={process.env.PUBLIC_URL + "/currency"}>
+              <MDBNavbarLink className="my-0" href={pathPrefix("/currency")}>
                 DAILY TASKS (3/9)
               <ProgressBar min={0} max={100} now={33} />
               </MDBNavbarLink>
@@ -85,7 +86,7 @@ function Navbar() {
           </MDBInputGroup>
           <MDBNavbarNav right className="w-auto ms-auto align-items-center">
             <MDBNavbarItem className="me-0">
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/currency"}>
+              <MDBNavbarLink href={pathPrefix("/currency")}>
                 <div className="d-flex flex-row align-items-center justify-content-center">
                   {iconGen.createIcon("mainCurrency")}
                   <span className="text-muted">79&nbsp;RUBIES</span>
@@ -93,7 +94,7 @@ function Navbar() {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem className="ml-4 ml-lg-0">
-              <MDBNavbarLink href={process.env.PUBLIC_URL + "/user/wednesday-addams"}>
+              <MDBNavbarLink href={pathPrefix("/user/wednesday-addams")}>
                 <MDBIcon fas icon="user" />
               </MDBNavbarLink>
             </MDBNavbarItem>

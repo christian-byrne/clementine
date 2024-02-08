@@ -11,6 +11,7 @@ import {
 } from "mdb-react-ui-kit";
 import { camelCaseToTitle } from "../utils/camelCaseToTitle";
 import SocialStatsBadges from "./SocialStatsBadges";
+import { pathPrefix } from "../constants/routerConfig";
 
 function LeaderBoardCard({
   leaderBoardData,
@@ -21,8 +22,6 @@ function LeaderBoardCard({
 }) {
   const sortedData = leaderBoardData ? leaderBoardData : [];
 
-
-  console.log(process.env.PUBLIC_URL)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 992) {
@@ -100,7 +99,7 @@ function LeaderBoardCard({
                             <div className="d-flex align-items-center">
                               <a
                                 href={
-                                  process.env.PUBLIC_URL + "/user/" +
+                                  pathPrefix("/user/") +
                                   member.name.replaceAll(" ", "-").toLowerCase()
                                 }
                                 style={{
@@ -110,7 +109,8 @@ function LeaderBoardCard({
                               >
                                 <img
                                   src={
-                                    process.env.PUBLIC_URL + "/pictures/pfps/" +
+                                    process.env.PUBLIC_URL +
+                                    "/pictures/pfps/" +
                                     member["name"]
                                       .replaceAll(" ", "-")
                                       .toLowerCase() +
@@ -123,7 +123,7 @@ function LeaderBoardCard({
                               </a>
                               <a
                                 href={
-                                  process.env.PUBLIC_URL + "/user/" +
+                                  pathPrefix("/user/") +
                                   member.name.replaceAll(" ", "-").toLowerCase()
                                 }
                                 style={{

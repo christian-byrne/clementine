@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/clementine/static/css/main.0c865438.css",
-    "main.js": "/clementine/static/js/main.f15b4c19.js",
+    "main.js": "/clementine/static/js/main.03e173f8.js",
     "static/js/592.8baa052a.chunk.js": "/clementine/static/js/592.8baa052a.chunk.js",
     "static/media/fa-solid-900.ttf": "/clementine/static/media/fa-solid-900.45a265d0f07b31cde85f.ttf",
     "static/media/fa-brands-400.ttf": "/clementine/static/media/fa-brands-400.6205fd00fb1b573e9f0f.ttf",
@@ -13,11 +13,11 @@
     "static/media/fa-v4compatibility.woff2": "/clementine/static/media/fa-v4compatibility.b3049b13a93f07e026fc.woff2",
     "index.html": "/clementine/index.html",
     "main.0c865438.css.map": "/clementine/static/css/main.0c865438.css.map",
-    "main.f15b4c19.js.map": "/clementine/static/js/main.f15b4c19.js.map",
+    "main.03e173f8.js.map": "/clementine/static/js/main.03e173f8.js.map",
     "592.8baa052a.chunk.js.map": "/clementine/static/js/592.8baa052a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c865438.css",
-    "static/js/main.f15b4c19.js"
+    "static/js/main.03e173f8.js"
   ]
 }
