@@ -78,7 +78,7 @@ function LeaderBoardCard({
                 {leaderBoardData.members &&
                   leaderBoardData.members.length > 0 &&
                   leaderBoardData.members
-                    .slice(0, maxRows)
+                    .slice(1, maxRows)
                     .map((member, index) => (
                       <tr
                         key={index}
@@ -98,7 +98,7 @@ function LeaderBoardCard({
                             <div className="d-flex align-items-center">
                               <a
                                 href={
-                                  "/" +
+                                  process.env.PUBLIC_URL + "/user/" +
                                   member.name.replaceAll(" ", "-").toLowerCase()
                                 }
                                 style={{
@@ -108,7 +108,7 @@ function LeaderBoardCard({
                               >
                                 <img
                                   src={
-                                    "pictures/pfps/" +
+                                    process.env.PUBLIC_URL + "/pictures/pfps/" +
                                     member["name"]
                                       .replaceAll(" ", "-")
                                       .toLowerCase() +
@@ -121,7 +121,7 @@ function LeaderBoardCard({
                               </a>
                               <a
                                 href={
-                                  "/" +
+                                  process.env.PUBLIC_URL + "/user/" +
                                   member.name.replaceAll(" ", "-").toLowerCase()
                                 }
                                 style={{

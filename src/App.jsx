@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { createRoot } from "react-dom/client";
 import "./App.css";
 import Navbar from "./components/TopNavbar";
 import Footer from "./components/Footer";
@@ -11,14 +10,14 @@ const root = document.getElementById("root");
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <Navbar />
 
         {/* Route components */}
         <Routes>
-          <Route path="" element={<UserProfilePage />} />
-          <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="" element={<LeaderBoardPage />} />
+          <Route path="/user/:name" element={<UserProfilePage />} />
           <Route path="/leaderboards" element={<LeaderBoardPage />} />
         </Routes>
 
