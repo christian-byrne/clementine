@@ -21,6 +21,8 @@ function LeaderBoardCard({
 }) {
   const sortedData = leaderBoardData ? leaderBoardData : [];
 
+
+  console.log(process.env.PUBLIC_URL)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 992) {

@@ -8,12 +8,12 @@ import { useParams } from "react-router-dom";
 import { getOneUser } from "../utils/getOneUser";
 
 function UserProfilePage() {
+  const { name } = useParams();
+  const userProfileData = getOneUser(allUserData, name);
+  
   useEffect(() => {
     userProfileData && (document.title = "Profile | " + userProfileData.username || "");
   }, []);
-
-  const { name } = useParams();
-  const userProfileData = getOneUser(allUserData, name);
 
   return (
     userProfileData && (
