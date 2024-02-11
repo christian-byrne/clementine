@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBBtn } from "mdb-react-ui-kit";
 import ModelCard from "../components/ModelCard";
 import PhotoCard from "../components/PhotoCard";
 import allModelsData from "../data/models/all.json";
-import allPhotosData from "../data/photos/all.json";
+import allPhotosDataRe from "../data/photos/all.json";
 import { shuffleArray } from "../utils/shuffleArray";
 
 function FeaturedPage() {
@@ -21,7 +21,7 @@ function FeaturedPage() {
 
   // Randomize the order of the data
   //   allModelsData = shuffleArray(allModelsData);
-  allPhotosData = shuffleArray(allPhotosData);
+  const allPhotosData = shuffleArray(allPhotosDataRe);
 
   return (
     <MDBContainer fluid>
