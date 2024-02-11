@@ -1,0 +1,383 @@
+[
+  {
+    "title": "Thriftstore Chic but it's Monochrome Neutrals",
+    "imageSrc": "/pictures/models/thriftstore-chic-but-it's-monochrome-neutrals/thriftstore-chic-but-it's-monochrome-neutrals-grid-2x2.png",
+    "likes": 222,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 200,
+      "progress": 198,
+      "message": "2 more likes to unlock for all users!"
+    },
+    "tags": [
+      "#thriftstorechic",
+      "#fashion",
+      "vintage",
+      "monochrome",
+      "neutrals"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, non.",
+    "requirements": "Secondhand Finds in Neutral Colors",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "You Look Lonely, I Can Fix That",
+    "imageSrc": "/pictures/models/you-look-lonely,-i-can-fix-that/you-look-lonely,-i-can-fix-that-grid-2x2.png",
+    "likes": 132,
+    "badges": ["\ud83d\udda4 All Black"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": ["#fashion", "comfy", "cozy", "casual"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, enim.",
+    "requirements": "Soft Fabrics, Oversized Pieces",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Quiet Luxury x Oversized Athleisure",
+    "imageSrc": "/pictures/models/quiet-luxury-x-oversized-athleisure/quiet-luxury-x-oversized-athleisure-grid-2x2.png",
+    "likes": 291,
+    "badges": ["\u2600\ufe0f Summer"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#luxury",
+      "#athleisure",
+      "#fashion",
+      "designer",
+      "comfortable",
+      "chic"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, quos.",
+    "requirements": "Luxurious Fabrics, Oversized Silhouettes",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Clean Girl",
+    "imageSrc": "/pictures/models/clean-girl/clean-girl-grid-2x2.png",
+    "likes": 325,
+    "badges": [],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Refine this Model",
+      "reward": 500
+    },
+    "communityUnlock": {},
+    "tags": ["#clean", "#minimalist", "#fashion", "casual", "chic", "simple"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, quaerat.",
+    "requirements": "White Sneakers, Crisp Shirts, Tailored Pants",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Gorpcore x Athleisure (Oversized Edition)",
+    "imageSrc": "/pictures/models/gorpcore-x-athleisure-(oversized-edition)/gorpcore-x-athleisure-(oversized-edition)-grid-2x2.png",
+    "likes": 181,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#gorpcore",
+      "#athleisure",
+      "#fashion",
+      "outdoor",
+      "sporty",
+      "oversized"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, saepe.",
+    "requirements": "Utility Jackets, Oversized Hoodies, Comfortable Pants",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Athleisure Meets Grunge",
+    "imageSrc": "/pictures/models/athleisure-meets-grunge/athleisure-meets-grunge-grid-2x2.png",
+    "likes": 167,
+    "badges": ["\ud83d\udd25 Trending"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#athleisure",
+      "#grunge",
+      "#fashion",
+      "streetwear",
+      "urban",
+      "sporty",
+      "casual"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, repudiandae?",
+    "requirements": "Sneakers, Hoodies, Leggings",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Balenciaga Retrofuturism",
+    "imageSrc": "/pictures/models/balenciaga-retrofuturism/balenciaga-retrofuturism-grid-2x2.png",
+    "likes": 248,
+    "badges": ["\ud83d\udd25 Top Rated"],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Refine this Model",
+      "reward": 500
+    },
+    "communityUnlock": {},
+    "tags": [
+      "#balenciaga",
+      "#retrofuturism",
+      "#fashion",
+      "high fashion",
+      "designer",
+      "luxury",
+      "futuristic"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, voluptatibus.",
+    "requirements": "Metallics, Retro-Inspired Pieces",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Goth x Victorian x Clean Girl",
+    "imageSrc": "/pictures/models/goth-x-victorian-x-clean-girl/goth-x-victorian-x-clean-girl-grid-2x2.png",
+    "likes": 412,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#goth",
+      "#victorian",
+      "#clean",
+      "#fashion",
+      "vintage",
+      "dark",
+      "chic"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, suscipit.",
+    "requirements": "Lace, Ruffles, Dark Colors",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Retro-futurism",
+    "imageSrc": "/pictures/models/retro-futurism/retro-futurism-grid-2x2.png",
+    "likes": 185,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": ["#retrofuturism", "#fashion", "vintage", "futuristic", "retro"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, tempore.",
+    "requirements": "Retro Styles with Futuristic Elements",
+    "creator": "Lady Bird"
+  },
+  {
+    "title": "Space Age",
+    "imageSrc": "/pictures/models/space-age/space-age-grid-2x2.png",
+    "likes": 349,
+    "badges": [],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Refine this Model",
+      "reward": 500
+    },
+    "communityUnlock": {},
+    "tags": ["#space", "#fashion", "futuristic", "edgy"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, nemo.",
+    "requirements": "Metallics, Reflective Materials, Space-Inspired Details",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "If Wednesday Addams Was in Blade Runner",
+    "imageSrc": "/pictures/models/if-wednesday-addams-was-in-blade-runner/if-wednesday-addams-was-in-blade-runner-grid-2x2.png",
+    "likes": 76,
+    "badges": ["\ud83d\ude08 Cult Classic"],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 80,
+      "progress": 80,
+      "message": "UNLOCKED \ud83c\udf89 for all Users"
+    },
+    "tags": [
+      "#bladerunner",
+      "#wednesdayaddams",
+      "#fashion",
+      "dark",
+      "futuristic",
+      "edgy"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quibusdam.",
+    "requirements": "Leather, Metallics, Futuristic Accessories",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Boho Dior",
+    "imageSrc": "/pictures/models/boho-dior/boho-dior-grid-2x2.png",
+    "likes": 92,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 150,
+      "progress": 147,
+      "message": "3 more likes to unlock for all users!"
+    },
+    "tags": [
+      "#boho",
+      "#dior",
+      "#fashion",
+      "high fashion",
+      "designer",
+      "luxury",
+      "bohemian"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quisquam.",
+    "requirements": "Flowy Dresses, Floral Patterns, Boho Accessories",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Balenciaga but it's emo",
+    "imageSrc": "/pictures/model-card-pics/grid-0052.png",
+    "badges": ["\ud83d\udd25 Trending", "\ud83d\udd25 Top Rated"],
+    "bounties": {},
+    "likes": 123,
+    "communityUnlock": {},
+    "tags": [
+      "#emo",
+      "#goth",
+      "#dark",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "balenciaga",
+      "designer",
+      "luxury"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur, excepturi tenetur. Aperiam non aliquam similique.",
+    "requirements": "Leather, Black Lipstick",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Goth x Byzantine",
+    "imageSrc": "/pictures/model-card-pics/grid-0062.png",
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 300,
+      "progress": 297,
+      "message": "3 more rubies to unlock for all users!"
+    },
+    "tags": [
+      "#goth",
+      "#dark",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "byzantine",
+      "medieval",
+      "renaissance",
+      "vintage"
+    ],
+    "description": "Lorem ipsum dolor sit.",
+    "requirements": "Beanies, Tunics, Sweaters, Gold Colors",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Sweaters, Crocs, and Despair",
+    "imageSrc": "/pictures/model-card-pics/grid-0103.png",
+    "badges": [],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Refine this Model",
+      "reward": 500
+    },
+    "communityUnlock": {},
+    "tags": [
+      "#emo",
+      "#goth",
+      "#dark",
+      "cottage core",
+      "idc",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "sweaters",
+      "crocs",
+      "comfy",
+      "comfortable"
+    ],
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet libero ut accusantium adipisci!",
+    "requirements": "Clogs, Sweaters, Comfy Clothes",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Streetwear, but make it angsty",
+    "imageSrc": "/pictures/model-card-pics/grid-0105.png",
+    "badges": ["\ud83d\ude08 Cult Classic", "\ud83d\udd25 Top Rated"],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 80,
+      "progress": 80,
+      "message": "UNLOCKED \ud83c\udf89 for all Users"
+    },
+    "tags": [
+      "#emo",
+      "#goth",
+      "#dark",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "streetwear",
+      "urban",
+      "angsty",
+      "grunge"
+    ],
+    "description": "",
+    "requirements": "Lorem, ipsum dolor.",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Vintage Euro - My Take (edgy)",
+    "imageSrc": "/pictures/model-card-pics/grid-0117.png",
+    "badges": ["\ud83c\udf1f New"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#emo",
+      "#goth",
+      "#dark",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "vintage",
+      "euro",
+      "edgy",
+      "retro",
+      "european"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur.",
+    "requirements": "Lorem, ipsum dolor.",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Sun, Shades, and Sarcasm",
+    "imageSrc": "/pictures/model-card-pics/grid-0118.png",
+    "badges": ["\ud83d\udda4 All Black", "\u2600\ufe0f Summer"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#emo",
+      "#goth",
+      "#dark",
+      "#black",
+      "#allblackeverything",
+      "#fashion",
+      "high fashion",
+      "summer",
+      "sunglasses",
+      "shades",
+      "sun",
+      "beach"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur.",
+    "requirements": "Lorem, ipsum dolor.",
+    "creator": "Wednesday Addams"
+  }
+]
+

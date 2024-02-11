@@ -1,0 +1,1 @@
+montage *-1.png *-2.png *-3.png *-4.png -geometry +0+0 -tile 2x2 grid_2x2.png

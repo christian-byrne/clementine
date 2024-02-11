@@ -4,6 +4,7 @@ import Navbar from "./components/TopNavbar";
 import Footer from "./components/Footer";
 import UserProfilePage from "./pages/UserProfile";
 import LeaderBoardPage from "./pages/LeaderBoards";
+import FeaturedPage from "./pages/Featured";
 // For full deployment on own site, use BrowserRouter
 // For GitHub Pages deployment, use HashRouter (and change pathnames so that they work with HashRouter's #/pathnames):
 import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,7 +25,7 @@ function App() {
         
         {/* Route components */}
         <Routes>
-          <Route path="" element={<LeaderBoardPage />} />
+          <Route path="" element={<FeaturedPage />} />
           <Route path="/user/:name" element={<UserProfilePage />} />
           <Route path="/leaderboards" element={<LeaderBoardPage />} />
         </Routes>
