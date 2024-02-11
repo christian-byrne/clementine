@@ -1,90 +1,14 @@
 [
   {
-    "title": "Thriftstore Chic but it's Monochrome Neutrals",
-    "imageSrc": "/pictures/models/thriftstore-chic-but-it's-monochrome-neutrals/thriftstore-chic-but-it's-monochrome-neutrals-grid-2x2.png",
-    "likes": 222,
-    "badges": [],
-    "bounties": {},
-    "communityUnlock": {
-      "goal": 200,
-      "progress": 198,
-      "message": "2 more likes to unlock for all users!"
-    },
-    "tags": [
-      "#thriftstorechic",
-      "#fashion",
-      "vintage",
-      "monochrome",
-      "neutrals"
-    ],
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, non.",
-    "requirements": "Secondhand Finds in Neutral Colors",
-    "creator": "Wednesday Addams"
-  },
-  {
     "title": "You Look Lonely, I Can Fix That",
     "imageSrc": "/pictures/models/you-look-lonely,-i-can-fix-that/you-look-lonely,-i-can-fix-that-grid-2x2.png",
     "likes": 132,
-    "badges": ["\ud83d\udda4 All Black"],
+    "badges": ["\ud83d\udda4 Neutrals", "🚀 Retrofuturism", "◼️ Cyber Sleek"],
     "bounties": {},
     "communityUnlock": {},
     "tags": ["#fashion", "comfy", "cozy", "casual"],
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, enim.",
     "requirements": "Soft Fabrics, Oversized Pieces",
-    "creator": "Wednesday Addams"
-  },
-  {
-    "title": "Quiet Luxury x Oversized Athleisure",
-    "imageSrc": "/pictures/models/quiet-luxury-x-oversized-athleisure/quiet-luxury-x-oversized-athleisure-grid-2x2.png",
-    "likes": 291,
-    "badges": ["\u2600\ufe0f Summer"],
-    "bounties": {},
-    "communityUnlock": {},
-    "tags": [
-      "#luxury",
-      "#athleisure",
-      "#fashion",
-      "designer",
-      "comfortable",
-      "chic"
-    ],
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, quos.",
-    "requirements": "Luxurious Fabrics, Oversized Silhouettes",
-    "creator": "Wednesday Addams"
-  },
-  {
-    "title": "Clean Girl",
-    "imageSrc": "/pictures/models/clean-girl/clean-girl-grid-2x2.png",
-    "likes": 325,
-    "badges": [],
-    "bounties": {
-      "status": "BOUNTY AVAILABLE",
-      "message": "Refine this Model",
-      "reward": 500
-    },
-    "communityUnlock": {},
-    "tags": ["#clean", "#minimalist", "#fashion", "casual", "chic", "simple"],
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, quaerat.",
-    "requirements": "White Sneakers, Crisp Shirts, Tailored Pants",
-    "creator": "Wednesday Addams"
-  },
-  {
-    "title": "Gorpcore x Athleisure (Oversized Edition)",
-    "imageSrc": "/pictures/models/gorpcore-x-athleisure-(oversized-edition)/gorpcore-x-athleisure-(oversized-edition)-grid-2x2.png",
-    "likes": 181,
-    "badges": [],
-    "bounties": {},
-    "communityUnlock": {},
-    "tags": [
-      "#gorpcore",
-      "#athleisure",
-      "#fashion",
-      "outdoor",
-      "sporty",
-      "oversized"
-    ],
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, saepe.",
-    "requirements": "Utility Jackets, Oversized Hoodies, Comfortable Pants",
     "creator": "Wednesday Addams"
   },
   {
@@ -105,6 +29,86 @@
     ],
     "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, repudiandae?",
     "requirements": "Sneakers, Hoodies, Leggings",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Gorpcore x Athleisure (Oversized Edition)",
+    "imageSrc": "/pictures/models/gorpcore-x-athleisure-(oversized-edition)/gorpcore-x-athleisure-(oversized-edition)-grid-2x2.png",
+    "likes": 181,
+    "badges": ["\ud83d\udd25 Trending"],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Merge with: Y2K Stylist",
+      "reward": 900
+    },
+    "communityUnlock": {},
+    "tags": [
+      "#gorpcore",
+      "#athleisure",
+      "#fashion",
+      "outdoor",
+      "sporty",
+      "oversized"
+    ],
+    "description": "",
+    "requirements": "Utility Jackets, Oversized Hoodies, Comfortable Pants",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Quiet Luxury x Oversized Athleisure",
+    "imageSrc": "/pictures/models/quiet-luxury-x-oversized-athleisure/quiet-luxury-x-oversized-athleisure-grid-2x2.png",
+    "likes": 291,
+    "badges": ["\ud83d\udd25 Trending", "\u2600\ufe0f Summer", "🏃‍♂️ Athleisure"],
+    "bounties": {},
+    "communityUnlock": {},
+    "tags": [
+      "#luxury",
+      "#athleisure",
+      "#fashion",
+      "designer",
+      "comfortable",
+      "chic"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    "requirements": "Luxurious Fabrics, Oversized Silhouettes",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Thriftstore Chic but it's Monochrome Neutrals",
+    "imageSrc": "/pictures/models/thriftstore-chic-but-it's-monochrome-neutrals/thriftstore-chic-but-it's-monochrome-neutrals-grid-2x2.png",
+    "likes": 222,
+    "badges": [],
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 200,
+      "progress": 198,
+      "message": "2 more rubies to unlock for all users!"
+    },
+    "tags": [
+      "#thriftstorechic",
+      "#fashion",
+      "vintage",
+      "monochrome",
+      "neutrals"
+    ],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, non.",
+    "requirements": "Secondhand Finds in Neutral Colors",
+    "creator": "Wednesday Addams"
+  },
+  {
+    "title": "Clean Girl",
+    "imageSrc": "/pictures/models/clean-girl/clean-girl-grid-2x2.png",
+    "likes": 325,
+    "badges": [],
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Make a pastels version",
+      "reward": 500
+    },
+    "communityUnlock": {},
+    "tags": ["#clean", "#minimalist", "#fashion", "casual", "chic", "simple"],
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, quaerat.",
+    "requirements": "White Sneakers, Crisp Shirts, Tailored Pants",
     "creator": "Wednesday Addams"
   },
   {
@@ -170,7 +174,7 @@
     "badges": [],
     "bounties": {
       "status": "BOUNTY AVAILABLE",
-      "message": "Refine this Model",
+      "message": "Make a men's version",
       "reward": 500
     },
     "communityUnlock": {},

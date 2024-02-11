@@ -60,7 +60,7 @@ function Navbar() {
               <MDBNavbarLink href={pathPrefix("/upload")}>Upload</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathPrefix("/leaderboards")}>Browse</MDBNavbarLink>
+              <MDBNavbarLink href={pathPrefix("/featured")}>Browse</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href={pathPrefix("/leaderboards")}>Leaderboards</MDBNavbarLink>

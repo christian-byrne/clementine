@@ -28,6 +28,7 @@ function App() {
           <Route path="" element={<FeaturedPage />} />
           <Route path="/user/:name" element={<UserProfilePage />} />
           <Route path="/leaderboards" element={<LeaderBoardPage />} />
+          <Route path="/featured" element={<FeaturedPage />} />
         </Routes>
 
         <Footer />
