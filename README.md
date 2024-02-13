@@ -10,3 +10,5 @@ Front end of stylist app. For gamification class.
 - "Featured" to navbar
 - "Browse" goes to feeatured page but a slightly different vresion wheres everything is shuffled and/or pulls from a different database
 - Number of items on navbar depends on screen size (and word/texts replaced with icons)
+- Models database should be dynamically generated from the directory items
+  - create new database records for folders currently not in the database
