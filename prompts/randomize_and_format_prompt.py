@@ -165,31 +165,31 @@ if __name__ == "__main__":
 
     styles = [
         # (filename, +/- chance to remove item per section)
-        ("quiet-luxury-men", 1),
-        ("oversized-athleisure", -4)
+        ("sophisticated-preppy", 0),
+        ("oversized-athleisure", 0)
     ]
     selection_weights = {
         # Section Title: (Chance (out of 100) to remove an item, Maximum items limit)
         "Subject": (0, 1),
-        "Tops": (70, 1),
-        "Fullbody" : (88, 1),
-        "Outerwear" : (80, 1),
-        "Bottoms": (85, 1),
-        "Eyewear": (87, 1),
-        "Hair": (96, 0),
-        "Headwear": (91, 1),
-        "Jewelry": (82, 0),
-        "Makeup": (93, 0),
-        "Accessories": (84, 1),
-        "Footwear": (85, 1),
-        "Medium": (25, 2),
-        "Fit": (72, 2),
-        "Colors": (86, 2),
-        "Themes": (80, 3),
-        "Setting": (98, 1),
+        "Tops": (95, 1),
+        "Fullbody" : (97, 1),
+        "Outerwear" : (98, 1),
+        "Bottoms": (98, 1),
+        "Eyewear": (91, 1),
+        "Hair": (97, 0),
+        "Headwear": (99, 1),
+        "Jewelry": (98, 1),
+        "Makeup": (99, 0),
+        "Accessories": (97, 1),
+        "Footwear": (99, 1),
+        "Medium": (25, 3),
+        "Fit": (83, 2),
+        "Colors": (90, 3),
+        "Themes": (88, 3),
+        "Setting": (95, 1),
         "Loras" : (0, 0),
-        "Artist" : (95, 1),
-        "Materials/Patterns" : (92, 2),
+        "Artist" : (93, 1),
+        "Materials/Patterns" : (85, 2),
     }
     suffix_prefix = {
         "Subject": ("", ""),
@@ -213,25 +213,27 @@ if __name__ == "__main__":
         "Outerwear": 1,
         "Tops": 1,
         "Bottoms": 1,
-        "Hair": 2,
-        "Headwear": 2,
-        "Jewelry": 2,
-        "Accessories": 2,
-        "Materials/Patterns": 2,
-        "Footwear": 2,
-        "Eyewear": 2,
-        "Makeup": 2,
-        "Fit": 3,
+        "Hair": 1,
+        "Headwear": 1,
+        "Jewelry": 1,
+        "Accessories": 1,
+        "Materials/Patterns": 1,
+        "Footwear": 1,
+        "Eyewear": 1,
+        "Makeup": 1,
+        "Fit": 1,
         "Artist" : 4,
         "Setting": 4,
-        "Colors": 5,
-        "Themes": 5,
+        "Colors": 1,
+        "Themes": 1,
         "Loras": 6,
     
     }
     exclude_words = [
         "fullbody", "full body", "full-body", "slr", "selfie", "candid instagram style photo"
     ]
+    # forced_preamble = "8k octane detailed render, dim volumetric cinematic lighting, fashion photography,  fashion magazine trending, sharp, 8k, Photo from a preppy-athleisure fashion photoshoot of a man, street fashion, male model modeling the latest sophisticated preppy athleisure line of clothes, man, guy, male\n\n"
+    forced_preamble = ""
     surround_items_with_quoutes = False
     separate_items_with_commas = True
     add_suffix_and_prefix = True
@@ -280,7 +282,7 @@ if __name__ == "__main__":
             else:
                 combined[title] = content + " " + combined[title]
 
-    all_content_split_by_2_newlines = "\n\n".join(
+    all_content_split_by_2_newlines = forced_preamble + "\n\n".join(
         [
             content
             for _, content in combined.items()
