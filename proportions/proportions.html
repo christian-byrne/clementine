@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proportions</title>
+    <link rel="stylesheet" href="proportions-style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.2.0/konva.min.js"></script>
+    <!-- Noto Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+    />
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column; align-items: center">
+      <h1>Fashionable Silhouettes</h1>
+      <p>
+        Almost any outfit that is fashionable right now (2024) will follow one of four
+        sets of ratios.
+      </p>
+      <hr />
+      <p>
+        Choosing a silhouette (set of ratios) is the first step in creating an
+        outfit.
+      </p>
+      <p>
+        Many people do everything right: they get a collection of fashionable,
+        amazing items all which may individually have fashionable proportions.
+      </p>
+      <p>
+        But they then fail to put them together in the ratios laid out by one of
+        these 4 silhouettes.
+      </p>
+      <hr />
+      <p>
+        Inversely, some people will have unfashionable, out-of-style items and
+        put very little thought into their fashion choices.
+      </p>
+      <p>
+        But they will naturally put together outfits in accordance with these
+        silhouettes and be fashionable effortlessly and inexplicably
+      </p>
+      <hr />
+      <p class="text-muted">Hover over the silhouettes to see examples</p>
+    </div>
+    <div class="row" style="display: flex; width: 100%">
+      <div class="column">
+        <h4>Standard Golden Ratios</h4>
+      </div>
+      <div class="column">
+        <h4>Oversized Top, Fitted Bottom</h4>
+      </div>
+      <div class="column">
+        <h4>Fitted + Cropped Top, Oversized Bottom</h4>
+      </div>
+      <div class="column">
+        <h4>Double Oversized-Cinched-Depth</h4>
+      </div>
+    </div>
+    <div id="main"></div>
+    <div id="data"></div>
+    <script src="proportions-script.js"></script>
+  </body>
+</html>
