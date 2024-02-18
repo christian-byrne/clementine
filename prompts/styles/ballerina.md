@@ -1,6 +1,5 @@
 # Subject
-Photo of a woman in a quiet luxury fashion photoshoot, street fashion, modeling the latest quiet luxury line of clothes
-
+Photo of a ballerina in a ballet-inspired outfit
 
 # Hair
 Ballet Bun

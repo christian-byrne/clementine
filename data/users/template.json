@@ -1,0 +1,92 @@
+{
+  "id": 50,
+  "name": "Clarice Starling",
+  "username": "cstarling",
+  "profilePicSrc": "clarice-starling.png",
+  "email": "cstarling@gmail.com",
+  "phone": "484.771.8561",
+  "score": 838101,
+  "averageRating": 5,
+  "totalRatings": 369,
+  "modelCount": 98,
+  "favorites": 660,
+  "likes": 169546,
+  "views": 74810837,
+  "downloads": 457,
+  "joinDate": "January 31, 2024",
+  "lastActive": "February 06, 2024",
+  "location": "Coxstad, VT",
+  "badgeCount": 2,
+  "achievementCount": 17,
+  "titleCount": 14,
+  "ranks": ["FBI Agent", "Silence of the Lambs"],
+  "titles": [
+    "Silence of the Lambs Style",
+    "FBI Fashionista",
+    "Serial Killer Sleuth"
+  ],
+  "socialIcons": [
+    {
+      "url": "https://simpleicons.org/icons/whatsapp.svg",
+      "alt": "WhatsApp"
+    },
+    {
+      "url": "https://simpleicons.org/icons/linkedin.svg",
+      "alt": "LinkedIn"
+    },
+    {
+      "url": "https://simpleicons.org/icons/twitter.svg",
+      "alt": "Twitter"
+    },
+    {
+      "url": "https://simpleicons.org/icons/instagram.svg",
+      "alt": "Instagram"
+    },
+    {
+      "url": "https://simpleicons.org/icons/youtube.svg",
+      "alt": "YouTube"
+    },
+    {
+      "url": "https://simpleicons.org/icons/discord.svg",
+      "alt": "Discord"
+    },
+    {
+      "url": "https://simpleicons.org/icons/tiktok.svg",
+      "alt": "TikTok"
+    },
+    {
+      "url": "https://simpleicons.org/icons/snapchat.svg",
+      "alt": "Snapchat"
+    }
+  ],
+  "ownPhotos": [
+    {
+      "imageUrl": "/pictures/pfps/clarice-starling-2.png",
+      "likes": 7369,
+      "favorites": 369,
+      "model": "Balenciaga Glamor",
+      "creator": "Wednesday Addams"
+    },
+    {
+      "imageUrl": "/pictures/pfps/clarice-starling-3.png",
+      "likes": 15998,
+      "favorites": 308,
+      "model": "Balenciaga Glamor",
+      "creator": "Wednesday Addams"
+    },
+    {
+      "imageUrl": "/pictures/pfps/clarice-starling-1.png",
+      "likes": 77865,
+      "favorites": 440,
+      "model": "Balenciaga Glamor",
+      "creator": "Wednesday Addams"
+    },
+    {
+      "imageUrl": "/pictures/pfps/clarice-starling-0.png",
+      "likes": 6882,
+      "favorites": 142,
+      "model": "Balenciaga Glamor",
+      "creator": "Wednesday Addams"
+    }
+  ]
+}

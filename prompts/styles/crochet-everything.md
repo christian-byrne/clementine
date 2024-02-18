@@ -142,11 +142,25 @@ Retro Vibes
 Laid-back Comfort
 
 # Colors
-Neutral Tones (Beige, Cream, Taupe)
-Earthy Colors (Olive Green, Rust, Mustard Yellow)
-Pastel Shades (Soft Pink, Baby Blue, Lavender)
-Ocean-inspired Hues (Turquoise, Seafoam Green, Coral)
-Warm Sunset Tones (Terracotta, Burnt Orange, Deep Red)
+Beige
+Cream
+Taup
+Earthy
+Olive Green
+Rust
+Mustard Yellow
+Pastel
+Soft Pink
+Baby Blue
+Lavender
+Ocean
+Turquoise
+Seafoam Green
+Coral
+Warm Sunset
+Terracotta
+Burnt Orange
+Deep Red
 
 # Themes
 Bohemian Spirit
@@ -175,7 +189,6 @@ Community Gardens
 
 
 # Loras
-<lora:locon_mena_v1_from_v1_64_32:.92> sks woman
 
 # Medium
 photorealistic

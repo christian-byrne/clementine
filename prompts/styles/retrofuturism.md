@@ -157,6 +157,15 @@ sculptural forms
 
 # Colors
 silver
+tangerine orange
+teal blue
+apple green
+cream
+yellows
+yellow-brown
+pale peach
+brownish orange
+pastel
 neon
 teal
 electric blue

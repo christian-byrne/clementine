@@ -4,6 +4,9 @@ Front end of stylist app. For gamification class.
 
 #### TODO
 
+- user.models = list of references
+  - automatically add all photos associated with model to model owners profile
+
 - When clicking href in topnav while in mobile view, close the menu
 - automatically go to top of page when changing views (because had to switch to HashRouter)
 - Number of socials-stats icons on leaderboard rows depends on current screen size

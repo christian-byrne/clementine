@@ -20,12 +20,22 @@ def parse_markdown_file(
     for word in exclude_words:
         content = content.replace(word, "")
     gender_words = [
-        ("woman", "man"),
-        ("woman's", "man's"),
-        ("womans", "mans"),
-        ("female", "male"),
-        ("croptop", "sleevless"),
-        ("cropped top", "sleevless")
+        (" woman ", " man "),
+        (" woman's ", " man's "),
+        (" womans ", " mans "),
+        (" female ", " male "),
+        ("croptop", "sleeveless"),
+        ("crop-top", "sleeveless"),
+        ("crop top", "sleeveless"),
+        (" dress ", " coat "),
+        (" skirt ", " shorts "),
+        ("cropped top", "sleeveless"),
+        ("cropped-top", "sleeveless"),
+        ("croppedtop", "sleeveless"),
+        (" high heels ", " sneakers "),
+        (" high-heels ", " sneakers "),
+        (" highheels ", " sneakers "),
+        (" high-heel ", " sneaker "),
     ]
     for terms in gender_words:
         if gender == "female":
@@ -165,31 +175,32 @@ if __name__ == "__main__":
 
     styles = [
         # (filename, +/- chance to remove item per section)
-        ("sophisticated-preppy", 0),
-        ("oversized-athleisure", 0)
+        ("crochet-everything", 12),
+        ("oversized-streetwear", 12),
+        ("oversized-athleisure", 17),
     ]
     selection_weights = {
         # Section Title: (Chance (out of 100) to remove an item, Maximum items limit)
-        "Subject": (0, 1),
-        "Tops": (95, 1),
-        "Fullbody" : (97, 1),
-        "Outerwear" : (98, 1),
-        "Bottoms": (98, 1),
-        "Eyewear": (91, 1),
-        "Hair": (97, 0),
-        "Headwear": (99, 1),
-        "Jewelry": (98, 1),
-        "Makeup": (99, 0),
-        "Accessories": (97, 1),
-        "Footwear": (99, 1),
-        "Medium": (25, 3),
-        "Fit": (83, 2),
-        "Colors": (90, 3),
-        "Themes": (88, 3),
-        "Setting": (95, 1),
+        "Subject": (1, 0),
+        "Tops": (63, 1),
+        "Fullbody" : (72, 1),
+        "Outerwear" : (70, 1),
+        "Bottoms": (65, 1),
+        "Eyewear": (77, 0),
+        "Hair": (72, 1),
+        "Headwear": (76, 1),
+        "Jewelry": (85, 1),
+        "Makeup": (73, 1),
+        "Accessories": (70, 1),
+        "Footwear": (72, 1),
+        "Medium": (25, 0),
+        "Fit": (63, 1),
+        "Colors": (63, 2),
+        "Themes": (68, 2),
+        "Setting": (81, 0),
         "Loras" : (0, 0),
-        "Artist" : (93, 1),
-        "Materials/Patterns" : (85, 2),
+        "Artist" : (78, 0),
+        "Materials/Patterns" : (68, 1),
     }
     suffix_prefix = {
         "Subject": ("", ""),
@@ -207,25 +218,25 @@ if __name__ == "__main__":
         "Colors" : ("", "colored clothes"),
     }
     section_tiers = {
-        "Subject": 0,
+        "Subject": -1,
         "Medium": -1,
-        "Fullbody": 1,
-        "Outerwear": 1,
-        "Tops": 1,
-        "Bottoms": 1,
-        "Hair": 1,
-        "Headwear": 1,
-        "Jewelry": 1,
-        "Accessories": 1,
-        "Materials/Patterns": 1,
-        "Footwear": 1,
-        "Eyewear": 1,
+        "Fullbody": 0,
+        "Outerwear": 0,
+        "Tops": 0,
+        "Bottoms": 0,
+        "Hair": 0,
+        "Headwear": 0,
+        "Jewelry": 0,
+        "Accessories": 0,
+        "Materials/Patterns": 0,
+        "Footwear": 0,
+        "Eyewear": 2,
         "Makeup": 1,
-        "Fit": 1,
-        "Artist" : 4,
-        "Setting": 4,
+        "Fit": 0,
+        "Artist" : 0,
+        "Setting": 0,
         "Colors": 1,
-        "Themes": 1,
+        "Themes": 0,
         "Loras": 6,
     
     }
@@ -233,11 +244,12 @@ if __name__ == "__main__":
         "fullbody", "full body", "full-body", "slr", "selfie", "candid instagram style photo"
     ]
     # forced_preamble = "8k octane detailed render, dim volumetric cinematic lighting, fashion photography,  fashion magazine trending, sharp, 8k, Photo from a preppy-athleisure fashion photoshoot of a man, street fashion, male model modeling the latest sophisticated preppy athleisure line of clothes, man, guy, male\n\n"
+    # forced_preamble = "head-to-toe, from headwear to footwear, sharp, dim volumetric cinematic lighting, full frame, all-encompassing view, wide-angle, professional photography, realistic beauty,  photorealistic, fashion magazine photoshoot, fullbody, long shot, depth of field, high resolution, Fashion photoshoot,  Fashion photoshoot, 8k octane detailed render, no blur, professional photography, full shot, Photo of Adele in a crocheted retrofuturism outfit walking around outside, street fashion, complete ensemble, full outfit in frame"
     forced_preamble = ""
     surround_items_with_quoutes = False
     separate_items_with_commas = True
     add_suffix_and_prefix = True
-    gender = "male"
+    gender = "female"
 
     # -----------------------
 
