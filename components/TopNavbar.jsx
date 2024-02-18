@@ -35,6 +35,10 @@ function Navbar() {
     };
   }, []);
 
+  const closeNav = () => {
+    setOpenNav(false);
+  };
+
   return (
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid className="m-1 my-3">
@@ -49,29 +53,53 @@ function Navbar() {
           <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
         <MDBCollapse navbar open={openNav}>
-          <MDBNavbarBrand className="clickable" href={pathFormat("/")}>
+          <MDBNavbarBrand
+            className="clickable"
+            href={pathFormat("/")}
+            onClick={closeNav}
+          >
             {iconGen.createIcon("mainBrand", "54px")}
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/dress")}>Dress</MDBNavbarLink>
+              <MDBNavbarLink href={pathFormat("/dress")} onClick={closeNav}>
+                Dress
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/upload")}>Upload</MDBNavbarLink>
+              <MDBNavbarLink href={pathFormat("/upload")} onClick={closeNav}>
+                Upload
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/featured")}>Browse</MDBNavbarLink>
+              <MDBNavbarLink href={pathFormat("/featured")} onClick={closeNav}>
+                Browse
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/leaderboards")}>Leaderboards</MDBNavbarLink>
+              <MDBNavbarLink
+                href={pathFormat("/leaderboards")}
+                onClick={closeNav}
+              >
+                Leaderboards
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/creator-dashboard")}>Creator Dashboard</MDBNavbarLink>
+              <MDBNavbarLink
+                href={pathFormat("/creator-dashboard")}
+                onClick={closeNav}
+              >
+                Creator Dashboard
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink className="my-0" href={pathFormat("/currency")}>
+              <MDBNavbarLink
+                className="my-0"
+                href={pathFormat("/currency")}
+                onClick={closeNav}
+              >
                 DAILY TASKS (3/9)
-              <ProgressBar min={0} max={100} now={33} />
+                <ProgressBar min={0} max={100} now={33} />
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>

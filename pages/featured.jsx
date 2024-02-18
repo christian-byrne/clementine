@@ -3,25 +3,31 @@ import { MDBContainer, MDBRow, MDBBtn } from "mdb-react-ui-kit";
 import ModelCard from "../components/ModelCard";
 import PhotoCard from "../components/PhotoCard";
 import allModelsData from "../data/models/all.json";
-import allPhotosDataRe from "../data/photos/all.json";
-import { shuffleArray } from "../utils/shuffleArray";
+import allPhotosData from "../data/photos/all.json";
+
+function sortModelsByRating(models) {
+  return models.sort((a, b) => b.rating - a.rating);
+}
 
 function FeaturedPage() {
   useEffect(() => {
     document.title = "Featured Styles";
   }, []);
 
-  const [expanded, setExpanded] = useState(false);
-  const initialModels = allModelsData.slice(0, 6);
-  const remainingModels = allModelsData.slice(6);
+  const [modelsExpanded, setModelsExpanded] = useState(false);
+  const [photosExpanded, setPhotosExpanded] = useState(false);
+  const allModelsDataSorted = sortModelsByRating(allModelsData);
+  const initialModels = allModelsDataSorted.slice(0, 6);
+  const remainingModels = allModelsDataSorted.slice(6);
+  const initialPhotos = allPhotosData.slice(0, 12);
+  const remainingPhotos = allPhotosData.slice(12, 50);
 
-  const toggleExpansion = () => {
-    setExpanded(!expanded);
+  const toggleModelsExpansion = () => {
+    setModelsExpanded(!modelsExpanded);
   };
-
-  // Randomize the order of the data
-  //   allModelsData = shuffleArray(allModelsData);
-  const allPhotosData = shuffleArray(allPhotosDataRe);
+  const togglePhotosExpansion = () => {
+    setPhotosExpanded(!photosExpanded);
+  };
 
   return (
     <MDBContainer fluid>
@@ -46,8 +52,8 @@ function FeaturedPage() {
                 <>
                   <div
                     style={{
-                      display: expanded ? "flex" : "none",
-                      "flex-wrap": "wrap",
+                      display: modelsExpanded ? "flex" : "none",
+                      flexWrap: "wrap",
                     }}
                   >
                     {remainingModels.map((model, index) => (
@@ -59,11 +65,11 @@ function FeaturedPage() {
                   </div>
                   <MDBContainer className="d-flex justify-content-center mt-0 mb-3">
                     <MDBBtn
-                      onClick={toggleExpansion}
+                      onClick={toggleModelsExpansion}
                       size="sm"
                       color="secondary"
                     >
-                      {expanded ? "Show Less" : "Show More"}
+                      {modelsExpanded ? "Show Less" : "Show More"}
                     </MDBBtn>
                   </MDBContainer>
                 </>
@@ -71,12 +77,38 @@ function FeaturedPage() {
             </MDBRow>
             {/* Featured Photos */}
             <MDBRow>
-              {allPhotosData && allPhotosData.length > 0 && (
+              {initialPhotos.length > 0 && (
                 <>
                   <h2 className="mb-4">Featured Photos</h2>
-                  {allPhotosData.map((photo, index) => (
-                    <PhotoCard photoData={photo} key={index} />
+                  {initialPhotos.map((photo, index) => (
+                    <PhotoCard key={index} photoData={photo} />
                   ))}
+                </>
+              )}
+              {remainingPhotos.length > 0 && (
+                <>
+                  <div
+                    style={{
+                      display: photosExpanded ? "flex" : "none",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {remainingPhotos.map((photo, index) => (
+                      <PhotoCard
+                        key={index + initialPhotos.length}
+                        photoData={photo}
+                      />
+                    ))}
+                  </div>
+                  <MDBContainer className="d-flex justify-content-center mt-0 mb-3">
+                    <MDBBtn
+                      onClick={togglePhotosExpansion}
+                      size="sm"
+                      color="secondary"
+                    >
+                      {photosExpanded ? "Show Less" : "Show More"}
+                    </MDBBtn>
+                  </MDBContainer>
                 </>
               )}
             </MDBRow>

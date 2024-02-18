@@ -8,54 +8,33 @@ function SocialStatsBadges({
   favorites,
   totalRatings,
   averageRating,
+  numVisibleBadges
 }) {
+  const badges = [
+    { key: 'likes', icon: 'fas fa-heart', label: 'LIKES', value: likes },
+    { key: 'downloads', icon: 'fas fa-download', label: 'DOWNLOADS', value: downloads },
+    { key: 'favorites', icon: 'fas fa-star', label: 'FAVORITES', value: favorites },
+    { key: 'totalRatings', icon: 'fas fa-star', label: `${padNumber(totalRatings, 4)} ratings`, value: averageRating }
+  ];
+
   return (
-    likes || downloads || favorites || totalRatings ? (
     <MDBContainer className="mb-3 d-flex flex-wrap">
-      {likes && likes > 0 && (
-          <div className="badge badge-secondary me-2 mb-2 p-2">
+      {badges
+        .filter(badge => badge.value > 0)
+        .slice(0, numVisibleBadges)
+        .map(({ key, icon, label, value }) => (
+          <div key={key} className="badge badge-secondary me-2 mb-2 p-2">
             <div className="d-flex justify-content-center align-items-center">
-              {/* <!-- Font Awesome heart icon --> */}
-              <i className="fas fa-heart me-2"></i>
-              {/* Should be read if user has liked this thing already, otherwise default color */}
-              <span className="font-weight-bold">{padNumber(likes, 4)}</span>
+              {/* Icon */}
+              <i className={icon + " me-2"}></i>
+              {/* Value */}
+              <span className="font-weight-bold">{padNumber(value, 4)}</span>
             </div>
-            <p className="mb-0 mt-1 small text-muted">LIKES</p>
+            {/* Label */}
+            <p className="mb-0 mt-1 small text-muted">{label}</p>
           </div>
-      )}
-      {/* <!-- Downloads Badge --> */}
-      {downloads && downloads > 0 && (
-        <div className="badge badge-secondary me-2 mb-2 p-2">
-          <div className="d-flex justify-content-center align-items-center">
-            {/* <!-- Font Awesome download icon --> */}
-            <i className="fas fa-download me-2"></i>
-            <span className="font-weight-bold">{padNumber(downloads, 4)}</span>
-          </div>
-          <p className="mb-0 mt-1 small text-muted">DOWNLOADS</p>
-        </div>
-      )}
-      {favorites && favorites > 0 && (
-        <div className="badge badge-secondary me-2 mb-2 p-2">
-          <div className="d-flex justify-content-center align-items-center">
-            {/* <!-- Font Awesome star icon --> */}
-            <i className="fas fa-star me-2"></i>
-            <span className="font-weight-bold">{padNumber(favorites, 4)}</span>
-          </div>
-          <p className="mb-0 mt-1 small text-muted">FAVORITES</p>
-        </div>
-      )}
-      {totalRatings && totalRatings > 0 && averageRating && (
-        <div className="badge badge-secondary me-2 mb-2 p-2">
-          <div className="d-flex justify-content-center align-items-center">
-            {/* <!-- Font Awesome star icon --> */}
-            <i className="fas fa-star me-2"></i>
-            <span className="font-weight-bold">{padNumber(averageRating, 4)}</span>
-          </div>
-          <p className="mb-0 mt-1 small text-muted">{padNumber(totalRatings, 4) + " ratings"}</p>
-        </div>
-      )}
+        ))}
     </MDBContainer>
-    ) : null
   );
 }
 

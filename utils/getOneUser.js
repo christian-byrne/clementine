@@ -1,8 +1,8 @@
 export function getOneUser(allUserData, usernameGetArg) {
-  return allUserData["members"].find((user) => {
-    return user.name &&
+  return allUserData.find((user) => {
+    return user.nameSystem &&
       usernameGetArg &&
-      user.name.replaceAll(" ", "-").toLowerCase() ===
-        usernameGetArg.replaceAll(" ", "-").toLowerCase();
+      user.nameSystem ===
+        usernameGetArg.replaceAll(/\s/g, "-").toLowerCase();
   });
 }

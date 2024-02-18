@@ -16,16 +16,22 @@ import IconGenerator from "../utils/getIcon";
 
 const getIcon = new IconGenerator();
 
+function getGridPath(title) {
+  let titleFormatted = title.toLowerCase().replace(/\s/g, "-");
+  // need to handle hyphens next to other characters like (, ), etc.,
+  let path = `/pictures/models/${titleFormatted}/${titleFormatted}-grid-2x2.png`;
+  return path;
+}
+
 function ModelCard({ modelData }) {
   return (
-    modelData &&
-    modelData.title && (
+    modelData?.title && (
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4">
         <MDBCard className="h-100 d-flex d-column">
           <MDBCardImage
             src={
               modelData.imageSrc
-                ?  modelData.imageSrc
+                ?  getGridPath(modelData.title)
                 : placeholderImg.imageSrc
             }
             alt={modelData.title || placeholderImg.alt}

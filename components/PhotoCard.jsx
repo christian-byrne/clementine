@@ -12,16 +12,16 @@ import placeholderImg from "../data/placeholder-image.json";
 import pathFormat from "../utils/pathFormat";
 
 function PhotoCard({ photoData }) {
+  console.log(photoData);
   return (
-    photoData &&
-    photoData.imageUrl && (
+    photoData?.imagePath && (
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0">
         <MDBCard className="h-100 d-flex d-column">
           <MDBCardImage
             src={
-              photoData.imageUrl
-                ?  photoData.imageUrl
-                : placeholderImg.imageSrc
+              photoData.imagePath
+                ?  photoData.imagePath
+                : placeholderImg.imagePath
             }
             alt={photoData.model || placeholderImg.alt}
             title={
@@ -63,14 +63,13 @@ function PhotoCard({ photoData }) {
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {photoData.model ? photoData.model : ""}
-              {photoData.model && photoData.creator ? (
+              {photoData.modelTitle ? photoData.modelTitle : ""}
+              {photoData.modelTitle && photoData.creator ? (
                 <span className="text-muted">&nbsp;by&nbsp;</span>
               ) : (
                 ""
               )}
-              {photoData.creator ? (
-                <>
+              {photoData?.creator != "UNKNOWN" ? (
                   <a
                     href={pathFormat(
                       "/user/" +
@@ -79,7 +78,6 @@ function PhotoCard({ photoData }) {
                   >
                     {photoData.creator}
                   </a>
-                </>
               ) : (
                 ""
               )}
