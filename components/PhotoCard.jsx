@@ -12,7 +12,6 @@ import placeholderImg from "../data/placeholder-image.json";
 import pathFormat from "../utils/pathFormat";
 
 function PhotoCard({ photoData }) {
-  console.log(photoData);
   return (
     photoData?.imagePath && (
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0">

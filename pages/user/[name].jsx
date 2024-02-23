@@ -52,7 +52,6 @@ function UserProfilePage() {
           });
 
           setUserPhotos(filteredPhotos);
-          console.log(filteredPhotos);
         } catch (error) {
           console.error("Error fetching user data:", error);
           // Handle error if necessary

@@ -4,5 +4,6 @@ Front end of stylist app. For gamification class.
 
 #### TODO
 
+- Model/Post Page (like civ post)
 - automatically go to top of page when changing views (because had to switch to HashRouter)
 - Number of items on navbar depends on screen size (and word/texts replaced with icons)
