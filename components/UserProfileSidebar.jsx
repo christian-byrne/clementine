@@ -10,6 +10,7 @@ import {
   MDBCardBody,
 } from "mdb-react-ui-kit";
 import SocialStatsBadges from "./SocialStatsBadges";
+import pathFormat from "@/utils/pathFormat";
 
 function createLeaderboardRanks(ranks) {
   let ret = [];
@@ -87,9 +88,11 @@ function UserProfileSidebar({ userData }) {
         {/* Profile Picture */}
         <img
           src={
+            pathFormat(
             "/pictures/pfps/" +
             userData["name"].replaceAll(" ", "-").toLowerCase() +
             "-3.png"
+            )
           }
           alt="User Avatar"
           className="img-fluid rounded-circle mb-3"
@@ -185,7 +188,7 @@ function UserProfileSidebar({ userData }) {
               {userData["badges"]["tier1"]?.map((badge, index) => (
                 <div className="me-3 mb-3 w-25" key={index}>
                   <img
-                    src={badge.src}
+                    src={pathFormat(badge.src)}
                     alt={badge.alt}
                     className="img-fluid rounded-circle"
                     title={badge.title}
@@ -199,7 +202,7 @@ function UserProfileSidebar({ userData }) {
                 {userData["badges"]["tier2"].map((badge, index) => (
                   <div className="me-3 mb-3 w-25" key={index}>
                     <img
-                      src={badge.src}
+                      src={pathFormat(badge.src)}
                       alt={badge.alt}
                       className="img-fluid rounded-circle"
                       title={badge.title}
@@ -214,7 +217,7 @@ function UserProfileSidebar({ userData }) {
                 {userData["badges"]["tier3"].map((badge, index) => (
                   <div className="me-3 mb-3 w-25" key={index}>
                     <img
-                      src={badge.src}
+                      src={pathFormat(badge.src)}
                       alt={badge.alt}
                       className="img-fluid rounded-circle"
                       title={badge.title}
@@ -229,7 +232,7 @@ function UserProfileSidebar({ userData }) {
                 {userData["badges"]["tier4"].map((badge, index) => (
                   <div className="me-3 mb-3 w-25" key={index}>
                     <img
-                      src={badge.src}
+                      src={pathFormat(badge.src)}
                       alt={badge.alt}
                       className="img-fluid rounded-circle"
                       title={badge.title}
@@ -249,7 +252,7 @@ function UserProfileSidebar({ userData }) {
               {userData["achievements"].map((achievement, index) => (
                 <div className="me-3 mb-3 w-25" key={index}>
                   <img
-                    src={achievement.src}
+                    src={pathFormat(achievement.src)}
                     alt={achievement.alt}
                     className="img-fluid rounded-circle"
                     title={achievement.title}

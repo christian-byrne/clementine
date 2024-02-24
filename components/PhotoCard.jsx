@@ -19,8 +19,8 @@ function PhotoCard({ photoData }) {
           <MDBCardImage
             src={
               photoData.imagePath
-                ?  photoData.imagePath
-                : placeholderImg.imagePath
+                ?  pathFormat(photoData.imagePath)
+                : pathFormat(placeholderImg.imagePath)
             }
             alt={photoData.model || placeholderImg.alt}
             title={

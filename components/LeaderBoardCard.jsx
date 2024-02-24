@@ -12,6 +12,7 @@ import {
 import { camelCaseToTitle } from "../utils/camelCaseToTitle";
 import SocialStatsBadges from "./SocialStatsBadges";
 import { padNumber } from "../utils/padNumber";
+import pathFormat from "@/utils/pathFormat";
 
 function LeaderBoardCard({
   leaderBoardData,
@@ -96,8 +97,7 @@ function LeaderBoardCard({
                             <div className="d-flex align-items-center">
                               <a
                                 href={
-                                  "/user/" +
-                                  member.name.replaceAll(" ", "-").toLowerCase()
+                                  pathFormat("user/" + member.name.replaceAll(" ", "-").toLowerCase())
                                 }
                                 style={{
                                   color: "inherit",
@@ -106,11 +106,11 @@ function LeaderBoardCard({
                               >
                                 <img
                                   src={
-                                    "/pictures/pfps/" +
+                                    pathFormat("pictures/pfps/" +
                                     member["name"]
                                       .replaceAll(" ", "-")
                                       .toLowerCase() +
-                                    "-3.png"
+                                    "-3.png")
                                   }
                                   alt=""
                                   style={{ width: "80px", height: "80px" }}
@@ -119,8 +119,7 @@ function LeaderBoardCard({
                               </a>
                               <a
                                 href={
-                                  "/user/" +
-                                  member.name.replaceAll(" ", "-").toLowerCase()
+                                  pathFormat("user/" + member.name.replaceAll(" ", "-").toLowerCase())
                                 }
                                 style={{
                                   color: "inherit",

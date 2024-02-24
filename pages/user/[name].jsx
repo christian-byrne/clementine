@@ -8,6 +8,7 @@ import allUserData from "../../data/users/all.json";
 import allModelsData from "../../data/models/all.json";
 import allPhotosData from "../../data/photos/all.json";
 import { getOneUser } from "../../utils/getOneUser";
+import pathFormat from "@/utils/pathFormat";
 
 function getModelByName(modelName) {
   if (typeof modelName !== "string") {

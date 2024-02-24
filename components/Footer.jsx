@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import pathFormat from '@/utils/pathFormat';
 
 export default function App() {
   return (
@@ -47,22 +48,22 @@ export default function App() {
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Data</h6>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Lorem, ipsum dolor.
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Lorem, ipsum.
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Lorem.
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Lorem, ipsum.
                 </a>
               </p>
@@ -71,17 +72,17 @@ export default function App() {
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Documentation
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Dev Blog
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
+                <a href={pathFormat('#!')} className='text-reset'>
                   Help
                 </a>
               </p>
@@ -107,7 +108,7 @@ export default function App() {
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2024 Copyright:&nbsp;
-        <a className='text-reset fw-bold' href='https://github.com/christian-byrne'>
+        <a className='text-reset fw-bold' href={pathFormat('https://github.com/christian-byrne')}>
           bymyself
         </a>
       </div>

@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import pathFormat from '@/utils/pathFormat';
 
 export default class MyDocument extends Document {
   render() {
@@ -27,7 +28,7 @@ export default class MyDocument extends Document {
           {/* Apple touch icon */}
           <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
           {/* Manifest */}
-          <link rel="manifest" href="/manifest.json" />
+          <link rel="manifest" href={pathFormat("/manifest.json")} />
         </Head>
         <body>
           <Main />

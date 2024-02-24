@@ -1,3 +1,4 @@
+import pathFormat from "./pathFormat"
 class IconGenerator {
     constructor() {
         // Icons
@@ -39,7 +40,7 @@ class IconGenerator {
         let iconObj = this.map[type]
         iconObj = this.updatePath(iconObj)
         let node = (
-            <img className={iconObj.className} src={iconObj.path} alt={iconObj.alt} height={iconHeight} style={iconObj.style} />
+            <img className={iconObj.className} src={pathFormat(iconObj.path)} alt={iconObj.alt} height={iconHeight} style={iconObj.style} />
         )
         return node
     }

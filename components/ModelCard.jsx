@@ -13,13 +13,14 @@ import {
 } from "mdb-react-ui-kit";
 import placeholderImg from "../data/placeholder-image.json";
 import IconGenerator from "../utils/getIcon";
+import pathFormat from "@/utils/pathFormat";
 
 const getIcon = new IconGenerator();
 
 function getGridPath(title) {
   let titleFormatted = title.toLowerCase().replace(/\s/g, "-");
   // need to handle hyphens next to other characters like (, ), etc.,
-  let path = `/pictures/models/${titleFormatted}/${titleFormatted}-grid-2x2.png`;
+  let path = pathFormat(`pictures/models/${titleFormatted}/${titleFormatted}-grid-2x2.png`);
   return path;
 }
 
@@ -32,7 +33,7 @@ function ModelCard({ modelData }) {
             src={
               modelData.imageSrc
                 ?  getGridPath(modelData.title)
-                : placeholderImg.imageSrc
+                : pathFormat(placeholderImg.imageSrc)
             }
             alt={modelData.title || placeholderImg.alt}
             title={modelData.title || placeholderImg.title}

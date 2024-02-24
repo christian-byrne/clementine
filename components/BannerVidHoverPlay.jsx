@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { MDBCol } from "mdb-react-ui-kit";
+import pathFormat from "@/utils/pathFormat";
 
 function BannerVidHoverPlay({ videoSrc }) {
   const videoRef = useRef(null);
@@ -18,7 +19,7 @@ function BannerVidHoverPlay({ videoSrc }) {
     onMouseLeave={handleMouseLeave}
     >
       <video
-        src={"videos/animated-pics/" + videoSrc}
+        src={pathFormat("videos/animated-pics/" + videoSrc)}
         loop
         muted
         className="video p-0 m-0 dynamic-height-col"
