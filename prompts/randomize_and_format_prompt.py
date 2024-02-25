@@ -175,9 +175,8 @@ if __name__ == "__main__":
 
     styles = [
         # (filename, +/- chance to remove item per section)
-        ("crochet-everything", 12),
-        ("oversized-streetwear", 12),
-        ("oversized-athleisure", 17),
+        ("athleisure", 12),
+        ("clean-girl", 12),
     ]
     selection_weights = {
         # Section Title: (Chance (out of 100) to remove an item, Maximum items limit)

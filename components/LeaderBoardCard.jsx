@@ -22,25 +22,35 @@ function LeaderBoardCard({
   description,
   socialBadges,
 }) {
-  const [numVisibleBadges, setNumVisibleBadges] = useState(
-    socialBadges?.length || 4
-  );
+  const [numVisibleBadges, setNumVisibleBadges] = useState(1);
+
+  const adjustNumVisibleBadges = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth > 2150) {
+      setNumVisibleBadges(3);
+    } else if (windowWidth > 1950) {
+      setNumVisibleBadges(2);
+    } else {
+      setNumVisibleBadges(1); // Adjust this value as needed
+    }
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      const windowWidth = window.innerWidth;
-      if (windowWidth > 2150) {
-        setNumVisibleBadges(3);
-      } else if (windowWidth > 1950) {
-        setNumVisibleBadges(2);
-      } else {
-        setNumVisibleBadges(1); // Adjust this value as needed
-      }
-    };
+    // Adjust the number of visible badges on mount
+    adjustNumVisibleBadges();
 
+    // Add resize listener
+    const handleResize = () => {
+      adjustNumVisibleBadges();
+    };
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    // Clean up resize listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+  
   return (
     leaderBoardData?.length > 0 && (
       <MDBContainer className="col-md-12 col-lg-6 col-sm-12 my-3">
@@ -96,31 +106,37 @@ function LeaderBoardCard({
                           <td key={index} className="clickable">
                             <div className="d-flex align-items-center">
                               <a
-                                href={
-                                  pathFormat("user/" + member.name.replaceAll(" ", "-").toLowerCase())
-                                }
+                                href={pathFormat(
+                                  "user/" +
+                                    member.name
+                                      .replaceAll(" ", "-")
+                                      .toLowerCase()
+                                )}
                                 style={{
                                   color: "inherit",
                                   textDecoration: "inherit",
                                 }}
                               >
                                 <img
-                                  src={
-                                    pathFormat("pictures/pfps/" +
-                                    member["name"]
-                                      .replaceAll(" ", "-")
-                                      .toLowerCase() +
-                                    "-3.png")
-                                  }
+                                  src={pathFormat(
+                                    "pictures/pfps/" +
+                                      member["name"]
+                                        .replaceAll(" ", "-")
+                                        .toLowerCase() +
+                                      "-3.png"
+                                  )}
                                   alt=""
                                   style={{ width: "80px", height: "80px" }}
                                   className="rounded-circle"
                                 />
                               </a>
                               <a
-                                href={
-                                  pathFormat("user/" + member.name.replaceAll(" ", "-").toLowerCase())
-                                }
+                                href={pathFormat(
+                                  "user/" +
+                                    member.name
+                                      .replaceAll(" ", "-")
+                                      .toLowerCase()
+                                )}
                                 style={{
                                   color: "inherit",
                                   textDecoration: "inherit",

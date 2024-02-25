@@ -32,7 +32,11 @@ function UserProfilePage() {
           const data = await getOneUser(allUserData, userName);
           setUserProfileData(data);
 
-          // Fetch and process user models asynchronously
+          // Fetch and process user models asynchronously if ownModels and ownModels.length > 0
+          if (!data.ownModels || data.ownModels.length === 0) {
+            return;
+          }
+
           const userModelsPromises = data.ownModels.map(async (modelName) => {
             try {
               const model = await getModelByName(modelName);
