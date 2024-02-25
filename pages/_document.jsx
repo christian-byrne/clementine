@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import pathFormat from '@/utils/pathFormat';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import pathFormat from "@/utils/pathFormat";
 
 export default class MyDocument extends Document {
   render() {
@@ -18,11 +18,7 @@ export default class MyDocument extends Document {
           <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           {/* Roboto font */}
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto:400&display=swap"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
             rel="stylesheet"
           />
           {/* Apple touch icon */}

@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -29,11 +30,11 @@ code {
 }
 
 .video:hover {
-  opacity: .98; /* Adjust opacity as needed */
+  opacity: 0.98; /* Adjust opacity as needed */
 }
 
 .video:not(:hover) {
-  opacity: .85;
+  opacity: 0.85;
 }
 
 .dynamic-height-row {
@@ -67,4 +68,24 @@ code {
   .dynamic-height-col {
     height: 33vh; /* Extra large screens */
   }
+}
+
+/* ----------------- */
+
+.noto-display-h1 {
+  /* thin style material design noto sans */
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 100 !important;
+}
+
+/* --- Silhouette Sketch Background Pic Transitions --- */
+
+.silhouette-sketch-bg-pic {
+  transition: all 0.4s linear 0s;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.832);
+}
+
+.silhouette-sketch-bg-pic:hover {
+  transition: all 0.1s linear 0s;
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.168);
 }

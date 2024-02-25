@@ -4,9 +4,9 @@ function pathFormat(path, href = false) {
   //   path = "/" + path;
   // }
   // For next.js, remove the leading slash if the first character is a forward slash
-  if (path.charAt(0) === "/") {
-    path = path.slice(1);
-  }
+  // if (path.charAt(0) === "/") {
+  //   path = path.slice(1);
+  // }
   // If there is a route, add a forward slash
   if (href) {
     path = "/" + path;
