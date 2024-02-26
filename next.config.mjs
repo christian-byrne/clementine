@@ -3,6 +3,7 @@
 // const isProduction = process.env.NODE_ENV === 'production';
 // const basePath = isProduction ? '/clementine' : '';
 const basePath = '/clementine';
+const assetPre = `${basePath}/`;
 
 const nextConfig = {
     /**
@@ -10,7 +11,7 @@ const nextConfig = {
     *
     * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
     */
-   output: "export",
+  //  output: "export",
    
    /**
     * Set base path. This is the slug of your GitHub repository.
@@ -19,7 +20,7 @@ const nextConfig = {
    */
   basePath: basePath,
 
-  assetPrefix: `${basePath}/`,
+  assetPrefix: assetPre,
 
   /**
    * Disable server-based image optimization. Next.js does not support
