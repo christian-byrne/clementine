@@ -5,10 +5,16 @@ import "../styles/global.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, router }) {
+  // Define an array of route paths where you don't want to render the Navbar
+  const routesWithoutNavbar = ["/social-media-gamification"]; // Add your specific page path here
+
+  // Check if the current route is in the routesWithoutNavbar array
+  const shouldRenderNavbar = !routesWithoutNavbar.includes(router.pathname);
+
   return (
     <>
-      <Navbar />
+      {shouldRenderNavbar && <Navbar />}
       <Component {...pageProps} />
       <Footer />
     </>
