@@ -5,14 +5,12 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBCardFooter,
-  MDBCardHeader,
   MDBCardImage,
   MDBCardTitle,
   MDBCardText,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 
 function SocialMediaGamification() {
   const orderedMechanics = [
@@ -727,7 +725,7 @@ function SocialMediaGamification() {
     },
   ];
 
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(true);
   const [showSocialMedia, setShowSocialMedia] = useState(false);
 
   useEffect(() => {

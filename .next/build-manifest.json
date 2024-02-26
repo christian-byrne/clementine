@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/0VKlDku8uJktThfzWr1-V/_buildManifest.js",
-    "static/0VKlDku8uJktThfzWr1-V/_ssgManifest.js"
+    "static/I4qA_PbxTINFi8i4nopE8/_buildManifest.js",
+    "static/I4qA_PbxTINFi8i4nopE8/_ssgManifest.js"
   ],
   "rootMainFiles": [],
   "pages": {
@@ -54,7 +54,7 @@
       "static/chunks/webpack-df63a267b58e1516.js",
       "static/chunks/framework-5429a50ba5373c56.js",
       "static/chunks/main-04c0f521fd94ca49.js",
-      "static/chunks/pages/social-media-gamification-282094b5d91ecdc0.js"
+      "static/chunks/pages/social-media-gamification-91b16009fff6b272.js"
     ],
     "/user/[name]": [
       "static/chunks/webpack-df63a267b58e1516.js",
