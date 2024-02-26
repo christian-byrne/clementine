@@ -734,7 +734,6 @@ function SocialMediaGamification() {
       // text componenets are selected by .hidden-ct class
       let texts = card.querySelectorAll(".hidden-ct");
       let cardImage = card.querySelector(".card-img-top");
-      console.log(texts);
 
       card.addEventListener("mouseover", () => {
         cardImage.style.display = "none";
@@ -764,7 +763,7 @@ function SocialMediaGamification() {
   };
 
   return (
-    <MDBContainer fluid className="mt-5">
+    <MDBContainer fluid className="mt-5 mb-6">
       <MDBTypography
         tag="div"
         className="display-1 pb-3 mb-4 text-center noto-display-h1"
@@ -777,7 +776,7 @@ function SocialMediaGamification() {
             <strong>All</strong> game mechanics from Chou
           </MDBTypography>
           <MDBBtn color="primary" onClick={handleShowAll}>
-            Show
+            {showAll ? "Hide" : "Show"}
           </MDBBtn>
         </MDBContainer>
 
@@ -786,7 +785,7 @@ function SocialMediaGamification() {
             <strong>Social Media</strong> game mechanics only
           </MDBTypography>
           <MDBBtn color="primary" onClick={handleShowSocialMedia}>
-            Show
+            {showSocialMedia ? "Hide" : "Show"}
           </MDBBtn>
         </MDBContainer>
       </MDBContainer>
