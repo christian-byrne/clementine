@@ -9,6 +9,7 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBBtn,
+  MDBCollapse
 } from "mdb-react-ui-kit";
 import React, { useState, useEffect } from "react";
 
@@ -728,6 +729,12 @@ function SocialMediaGamification() {
   const [showAll, setShowAll] = useState(true);
   const [showSocialMedia, setShowSocialMedia] = useState(false);
 
+  const [successIsOpen, setSuccessIsOpen] = useState(false);
+
+  const toggleSuccess = () => {
+    setSuccessIsOpen(!successIsOpen);
+  };
+
   useEffect(() => {
     const cards = document.querySelectorAll(".card-hoverable");
     cards.forEach((card) => {
@@ -883,7 +890,7 @@ function SocialMediaGamification() {
       <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
         <MDBTypography tag="h3">Success</MDBTypography>
         <MDBTypography>
-          Across these examples, the
+          Perhaps the
           <strong> most successful implementation </strong>of gamification in
           social media is Facebook. Facebook has successfully implemented a
           variety of gamification mechanics to encourage user engagement and
@@ -925,43 +932,49 @@ function SocialMediaGamification() {
           gamification mechanics to encourage user engagement and participation.
           The platform's biggest innovation was its discovery algorithm, which
           utilized the Dangling mechanic and gave users a stronger drive of
-          higher meaning and calling -- by knowing that they always have the
-          chance to go viral due to a meritocritous discovery/promotion system.
-          Furthermore, The platform uses status points, group quests, and
-          mentorship to encourage users to contribute to the site, work together
-          to complete tasks, and onboard new users. TikTok also uses social
-          prods and social treasures/gifting to encourage users to interact with
-          each other and support each other's contributions. The platform also
-          uses appointment dynamics to establish a habit of regular engagement
-          by notifying users of upcoming events, live streams, or content
-          releases to create anticipation and encourage participation. These
-          mechanics have contributed to TikTok's success in maintaining user
-          engagement and retention, and have helped the platform become one of
-          the most popular social media apps in the world.
+          higher meaning and calling &mdash; by knowing that they always have
+          the chance to go viral due to a meritocritous discovery/promotion
+          system. Furthermore, The platform uses status points, group quests,
+          and mentorship to encourage users to contribute to the site, work
+          together to complete tasks, and onboard new users. TikTok also uses
+          social prods and social treasures/gifting to encourage users to
+          interact with each other and support each other's contributions. The
+          platform also uses appointment dynamics to establish a habit of
+          regular engagement by notifying users of upcoming events, live
+          streams, or content releases to create anticipation and encourage
+          participation. These mechanics have contributed to TikTok's success in
+          maintaining user engagement and retention, and have helped the
+          platform become one of the most popular social media apps in the
+          world.
         </MDBTypography>
       </MDBContainer>
 
       <MDBTypography tag="h1" className="mt-5 mb-3 noto-display-h1 text-center">
         Implications, Opportunities and Ethics
       </MDBTypography>
-      <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
-        <MDBTypography tag="h3">Implications</MDBTypography>
-        <MDBTypography>
-          Gamification in social media has the potential to significantly impact
-          user engagement and retention. By implementing gamification mechanics,
-          social media platforms can encourage users to contribute to the site,
-          work together to complete tasks, and onboard new users. These
-          mechanics can also foster a sense of community and shared purpose, and
-          create a feedback loop that triggers intrinsic motivations to
-          participate in generating content. Additionally, gamification can
-          create a sense of ownership and investment in the platform, and
-          stimulate social interactions between different user types. Overall,
-          the implication of gamification in social media is that it has the
-          potential to enhance user engagement, retention, and satisfaction, and
-          to foster a strong sense of community and shared purpose among users.
-        </MDBTypography>
-      </MDBContainer>
-
+      <MDBBtn tag="a" onClick={toggleSuccess}>
+        Expand
+      </MDBBtn>
+      <MDBCollapse open={successIsOpen}>
+        <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
+          <MDBTypography tag="h3">Implications</MDBTypography>
+          <MDBTypography>
+            Gamification in social media has the potential to significantly
+            impact user engagement and retention. By implementing gamification
+            mechanics, social media platforms can encourage users to contribute
+            to the site, work together to complete tasks, and onboard new users.
+            These mechanics can also foster a sense of community and shared
+            purpose, and create a feedback loop that triggers intrinsic
+            motivations to participate in generating content. Additionally,
+            gamification can create a sense of ownership and investment in the
+            platform, and stimulate social interactions between different user
+            types. Overall, the implication of gamification in social media is
+            that it has the potential to enhance user engagement, retention, and
+            satisfaction, and to foster a strong sense of community and shared
+            purpose among users.
+          </MDBTypography>
+        </MDBContainer>
+      </MDBCollapse>
       <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
         <MDBTypography tag="h3">Ethical Considerations</MDBTypography>
         <MDBTypography>
@@ -988,66 +1001,191 @@ function SocialMediaGamification() {
       </MDBContainer>
 
       <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
-        <MDBTypography tag="h3">Opportunities</MDBTypography>
+        <MDBTypography tag="h3">Additional Impacts</MDBTypography>
         <MDBTypography>
+          It's worth noting that ethical concerns are prevalent in discussions
+          about gamification. This hesitancy reflects the public's apprehension
+          regarding the manipulative potential of game mechanics and the
+          magnitude to which they can compel user behavior. Within the realm of
+          social media, a distinct set of moral considerations emerges alongside
+          the broader ethical considerations inherent in gamification.
+          <br></br>
+          <br></br>
+          Without a doubt, these considerations exist as a result of social
+          media's ever-increasing pervasiveness &mdash; due in no small part to
+          the successful implementation of game mechanics therein. This is
+          perhaps best evidenced in the rising magnitude of discussion over
+          social media in the world of politics, culminating in a March 2023
+          Congressional Hearing. There has even been earnest attempts to block
+          and regulate social media platforms at a legislative level &mdash;
+          something previously thought unthinkable due to its abject
+          incompatibility with American ideals. Neverthless,&nbsp;
+          <a href="https://www.newsobserver.com/news/politics-government/article283780348.html">
+            precedent has been recently established for such a thing
+          </a>
+          &nbsp;and legitimate&nbsp;
+          <a href="https://www.reuters.com/technology/aclu-urges-us-lawmakers-not-ban-tiktok-2023-02-28/">
+            political capital is being wielded to make it happen.
+          </a>
+          Interestingly, these ethical dilemmas seem to stem more from the
+          pervasiveness of social media itself rather than from the mechanics of
+          gamification. Nevertheless, these ethical dilemmas undeniably loom
+          over any aspiration to gamify social media application
+          <br></br>
+          <br></br>
+          By furthering the success of social media and the attachment of the
+          users therein, implementations of gamification bring concerns over:
           <ul>
             <li>
-              Using gamification to encourage users to engage in charitable
-              activities or social causes, such as fundraising challenges or
-              viral hashtag campaigns.
+              Contributing to a societal landscape where individuals struggle to
+              cultivate genuine connections, potentially fostering feelings of
+              isolation and depression.
             </li>
             <li>
-              Implementing gamification mechanics to promote mental health and
-              well-being, such as encouraging users to share positive
-              affirmations or engage in self-care activities.
+              Eroding empathy and hinder individuals' ability to interpret
+              social cues accurately, potentially undermining interpersonal
+              relationships.
             </li>
             <li>
-              Using gamification to foster cross-cultural understanding and
-              empathy, such as encouraging users to share stories or experiences
-              from different cultural backgrounds.
+              Exacerbating susceptibility to manipulation and the spread of
+              misinformation within society, impacting critical thinking and
+              decision-making abilities.
             </li>
             <li>
-              Implementing gamification mechanics to promote environmental
-              sustainability and conservation, such as encouraging users to
-              participate in eco-friendly challenges or initiatives.
+              Increasing the risk of addiction and exacerbating existing mental
+              health issues among users, potentially leading to widespread
+              psychological distress.
             </li>
             <li>
-              Using gamification to promote civic engagement and political
-              participation, such as encouraging users to share information
-              about local elections or community events.
+              Exacerbating issues of cyberbullying and online harassment, as
+              users compete for virtual rewards and status within the platform.
             </li>
             <li>
-              Turning discussion forums into a game where users can earn points
-              for contributing to the conversation, and the most active users
-              are rewarded with special badges or recognition.
+              Perpetuating societal pressure for constant engagement and
+              validation, leading to addictive behaviors and unhealthy
+              consumption patterns among users.
+            </li>
+            <li>
+              Amplifying existential risks and contributing to human extinction
+              scenarios, as individuals prioritize virtual rewards over
+              addressing global challenges.
+            </li>
+            <li>
+              Reinforcing filter bubbles and echo chambers, limiting exposure to
+              diverse perspectives and fostering ideological isolation.
+            </li>
+            <li>
+              Amplifying the phenomenon of "performative" online behavior, where
+              users prioritize generating engagement over authenticity, leading
+              to disingenuous interactions.
+            </li>
+            <li>
+              Contributing to the erosion of offline social interactions and
+              community engagement, as users become increasingly reliant on
+              virtual rewards and interactions.
+            </li>
+            <li>
+              Exacerbating the commodification of personal data and privacy
+              breaches, as users engage with gamified features that encourage
+              sharing personal information.
+            </li>
+            <li>
+              Fostering a culture of comparison and social validation, leading
+              to increased anxiety and self-esteem issues among users.
+            </li>
+            <li>
+              Contributing to the radicalization and extremism of individuals,
+              fostering ideological polarization and societal division.
+            </li>
+            <li>
+              Elevating aggression and criminal behavior among users when
+              content is unmoderated, potentially contributing to a rise in
+              violence and unlawful activities within society.
+            </li>
+            <li>
+              Serving as a hub for criminals of particular types to congregate
+              &emdash; where previously not possible &mdash; thus amplifying
+              their criminal or immoral activity.
+            </li>
+            <li>
+              Deepening political polarization and societal tensions,
+              exacerbating ideological divides and undermining democratic
+              principles.
+            </li>
+            <li>
+              Exacerbating environmental degradation and hastening ecological
+              collapse, as users prioritize virtual rewards over sustainable
+              behaviors.
             </li>
           </ul>
         </MDBTypography>
       </MDBContainer>
 
       <MDBContainer className="col-md-11 col-lg-11 col-sm-11 d-flex align-items-center flex-column p-4">
-        <MDBTypography tag="h3">Additional Impacts</MDBTypography>
+        <MDBTypography tag="h3">Opportunities</MDBTypography>
         <MDBTypography>
-          There are concerns about a theoretical society wherein social media
-          communication becomes more commonplace than face-to-face
-          communication. This could lead to a society where people are less
-          empathetic and less able to read social cues. This could lead to a
-          society where people are less able to form meaningful relationships
-          and are more prone to loneliness and depression. This could lead to a
-          society where people are more prone to manipulation and
-          misinformation. This could lead to a society where people are more
-          prone to addiction and mental health issues. This could lead to a
-          society where people are more prone to radicalization and extremism.
-          This could lead to a society where people are more prone to violence
-          and crime. This could lead to a society where people are more prone to
-          political polarization and social unrest. This could lead to a society
-          where people are more prone to authoritarianism and totalitarianism.
-          This could lead to a society where people are more prone to
-          environmental degradation and ecological collapse. This could lead to
-          a society where people are more prone to economic inequality and
-          social injustice. This could lead to a society where people are more
-          prone to war and conflict. This could lead to a society where people
-          are more prone to existential risk and human extinction.
+          Gamification in social media offers unique opportunities to enhance
+          user engagement and drive positive social change. There remains
+          opportunities both for novel implementations of game mechanics in
+          existing media, and also existing media subdomains that have yet to
+          implement game mechanics at all. Below are several innovative ways,
+          showcasing the potential and possible horizon of gamification in
+          social media platforms.
+          <br></br>
+          <br></br>
+          <ul>
+            <li>
+              Leveraging gamification to incentivize users to participate in
+              philanthropic endeavors and social causes, such as organizing
+              fundraising challenges or igniting viral hashtag campaigns to
+              raise awareness.
+            </li>
+            <li>
+              Implementing gamification mechanics to bolster mental health and
+              well-being, by encouraging users to share uplifting affirmations,
+              engage in mindfulness exercises, or participate in virtual support
+              groups.
+            </li>
+            <li>
+              Harnessing gamification to foster cross-cultural understanding and
+              empathy, by prompting users to share personal stories or
+              experiences from diverse cultural backgrounds, fostering a
+              platform for dialogue and mutual respect.
+            </li>
+            <li>
+              Utilizing gamification strategies to champion environmental
+              sustainability and conservation efforts, such as incentivizing
+              users to participate in eco-friendly challenges, advocate for
+              green initiatives, or collaborate on community-based environmental
+              projects.
+            </li>
+            <li>
+              Employing gamification to stimulate civic engagement and political
+              participation, by motivating users to share information about
+              local elections, community events, or grassroots campaigns,
+              fostering an informed and active citizenry.
+            </li>
+            <li>
+              Transforming discussion forums into immersive gaming experiences,
+              where users earn points for contributing thought-provoking
+              content, insightful commentary, or engaging discussions, with top
+              contributors receiving special badges or recognition, thereby
+              enhancing community participation and knowledge sharing.
+            </li>
+            <li>
+              Introducing gamified learning experiences within social media
+              platforms, where users can engage in interactive educational
+              challenges, quizzes, or simulations, fostering continuous learning
+              and skill development in a dynamic and engaging manner.
+            </li>
+            <li>
+              Creating virtual mentorship programs using gamification, where
+              seasoned professionals or influencers can guide and support
+              aspiring individuals through gamified tasks, challenges, and
+              achievements, nurturing personal and professional growth within
+              the community.
+            </li>
+          </ul>
         </MDBTypography>
       </MDBContainer>
     </MDBContainer>

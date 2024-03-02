@@ -1,6 +1,6 @@
 Front end of stylist app. For gamification class.
 
-# [👉 VIEW THE APP LIVE](https://christian-byrne.github.io/clementine/)
+# [👉 VIEW THE APP LIVE](https://clementine-christian-byrnes-projects.vercel.app/)
 
 #### TODO
 
