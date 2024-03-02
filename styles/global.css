@@ -94,7 +94,7 @@ code {
 
 .fully-hidden {
   /* font-size: x-small; */
-  display: none;
+  display: none !important;
 }
 
 .hidden-ct {
@@ -119,4 +119,8 @@ code {
 .card-body-color-hover:hover {
   transition: all 0s linear 0s;
 
+}
+
+.hidden-force {
+  display: none !important;
 }
