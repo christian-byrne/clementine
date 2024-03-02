@@ -134,6 +134,7 @@ function SocialMediaGamification() {
     // Access cardsColContainers based on hoveredCardIndex
     if (hoveredCardIndex == null || !mustHideNeighbors(hoveredCardIndex)) {
       unHideCards();
+      setFillActiveTabCard("tab1");
     } else if (
       cardsColContainers?.length > 0 &&
       hoveredCardIndex > 0 &&
@@ -190,16 +191,16 @@ function SocialMediaGamification() {
           fluid
           className="d-flex flex-column justify-content-center mt-3"
         >
-          <MDBContainer className="col-md-3 col-lg-3 col-sm-6 d-flex align-items-center flex-column ms-1 me-0">
+          <MDBContainer className="col-md-5 col-lg-4 col-xl-3 col-sm-10 d-flex align-items-flex-start flex-column ms-0">
             <MDBTypography note noteColor="light">
               <strong>Hover</strong> over the mechanics to see more details
             </MDBTypography>
           </MDBContainer>
-          <MDBContainer className="col-md-3 col-lg-3 col-sm-6 d-flex align-items-center flex-column ms-1">
+          <MDBContainer className="col-md-5 col-lg-4 col-xl-3 col-sm-10 d-flex align-items-flex-start flex-column ms-0">
             <MDBTypography note noteColor="light">
               Mechanics I found used on <strong>Social Media</strong> have{" "}
-              <span className="text-primary text-bold">blue</span> text and
-              additional details
+              <span className="text-primary text-bold">blue</span> titles and
+              further details
             </MDBTypography>
           </MDBContainer>
         </MDBContainer>
@@ -259,46 +260,52 @@ function SocialMediaGamification() {
                     </MDBTabsItem>
 
                     {mechanic.socialMediaUsed && (
-                      
                       <MDBTabsItem>
-                      <MDBTabsLink
-                        onClick={() => setFillActiveTabCard("tab2")}
-                        active={fillActiveTabCard === "tab2"}
+                        <MDBTabsLink
+                          onClick={() => setFillActiveTabCard("tab2")}
+                          active={fillActiveTabCard === "tab2"}
                         >
-                        In Social Media
-                      </MDBTabsLink>
-                    </MDBTabsItem>
-        )}
-                    <MDBTabsItem>
-                      <MDBTabsLink
-                        onClick={() => setFillActiveTabCard("tab3")}
-                        active={fillActiveTabCard === "tab3"}
-                      >
-                        Examples
-                      </MDBTabsLink>
-                    </MDBTabsItem>
-                    <MDBTabsItem>
-                      <MDBTabsLink
-                        onClick={() => setFillActiveTabCard("tab4")}
-                        active={fillActiveTabCard === "tab4"}
-                      >
-                        Book Quotes
-                      </MDBTabsLink>
-                    </MDBTabsItem>
-                    <MDBTabsItem>
-                      <MDBTabsLink
-                        onClick={() => setFillActiveTabCard("tab5")}
-                        active={fillActiveTabCard === "tab5"}
-                      >
-                        Purpose
-                      </MDBTabsLink>
-                    </MDBTabsItem>
+                          In Social Media
+                        </MDBTabsLink>
+                      </MDBTabsItem>
+                    )}
+
+                    {mechanic.examples?.length > 0 && (
+                      <MDBTabsItem>
+                        <MDBTabsLink
+                          onClick={() => setFillActiveTabCard("tab3")}
+                          active={fillActiveTabCard === "tab3"}
+                        >
+                          Examples
+                        </MDBTabsLink>
+                      </MDBTabsItem>
+                    )}
+                    {mechanic.bookQuote && (
+                      <MDBTabsItem>
+                        <MDBTabsLink
+                          onClick={() => setFillActiveTabCard("tab4")}
+                          active={fillActiveTabCard === "tab4"}
+                        >
+                          Book Quotes
+                        </MDBTabsLink>
+                      </MDBTabsItem>
+                    )}
+                    {mechanic.goal && (
+                      <MDBTabsItem>
+                        <MDBTabsLink
+                          onClick={() => setFillActiveTabCard("tab5")}
+                          active={fillActiveTabCard === "tab5"}
+                        >
+                          Purpose
+                        </MDBTabsLink>
+                      </MDBTabsItem>
+                    )}
                   </MDBTabs>
 
                   <MDBTabsContent className="hidden-ct fully-hidden">
                     <MDBTabsPane open={fillActiveTabCard === "tab1"}>
                       {mechanic.description && (
-                        <MDBCardText >
+                        <MDBCardText>
                           <strong>Description </strong>
                           {mechanic.description}
                         </MDBCardText>
@@ -355,42 +362,54 @@ function SocialMediaGamification() {
                         </MDBCardText>
                       )}
                     </MDBTabsPane>
-                    <MDBTabsPane open={fillActiveTabCard === "tab2"}>
-                      {mechanic.socialMediaUsed && (
+
+                    {mechanic.socialMediaUsed && (
+                      <MDBTabsPane open={fillActiveTabCard === "tab2"}>
+                        {mechanic.socialMediaUsed && (
+                          <MDBCardText className="hidden-ct fully-hidden">
+                            <strong>How it's used in social media </strong>
+                            {mechanic.socialMediaUsed}
+                          </MDBCardText>
+                        )}
+                      </MDBTabsPane>
+                    )}
+                    {mechanic.examples?.length > 0 && (
+                      <MDBTabsPane open={fillActiveTabCard === "tab3"}>
+                        {mechanic.examples?.length > 0 && (
+                          <MDBCardText className="hidden-ct fully-hidden">
+                            <strong>Examples </strong>
+                            <ul>
+                              {mechanic.examples.map((example, index) => {
+                                return <li key={index}>{example}</li>;
+                              })}
+                            </ul>
+                          </MDBCardText>
+                        )}
+                      </MDBTabsPane>
+                    )}
+                    {mechanic.bookQuote && (
+                      <MDBTabsPane open={fillActiveTabCard === "tab4"}>
                         <MDBCardText className="hidden-ct fully-hidden">
-                          <strong>How it's used in social media </strong>
-                          {mechanic.socialMediaUsed}
+                          <strong>Book Quotes </strong>&#8220;
+                          {mechanic.bookQuote}&#8221;
+                          <br></br>
+                          <br></br>
+                          <span className="text-muted">
+                            Chou, Y.-k. (2019). Actionable gamification: Beyond points, badges, and leaderboards. Octalysis Media.
+                          </span>
                         </MDBCardText>
-                      )}
-                    </MDBTabsPane>
-                    <MDBTabsPane open={fillActiveTabCard === "tab3"}>
-                      {mechanic.examples?.length > 0 && (
-                        <MDBCardText className="hidden-ct fully-hidden">
-                          <strong>Examples </strong>
-                          <ul>
-                            {mechanic.examples.map((example, index) => {
-                              return <li key={index}>{example}</li>;
-                            })}
-                          </ul>
-                        </MDBCardText>
-                      )}
-                    </MDBTabsPane>
-                    <MDBTabsPane open={fillActiveTabCard === "tab4"}>
-                      {mechanic.bookQuotes?.length > 0 && (
-                        <MDBCardText className="hidden-ct fully-hidden">
-                          <strong>Book Quotes </strong>
-                          {mechanic.bookQuote}
-                        </MDBCardText>
-                      )}
-                    </MDBTabsPane>
-                    <MDBTabsPane open={fillActiveTabCard === "tab5"}>
-                      {mechanic.goal && (
-                        <MDBCardText className="hidden-ct fully-hidden">
-                          <strong>Goal </strong>
-                          {mechanic.goal}
-                        </MDBCardText>
-                      )}
-                    </MDBTabsPane>
+                      </MDBTabsPane>
+                    )}
+                    {mechanic.goal && (
+                      <MDBTabsPane open={fillActiveTabCard === "tab5"}>
+                        {mechanic.goal && (
+                          <MDBCardText className="hidden-ct fully-hidden">
+                            <strong>Goal </strong>
+                            {mechanic.goal}
+                          </MDBCardText>
+                        )}
+                      </MDBTabsPane>
+                    )}
                   </MDBTabsContent>
                 </MDBCardBody>
               </MDBCard>
@@ -489,7 +508,7 @@ function SocialMediaGamification() {
       </MDBTypography>
       <MDBContainer className="col-md-11 col-lg-10 col-sm-12 d-flex align-items-center flex-column p-4">
         <MDBAccordion
-          initialActive={1}
+          // initialActive={1}
           className="col-md-10 col-lg-10 col-sm-12 w-100"
         >
           <MDBAccordionItem collapseId={1} headerTitle="Implications">

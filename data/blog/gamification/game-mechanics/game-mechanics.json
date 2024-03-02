@@ -14,7 +14,8 @@
       "YouTube Premieres"
     ],
     "active": true,
-    "name": "Appointment Dynamics"
+    "name": "Appointment Dynamics",
+    "bookQuote": "Scarcity & Impatience is the Core Drive of wanting something simply because it is extremely rare, exclusive, or immediately unattainable. Many games have Appointment Dynamics or Torture Breaks within them (come back 2 hours later to get your reward) – the fact that people can’t get something right now motivates them to think about it all day long. As a result, they return to the product every chance they get. This drive was well utilized by Facebook when it launched: at first it was just for Harvard students, then it opened up to a few other prestigious schools, and eventuallyall colleges. When it finally opened up to everyone, many people wanted to join simply because they previously couldn’t get in."
   },
   {
     "number": 10,
@@ -62,7 +63,7 @@
     "references": [256, 239, 240, 241, 242, 249, 445],
     "description": "Presenting two options side by side to highlight the differences and drive user decisions.",
     "socialMediaUsed": "Comparing users' progress or activity levels with those of their peers to highlight achievements or encourage further engagement.",
-    "bookQuotes": "With this technique, you place two options side by side: one that costs money, the other requiring a great amount of effort in accomplishing the Desired Actions which will benefit the system. For example, a site could give you two options for obtaining a certain reward: a) Pay $20 right now, or b) complete a ridiculous number of Desired Actions. The Desired Actions could be in the form of “Invite your friends,” ‘Upload photos,” and/or “stay on the site for 30 days in a row.” In this scenario, you will find that many users will irrationally choose to complete the Desired Actions. You’ll see users slaving away for dozens, even hundreds of hours, just so they can save the $20 to reach their goal. At one point, many of them will realize that it’s a lot of time and work. At that moment, the $20 investment becomes more appealing and they end up purchasing it anyway. Now your users have done both: paid you money, and committed a great deal of Desired Actions.",
+    "bookQuote": "With this technique, you place two options side by side: one that costs money, the other requiring a great amount of effort in accomplishing the Desired Actions which will benefit the system. For example, a site could give you two options for obtaining a certain reward: a) Pay $20 right now, or b) complete a ridiculous number of Desired Actions. The Desired Actions could be in the form of “Invite your friends,” ‘Upload photos,” and/or “stay on the site for 30 days in a row.” In this scenario, you will find that many users will irrationally choose to complete the Desired Actions. You’ll see users slaving away for dozens, even hundreds of hours, just so they can save the $20 to reach their goal. At one point, many of them will realize that it’s a lot of time and work. At that moment, the $20 investment becomes more appealing and they end up purchasing it anyway. Now your users have done both: paid you money, and committed a great deal of Desired Actions.",
     "goal": "To motivate users through social comparison and competition by highlighting their progress or activity levels relative to their peers, leveraging the psychological principle of social comparison. By showcasing achievements or milestones in comparison with others, the platform stimulates users' intrinsic motivations and fosters a sense of achievement and competitiveness, driving continued engagement and participation.",
     "examples": [
       "Instagram Following/Follower Counts",
