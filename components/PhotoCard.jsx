@@ -16,21 +16,29 @@ function PhotoCard({ photoData }) {
     photoData?.imagePath && (
       <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0">
         <MDBCard className="h-100 d-flex d-column">
-          <MDBCardImage
-            src={
-              photoData.imagePath
-                ?  pathFormat(photoData.imagePath)
-                : pathFormat(placeholderImg.imagePath)
-            }
-            alt={photoData.model || placeholderImg.alt}
-            title={
-              (photoData.model &&
-                photoData.creator &&
-                photoData.model + " by " + photoData.creator) ||
-              placeholderImg.title
-            }
-            position="top"
-          />
+          <a
+            href={`/browse/photos/${photoData.imageFileName
+              .replace(".png", "")
+              .replace(".jpg", "")
+              .replace(".jpeg", "")}`}
+          >
+            <MDBCardImage
+            className="clickable"
+              src={
+                photoData.imagePath
+                  ? pathFormat(photoData.imagePath)
+                  : pathFormat(placeholderImg.imagePath)
+              }
+              alt={photoData.model || placeholderImg.alt}
+              title={
+                (photoData.model &&
+                  photoData.creator &&
+                  photoData.model + " by " + photoData.creator) ||
+                placeholderImg.title
+              }
+              position="top"
+            />
+          </a>
           <MDBCardBody>
             {/* Engagement Statistics */}
             <div className="badge badge-secondary me-3 mb-3 p-2 clickable">
@@ -62,21 +70,30 @@ function PhotoCard({ photoData }) {
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {photoData.modelTitle ? photoData.modelTitle : ""}
+              {photoData.modelTitle && (
+                <a
+                  href={`/browse/photos/${photoData.imageFileName
+                    .replace(".png", "")
+                    .replace(".jpg", "")
+                    .replace(".jpeg", "")}`}
+                >
+                  {photoData.modelTitle}
+                </a>
+              )}
               {photoData.modelTitle && photoData.creator ? (
                 <span className="text-muted">&nbsp;by&nbsp;</span>
               ) : (
                 ""
               )}
               {photoData?.creator != "UNKNOWN" ? (
-                  <a
-                    href={pathFormat(
-                      "/user/" +
-                        photoData.creator.replaceAll(" ", "-").toLowerCase()
-                    )}
-                  >
-                    {photoData.creator}
-                  </a>
+                <a
+                  href={pathFormat(
+                    "/user/" +
+                      photoData.creator.replaceAll(" ", "-").toLowerCase()
+                  )}
+                >
+                  {photoData.creator}
+                </a>
               ) : (
                 ""
               )}

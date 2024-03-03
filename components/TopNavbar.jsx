@@ -18,22 +18,28 @@ import IconGenerator from "../utils/getIcon";
 const iconGen = new IconGenerator();
 
 function Navbar() {
-  const [openNav, setOpenNav] = useState(true);
-
-  const handleResize = () => {
-    const isSmallScreen = window.matchMedia("(max-width: 992px)").matches;
-    setOpenNav(!isSmallScreen);
-  };
+  const [screenWidth, setScreenWidth] = useState(null);
+  const [screenHeight, setScreenHeight] = useState(null);
 
   useEffect(() => {
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+      const isSmallScreen = window.matchMedia("(max-width: 992px)").matches;
+      setOpenNav(!isSmallScreen);
     };
-  }, []);
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+      setScreenHeight(window.innerHeight);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  });
+
+  const [openNav, setOpenNav] = useState(true);
 
   const closeNav = () => {
     setOpenNav(false);
@@ -62,18 +68,27 @@ function Navbar() {
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/dress")} onClick={closeNav}>
-                Dress
+              <MDBNavbarLink
+                href={pathFormat("/browse/models/0")}
+                onClick={closeNav}
+              >
+                Models
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/upload")} onClick={closeNav}>
-                Upload
+              <MDBNavbarLink
+                href={pathFormat("/browse/photos/0")}
+                onClick={closeNav}
+              >
+                Photos
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/featured")} onClick={closeNav}>
-                Browse
+              <MDBNavbarLink
+                href={pathFormat("/featured")}
+                onClick={closeNav}
+              >
+                Featured
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
@@ -86,22 +101,44 @@ function Navbar() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink
-                href={pathFormat("/creator-dashboard")}
+                href={pathFormat("/social-media-gamification")}
                 onClick={closeNav}
               >
-                Creator Dashboard
+                Blog
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink
-                className="my-0"
-                href={pathFormat("/currency")}
-                onClick={closeNav}
-              >
-                DAILY TASKS (3/9)
-                <ProgressBar min={0} max={100} now={33} />
+              <MDBNavbarLink href={pathFormat("/dress")} onClick={closeNav}>
+                Dress
               </MDBNavbarLink>
             </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href={pathFormat("/upload")} onClick={closeNav}>
+                Upload
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+            {screenWidth && screenWidth > 1540 && (
+              <MDBNavbarItem>
+                <MDBNavbarLink
+                  href={pathFormat("/creator-dashboard")}
+                  onClick={closeNav}
+                >
+                  Dashboard
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+            )}
+            {screenWidth && screenWidth > 1400 && (
+              <MDBNavbarItem>
+                <MDBNavbarLink
+                  className="my-0"
+                  href={pathFormat("/currency")}
+                  onClick={closeNav}
+                >
+                  DAILY TASKS (3/9)
+                  <ProgressBar min={0} max={100} now={33} />
+                </MDBNavbarLink>
+              </MDBNavbarItem>
+            )}
           </MDBNavbarNav>
           <MDBInputGroup tag="form" className="me-3 d-flex w-auto ms-auto">
             <input

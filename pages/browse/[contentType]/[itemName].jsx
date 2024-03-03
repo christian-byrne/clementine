@@ -5,11 +5,11 @@ import allModelsData from "@/data/models/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import ModelCardFullPage from "@/components/ModelCardFullPage";
 import sortModelsByKey from "@/utils/sortModelsByKey";
-import PhotoCard from "@/components/PhotoCard";
+import PhotoCardFullPage from "@/components/PhotoCardFullPage";
 
 function BrowsePage() {
   const router = useRouter();
-  const { contentType } = router.query;
+  const { contentType, itemName } = router.query;
 
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [allDataSorted, setAllDataSorted] = useState([]);
@@ -17,10 +17,24 @@ function BrowsePage() {
   useEffect(() => {
     if (contentType === "models") {
       setAllDataSorted(sortModelsByKey(allModelsData, "rating"));
+      // find index of itemName in allDataSorted and set as initial visible index
+      const index = allDataSorted.findIndex(
+        (model) => model?.titleSystemName === itemName
+      );
+      // if the item name is found
+      if (index !== -1) setVisibleIndex(index);
     } else if (contentType === "photos") {
       setAllDataSorted(allPhotosData);
+      // find index of itemName in allDataSorted and set as initial visible index
+      const index = allDataSorted.findIndex(
+        (photo) =>
+          photo?.imageFileName.replace(".png", "") ===
+          itemName.replace(".png", "")
+      );
+      // if the item name is found
+      if (index !== -1) setVisibleIndex(index);
     }
-  }, [contentType]);
+  }, [contentType, allDataSorted]);
 
   const maxItems = allDataSorted.length - 1;
 
@@ -58,7 +72,7 @@ function BrowsePage() {
           {contentType === "models" ? (
             <ModelCardFullPage modelData={allDataSorted[visibleIndex]} />
           ) : contentType === "photos" ? (
-            <PhotoCard photoData={allDataSorted[visibleIndex]} />
+            <PhotoCardFullPage photoData={allDataSorted[visibleIndex]} />
           ) : null}
         </MDBContainer>
         {/* Go Next Bottom Right Icon */}

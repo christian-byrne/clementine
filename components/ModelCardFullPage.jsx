@@ -5,7 +5,6 @@ import {
   MDBCardBody,
   MDBBtn,
   MDBIcon,
-  MDBTypography,
 } from "mdb-react-ui-kit";
 import ModelCardText from "./ModelCardText";
 import ResponsivePhotoGrid from "./ResponsivePhotoGrid";
@@ -82,7 +81,11 @@ function ModelCardFullPage({ modelData }) {
             <MDBBtn color="link" className="p-0 m-0">
               <MDBIcon
                 icon={!detailsExpanded ? "fas fa-chevron-left" : "fas fa-x"}
-                size="xl"
+                style={
+                  detailsExpanded
+                    ? { fontSize: "1.2rem" }
+                    : { fontSize: "2.25rem" }
+                }
               />
             </MDBBtn>
           </MDBContainer>
@@ -98,7 +101,6 @@ function ModelCardFullPage({ modelData }) {
             }
           ></div>
         </MDBContainer>
-
       </MDBCard>
     </MDBContainer>
   );

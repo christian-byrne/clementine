@@ -4,9 +4,11 @@ Front end of stylist app. For gamification class.
 
 #### TODO
 
-- Model/Post Page (like civ post)
-- automatically go to top of page when changing views (because had to switch to HashRouter)
-- Number of items on navbar depends on screen size (and word/texts replaced with icons)
+- Model/Post Page more like civ post
+- Blog routing
+  - Add silhouttes back to blog
+  - change location of other blog pages
+- automatically go to top of page when changing views on mobile
 - https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Search,-Use%20search%20proprty
 - https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Action%20buttons,-With%20the%20Datatable
 - 

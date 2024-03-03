@@ -13,7 +13,13 @@ const getIcon = new IconGenerator();
 function ModelCardText({ modelData }) {
   return (
     <>
-      <MDBCardTitle>{modelData.title}</MDBCardTitle>
+      <a
+        href={`/browse/models/${modelData.titleSystemName}`}
+        // prevent blue hyperlink color
+        style={{ color: "inherit" }}
+      >
+        <MDBCardTitle>{modelData.title}</MDBCardTitle>
+      </a>
       <div className="mb-3">
         {modelData.badges &&
           modelData.badges.length > 0 &&

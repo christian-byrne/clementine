@@ -41,7 +41,7 @@ function LeaderBoardPage() {
                 description={"Users who have the most motion"}
                 leaderBoardData={sortByTargetColumn(allUserData, "views")}
                 visibleColumns={["views"]}
-                maxRows={13}
+                maxRows={10}
                 socialBadges={["likes", "downloads", "favorites"]}
               />
               <LeaderBoardCard
@@ -51,7 +51,7 @@ function LeaderBoardPage() {
                 }
                 leaderBoardData={sortByTargetColumn(allUserData, "downloads")}
                 visibleColumns={["location"]}
-                maxRows={13}
+                maxRows={10}
                 socialBadges={["likes", "favorites", "downloads"]}
               />
               <LeaderBoardCard
