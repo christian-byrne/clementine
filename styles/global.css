@@ -124,3 +124,14 @@ code {
 .hidden-force {
   display: none !important;
 }
+
+
+/* ----------------- */
+
+.expand-sidebar-hoverable:hover {
+  /* transition: all 0.4s linear 0s; */
+  background-color: rgba(0, 0, 0, 0.067) !important;
+  /* background-clip: border-box; */
+  /* background-position: bottom; */
+  overflow: hidden;
+}

@@ -395,7 +395,8 @@ function SocialMediaGamification() {
                           <br></br>
                           <br></br>
                           <span className="text-muted">
-                            Chou, Y.-k. (2019). Actionable gamification: Beyond points, badges, and leaderboards. Octalysis Media.
+                            Chou, Y.-k. (2019). Actionable gamification: Beyond
+                            points, badges, and leaderboards. Octalysis Media.
                           </span>
                         </MDBCardText>
                       </MDBTabsPane>

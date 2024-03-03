@@ -1,0 +1,105 @@
+import React, { useState, useEffect } from "react";
+import {
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBBtn,
+  MDBIcon,
+} from "mdb-react-ui-kit";
+import ModelCardText from "./ModelCardText";
+import ResponsivePhotoGrid from "./ResponsivePhotoGrid";
+import pathFormat from "@/utils/pathFormat";
+
+function ModelCardFullPage({ modelData }) {
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(null);
+
+  // pictures/models/athleisure-meets-grunge/athleisure-meets-grunge-1.png
+  const photos = [modelData.imageSrc];
+  for (let i = 1; i < 10; i++) {
+    photos.push(pathFormat(modelData.imageSrc.replace("grid-2x2", `${i}`)));
+  }
+
+  // Use conditional check to ensure that only accessing window object in the browser
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    if (typeof window !== "undefined") {
+      setScreenWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
+  });
+
+  return (
+    <MDBContainer
+      className={`${
+        detailsExpanded
+          ? "col-md-12 col-lg-12 col-xl-12 col-xxl-12"
+          : "col-md-11 col-lg-10 col-xl-9 col-xxl-8"
+      } col-sm-12 d-flex justify-content-center`}
+    >
+      <MDBCard className="d-flex flex-row">
+        {/* Media Left Panel */}
+        {(screenWidth > 768 || !detailsExpanded) && (
+          <ResponsivePhotoGrid
+            photos={photos}
+            altPrefix={modelData.title}
+            titlePrefix={modelData.title}
+          />
+        )}
+        {detailsExpanded ? (
+          <MDBCardBody>
+            <ModelCardText modelData={modelData} />
+            <MDBContainer className="my-3">
+              <MDBBtn color="primary" className="m-1">
+                Details
+              </MDBBtn>
+              <MDBBtn color="success" className="m-1">
+                Use with my Wardrobe
+              </MDBBtn>
+            </MDBContainer>
+          </MDBCardBody>
+        ) : null}
+
+        <MDBContainer
+          className={`d-flex flex-row bg-image hover-overlay col-1 ${
+            detailsExpanded ? "align-items-start mt-4" : "align-items-center"
+          }`}
+          style={{ cursor: "pointer" }}
+          onClick={() => setDetailsExpanded(!detailsExpanded)}
+        >
+          <MDBContainer
+            className={`d-flex ${
+              detailsExpanded ? "justify-content-end" : "justify-content-center"
+            } align-items-center me-2`}
+          >
+            <MDBBtn color="link" className="p-0 m-0">
+              <MDBIcon
+                icon={!detailsExpanded ? "fas fa-chevron-left" : "fas fa-x"}
+                   size="xl" 
+                    />
+            </MDBBtn>
+          </MDBContainer>
+          <div
+            className="mask"
+            style={
+              detailsExpanded
+                ? {}
+                : {
+                    background:
+                      "linear-gradient(45deg, rgb(59,113,202,.05), rgba(19,164,77,.05) 100%)",
+                  }
+            }
+          ></div>
+        </MDBContainer>
+      </MDBCard>
+    </MDBContainer>
+  );
+}
+
+export default ModelCardFullPage;

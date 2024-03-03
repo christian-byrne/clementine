@@ -220,7 +220,7 @@ def create_models_records(models_in_dir, prev_db):
             has_community_unlock = random_community_unlock(has_bounty)
             model_record = {
                 "title": model_name_formatted,
-                "imageSrc": f"/pictures/models/{model}-grid-2x2.png",
+                "imageSrc": f"/pictures/models/{model}/{model}-grid-2x2.png",
                 "badges": random_badges(),
                 "bounties": {} if not has_bounty else has_bounty,
                 "communityUnlock": (
@@ -231,6 +231,12 @@ def create_models_records(models_in_dir, prev_db):
                     "streetwear",
                     "urban",
                 ],
+                "likes" : random.randint(0, 1000),
+                "favorites": random.randint(0, 1000),
+                "downloads": random.randint(0, 1000),
+                "shared": random.randint(0, 1000),
+                "views": random.randint(0, 100000),
+                "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
                 "description": "Lorem, ipsum dolor.",
                 "requirements": "Lorem, ipsum dolor.",
                 "creator": "Wednesday Addams",
