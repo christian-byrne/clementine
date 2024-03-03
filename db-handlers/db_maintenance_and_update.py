@@ -236,10 +236,18 @@ def create_models_records(models_in_dir, prev_db):
                 "downloads": random.randint(0, 1000),
                 "shared": random.randint(0, 1000),
                 "views": random.randint(0, 100000),
-                "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
+                # "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
+                "dateCreated": datetime.datetime.now().strftime("%B %d, %Y"),
                 "description": "Lorem, ipsum dolor.",
                 "requirements": "Lorem, ipsum dolor.",
                 "creator": "Wednesday Addams",
+                "numPhotos": len(
+                    [
+                        f
+                        for f in os.listdir(os.path.join(MODELS_DIR, model))
+                        if os.path.isfile(os.path.join(MODELS_DIR, model, f))
+                    ]
+                ),
             }
             ret.append(model_record)
 

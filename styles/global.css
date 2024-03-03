@@ -135,3 +135,12 @@ code {
   /* background-position: bottom; */
   overflow: hidden;
 }
+
+.text-with-outline {
+  color: var(--mdb-light); /* Set the color of the text */
+  text-shadow: 
+    -.25px -.25px 0 var(--mdb-gray),
+    .25px -.25px 0 var(--mdb-gray),
+    -.25px .25px 0 var(--mdb-gray),
+    .25px .25px 0 var(--mdb-gray); /* Set multiple shadows to create the outline effect */
+}

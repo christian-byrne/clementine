@@ -4,10 +4,7 @@ import ModelCard from "../components/ModelCard";
 import PhotoCard from "../components/PhotoCard";
 import allModelsData from "../data/models/all.json";
 import allPhotosData from "../data/photos/all.json";
-
-function sortModelsByRating(models) {
-  return models.sort((a, b) => b.rating - a.rating);
-}
+import sortModelsByKey from "@/utils/sortModelsByKey";
 
 function FeaturedPage() {
   useEffect(() => {
@@ -16,7 +13,9 @@ function FeaturedPage() {
 
   const [modelsExpanded, setModelsExpanded] = useState(false);
   const [photosExpanded, setPhotosExpanded] = useState(false);
-  const allModelsDataSorted = sortModelsByRating(allModelsData);
+  console.log(allModelsData);
+  const allModelsDataSorted = sortModelsByKey(allModelsData, "rating");
+  console.log(allModelsDataSorted);
   const initialModels = allModelsDataSorted.slice(0, 6);
   const remainingModels = allModelsDataSorted.slice(6);
   const initialPhotos = allPhotosData.slice(0, 12);
