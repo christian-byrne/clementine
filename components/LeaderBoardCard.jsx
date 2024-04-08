@@ -56,7 +56,6 @@ function LeaderBoardCard({
       <MDBContainer className="col-md-12 col-lg-6 col-sm-12 my-3">
         <MDBCard
           className="h-100 d-flex d-column"
-          style={{ overflowX: "scroll" }}
         >
           <MDBCardTitle className="mt-4 ms-3 mb-1 h2">
             &nbsp;{leaderBoardName || "Leaderboard"}

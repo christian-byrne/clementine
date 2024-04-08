@@ -13,9 +13,7 @@ function FeaturedPage() {
 
   const [modelsExpanded, setModelsExpanded] = useState(false);
   const [photosExpanded, setPhotosExpanded] = useState(false);
-  console.log(allModelsData);
   const allModelsDataSorted = sortModelsByKey(allModelsData, "rating");
-  console.log(allModelsDataSorted);
   const initialModels = allModelsDataSorted.slice(0, 6);
   const remainingModels = allModelsDataSorted.slice(6);
   const initialPhotos = allPhotosData.slice(0, 12);

@@ -173,7 +173,11 @@ function UserProfileSidebar({ userData }) {
         {/* Hot Take Section */}
         <MDBContainer className="my-3">
           <h5>Hottest Fashion Take 🌟</h5>
-          <p>Fashion fades, but darkness is forever</p>
+          {/* TODO: Add a user-generated hot take */}
+          {/* For Wednesday: */}
+          {/* <p>Fashion fades, but darkness is forever</p> */}
+          {/* For Adele: */}
+          <p>"Dress like you're already famous."</p>
         </MDBContainer>
 
         {/* Divider */}
