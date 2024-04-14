@@ -1,14 +1,14 @@
 import React from "react";
-import ModelCard from "@/components/cards/ModelCard";
+import PhotoCard from "@/components/cards/PhotoCard";
 import ContentRow from "@/components/content-row/ContentRow";
-import allModelsData from "@/data/models/all.json";
+import allPhotosData from "@/data/photos/all.json";
 
 function FeaturedModelsRow() {
   return (
     <ContentRow
-      colComponent={ModelCard}
-      colData={allModelsData}
-      sortKey="rating"
+      colComponent={PhotoCard}
+      colData={allPhotosData}
+      sortKey="likes"
       showFirstNCols={6}
     />
   );

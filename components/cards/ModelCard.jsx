@@ -13,29 +13,29 @@ import pathFormat from "@/utils/pathFormat";
 
 const getIcon = new IconGenerator();
 
-function ModelCard({ modelData }) {
+function ModelCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
   return (
-    modelData?.title && (
-      <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4">
+    data?.title && (
+      <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
-          <a href={`/browse/models/${modelData.titleSystemName}`}
+          <a href={`/browse/models/${data.titleSystemName}`}
           >
           <MDBCardImage
             src={
-              modelData.imageSrc
-                ?  pathFormat(modelData.imageSrc)
+              data.imageSrc
+                ?  pathFormat(data.imageSrc)
                 : pathFormat(placeholderImg.imageSrc)
             }
-            alt={modelData.title || placeholderImg.alt}
-            title={modelData.title || placeholderImg.title}
+            alt={data.title || placeholderImg.alt}
+            title={data.title || placeholderImg.title}
             position="top"
           />
           </a>
           <MDBCardBody>
-            <ModelCardText modelData={modelData} />
+            <ModelCardText modelData={data} />
           </MDBCardBody>
           <MDBContainer className="my-3">
-            <a href={`/browse/models/${modelData.titleSystemName}`}>
+            <a href={`/browse/models/${data.titleSystemName}`}>
             <MDBBtn color="primary" className="m-1">
               Details
             </MDBBtn>

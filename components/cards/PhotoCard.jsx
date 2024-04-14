@@ -11,13 +11,14 @@ import { padNumber } from "@/utils/padNumber";
 import placeholderImg from "@/data/placeholder-image.json";
 import pathFormat from "@/utils/pathFormat";
 
-function PhotoCard({ photoData }) {
+function PhotoCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0" }) {
+
   return (
-    photoData?.imagePath && (
-      <MDBContainer className="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0">
+    data?.imagePath && (
+      <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
           <a
-            href={`/browse/photos/${photoData.imageFileName
+            href={`/browse/photos/${data.imageFileName
               .replace(".png", "")
               .replace(".jpg", "")
               .replace(".jpeg", "")}`}
@@ -25,15 +26,15 @@ function PhotoCard({ photoData }) {
             <MDBCardImage
             className="clickable"
               src={
-                photoData.imagePath
-                  ? pathFormat(photoData.imagePath)
+                data.imagePath
+                  ? pathFormat(data.imagePath)
                   : pathFormat(placeholderImg.imagePath)
               }
-              alt={photoData.model || placeholderImg.alt}
+              alt={data.model || placeholderImg.alt}
               title={
-                (photoData.model &&
-                  photoData.creator &&
-                  photoData.model + " by " + photoData.creator) ||
+                (data.model &&
+                  data.creator &&
+                  data.model + " by " + data.creator) ||
                 placeholderImg.title
               }
               position="top"
@@ -48,7 +49,7 @@ function PhotoCard({ photoData }) {
                   // style={{color: "red"}}
                 ></i>
                 <span className="font-weight-bold">
-                  {photoData.likes && padNumber(photoData.likes, 5)}
+                  {data.likes && padNumber(data.likes, 5)}
                 </span>
               </div>
               <p className="mb-0 mt-1 small text-muted">LIKES</p>
@@ -57,7 +58,7 @@ function PhotoCard({ photoData }) {
               <div className="d-flex justify-content-center align-items-center">
                 <i className="fas fa-star me-2"></i>
                 <span className="font-weight-bold">
-                  {(photoData.favorites && padNumber(photoData.favorites, 5)) ||
+                  {(data.favorites && padNumber(data.favorites, 5)) ||
                     padNumber(0, 5)}
                 </span>
               </div>
@@ -70,29 +71,29 @@ function PhotoCard({ photoData }) {
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {photoData.modelTitle && (
+              {data.modelTitle && (
                 <a
-                  href={`/browse/photos/${photoData.imageFileName
+                  href={`/browse/photos/${data.imageFileName
                     .replace(".png", "")
                     .replace(".jpg", "")
                     .replace(".jpeg", "")}`}
                 >
-                  {photoData.modelTitle}
+                  {data.modelTitle}
                 </a>
               )}
-              {photoData.modelTitle && photoData.creator ? (
+              {data.modelTitle && data.creator ? (
                 <span className="text-muted">&nbsp;by&nbsp;</span>
               ) : (
                 ""
               )}
-              {photoData?.creator != "UNKNOWN" ? (
+              {data?.creator != "UNKNOWN" ? (
                 <a
                   href={pathFormat(
                     "/user/" +
-                      photoData.creator.replaceAll(" ", "-").toLowerCase()
+                      data.creator.replaceAll(" ", "-").toLowerCase()
                   )}
                 >
-                  {photoData.creator}
+                  {data.creator}
                 </a>
               ) : (
                 ""

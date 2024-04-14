@@ -4,7 +4,7 @@ import ModelCard from "../components/cards/ModelCard";
 import PhotoCard from "../components/cards/PhotoCard";
 import allModelsData from "../data/models/all.json";
 import allPhotosData from "../data/photos/all.json";
-import sortModelsByKey from "@/utils/sortModelsByKey";
+import sortRecordsByKey from "@/utils/sortModelsByKey";
 
 function LandingPage() {
   useEffect(() => {
@@ -13,7 +13,7 @@ function LandingPage() {
 
   const [modelsExpanded, setModelsExpanded] = useState(false);
   const [photosExpanded, setPhotosExpanded] = useState(false);
-  const allModelsDataSorted = sortModelsByKey(allModelsData, "rating");
+  const allModelsDataSorted = sortRecordsByKey(allModelsData, "rating");
   const initialModels = allModelsDataSorted.slice(0, 6);
   const remainingModels = allModelsDataSorted.slice(6);
   const initialPhotos = allPhotosData.slice(0, 12);

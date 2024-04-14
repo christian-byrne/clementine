@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import allModelsData from "@/data/models/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import ModelCardFullPage from "@/components/ModelCardFullPage";
-import sortModelsByKey from "@/utils/sortModelsByKey";
+import sortRecordsByKey from "@/utils/sortModelsByKey";
 import PhotoCardFullPage from "@/components/PhotoCardFullPage";
 
 function BrowsePage() {
@@ -16,7 +16,7 @@ function BrowsePage() {
 
   useEffect(() => {
     if (contentType === "models") {
-      setAllDataSorted(sortModelsByKey(allModelsData, "rating"));
+      setAllDataSorted(sortRecordsByKey(allModelsData, "rating"));
       // find index of itemName in allDataSorted and set as initial visible index
       const index = allDataSorted.findIndex(
         (model) => model?.titleSystemName === itemName
