@@ -63,10 +63,12 @@ function HomePage() {
               colData={allStylistsData}
               sortKey="rating"
               showFirstNCols={nCols}
+              // showFirstNCols={nCols * 2}
               maxCols={30}
               colContainerClass={
                 "col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 px-xl-2"
               }
+              // detailsStartExpanded={breakpoint == "xxl" ? false : true}
               detailsStartExpanded={false}
             />
             {/* Featured Photos Row */}
