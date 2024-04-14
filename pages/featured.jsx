@@ -25,6 +25,7 @@ function FeaturedPage() {
               showFirstNCols={6}
               maxCols={30}
               colContainerClass={"col-md-6 col-lg-4 col-sm-12 mb-4"}
+              detailsStartExpanded={true}
             />
             {/* Featured Photos Row */}
             <MDBTypography tag="h2">Featured Photos</MDBTypography>

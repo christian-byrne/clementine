@@ -46,6 +46,11 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] Card buttons -> button group
+- [ ] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
+- [ ] On mobile scroller view 
+  - [ ] keydown/keyup events need to be replaced with touch events
+- [ ] User profile content title -> clickable "view more" -> scroller view but filtered to only include items from that user
 - [ ] Photos on content cards -> carousels
 - [ ] New homepage corresponds to player pathway/loop analysis
   - [ ] leaderboard preview
@@ -55,6 +60,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - [ ] Signup form
 - [ ] Currency Page
 - [ ] Dress/Suggestions Page 
+- [ ] Improve lazy loading and async loading on user, leaderboard pages
 - [ ] scrollbars on mobile (leaderboard)
 - [x] Pause github actions workflow while using Vercel
 - [x] Model/Post Page more like civ post

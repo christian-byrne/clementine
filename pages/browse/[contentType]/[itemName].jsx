@@ -39,13 +39,13 @@ function BrowsePage() {
   const maxItems = allDataSorted.length - 1;
 
   const handleKeyDown = (event) => {
-    if (event.key === "ArrowDown") {
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
       setVisibleIndex((prevIndex) => (prevIndex + 1 + maxItems) % maxItems);
       event.preventDefault();
     }
   };
   const handleKeyUp = (event) => {
-    if (event.key === "ArrowUp") {
+    if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
       event.preventDefault();
       // Account for 0 by adding maxItems and then taking the modulus
       setVisibleIndex((prevIndex) => (prevIndex - 1 + maxItems) % maxItems);

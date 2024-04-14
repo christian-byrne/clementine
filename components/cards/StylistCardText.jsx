@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBCardTitle,
   MDBCardText,
   MDBTypography,
   MDBBadge,
   MDBIcon,
+  MDBCollapse,
 } from "mdb-react-ui-kit";
 import IconGenerator from "@/utils/getIcon";
 
 const getIcon = new IconGenerator();
 
-function ModelCardText({ stylistData }) {
+function ModelCardText({ stylistData, textExpandedState }) {
+
   return (
     <>
       <a
@@ -57,17 +59,20 @@ function ModelCardText({ stylistData }) {
           {getIcon.createIcon("mainCurrency")}
         </MDBCardText>
       )}
-      <MDBCardText>{stylistData.description}</MDBCardText>
-      <MDBCardText>
-        {stylistData.requirements && (
-          <>
-            <MDBTypography tag="small" className="text-muted">
-              REQUIRES&nbsp;&nbsp;
-            </MDBTypography>
-            {stylistData.requirements}
-          </>
-        )}
-      </MDBCardText>
+
+      <MDBCollapse open={textExpandedState}>
+        <MDBCardText>{stylistData.description}</MDBCardText>
+        <MDBCardText>
+          {stylistData.requirements && (
+            <>
+              <MDBTypography tag="small" className="text-muted">
+                REQUIRES&nbsp;&nbsp;
+              </MDBTypography>
+              {stylistData.requirements}
+            </>
+          )}
+        </MDBCardText>
+      </MDBCollapse>
     </>
   );
 }

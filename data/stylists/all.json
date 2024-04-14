@@ -73,12 +73,16 @@
     "titleSystemName": "balenciaga-retrofuturism"
   },
   {
-    "badges": [],
     "bounties": {},
-    "communityUnlock": {},
     "creator": "Wednesday Addams",
     "description": "Lorem, ipsum dolor.",
+    "badges": [],
     "imageSrc": "/pictures/models/ballerina-disco/ballerina-disco-grid-2x2.png",
+    "communityUnlock": {
+      "goal": 750,
+      "progress": 741,
+      "message": "Contribute to unlock for all users!"
+    },
     "rating": 94,
     "requirements": "Lorem, ipsum dolor.",
     "tags": ["high fashion", "streetwear", "urban"],
@@ -194,7 +198,7 @@
     },
     "creator": "Wednesday Addams",
     "description": "Lorem ipsum dolor sit.",
-    "imageSrc" : "/pictures/models/goth-x-byzantine/goth-x-byzantine-grid-2x2.png",
+    "imageSrc": "/pictures/models/goth-x-byzantine/goth-x-byzantine-grid-2x2.png",
     "rating": 64,
     "requirements": "Beanies, Tunics, Sweaters, Gold Colors",
     "tags": [

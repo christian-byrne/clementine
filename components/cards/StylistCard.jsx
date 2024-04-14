@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCard,
@@ -13,33 +13,44 @@ import pathFormat from "@/utils/pathFormat";
 
 const getIcon = new IconGenerator();
 
-function StylistCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
+function StylistCard({
+  data,
+  containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
+  detailsStartExpanded,
+}) {
+  const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
+  const toggleText = () => setTextExpanded(!textExpanded);
   return (
     data?.title && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
-          <a href={`/browse/models/${data.titleSystemName}`}
-          >
-          <MDBCardImage
-            src={
-              data.imageSrc
-                ?  pathFormat(data.imageSrc)
-                : pathFormat(placeholderImg.imageSrc)
-            }
-            alt={data.title || placeholderImg.alt}
-            title={data.title || placeholderImg.title}
-            position="top"
-          />
+          <a href={`/browse/models/${data.titleSystemName}`}>
+            <MDBCardImage
+              src={
+                data.imageSrc
+                  ? pathFormat(data.imageSrc)
+                  : pathFormat(placeholderImg.imageSrc)
+              }
+              alt={data.title || placeholderImg.alt}
+              title={data.title || placeholderImg.title}
+              position="top"
+            />
           </a>
           <MDBCardBody>
-            <StylistCardText stylistData={data} />
+            <StylistCardText
+              stylistData={data}
+              textExpandedState={textExpanded}
+            />
           </MDBCardBody>
           <MDBContainer className="my-3">
-            <a href={`/browse/models/${data.titleSystemName}`}>
-            <MDBBtn color="primary" className="m-1">
+            <MDBBtn
+              color="primary"
+              className="m-1"
+              tag="a"
+              onClick={toggleText}
+            >
               Details
             </MDBBtn>
-            </a>
             <MDBBtn color="success" className="m-1">
               Use with my Wardrobe
             </MDBBtn>
