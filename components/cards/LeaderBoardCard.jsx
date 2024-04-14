@@ -10,7 +10,7 @@ import {
   MDBCardText,
 } from "mdb-react-ui-kit";
 import { camelCaseToTitle } from "@/utils/camelCaseToTitle";
-import SocialStatsBadges from "@/SocialStatsBadges";
+import SocialStatsBadges from "@/components/badges/SocialStatsBadges";
 import { padNumber } from "@/utils/padNumber";
 import pathFormat from "@/utils/pathFormat";
 

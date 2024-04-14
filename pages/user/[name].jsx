@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import UserProfileSidebar from "../../components/sidebars/user-profile/UserProfileSidebar";
+import UserProfileSidebar from "@/components/sidebars/user-profile/UserProfileSidebar";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import StylistCard from "../../components/cards/StylistCard";
-import PhotoCard from "../../components/cards/PhotoCard";
-import allUserData from "../../data/users/all.json";
-import allModelsData from "../../data/models/all.json";
-import allPhotosData from "../../data/photos/all.json";
-import { getOneUser } from "../../utils/getOneUser";
+import StylistCard from "@/components/cards/StylistCard";
+import PhotoCard from "@/components/cards/PhotoCard";
+import allUserData from "@/data/users/all.json";
+import allStylistsData from "@/data/stylists/all.json";
+import allPhotosData from "@/data/photos/all.json";
+import { getOneUser } from "@/utils/getOneUser";
 
-function getModelByName(modelName) {
-  if (typeof modelName !== "string") {
-    // If modelName is not a string, return null or handle it appropriately
+function getStylistByName(stylistName) {
+  if (typeof stylistName !== "string") {
+    // If stylistName is not a string, return null or handle it appropriately
     return null;
   }
-  return allModelsData.find((model) => model.titleSystemName === modelName);
+  return allStylistsData.find((stylist) => stylist.titleSystemName === stylistName);
 }
 
 function UserProfilePage() {
   const router = useRouter();
   const [userProfileData, setUserProfileData] = useState(null);
   const [userPhotos, setUserPhotos] = useState([]);
-  const [userModels, setUserModels] = useState([]);
+  const [userStylists, setUserStylists] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -36,18 +36,18 @@ function UserProfilePage() {
             return;
           }
 
-          const userModelsPromises = data.ownModels.map(async (modelName) => {
+          const userStylistsPromises = data.ownModels.map(async (stylistName) => {
             try {
-              const model = await getModelByName(modelName);
-              return model; // Assuming getModelByName returns a model object
+              const stylist = await getStylistByName(stylistName);
+              return stylist; // Assuming getStylistByName returns a model object
             } catch (error) {
-              console.error("Error fetching user model:", error);
+              console.error("Error fetching user stylist:", error);
               // Handle error if necessary
             }
           });
-          const userModels = await Promise.all(userModelsPromises);
+          const userStylists = await Promise.all(userStylistsPromises);
 
-          setUserModels(userModels.filter((model) => model !== null));
+          setUserStylists(userStylists.filter((stylist) => stylist !== null));
 
           const filteredPhotos = allPhotosData.filter((photo) => {
             if (data.ownModels.includes(photo.modelDirName)) {
@@ -68,13 +68,15 @@ function UserProfilePage() {
 
   useEffect(() => {
     if (userProfileData) {
-      document.title = `${userProfileData.username || ""} | WD`;
+      document.title = `${userProfileData.username || "User Profile"} | WD`;
     }
   }, [userProfileData]);
 
   if (!userProfileData) {
     return null; // Or loading indicator, error message, etc.
   }
+
+  console.log(userStylists)
 
   return (
     <MDBContainer fluid>
@@ -85,11 +87,11 @@ function UserProfilePage() {
         <main role="main" className="col-md-9 ms-sm-auto col-lg-9 px-md-4">
           <MDBContainer fluid className="mt-5">
             <MDBRow>
-              {userModels?.length > 0 && (
+              {userStylists?.length > 0 && (
                 <>
-                  <h2 className="mb-4">Most Popular Stylists</h2>
-                  {userModels.map((model, index) => (
-                    <StylistCard modelData={model} key={index} />
+                  <h2 className="mb-4">Pinned Stylists</h2>
+                  {userStylists.map((stylist, index) => (
+                    <StylistCard data={stylist} key={index} />
                   ))}
                 </>
               )}
@@ -99,7 +101,7 @@ function UserProfilePage() {
                 <>
                   <h2 className="mb-4">Photos</h2>
                   {userPhotos.map((photo, index) => (
-                    <PhotoCard photoData={photo} key={index} />
+                    <PhotoCard data={photo} key={index}  />
                   ))}
                 </>
               )}
