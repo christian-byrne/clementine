@@ -44,21 +44,20 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 
 previous commit log:
-
-- natural sorting filenames util
-- get dir images API endpoint
-- photo grid considers dir contents size
+- fix toggle expand content on homepage
+- more default content on homepage
 
 --------------
 
 ### TODO
 
-- [ ] Responsive photo grid doesn't go to configurations that wouldnt be possible with the size of the passed photo data argument
+- [ ] Photos on content cards -> carousels
+  - [ ] on fullpage card view as well
+- [x] Responsive photo grid doesn't go to configurations that wouldnt be possible with the size of the passed photo data argument
 - [x] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
 - [ ] On mobile scroller view 
   - [ ] keydown/keyup events need to be replaced with touch events
 - [ ] User profile content title -> clickable "view more" -> scroller view but filtered to only include items from that user
-- [ ] Photos on content cards -> carousels
 - [ ] New homepage corresponds to player pathway/loop analysis
   - [ ] leaderboard preview
   - [ ] Smaller model and photo cards

@@ -18,19 +18,29 @@ function ContentRow({
 
   // Slice the sorted data into visibleCols and collapsedCols based on showFirstNCols
   const visibleCols = allDataSorted.slice(0, showFirstNCols);
-  const collapsedCols = allDataSorted.slice(showFirstNCols, maxCols);
+  const collapsedCols = allDataSorted.slice(
+    showFirstNCols,
+    maxCols > 0 ? maxCols : allDataSorted.length
+  );
 
   // Function to toggle expansion state
   const toggleExpansion = () => {
     setExpanded(!colsExpanded);
   };
 
+  console.log(collapsedCols)
+
   return (
     <MDBRow>
       {visibleCols.length > 0 && (
         <>
           {visibleCols.map((colData, index) => (
-            <ColComponent key={index} data={colData} containerClass={colContainerClass} detailsStartExpanded={detailsStartExpanded}/>
+            <ColComponent
+              key={index}
+              data={colData}
+              containerClass={colContainerClass}
+              detailsStartExpanded={detailsStartExpanded}
+            />
           ))}
         </>
       )}
@@ -43,7 +53,12 @@ function ContentRow({
             }}
           >
             {collapsedCols.map((colData, index) => (
-              <ColComponent key={index + visibleCols.length} modelData={colData} />
+              <ColComponent
+                key={index + visibleCols.length}
+                data={colData}
+                containerClass={colContainerClass}
+                detailsStartExpanded={detailsStartExpanded}
+              />
             ))}
           </div>
           <MDBContainer className="d-flex justify-content-center mt-0 mb-3">

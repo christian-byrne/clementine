@@ -64,7 +64,9 @@ function HomePage() {
               sortKey="rating"
               showFirstNCols={nCols}
               maxCols={30}
-              colContainerClass={"col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 m-xl-0"}
+              colContainerClass={
+                "col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 px-xl-2"
+              }
               detailsStartExpanded={false}
             />
             {/* Featured Photos Row */}
@@ -73,10 +75,10 @@ function HomePage() {
               colComponent={PhotoCard}
               colData={allPhotosData}
               sortKey="likes"
-              showFirstNCols={9}
+              showFirstNCols={32}
               maxCols={50}
               colContainerClass={
-                "col-md-6 col-lg-4 col-sm-12 col-xxl-3 mb-4 mx-0"
+                "col-md-6 col-lg-4 col-sm-12 col-xxl-3 mb-4 mx-0 px-xl-2"
               }
             />
           </MDBContainer>
@@ -91,7 +93,7 @@ function HomePage() {
                 description={"Users who have the most motion"}
                 leaderBoardData={sortRecordsByKey(allUserData, "views")}
                 visibleColumns={["views"]}
-                maxRows={10}
+                maxRows={9}
                 socialBadges={
                   nCols == 1
                     ? ["likes"]
@@ -106,7 +108,7 @@ function HomePage() {
                 description={"Users who have make great content"}
                 leaderBoardData={sortRecordsByKey(allUserData, "modelCount")}
                 visibleColumns={["modelCount"]}
-                maxRows={10}
+                maxRows={9}
                 socialBadges={
                   nCols == 1
                     ? ["avergageRating"]
@@ -118,6 +120,40 @@ function HomePage() {
                         "downloads",
                         "favorites",
                       ]
+                }
+                containerClassName="col-12 my-3 mx-0 px-0"
+              />
+              <LeaderBoardCard
+                leaderBoardName={"Most Influential"}
+                description={
+                  "Users with the most downloads and used suggestions"
+                }
+                leaderBoardData={sortRecordsByKey(allUserData, "downloads")}
+                visibleColumns={["location"]}
+                maxRows={12}
+                socialBadges={
+                  nCols == 1
+                    ? ["downloads"]
+                    : nCols < 5
+                    ? ["favorites", "downloads"]
+                    : ["downloads", "favorites", "views"]
+                }
+                containerClassName="col-12 my-3 mx-0 px-0"
+              />
+              <LeaderBoardCard
+                leaderBoardName={"Most Decorated"}
+                description={
+                  "Users with the most badges, titles, and achievements"
+                }
+                leaderBoardData={sortRecordsByKey(allUserData, "badgeCount")}
+                visibleColumns={["badgeCount"]}
+                maxRows={13}
+                socialBadges={
+                  nCols == 1
+                    ? ["likes"]
+                    : nCols < 5
+                    ? ["favorites", "likes"]
+                    : ["downloads", "likes", "favorites"]
                 }
                 containerClassName="col-12 my-3 mx-0 px-0"
               />
