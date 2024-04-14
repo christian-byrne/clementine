@@ -1,8 +1,19 @@
-function sortRecordsByKey(data, key) {
-  if (key === "random") {
-    return data.sort(() => Math.random() - 0.5);
+function sortRecordsByKey(data, key, order = "asc") {
+  let returnRecords = [];
+  if (data == null || data.length === 0) {
+    console.error("Data is empty or not in the correct format");
+    returnRecords = [...data];
+  } else if (key === "random") {
+    returnRecords = data.sort(() => Math.random() - 0.5);
+  } else {
+    returnRecords = data.sort((a, b) => {
+      if (order !== "asc") {
+        return a[key] < b[key] ? -1 : 1;
+      }
+      return a[key] > b[key] ? -1 : 1;
+    });
   }
-  return data.sort((a, b) => b[key] - a[key]);
+  return [...returnRecords];
 }
 
 export default sortRecordsByKey;

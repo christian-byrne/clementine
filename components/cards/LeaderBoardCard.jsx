@@ -21,6 +21,7 @@ function LeaderBoardCard({
   leaderBoardName,
   description,
   socialBadges,
+  containerClassName="col-md-12 col-lg-6 col-sm-12 my-3"
 }) {
   const [numVisibleBadges, setNumVisibleBadges] = useState(1);
 
@@ -53,7 +54,7 @@ function LeaderBoardCard({
   
   return (
     leaderBoardData?.length > 0 && (
-      <MDBContainer className="col-md-12 col-lg-6 col-sm-12 my-3">
+      <MDBContainer className={containerClassName}>
         <MDBCard
           className="h-100 d-flex d-column"
         >

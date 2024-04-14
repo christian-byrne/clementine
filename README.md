@@ -42,11 +42,18 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 &nbsp; 
 
+
+previous commit log:
+
+- new homepage layout
+- sort db models util with shallow copies
+- TitleText component
+
+
 --------------
 
 ### TODO
 
-- [ ] Card buttons -> button group
 - [ ] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
 - [ ] On mobile scroller view 
   - [ ] keydown/keyup events need to be replaced with touch events

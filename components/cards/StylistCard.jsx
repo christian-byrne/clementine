@@ -5,6 +5,7 @@ import {
   MDBCardImage,
   MDBCardBody,
   MDBBtn,
+  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";
 import placeholderImg from "@/data/placeholder-image.json";
@@ -43,17 +44,22 @@ function StylistCard({
             />
           </MDBCardBody>
           <MDBContainer className="my-3">
-            <MDBBtn
-              color="primary"
-              className="m-1"
-              tag="a"
-              onClick={toggleText}
-            >
-              Details
-            </MDBBtn>
-            <MDBBtn color="success" className="m-1">
-              Use with my Wardrobe
-            </MDBBtn>
+            {/* <MDBBtnGroup aria-label="Stylist Card Buttons"> */}
+              <MDBBtn
+                color="primary"
+                className="mt-1 mx-1"
+                tag="a"
+                onClick={toggleText}
+              >
+                Details
+              </MDBBtn>
+              <MDBBtn
+                color="success"
+                className="mt-1 mx-1"
+              >
+                Use
+              </MDBBtn>
+            {/* </MDBBtnGroup> */}
           </MDBContainer>
         </MDBCard>
       </MDBContainer>
