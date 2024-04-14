@@ -104,7 +104,7 @@ function BrowsePage() {
           ) : null}
         </MDBContainer>
         {/* Go Next Bottom Right Icon */}
-        <MDBContainer className={"d-flex justify-content-end mb-5 me-4"}>
+        <MDBContainer className={"d-flex justify-content-end pb-5 pe-4 m-0"}>
           <MDBBtn
             color="link"
             className="p-0 m-0"

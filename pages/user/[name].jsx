@@ -96,7 +96,9 @@ function UserProfilePage() {
                 <>
                   <TitleText text="Pinned Stylists" />
                   {userStylists.map((stylist, index) => (
-                    <StylistCard data={stylist} key={index} />
+                    <StylistCard data={stylist} key={index} 
+                    detailsStartExpanded={true}
+                    />
                   ))}
                 </>
               )}

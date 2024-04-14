@@ -43,8 +43,6 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 &nbsp; 
 
 
-previous commit log:
-- dont load footer on mobile
 
 
 --------------
@@ -76,8 +74,6 @@ previous commit log:
 - [ ] Blog routing
   - [ ] Add silhouttes back to blog
   - [ ] change location of other blog pages
-- [ ] automatically go to top of page when changing views on mobile
-- [ ] [Search feature on leaderboards](https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Search,-Use%20search%20proprty)
-- [ ] [Async loader animation on leaderboards](https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Action%20buttons,-With%20the%20Datatable)
+<!-- - [ ] [Search feature on leaderboards](https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Search,-Use%20search%20proprty) -->
 
 
