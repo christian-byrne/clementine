@@ -6,65 +6,65 @@ import {
   MDBBadge,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import IconGenerator from "../../utils/getIcon";
+import IconGenerator from "@/utils/getIcon";
 
 const getIcon = new IconGenerator();
 
-function ModelCardText({ modelData }) {
+function ModelCardText({ stylistData }) {
   return (
     <>
       <a
-        href={`/browse/models/${modelData.titleSystemName}`}
+        href={`/browse/models/${stylistData.titleSystemName}`}
         // prevent blue hyperlink color
         style={{ color: "inherit" }}
       >
-        <MDBCardTitle>{modelData.title}</MDBCardTitle>
+        <MDBCardTitle>{stylistData.title}</MDBCardTitle>
       </a>
       <div className="mb-3">
-        {modelData.badges &&
-          modelData.badges.length > 0 &&
-          modelData.badges.map((badge, index) => (
+        {stylistData.badges &&
+          stylistData.badges.length > 0 &&
+          stylistData.badges.map((badge, index) => (
             <span key={index} className="badge badge-secondary me-2 mb-2">
               {badge}
             </span>
           ))}
       </div>
       {/* Community Unlock */}
-      {modelData.communityUnlock &&
-        modelData.communityUnlock.goal &&
-        modelData.communityUnlock.progress && (
+      {stylistData.communityUnlock &&
+        stylistData.communityUnlock.goal &&
+        stylistData.communityUnlock.progress && (
           <MDBCardText className="text-muted">
             <MDBTypography tag="strong">
-              {modelData.communityUnlock.progress}/
-              {modelData.communityUnlock.goal}
+              {stylistData.communityUnlock.progress}/
+              {stylistData.communityUnlock.goal}
             </MDBTypography>
             {getIcon.createIcon("mainCurrency")}
-            {modelData.communityUnlock.message &&
-              modelData.communityUnlock.message}
+            {stylistData.communityUnlock.message &&
+              stylistData.communityUnlock.message}
           </MDBCardText>
         )}
       {/* Bounty Offers */}
-      {modelData.bounties && modelData.bounties.status && (
+      {stylistData.bounties && stylistData.bounties.status && (
         <MDBCardText className="text-muted">
           <MDBBadge color="primary me-2 mt-0">
             <MDBIcon icon="search-dollar" />
             &nbsp;
-            {modelData.bounties.status}
+            {stylistData.bounties.status}
           </MDBBadge>
-          {modelData.bounties.message && modelData.bounties.message}
+          {stylistData.bounties.message && stylistData.bounties.message}
           &nbsp;
-          {modelData.bounties.reward && "for " + modelData.bounties.reward}
+          {stylistData.bounties.reward && "for " + stylistData.bounties.reward}
           {getIcon.createIcon("mainCurrency")}
         </MDBCardText>
       )}
-      <MDBCardText>{modelData.description}</MDBCardText>
+      <MDBCardText>{stylistData.description}</MDBCardText>
       <MDBCardText>
-        {modelData.requirements && (
+        {stylistData.requirements && (
           <>
             <MDBTypography tag="small" className="text-muted">
               REQUIRES&nbsp;&nbsp;
             </MDBTypography>
-            {modelData.requirements}
+            {stylistData.requirements}
           </>
         )}
       </MDBCardText>

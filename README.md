@@ -46,6 +46,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] Photos on content cards -> carousels
 - [ ] New homepage corresponds to player pathway/loop analysis
   - [ ] leaderboard preview
   - [ ] Smaller model and photo cards

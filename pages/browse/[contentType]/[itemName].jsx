@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
-import allModelsData from "@/data/models/all.json";
+import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
-import ModelCardFullPage from "@/components/ModelCardFullPage";
-import sortRecordsByKey from "@/utils/sortModelsByKey";
-import PhotoCardFullPage from "@/components/PhotoCardFullPage";
+import StylistCardFullPage from "@/components/cards/StylistCardFullPage";
+import sortRecordsByKey from "@/utils/sortRecordsByKey";
+import PhotoCardFullPage from "@/components/cards/PhotoCardFullPage";
 
 function BrowsePage() {
   const router = useRouter();
@@ -15,11 +15,11 @@ function BrowsePage() {
   const [allDataSorted, setAllDataSorted] = useState([]);
 
   useEffect(() => {
-    if (contentType === "models") {
-      setAllDataSorted(sortRecordsByKey(allModelsData, "rating"));
+    if (contentType === "stylists") {
+      setAllDataSorted(sortRecordsByKey(allStylistsData, "rating"));
       // find index of itemName in allDataSorted and set as initial visible index
       const index = allDataSorted.findIndex(
-        (model) => model?.titleSystemName === itemName
+        (stylist) => stylist?.titleSystemName === itemName
       );
       // if the item name is found
       if (index !== -1) setVisibleIndex(index);
@@ -69,8 +69,8 @@ function BrowsePage() {
     allDataSorted?.length > 0 && (
       <>
         <MDBContainer fluid className="my-4 py-4 d-flex">
-          {contentType === "models" ? (
-            <ModelCardFullPage modelData={allDataSorted[visibleIndex]} />
+          {contentType === "stylists" ? (
+            <StylistCardFullPage stylistData={allDataSorted[visibleIndex]} />
           ) : contentType === "photos" ? (
             <PhotoCardFullPage photoData={allDataSorted[visibleIndex]} />
           ) : null}

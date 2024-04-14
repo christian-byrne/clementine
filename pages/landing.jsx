@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MDBContainer, MDBRow, MDBBtn } from "mdb-react-ui-kit";
-import ModelCard from "../components/cards/ModelCard";
+import StylistCard from "../components/cards/StylistCard";
 import PhotoCard from "../components/cards/PhotoCard";
 import allModelsData from "../data/models/all.json";
 import allPhotosData from "../data/photos/all.json";
@@ -37,7 +37,7 @@ function LandingPage() {
                 <>
                   <h2 className="mb-4">Featured Stylists</h2>
                   {initialModels.map((model, index) => (
-                    <ModelCard key={index} modelData={model} />
+                    <StylistCard key={index} modelData={model} />
                   ))}
                 </>
               )}
@@ -50,7 +50,7 @@ function LandingPage() {
                     }}
                   >
                     {remainingModels.map((model, index) => (
-                      <ModelCard
+                      <StylistCard
                         key={index + initialModels.length}
                         modelData={model}
                       />

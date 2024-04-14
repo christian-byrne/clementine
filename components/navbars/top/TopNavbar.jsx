@@ -69,10 +69,10 @@ function Navbar() {
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
               <MDBNavbarLink
-                href={pathFormat("/browse/models/0")}
+                href={pathFormat("/browse/stylists/0")}
                 onClick={closeNav}
               >
-                Models
+                Stylists
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>

@@ -6,18 +6,18 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import ModelCardText from "./ModelCardText";
-import ResponsivePhotoGrid from "../photo-grids/ResponsivePhotoGrid";
+import ModelCardText from "@/components/cards/StylistCardText";
+import ResponsivePhotoGrid from "@/components/photo-grids/ResponsivePhotoGrid";
 import pathFormat from "@/utils/pathFormat";
 
-function ModelCardFullPage({ modelData }) {
+function StylistCardFullPage({ stylistData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
   const [screenWidth, setScreenWidth] = useState(null);
 
   // pictures/models/athleisure-meets-grunge/athleisure-meets-grunge-1.png
-  const photos = [modelData.imageSrc];
+  const photos = [stylistData.imageSrc];
   for (let i = 1; i < 10; i++) {
-    photos.push(pathFormat(modelData.imageSrc.replace("grid-2x2", `${i}`)));
+    photos.push(pathFormat(stylistData.imageSrc.replace("grid-2x2", `${i}`)));
   }
 
   // Use conditional check to ensure that only accessing window object in the browser
@@ -48,13 +48,13 @@ function ModelCardFullPage({ modelData }) {
         {(screenWidth > 768 || !detailsExpanded) && (
           <ResponsivePhotoGrid
             photos={photos}
-            altPrefix={modelData.title}
-            titlePrefix={modelData.title}
+            altPrefix={stylistData.title}
+            titlePrefix={stylistData.title}
           />
         )}
         {detailsExpanded ? (
           <MDBCardBody>
-            <ModelCardText modelData={modelData} />
+            <ModelCardText modelData={stylistData} />
             <MDBContainer className="my-3">
               <MDBBtn color="primary" className="m-1">
                 Details
@@ -106,4 +106,4 @@ function ModelCardFullPage({ modelData }) {
   );
 }
 
-export default ModelCardFullPage;
+export default StylistCardFullPage;

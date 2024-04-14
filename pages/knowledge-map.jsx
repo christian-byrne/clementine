@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import UserProfileSidebar from "../components/sidebars/user-profile/UserProfileSidebarMinimal";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import ModelCard from "../components/cards/ModelCard";
+import StylistCard from "../components/cards/StylistCard";
 import PhotoCard from "../components/cards/PhotoCard";
 import pathFormat from "@/utils/pathFormat";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import UserProfileSidebar from "../../components/sidebars/user-profile/UserProfileSidebar";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import ModelCard from "../../components/cards/ModelCard";
+import StylistCard from "../../components/cards/StylistCard";
 import PhotoCard from "../../components/cards/PhotoCard";
 import allUserData from "../../data/users/all.json";
 import allModelsData from "../../data/models/all.json";
@@ -89,7 +89,7 @@ function UserProfilePage() {
                 <>
                   <h2 className="mb-4">Most Popular Stylists</h2>
                   {userModels.map((model, index) => (
-                    <ModelCard modelData={model} key={index} />
+                    <StylistCard modelData={model} key={index} />
                   ))}
                 </>
               )}

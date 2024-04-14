@@ -6,6 +6,7 @@ function ContentRow({
   colComponent: ColComponent,
   colData,
   sortKey,
+  colContainerClass,
   showFirstNCols = 6,
   maxCols = 50,
 }) {
@@ -28,7 +29,7 @@ function ContentRow({
       {visibleCols.length > 0 && (
         <>
           {visibleCols.map((colData, index) => (
-            <ColComponent key={index} data={colData} />
+            <ColComponent key={index} data={colData} containerClass={colContainerClass}/>
           ))}
         </>
       )}

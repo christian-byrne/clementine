@@ -6,14 +6,14 @@ import {
   MDBCardBody,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import ModelCardText from "@/components/cards/ModelCardText";
+import StylistCardText from "@/components/cards/StylistCardText";
 import placeholderImg from "@/data/placeholder-image.json";
 import IconGenerator from "@/utils/getIcon";
 import pathFormat from "@/utils/pathFormat";
 
 const getIcon = new IconGenerator();
 
-function ModelCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
+function StylistCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
   return (
     data?.title && (
       <MDBContainer className={containerClass}>
@@ -32,7 +32,7 @@ function ModelCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
           />
           </a>
           <MDBCardBody>
-            <ModelCardText modelData={data} />
+            <StylistCardText stylistData={data} />
           </MDBCardBody>
           <MDBContainer className="my-3">
             <a href={`/browse/models/${data.titleSystemName}`}>
@@ -50,4 +50,4 @@ function ModelCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4"}) {
   );
 }
 
-export default ModelCard;
+export default StylistCard;
