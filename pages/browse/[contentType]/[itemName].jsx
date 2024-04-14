@@ -52,16 +52,44 @@ function BrowsePage() {
     }
   };
 
+
+  // Swiping listener for mobile
+    let startY = 0;
+
+  const handleTouchStart = (event) => {
+    event.preventDefault();
+    startY = event.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (event) => {
+    const deltaY = event.changedTouches[0].clientY - startY;
+
+    if (deltaY > 50) {
+      // Swipe down
+      setVisibleIndex((prevIndex) => (prevIndex - 1 + maxItems) % maxItems);
+    } else if (deltaY < -50) {
+      // Swipe up
+      setVisibleIndex((prevIndex) => (prevIndex + 1) % maxItems);
+    }
+  };
+
   useEffect(() => {
     document.title = "Browse";
     // Add event listener when component mounts
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
 
+    if (window.innerWidth < 768) {
+      window.addEventListener("touchstart", handleTouchStart, false);
+      window.addEventListener("touchend", handleTouchEnd, false);
+    }
+
     // Remove event listener when component unmounts
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [allDataSorted, maxItems]);
 

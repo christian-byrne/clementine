@@ -1,9 +1,26 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import pathFormat from '@/utils/pathFormat';
 
 export default function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
+
+    !isMobile ? (
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
@@ -114,5 +131,8 @@ export default function App() {
         </a>
       </div>
     </MDBFooter>
+    ) : (
+      null
+    )
   );
 }
