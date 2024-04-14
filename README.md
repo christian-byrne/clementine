@@ -1,4 +1,4 @@
-Front end of social fashion-recommendations app. Applying lessons learned in Gamification class to create a more engaging interface and user experience in a purposeful way.
+Front end of social fashion-recommendations app. Applying lessons I learned in Gamification class to create a more engaging interface and user experience in a purposeful way 🤗.
 
 # [👉 VIEW THE APP LIVE](https://clementine-christian-byrnes-projects.vercel.app/featured)
 
@@ -13,10 +13,10 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - Live View - [Leaderboards](https://clementine-christian-byrnes-projects.vercel.app/leaderboards)
   - Source - [leaderboards.jsx](https://github.com/christian-byrne/clementine/blob/main/pages/leaderboards.jsx)
 - 🌟 Featured
-  - Live View - [Featured Models](https://clementine-christian-byrnes-projects.vercel.app/featured)
+  - Live View - [Featured Content](https://clementine-christian-byrnes-projects.vercel.app/featured)
   - Source - [featured.jsx](https://github.com/christian-byrne/clementine/blob/main/pages/featured.jsx)
-- 👗 Models - Scroller Browsing 
-  - Live View - [Models](https://clementine-christian-byrnes-projects.vercel.app/browse/models/0)
+- 👗 Stylists - Scroller Browsing 
+  - Live View - [Stylists](https://clementine-christian-byrnes-projects.vercel.app/browse/stylists/0)
   - Source - [browse/[contentType]/[itemName].jsx](https://github.com/christian-byrne/clementine/blob/main/pages/browse/%5BcontentType%5D/%5BitemName%5D.jsx)
 - 📷 Photos - Scroller Browsing
   - Live View - [Photos](https://clementine-christian-byrnes-projects.vercel.app/browse/photos/0)
@@ -33,12 +33,14 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - Source - [index.jsx](https://github.com/christian-byrne/clementine/blob/main/pages/index.jsx)
 - 📝 Blog Pages
   - Silhouettes
-    - Live View - [blog/silhouettes]
+    - Live View - [blog/silhouettes](https://clementine-christian-byrnes-projects.vercel.app/blog/silhouettes)
   - Data
   <!-- - Algorithms
   - Segmentation -->
 - 💎 Currency
   - In Progres...
+- 🎉 New User Welcome/Signup Page
+  - In Progress...
 
 &nbsp; 
 
