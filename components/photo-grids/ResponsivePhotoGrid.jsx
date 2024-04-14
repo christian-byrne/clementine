@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBCardImage, MDBTypography } from "mdb-react-ui-kit";
-import placeholderImg from "../data/placeholder-image.json";
+import placeholderImg from "../../data/placeholder-image.json";
 import pathFormat from "@/utils/pathFormat";
 
 function ResponsivePhotoGrid({ photos, altPrefix, titlePrefix }) {

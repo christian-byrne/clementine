@@ -6,9 +6,9 @@ import {
   MDBCardBody,
   MDBBtn,
 } from "mdb-react-ui-kit";
-import ModelCardText from "./ModelCardText";
-import placeholderImg from "../data/placeholder-image.json";
-import IconGenerator from "../utils/getIcon";
+import ModelCardText from "@/components/cards/ModelCardText";
+import placeholderImg from "@/data/placeholder-image.json";
+import IconGenerator from "@/utils/getIcon";
 import pathFormat from "@/utils/pathFormat";
 
 const getIcon = new IconGenerator();

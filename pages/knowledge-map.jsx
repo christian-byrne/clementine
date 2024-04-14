@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import UserProfileSidebar from "../components/UserProfileSidebarMinimal";
+import UserProfileSidebar from "../components/sidebars/user-profile/UserProfileSidebarMinimal";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import ModelCard from "../components/ModelCard";
-import PhotoCard from "../components/PhotoCard";
+import ModelCard from "../components/cards/ModelCard";
+import PhotoCard from "../components/cards/PhotoCard";
 import pathFormat from "@/utils/pathFormat";
 
 const userProfileData = {

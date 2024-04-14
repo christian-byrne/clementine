@@ -6,7 +6,7 @@ import {
   MDBBadge,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import IconGenerator from "../utils/getIcon";
+import IconGenerator from "../../utils/getIcon";
 
 const getIcon = new IconGenerator();
 

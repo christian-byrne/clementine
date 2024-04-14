@@ -7,7 +7,7 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import ModelCardText from "./ModelCardText";
-import ResponsivePhotoGrid from "./ResponsivePhotoGrid";
+import ResponsivePhotoGrid from "../photo-grids/ResponsivePhotoGrid";
 import pathFormat from "@/utils/pathFormat";
 
 function ModelCardFullPage({ modelData }) {

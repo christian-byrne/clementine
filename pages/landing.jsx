@@ -1,18 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { MDBContainer, MDBRow, MDBBtn } from "mdb-react-ui-kit";
-import PhotoCard from "@/components/cards/PhotoCard";
-import FeaturedModelsRow from "@/components/content-row/FeaturedModelsRow";
-import allPhotosData from "@/data/photos/all.json";
+import ModelCard from "../components/cards/ModelCard";
+import PhotoCard from "../components/cards/PhotoCard";
+import allModelsData from "../data/models/all.json";
+import allPhotosData from "../data/photos/all.json";
+import sortModelsByKey from "@/utils/sortModelsByKey";
 
-function FeaturedPage() {
+function LandingPage() {
   useEffect(() => {
     document.title = "Featured Styles";
   }, []);
 
+  const [modelsExpanded, setModelsExpanded] = useState(false);
   const [photosExpanded, setPhotosExpanded] = useState(false);
+  const allModelsDataSorted = sortModelsByKey(allModelsData, "rating");
+  const initialModels = allModelsDataSorted.slice(0, 6);
+  const remainingModels = allModelsDataSorted.slice(6);
   const initialPhotos = allPhotosData.slice(0, 12);
   const remainingPhotos = allPhotosData.slice(12, 50);
 
+  const toggleModelsExpansion = () => {
+    setModelsExpanded(!modelsExpanded);
+  };
   const togglePhotosExpansion = () => {
     setPhotosExpanded(!photosExpanded);
   };
@@ -23,8 +32,42 @@ function FeaturedPage() {
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-5">
             {/* Featured Models */}
-            <FeaturedModelsRow>
-            </FeaturedModelsRow>
+            <MDBRow>
+              {initialModels.length > 0 && (
+                <>
+                  <h2 className="mb-4">Featured Stylists</h2>
+                  {initialModels.map((model, index) => (
+                    <ModelCard key={index} modelData={model} />
+                  ))}
+                </>
+              )}
+              {remainingModels.length > 0 && (
+                <>
+                  <div
+                    style={{
+                      display: modelsExpanded ? "flex" : "none",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    {remainingModels.map((model, index) => (
+                      <ModelCard
+                        key={index + initialModels.length}
+                        modelData={model}
+                      />
+                    ))}
+                  </div>
+                  <MDBContainer className="d-flex justify-content-center mt-0 mb-3">
+                    <MDBBtn
+                      onClick={toggleModelsExpansion}
+                      size="sm"
+                      color="secondary"
+                    >
+                      {modelsExpanded ? "Show Less" : "Show More"}
+                    </MDBBtn>
+                  </MDBContainer>
+                </>
+              )}
+            </MDBRow>
             {/* Featured Photos */}
             <MDBRow>
               {initialPhotos.length > 0 && (
@@ -69,4 +112,4 @@ function FeaturedPage() {
   );
 }
 
-export default FeaturedPage;
+export default LandingPage;

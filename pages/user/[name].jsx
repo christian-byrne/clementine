@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import UserProfileSidebar from "../../components/UserProfileSidebar";
+import UserProfileSidebar from "../../components/sidebars/user-profile/UserProfileSidebar";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import ModelCard from "../../components/ModelCard";
-import PhotoCard from "../../components/PhotoCard";
+import ModelCard from "../../components/cards/ModelCard";
+import PhotoCard from "../../components/cards/PhotoCard";
 import allUserData from "../../data/users/all.json";
 import allModelsData from "../../data/models/all.json";
 import allPhotosData from "../../data/photos/all.json";

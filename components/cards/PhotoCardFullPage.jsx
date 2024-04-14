@@ -7,9 +7,9 @@ import {
   MDBCardText,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import { padNumber } from "../utils/padNumber";
-import placeholderImg from "../data/placeholder-image.json";
-import pathFormat from "../utils/pathFormat";
+import { padNumber } from "../../utils/padNumber";
+import placeholderImg from "../../data/placeholder-image.json";
+import pathFormat from "../../utils/pathFormat";
 
 function PhotoCard({ photoData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);

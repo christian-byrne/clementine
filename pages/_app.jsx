@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/TopNavbar";
-import Footer from "../components/Footer";
-import "../styles/global.css";
+import Navbar from "@/components/navbars/top/TopNavbar";
+import Footer from "@/components/footer/Footer";
+import "@/styles/global.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 

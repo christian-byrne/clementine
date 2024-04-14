@@ -12,9 +12,9 @@ import {
   MDBNavbarNav,
   MDBInputGroup,
 } from "mdb-react-ui-kit";
-import ProgressBar from "./ProgressBar";
-import pathFormat from "../utils/pathFormat";
-import IconGenerator from "../utils/getIcon";
+import ProgressBar from "@/components/progress-bars/ProgressBar";
+import pathFormat from "@/utils/pathFormat";
+import IconGenerator from "@/utils/getIcon";
 const iconGen = new IconGenerator();
 
 function Navbar() {

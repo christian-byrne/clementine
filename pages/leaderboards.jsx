@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
-import LeaderBoardCard from "../components/LeaderBoardCard";
+import LeaderBoardCard from "../components/cards/LeaderBoardCard";
 import allUserData from "../data/users/all.json";
 
 function sortByTargetColumn(data, targetColumn, targetOrder = "desc") {

@@ -6,10 +6,8 @@ import {
   MDBCardHeader,
   MDBCardFooter,
   MDBCardText,
-  MDBBtn,
   MDBCardBody,
 } from "mdb-react-ui-kit";
-import SocialStatsBadges from "./SocialStatsBadges";
 import pathFormat from "@/utils/pathFormat";
 
 function createLeaderboardRanks(ranks) {
@@ -87,13 +85,11 @@ function UserProfileSidebar({ userData }) {
 
         {/* Profile Picture */}
         <img
-          src={
-            pathFormat(
+          src={pathFormat(
             "/pictures/pfps/" +
-            userData["name"].replaceAll(" ", "-").toLowerCase() +
-            "-3.png"
-            )
-          }
+              userData["name"].replaceAll(" ", "-").toLowerCase() +
+              "-3.png"
+          )}
           alt="User Avatar"
           className="img-fluid rounded-circle mb-3"
         />
@@ -124,21 +120,6 @@ function UserProfileSidebar({ userData }) {
           </MDBContainer>
         )}
 
-        {/* Social Media Icons */}
-        {userData["socialIcons"] && userData["socialIcons"].length > 0 && (
-          <MDBContainer className="mt-3">
-            {userData["socialIcons"].map((icon, index) => (
-              <img
-                key={index}
-                src={icon.url}
-                alt={icon.alt}
-                width="30"
-                className="social-icon me-3"
-              />
-            ))}
-          </MDBContainer>
-        )}
-
         {/* User-Generated Status */}
         {userData["statuses"] && userData["statuses"].length > 0 && (
           <MDBContainer onClick={toggleStatusCollapse} className="mt-3">
@@ -151,35 +132,6 @@ function UserProfileSidebar({ userData }) {
             <MDBCollapse open={isOpen}>{collapsedStatuses}</MDBCollapse>
           </MDBContainer>
         )}
-        {/* Follow, Favorite, Message Buttons */}
-        <MDBContainer className="mt-2">
-          <MDBBtn color="primary" className="m-1 ms-0">
-            Follow
-          </MDBBtn>
-          <MDBBtn color="danger" className="m-1">
-            Favorite
-          </MDBBtn>
-          <MDBBtn color="success" className="m-1 me-0">
-            Message
-          </MDBBtn>
-        </MDBContainer>
-
-        {/* Divider */}
-        <hr className="my-3" />
-
-        {/* Statistics Section */}
-        <SocialStatsBadges {...userData} />
-
-        {/* Hot Take Section */}
-        <MDBContainer className="my-3">
-          <h5>Hottest Fashion Take 🌟</h5>
-          {/* TODO: Add a user-generated hot take */}
-          {/* For Wednesday: */}
-          {/* <p>Fashion fades, but darkness is forever</p> */}
-          {/* For Adele: */}
-          <p>"Dress like you're already famous."</p>
-        </MDBContainer>
-
         {/* Divider */}
         <hr className="my-3" />
 
@@ -270,13 +222,10 @@ function UserProfileSidebar({ userData }) {
         {/* Divider */}
         <hr className="my-3" />
 
-        {/* Favorites Section */}
-        <h5 className="mt-3 mb-3">Favorites</h5>
-
         {/* Footer */}
         <MDBCardFooter>
           <MDBCardText className="text-muted">
-            <small>Member Since: {userData.joinDate}</small>
+            <small>University Student Since: {userData.joinDate}</small>
           </MDBCardText>
         </MDBCardFooter>
       </MDBCardBody>

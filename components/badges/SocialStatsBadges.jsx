@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer } from "mdb-react-ui-kit";
-import { padNumber } from "../utils/padNumber";
+import { padNumber } from "../../utils/padNumber";
 
 function SocialStatsBadges({
   likes,
