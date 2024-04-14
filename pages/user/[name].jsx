@@ -81,8 +81,6 @@ function UserProfilePage() {
     return null; // Or loading indicator, error message, etc.
   }
 
-  console.log(userStylists);
-
   return (
     <MDBContainer fluid>
       <div className="row mt-3">
@@ -96,8 +94,10 @@ function UserProfilePage() {
                 <>
                   <TitleText text="Pinned Stylists" />
                   {userStylists.map((stylist, index) => (
-                    <StylistCard data={stylist} key={index} 
-                    detailsStartExpanded={true}
+                    <StylistCard
+                      data={stylist}
+                      key={index}
+                      detailsStartExpanded={true}
                     />
                   ))}
                 </>

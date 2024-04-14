@@ -1,18 +1,31 @@
 import path from "path";
-import modelDirContents from "@/data/fs-contents/models.json";
+import fs from "fs/promises"; // Use promises-based fs module
 
 export default async function handler(req, res) {
   try {
     const { folderName, exclude } = req.query;
 
-    const folderContents = modelDirContents;
-    let imageFiles = folderContents[folderName];
+    const imageDirectory = path.join(
+      process.cwd(),
+      "public",
+      "pictures",
+      "models",
+      folderName
+    );
 
-    if (!imageFiles) {
-      return [];
-    }
+    const imageFiles = await fs.readdir(imageDirectory);
 
-    imageFiles.sort((a, b) => {
+    const filteredImageFiles = imageFiles.filter((file) => {
+      return (
+        (file.endsWith(".png") ||
+          file.endsWith(".jpg") ||
+          file.endsWith(".jpeg") ||
+          file.endsWith(".webp")) &&
+        !file.includes(exclude)
+      );
+    });
+
+    filteredImageFiles.sort((a, b) => {
       const pattern = /(\d+)/; // Regular expression to match numeric substrings
 
       const numPart = (str) => {
@@ -34,19 +47,15 @@ export default async function handler(req, res) {
       return a.localeCompare(b);
     });
 
-    // Remove images that include exclude phrase
-    if (exclude) {
-      const excludePattern = new RegExp(exclude);
-      imageFiles = imageFiles.filter((file) => !excludePattern.test(file));
-    }
-
-    const gridIndex = imageFiles.findIndex((file) => file.includes("grid"));
+    const gridIndex = filteredImageFiles.findIndex((file) =>
+      file.includes("grid")
+    );
     if (gridIndex !== -1) {
-      const gridFile = imageFiles.splice(gridIndex, 1);
-      imageFiles.unshift(gridFile[0]);
+      const gridFile = filteredImageFiles.splice(gridIndex, 1);
+      filteredImageFiles.unshift(gridFile[0]);
     }
 
-    const imagePaths = imageFiles.map((file) =>
+    const imagePaths = filteredImageFiles.map((file) =>
       path.join("/pictures", "models", folderName, file)
     );
 

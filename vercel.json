@@ -1,8 +1,0 @@
-{
-  "functions": {
-    "api/getImages": {
-      "includeFiles": ["public/pictures/models/**/*"],
-      "excludeFiles": ["public/**/*", "!public/pictures/models/**/*"]
-    }
-  }
-}

@@ -13,15 +13,15 @@ import axios from "axios";
 function StylistCardFullPage({ stylistData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
   const [screenWidth, setScreenWidth] = useState(null);
-  const [photos, setPhotos] = useState([stylistData.imageSrc]);
+  const photosFolder = stylistData.titleSystemName;
+  const [photos, setPhotos] = useState([]);
 
-  const photosFolder = stylistData.imageSrc.split("/").slice(-2)[0];
   useEffect(() => {
     axios
       .get("/api/getImages", {
         params: {
           folderName: photosFolder,
-          exclude: "test-image"
+          exclude: "test-image",
         },
       })
       .then((response) => {

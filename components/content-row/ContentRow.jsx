@@ -28,8 +28,6 @@ function ContentRow({
     setExpanded(!colsExpanded);
   };
 
-  console.log(collapsedCols)
-
   return (
     <MDBRow>
       {visibleCols.length > 0 && (
