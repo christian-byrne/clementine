@@ -45,9 +45,6 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 previous commit log:
 
-- new homepage layout
-- sort db models util with shallow copies
-- TitleText component
 
 
 --------------
