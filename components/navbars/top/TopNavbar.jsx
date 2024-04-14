@@ -20,26 +20,26 @@ const iconGen = new IconGenerator();
 function Navbar() {
   const [screenWidth, setScreenWidth] = useState(null);
   const [screenHeight, setScreenHeight] = useState(null);
+  const [openNav, setOpenNav] = useState(true);
+  const handleResize = () => {
+    setScreenWidth(window.innerWidth);
+    setScreenHeight(window.innerHeight);
+
+    if (window.innerWidth < 992) {
+      document.querySelector("button.navbar-toggler").click();
+    }
+  };
 
   useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-      setScreenHeight(window.innerHeight);
-      const isSmallScreen = window.matchMedia("(max-width: 992px)").matches;
-      setOpenNav(!isSmallScreen);
+    handleResize();
+    setScreenWidth(window.innerWidth);
+    setScreenHeight(window.innerHeight);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
-    if (typeof window !== "undefined") {
-      setScreenWidth(window.innerWidth);
-      setScreenHeight(window.innerHeight);
-      window.addEventListener("resize", handleResize);
-
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  });
-
-  const [openNav, setOpenNav] = useState(true);
+  }, []);
 
   const closeNav = () => {
     setOpenNav(false);
@@ -52,7 +52,7 @@ function Navbar() {
           type="button"
           data-target="#navbarNav"
           aria-controls="navbarNav"
-          aria-expanded="false"
+          aria-expanded={openNav}
           aria-label="Toggle navigation"
           onClick={() => setOpenNav(!openNav)}
         >
@@ -84,10 +84,7 @@ function Navbar() {
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink
-                href={pathFormat("/featured")}
-                onClick={closeNav}
-              >
+              <MDBNavbarLink href={pathFormat("/featured")} onClick={closeNav}>
                 Featured
               </MDBNavbarLink>
             </MDBNavbarItem>

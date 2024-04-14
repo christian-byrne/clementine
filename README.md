@@ -44,7 +44,6 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 
 previous commit log:
-- TikTok-like content scrolling on mobile
 - dont load footer on mobile
 
 
@@ -55,12 +54,12 @@ previous commit log:
 - [x] Photos on content cards -> carousels
 - [x] Responsive photo grid doesn't go to configurations that wouldnt be possible with the size of the passed photo data argument
 - [x] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
-- [ ] On mobile scroller view 
-  - [ ] keydown/keyup events need to be replaced with touch events
-- [ ] User profile content title -> clickable "view more" -> scroller view but filtered to only include items from that user
-- [ ] New homepage corresponds to player pathway/loop analysis
-  - [ ] leaderboard preview
-  - [ ] Smaller model and photo cards
+- [x] On mobile scroller view: keydown/keyup events need to be replaced with touch events
+- [ ] User profile content title -> clickable "view more" badge -> scroller view but filtered to only include items from that user
+- [x] New homepage corresponds to player pathway/loop analysis
+  - [x] leaderboard preview
+  - [x] Smaller model and photo cards
+- [x] Close navbar by default on mobile
 - [ ] Landing/demo page for new (visited <3 times) users
   - [ ] Demo
   - [ ] Signup form

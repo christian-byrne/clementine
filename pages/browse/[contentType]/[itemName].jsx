@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import { MDBRow, MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
@@ -95,8 +95,8 @@ function BrowsePage() {
 
   return (
     allDataSorted?.length > 0 && (
-      <>
-        <MDBContainer fluid className="my-4 py-4 d-flex">
+      <MDBRow>
+        <MDBContainer fluid className="my-4 py-4 d-flex col-12">
           {contentType === "stylists" ? (
             <StylistCardFullPage stylistData={allDataSorted[visibleIndex]} />
           ) : contentType === "photos" ? (
@@ -118,7 +118,7 @@ function BrowsePage() {
             />
           </MDBBtn>
         </MDBContainer>
-      </>
+      </MDBRow>
     )
   );
 }
