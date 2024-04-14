@@ -31,7 +31,6 @@ function HomePage() {
     };
     setNCols(colSizeMap[breakpoint]);
     setBreakpoint(breakpoint);
-    console.log("Breakpoint: ", breakpoint);
   };
 
   useEffect(() => {

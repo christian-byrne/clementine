@@ -8,17 +8,29 @@ import {
 } from "mdb-react-ui-kit";
 import ModelCardText from "@/components/cards/StylistCardText";
 import ResponsivePhotoGrid from "@/components/photo-grids/ResponsivePhotoGrid";
-import pathFormat from "@/utils/pathFormat";
+import axios from "axios";
 
 function StylistCardFullPage({ stylistData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
   const [screenWidth, setScreenWidth] = useState(null);
+  const [photos, setPhotos] = useState([stylistData.imageSrc]);
 
-  // pictures/models/athleisure-meets-grunge/athleisure-meets-grunge-1.png
-  const photos = [stylistData.imageSrc];
-  for (let i = 1; i < 10; i++) {
-    photos.push(pathFormat(stylistData.imageSrc.replace("grid-2x2", `${i}`)));
-  }
+  const photosFolder = stylistData.imageSrc.split("/").slice(-2)[0];
+  useEffect(() => {
+    axios
+      .get("/api/getImages", {
+        params: {
+          folderName: photosFolder,
+          exclude: "test-image"
+        },
+      })
+      .then((response) => {
+        setPhotos(response.data.imageFiles);
+      })
+      .catch((error) => {
+        console.log("Error fetching images: ", error);
+      });
+  }, [photosFolder]);
 
   // Use conditional check to ensure that only accessing window object in the browser
   useEffect(() => {
@@ -33,7 +45,7 @@ function StylistCardFullPage({ stylistData }) {
         window.removeEventListener("resize", handleResize);
       };
     }
-  });
+  }, []);
 
   return (
     <MDBContainer
