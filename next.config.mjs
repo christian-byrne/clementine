@@ -2,19 +2,19 @@
 
 // const isProduction = process.env.NODE_ENV === 'production';
 // const basePath = isProduction ? '/clementine' : '';
-const basePath = '/clementine';
+const basePath = "/clementine";
 const assetPre = `${basePath}/`;
 
 const nextConfig = {
-    /**
-     * Enable static exports for the App Router.
-    *
-    * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
-    */
+  /**
+   * Enable static exports for the App Router.
+   *
+   * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
+   */
   //  output: "export",
-   
-   /**
-    * Set base path. This is the slug of your GitHub repository.
+
+  /**
+   * Set base path. This is the slug of your GitHub repository.
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
@@ -31,6 +31,15 @@ const nextConfig = {
   // images: {
   //   unoptimized: true,
   // }
+  async redirects() {
+    return [
+      {
+        source: "/social-media-gamification",
+        destination: "/blog/dev/social-media-gamification",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

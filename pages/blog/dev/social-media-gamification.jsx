@@ -229,7 +229,7 @@ function SocialMediaGamification() {
                 <MDBCardImage
                   className="img-fluid p-0 m-0"
                   style={{ opacity: 0.32 }}
-                  src={`pictures/game-mechanics/${mechanic.name
+                  src={`/pictures/game-mechanics/${mechanic.name
                     .replaceAll(" ", "-")
                     .replaceAll("/", "-")
                     .replaceAll("'", "")
