@@ -73,7 +73,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - [ ] Socials link
   - [ ] Blog
   - [ ] comments
-- [ ] Blog routing
+- [x] Blog routing
   - [ ] Add silhouttes back to blog
   - [ ] change location of other blog pages
 <!-- - [ ] [Search feature on leaderboards](https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Search,-Use%20search%20proprty) -->

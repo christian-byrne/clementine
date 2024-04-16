@@ -62,8 +62,9 @@ function SilhouetteCard({ sketchData, index, toggleFn, visible }) {
           (tableExpanded
             ? "col-lg-12"
             : windowWidth > BREAKPOINT
-            ? "col-lg-3"
-            : "col-lg-6") + " col-md-12 col-sm-12 mb-lg-2 p-lg-2 p-xl-3 p-md-1 mb-md-1"
+            ? "col-lg-4"
+            : "col-lg-6") +
+          " col-md-12 col-sm-12 mb-lg-2 p-xl-2 p-xxl-3 p-md-1 mb-md-1"
         }
       >
         <MDBCard className="h-100">
@@ -84,8 +85,8 @@ function SilhouetteCard({ sketchData, index, toggleFn, visible }) {
               }
             />
           </MDBCardBody>
-          <MDBBtn tag="a" onClick={handleToggle} color="primary">
-            Details
+          <MDBBtn tag="a" onClick={handleToggle} color="secondary" className="mx-4 mb-3">
+            {tableExpanded ? "Fewer Details" : "Details"}
           </MDBBtn>
           <MDBCollapse open={tableExpanded}>
             <MDBTable align="middle" responsive>
