@@ -145,7 +145,7 @@ function StylistCard({
             >
               Details
             </MDBBtn>
-            <a href={`/browse/models/${data.titleSystemName}`}>
+            <a href={`/browse/stylists/${data.titleSystemName}`}>
               <MDBBtn color="success" className="mt-1 mx-1">
                 Use
               </MDBBtn>
