@@ -24,7 +24,7 @@ export default function App() {
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
-          <span>Get connected with me on social networks:</span>
+          <span>Get connected with us on social networks:</span>
         </div>
 
         <div>
@@ -59,7 +59,8 @@ export default function App() {
               </h6>
               <p>
                 {/* A sun of rubber was convulsed and set. And blood black nothingness began to spin. A system of cells interlinked within cells interlinked within cells interlinked within one stem. And dreadfully distinct. */}
-                Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.
+                {/* Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain. */}
+                Fashion fades, but beauty is eternal. Elegance is elimination. Blue is a language. Love and obsession are separated by a thin line.
               </p>
             </MDBCol>
 

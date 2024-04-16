@@ -72,10 +72,12 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - [ ] Additional metadata
   - [ ] Socials link
   - [ ] Blog
+  - [ ] References
   - [ ] comments
+- [ ] Daily Tasks Page
 - [x] Blog routing
-  - [ ] Add silhouttes back to blog
-  - [ ] change location of other blog pages
+  - [x] Add silhouttes back to blog
+  - [x] change location of other blog pages
 <!-- - [ ] [Search feature on leaderboards](https://mdbootstrap.com/docs/react/data/datatables/#:~:text=SHOW%20CODE-,Search,-Use%20search%20proprty) -->
 
 

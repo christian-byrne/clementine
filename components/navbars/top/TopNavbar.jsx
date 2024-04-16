@@ -148,7 +148,7 @@ function Navbar() {
           </MDBInputGroup>
           <MDBNavbarNav right className="w-auto ms-auto align-items-center">
             <MDBNavbarItem className="me-0">
-              <MDBNavbarLink href={pathFormat("/currency")}>
+              <MDBNavbarLink href={pathFormat("/rubies")}>
                 <div className="d-flex flex-row align-items-center justify-content-center">
                   {iconGen.createIcon("mainCurrency")}
                   <span className="text-muted">79&nbsp;RUBIES</span>
