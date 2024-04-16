@@ -1,0 +1,57 @@
+[
+  {
+    "titleSystemName": "socialMediaGamification",
+    "title": "Social Media Gamification",
+    "path": "/blog/dev/social-media-gamification",
+    "imageDirPath": "/pictures/blog-pages/social-media-gamification",
+    "category": "DEVBlog",
+    "parent": "dev",
+    "date": "2024-04-07",
+    "photoCount": 5,
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Write Review",
+      "reward": 50
+    },
+    "creator": "Christian Byrne",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quibusdam.",
+    "likes": 100,
+    "rating": 80,
+    "requirements": "25 Minutes",
+    "tags": ["#gamification", "#socialmedia", "#dev", "web", "design", "ux"],
+    "badges": ["DEV Diary \ud83d\udcbb", "BTS \ud83d\udcfa"]
+  },
+  {
+    "titleSystemName": "silhouettes",
+    "title": "Fashionable Silhouettes",
+    "path": "/blog/blue-is-a-language/silhouettes",
+    "imageDirPath": "/pictures/blog-pages/silhouettes",
+    "category": "Fashion",
+    "parent": "blue is a language",
+    "date": "2024-03-01",
+    "photoCount": 5,
+    "bounties": {},
+    "communityUnlock": {
+      "goal": 80,
+      "progress": 80,
+      "message": "UNLOCKED \ud83c\udf89 for all Users"
+    },
+    "creator": "Wednesday Addams",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quibusdam.",
+    "likes": 76,
+    "rating": 99,
+    "requirements": "<10 Minutes",
+    "tags": [
+      "#bladerunner",
+      "#wednesdayaddams",
+      "#fashion",
+      "dark",
+      "futuristic",
+      "edgy"
+    ],
+    "badges": [
+      "Blue is a Language \ud83d\udc99",
+      "Objective Beauty \ud83d\udc84"
+    ]
+  }
+]

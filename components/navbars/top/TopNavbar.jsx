@@ -98,7 +98,7 @@ function Navbar() {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink
-                href={pathFormat("/social-media-gamification")}
+                href={pathFormat("/blog")}
                 onClick={closeNav}
               >
                 Blog
