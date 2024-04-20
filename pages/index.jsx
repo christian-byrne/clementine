@@ -8,7 +8,7 @@ import TitleText from "@/components/title-text/TitleText";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import allUserData from "@/data/users/all.json";
-import getBreakpoint from "@/utils/getBreakpoint";
+import { getBreakpoint, breakpointIsGreater, isStandardBreakpoint } from "@/utils/breakpoints";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
 
 function HomePage() {
@@ -18,31 +18,78 @@ function HomePage() {
 
   const [nCols, setNCols] = useState(6);
   const [breakpoint, setBreakpoint] = useState("lg");
+  const [colCSSClass, setColCSSClass] = useState("col-12 ms-sm-auto pe-2");
+
+  const breakpointsConfig = {
+    sm: {
+      visible: 6,
+      colsPerCard: 12,
+    },
+    md: {
+      visible: 8,
+      colsPerCard: 6,
+    },
+    lg: {
+      visible: 10,
+      colsPerCard: 6,
+    },
+    xl: {
+      visible: 10,
+      colsPerCard: 4,
+    },
+    xxl: {
+      visible: 12,
+      colsPerCard: 5,
+    },
+    xxxl: {
+      visible: 14,
+      colsPerCard: 4,
+    },
+    "2k": {
+      visible: 14,
+      colsPerCard: 4,
+    },
+    "4k": {
+      visible: 14,
+      colsPerCard: 3,
+    },
+    "8k": {
+      visible: 16,
+      colsPerCard: 2,
+    },
+  };
+
+  const standardSizeClass = `col-sm ${breakpointsConfig[breakpoint].colsPerCard} col-md-${breakpointsConfig[breakpoint].colsPerCard} col-lg-${breakpointsConfig[breakpoint].colsPerCard} col-xl-${breakpointsConfig[breakpoint].colsPerCard} mb-4 px-xl-2`;
+
+  const updateColCSSClass = () => {
+    if (!isStandardBreakpoint(breakpoint)) {
+      setColCSSClass(
+        `col-${breakpointsConfig[breakpoint].colsPerCard} mb-4 px-xl-2`
+      );
+    } else {
+      setColCSSClass(standardSizeClass);
+    }
+  };
 
   const adjustNCols = () => {
     const windowWidth = window.innerWidth;
     const breakpoint = getBreakpoint(windowWidth);
-    const colSizeMap = {
-      sm: 1,
-      md: 3,
-      lg: 3,
-      xl: 4,
-      xxl: 4,
-    };
-    setNCols(colSizeMap[breakpoint]);
+    setNCols(12 / breakpointsConfig[breakpoint].colsPerCard);
     setBreakpoint(breakpoint);
   };
 
   useEffect(() => {
     adjustNCols();
+    updateColCSSClass();
     const handleResize = () => {
       adjustNCols();
+      updateColCSSClass();
     };
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [breakpoint, nCols]);
 
   return (
     <MDBContainer fluid>
@@ -50,7 +97,7 @@ function HomePage() {
         {/* Content Rows */}
         <MDBCol
           className={
-            breakpoint == "sm" || breakpoint == "md" || breakpoint == "lg"
+            breakpointIsGreater(breakpoint, "lg")
               ? "col-12 ms-sm-auto pe-2"
               : "col-7 ms-sm-auto pe-2"
           }
@@ -62,11 +109,12 @@ function HomePage() {
               colComponent={StylistCard}
               colData={allStylistsData}
               sortKey="rating"
-              showFirstNCols={nCols}
-              // showFirstNCols={nCols * 2}
+              showFirstNCols={breakpointsConfig[breakpoint].visible}
               maxCols={30}
               colContainerClass={
-                "col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 px-xl-2"
+                // `${colCountToColSize(nCols)} mb-4 px-xl-2`
+                // "col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 px-xl-2"
+                colCSSClass
               }
               // detailsStartExpanded={breakpoint == "xxl" ? false : true}
               detailsStartExpanded={false}
@@ -80,14 +128,16 @@ function HomePage() {
               showFirstNCols={32}
               maxCols={50}
               colContainerClass={
-                "col-md-6 col-lg-4 col-sm-12 col-xxl-3 mb-4 mx-0 px-xl-2"
+                // "col-md-6 col-lg-4 col-sm-12 col-xxl-3 mb-4 mx-0 px-xl-2"
+                colCSSClass
               }
             />
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}
         {breakpoint != "md" && breakpoint != "sm" && breakpoint != "lg" && (
-          <MDBCol className="col-5 ms-sm-auto">
+          // <MDBCol className="col-5 ms-sm-auto">
+          <MDBCol className="ms-sm-auto">
             <MDBContainer fluid className="mt-4">
               {/* <TitleText text="Leaderboards" /> */}
               <LeaderBoardCard
