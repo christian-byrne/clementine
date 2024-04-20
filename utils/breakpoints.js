@@ -41,7 +41,7 @@ class Breakpoints {
       return breakpoint; // 1920 -> 1920
     }
     if (typeof breakpoint == "string") {
-      return isNaN(parseInt(breakpoint))
+      return /\D/.test(breakpoint)
         ? this.breakpointsByName[breakpoint] // "2k" -> 2160
         : parseInt(breakpoint); // "1920" -> 1920
     }
@@ -53,6 +53,7 @@ class Breakpoints {
   }
 
   getBreakpointName(breakpointWidth) {
+    breakpointWidth = parseInt(breakpointWidth);
     for (let breakpoint in this.breakpointsByName) {
       if (breakpointWidth <= this.breakpointsByName[breakpoint]) {
         return breakpoint;
@@ -65,6 +66,21 @@ class Breakpoints {
   }
 
   isLess(breakpoint1, breakpoint2) {
+    console.log("breakpoint1", breakpoint1);
+    console.log("breakpoint2", breakpoint2);
+    console.log(
+      "this.validateNumber(breakpoint1)",
+      this.validateNumber(breakpoint1)
+    );
+    console.log(
+      "this.validateNumber(breakpoint2)",
+      this.validateNumber(breakpoint2)
+    );
+
+    console.log(
+      "this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2)",
+      this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2)
+    );
     return this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2);
   }
 

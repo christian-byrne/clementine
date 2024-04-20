@@ -59,7 +59,7 @@ function ContentRow({
               />
             ))}
           </div>
-          <MDBContainer className="d-flex justify-content-center mt-0 mb-3">
+          <MDBContainer className="d-flex justify-content-center mb-3 mt-md-3 mt-lg-0">
             <MDBBtn onClick={toggleExpansion} size="sm" color="secondary">
               {colsExpanded ? "Show Less" : "Show More"}
             </MDBBtn>
