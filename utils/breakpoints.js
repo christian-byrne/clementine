@@ -1,42 +1,77 @@
-function getBreakpoint(breakpoint) {
-  const breakpointMap = {
-    576: "sm",
-    768: "md",
-    992: "lg",
-    1200: "xl",
-    1400: "xxl",
-    1600: "xxxl",
-    2560: "2k",
-    3840: "4k",
-  };
-  if (typeof breakpoint == "number") {
-    for (let breakpointWidth in breakpointMap) {
-      if (breakpoint <= breakpointWidth) {
-        return breakpointMap[breakpointWidth];
+class Breakpoints {
+  constructor(customConfig) {
+    this.breakpointsByName = {
+      xs: 0,
+      sm: 576,
+      md: 768,
+      lg: 992,
+      xl: 1200,
+      xxl: 1400,
+      xxxl: 1600,
+      wi: 1800,
+      "wi+": 1980,
+      "2k": 2160,
+      "2k+": 2400,
+      "2k++": 2560,
+      "3k": 2880,
+      "3k+": 3200,
+      "3k++": 3520,
+      "4k": 3840,
+      "4k+": 4320,
+    };
+    this.breakpointsBySize = Object.fromEntries(
+      Object.entries(this.breakpointsByName).map(([key, value]) => [value, key])
+    );
+
+    let prev = customConfig[Object.keys(customConfig)[0]];
+    for (let breakpointName in this.breakpointsByName) {
+      if (customConfig[breakpointName]) {
+        this[breakpointName] = customConfig[breakpointName];
+        prev = customConfig[breakpointName];
+      } else {
+        this[breakpointName] = prev;
       }
     }
-    return "8k";
+
+    this.standardSizeClass = `col-xs-${this.xs.cols} col-sm-${this.sm.cols} col-md-${this.md.cols} col-lg-${this.lg.cols} col-xl-${this.xl.cols}`;
   }
-  return Object.keys(breakpointMap).find(
-    (key) => breakpointMap[key] === breakpoint
-  );
+
+  validateNumber(breakpoint) {
+    if (typeof breakpoint == "number") {
+      return breakpoint; // 1920 -> 1920
+    }
+    if (typeof breakpoint == "string") {
+      return isNaN(parseInt(breakpoint))
+        ? this.breakpointsByName[breakpoint] // "2k" -> 2160
+        : parseInt(breakpoint); // "1920" -> 1920
+    }
+    return this.breakpointsByName[breakpoint.toString()]; // ["1920"] -> 1920
+  }
+
+  getBreakpointWidth(breakpointName) {
+    return this.breakpointsByName[breakpointName];
+  }
+
+  getBreakpointName(breakpointWidth) {
+    for (let breakpoint in this.breakpointsByName) {
+      if (breakpointWidth <= this.breakpointsByName[breakpoint]) {
+        return breakpoint;
+      }
+    }
+  }
+
+  isGreater(breakpoint1, breakpoint2) {
+    return this.validateNumber(breakpoint1) > this.validateNumber(breakpoint2);
+  }
+
+  isLess(breakpoint1, breakpoint2) {
+    return this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2);
+  }
+
+  isStandard(breakpoint) {
+    const standardBreakpoints = ["xs", "sm", "md", "lg", "xl"];
+    return standardBreakpoints.includes(breakpoint);
+  }
 }
 
-function breakpointIsGreater(breakpoint1, breakpoint2) {
-  if (typeof breakpoint1 == "string") {
-    breakpoint1 = getBreakpoint(breakpoint1);
-  }
-  if (typeof breakpoint2 == "string") {
-    breakpoint2 = getBreakpoint(breakpoint2);
-  }
-  breakpoint1 = parseInt(breakpoint1);
-  breakpoint2 = parseInt(breakpoint2);
-  return breakpoint1 > breakpoint2;
-}
-
-function isStandardBreakpoint(breakpoint) {
-  const standardBreakpoints = ["sm", "md", "lg", "xl", "xxl"];
-  return standardBreakpoints.includes(breakpoint);
-}
-
-export { getBreakpoint, breakpointIsGreater, isStandardBreakpoint };
+export default Breakpoints;

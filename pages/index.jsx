@@ -8,7 +8,7 @@ import TitleText from "@/components/title-text/TitleText";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import allUserData from "@/data/users/all.json";
-import { getBreakpoint, breakpointIsGreater, isStandardBreakpoint } from "@/utils/breakpoints";
+import Breakpoints from "@/utils/breakpoints";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
 
 function HomePage() {
@@ -19,71 +19,115 @@ function HomePage() {
   const [nCols, setNCols] = useState(6);
   const [breakpoint, setBreakpoint] = useState("lg");
   const [colCSSClass, setColCSSClass] = useState("col-12 ms-sm-auto pe-2");
+  const [leaderBoardsHidden, setLeaderBoardsHidden] = useState(false);
+  const [leaderBoardVisibleCols, setLeaderBoardVisibleCols] = useState(1);
+  const [contentRowsClass, setContentRowsClass] = useState(
+    "col-9 ms-sm-auto pe-2"
+  );
 
-  const breakpointsConfig = {
+  const breakpointsConfig = new Breakpoints({
+    xs: {
+      visibleRows: 7,
+      cols: 12,
+    },
     sm: {
-      visible: 6,
-      colsPerCard: 12,
+      visibleRows: 5,
+      cols: 12,
     },
     md: {
-      visible: 8,
-      colsPerCard: 6,
+      visibleRows: 4,
+      cols: 12,
     },
     lg: {
-      visible: 10,
-      colsPerCard: 6,
+      visibleRows: 3,
+      cols: 6,
     },
     xl: {
-      visible: 10,
-      colsPerCard: 4,
+      visibleRows: 2,
+      cols: 6,
     },
     xxl: {
-      visible: 12,
-      colsPerCard: 5,
+      visibleRows: 2,
+      cols: 6,
     },
     xxxl: {
-      visible: 14,
-      colsPerCard: 4,
+      visibleRows: 2,
+      cols: 4,
+    },
+    wi: {
+      visibleRows: 2,
+      cols: 4,
+    },
+    "wi+": {
+      visibleRows: 2,
+      cols: 4,
     },
     "2k": {
-      visible: 14,
-      colsPerCard: 4,
+      visibleRows: 2,
+      cols: 3,
+    },
+    "2k+": {
+      visibleRows: 2,
+      cols: 3,
+    },
+    "3k+": {
+      visibleRows: 2,
+      cols: 3,
     },
     "4k": {
-      visible: 14,
-      colsPerCard: 3,
+      visibleRows: 2,
+      cols: 3,
     },
     "8k": {
-      visible: 16,
-      colsPerCard: 2,
-    },
-  };
-
-  const standardSizeClass = `col-sm ${breakpointsConfig[breakpoint].colsPerCard} col-md-${breakpointsConfig[breakpoint].colsPerCard} col-lg-${breakpointsConfig[breakpoint].colsPerCard} col-xl-${breakpointsConfig[breakpoint].colsPerCard} mb-4 px-xl-2`;
+      visibleRows: 2,
+      cols: 2,
+    }
+  });
 
   const updateColCSSClass = () => {
-    if (!isStandardBreakpoint(breakpoint)) {
+    if (!breakpointsConfig.isStandard(breakpoint)) {
       setColCSSClass(
-        `col-${breakpointsConfig[breakpoint].colsPerCard} mb-4 px-xl-2`
+        `col-${breakpointsConfig[breakpoint].cols} mb-4 px-xl-2`
       );
     } else {
-      setColCSSClass(standardSizeClass);
+      setColCSSClass(breakpointsConfig.standardSizeClass);
     }
   };
 
   const adjustNCols = () => {
     const windowWidth = window.innerWidth;
-    const breakpoint = getBreakpoint(windowWidth);
-    setNCols(12 / breakpointsConfig[breakpoint].colsPerCard);
+    const breakpoint = breakpointsConfig.getBreakpointName(windowWidth);
+    setNCols(12 / breakpointsConfig[breakpoint].cols);
     setBreakpoint(breakpoint);
+  };
+
+  const adjustVisibleLeaderBoardCols = () => {
+    if (breakpointsConfig.isLess(breakpoint, "lg")) {
+      setLeaderBoardVisibleCols(1);
+    } else if (breakpointsConfig.isLess(breakpoint, "2k++")) {
+      setLeaderBoardVisibleCols(2);
+    } else {
+      setLeaderBoardVisibleCols(3);
+    }
+
+  const updateLeaderBoardsHidden = () => {
+    if (breakpointsConfig.isGreater(breakpoint, "lg")) {
+      setLeaderBoardsHidden(false);
+      setContentRowsClass("col-xl-7 ms-sm-auto pe-2");
+    } else {
+      setLeaderBoardsHidden(true);
+      setContentRowsClass("col-12 ms-sm-auto pe-2");
+    }
   };
 
   useEffect(() => {
     adjustNCols();
     updateColCSSClass();
+    updateLeaderBoardsHidden();
     const handleResize = () => {
       adjustNCols();
       updateColCSSClass();
+      updateLeaderBoardsHidden();
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -95,13 +139,7 @@ function HomePage() {
     <MDBContainer fluid>
       <MDBRow className="mt-3">
         {/* Content Rows */}
-        <MDBCol
-          className={
-            breakpointIsGreater(breakpoint, "lg")
-              ? "col-12 ms-sm-auto pe-2"
-              : "col-7 ms-sm-auto pe-2"
-          }
-        >
+        <MDBCol className={contentRowsClass}>
           <MDBContainer fluid className="mt-4">
             {/* Featured Models Row */}
             <TitleText text="Featured Stylists" />
@@ -109,15 +147,13 @@ function HomePage() {
               colComponent={StylistCard}
               colData={allStylistsData}
               sortKey="rating"
-              showFirstNCols={breakpointsConfig[breakpoint].visible}
-              maxCols={30}
-              colContainerClass={
-                // `${colCountToColSize(nCols)} mb-4 px-xl-2`
-                // "col-sm 12 col-md-4 col-lg-4 col-xl-3 mb-4 px-xl-2"
-                colCSSClass
+              showFirstNCols={
+                breakpointsConfig[breakpoint].visibleRows *
+                (12 / breakpointsConfig[breakpoint].cols)
               }
-              // detailsStartExpanded={breakpoint == "xxl" ? false : true}
-              detailsStartExpanded={false}
+              maxCols={30}
+              colContainerClass={colCSSClass}
+              detailsStartExpanded={breakpointsConfig.isGreater(breakpoint, "2k")}
             />
             {/* Featured Photos Row */}
             <TitleText text="Featured Photos" />
@@ -127,18 +163,16 @@ function HomePage() {
               sortKey="likes"
               showFirstNCols={32}
               maxCols={50}
-              colContainerClass={
-                // "col-md-6 col-lg-4 col-sm-12 col-xxl-3 mb-4 mx-0 px-xl-2"
-                colCSSClass
-              }
+              colContainerClass={colCSSClass}
+              detailsStartExpanded={breakpointsConfig.isGreater(breakpoint, "2k")}
             />
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}
-        {breakpoint != "md" && breakpoint != "sm" && breakpoint != "lg" && (
-          // <MDBCol className="col-5 ms-sm-auto">
-          <MDBCol className="ms-sm-auto">
-            <MDBContainer fluid className="mt-4">
+        {!leaderBoardsHidden && (
+          <MDBCol className="col-5 ms-sm-auto">
+            {/* <MDBCol className="ms-sm-auto"> */}
+            <MDBContainer className="mt-4">
               {/* <TitleText text="Leaderboards" /> */}
               <LeaderBoardCard
                 leaderBoardName={"Style Stars"}
@@ -147,11 +181,7 @@ function HomePage() {
                 visibleColumns={["views"]}
                 maxRows={9}
                 socialBadges={
-                  nCols == 1
-                    ? ["likes"]
-                    : nCols < 5
-                    ? ["favorites", "likes"]
-                    : ["downloads", "likes", "favorites"]
+                    ["likes", "favorites", "downloads"].slice(0, leaderBoardVisibleCols)
                 }
                 containerClassName="col-12 my-3 mx-0 px-0"
               />
@@ -161,17 +191,7 @@ function HomePage() {
                 leaderBoardData={sortRecordsByKey(allUserData, "modelCount")}
                 visibleColumns={["modelCount"]}
                 maxRows={9}
-                socialBadges={
-                  nCols == 1
-                    ? ["avergageRating"]
-                    : nCols < 5
-                    ? ["averageRating", "totalRatings", "downloads"]
-                    : [
-                        "averageRating",
-                        "totalRatings",
-                        "downloads",
-                        "favorites",
-                      ]
+                socialBadges={[ "averageRating", "totalRatings", "downloads", "favorites"].slice(0, leaderBoardVisibleCols)
                 }
                 containerClassName="col-12 my-3 mx-0 px-0"
               />
@@ -184,9 +204,9 @@ function HomePage() {
                 visibleColumns={["location"]}
                 maxRows={12}
                 socialBadges={
-                  nCols == 1
+                  breakpointsConfig.isLess(breakpoint, "lg")
                     ? ["downloads"]
-                    : nCols < 5
+                    : breakpointsConfig.isLess(breakpoint, "3k")
                     ? ["favorites", "downloads"]
                     : ["downloads", "favorites", "views"]
                 }
@@ -201,11 +221,7 @@ function HomePage() {
                 visibleColumns={["badgeCount"]}
                 maxRows={13}
                 socialBadges={
-                  nCols == 1
-                    ? ["likes"]
-                    : nCols < 5
-                    ? ["favorites", "likes"]
-                    : ["downloads", "likes", "favorites"]
+                    ["downloads", "likes", "favorites"].slice(0, leaderBoardVisibleCols)
                 }
                 containerClassName="col-12 my-3 mx-0 px-0"
               />
