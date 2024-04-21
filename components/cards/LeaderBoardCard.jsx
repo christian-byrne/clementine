@@ -21,9 +21,10 @@ function LeaderBoardCard({
   leaderBoardName,
   description,
   socialBadges,
-  containerClassName="col-md-12 col-lg-6 col-sm-12 my-3"
+  containerClassName = "col-md-12 col-lg-6 col-sm-12 my-3",
 }) {
   const [numVisibleBadges, setNumVisibleBadges] = useState(1);
+  const [overflowX, setOverflowX] = useState("visible");
 
   const adjustNumVisibleBadges = () => {
     const windowWidth = window.innerWidth;
@@ -36,13 +37,24 @@ function LeaderBoardCard({
     }
   };
 
+  const adjustOverflowX = () => {
+    const windowWidth = window.innerWidth;
+    if (windowWidth < 1700) {
+      setOverflowX("hidden");
+    } else {
+      setOverflowX("visible");
+    }
+  };
+
   useEffect(() => {
     // Adjust the number of visible badges on mount
     adjustNumVisibleBadges();
+    adjustOverflowX();
 
     // Add resize listener
     const handleResize = () => {
       adjustNumVisibleBadges();
+      adjustOverflowX();
     };
     window.addEventListener("resize", handleResize);
 
@@ -51,12 +63,13 @@ function LeaderBoardCard({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
+
   return (
     leaderBoardData?.length > 0 && (
       <MDBContainer className={containerClassName}>
         <MDBCard
           className="h-100 d-flex d-column"
+          style={{ overflowX: overflowX }}
         >
           <MDBCardTitle className="mt-4 ms-3 mb-1 h2">
             &nbsp;{leaderBoardName || "Leaderboard"}
