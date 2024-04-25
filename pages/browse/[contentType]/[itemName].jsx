@@ -21,9 +21,18 @@ function BrowsePage() {
   const [allDataSorted, setAllDataSorted] = useState([]);
   const [arrowKeyPressed, setArrowKeyPressed] = useState(false);
 
+  // Setting records for page depends/re-renders on router query values (contentType, itemName) updating
   useEffect(() => {
     if (contentType === "stylists") {
       setAllDataSorted(sortRecordsByKey(allStylistsData, "rating"));
+    } else if (contentType === "photos") {
+      setAllDataSorted(sortRecordsByKey(allPhotosData, "likes"));
+    }
+  }, [contentType, itemName]);
+
+  // Displayed record's index in data depends on allDataSorted updating. Must separate to prevent recursive loop
+  useEffect(() => {
+    if (contentType === "stylists") {
       // find index of itemName in allDataSorted and set as initial visible index
       const index = allDataSorted.findIndex(
         (stylist) => stylist?.titleSystemName === itemName
@@ -31,7 +40,6 @@ function BrowsePage() {
       // if the item name is found
       if (index !== -1) setVisibleIndex(index);
     } else if (contentType === "photos") {
-      setAllDataSorted(sortRecordsByKey(allPhotosData, "likes"));
       // find index of itemName in allDataSorted and set as initial visible index
       const index = allDataSorted.findIndex(
         (photo) =>
@@ -41,7 +49,7 @@ function BrowsePage() {
       // if the item name is found
       if (index !== -1) setVisibleIndex(index);
     }
-  }, [contentType, allDataSorted]);
+  }, [allDataSorted]);
 
   const maxItems = allDataSorted.length - 1;
 

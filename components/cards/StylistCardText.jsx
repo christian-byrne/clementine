@@ -16,7 +16,7 @@ function StylistCardText({ stylistData, textExpandedState }) {
   return (
     <>
       <a
-        href={`/browse/models/${stylistData.titleSystemName}`}
+        href={`/browse/stylists/${stylistData.titleSystemName}`}
         // prevent blue hyperlink color
         style={{ color: "inherit" }}
       >
