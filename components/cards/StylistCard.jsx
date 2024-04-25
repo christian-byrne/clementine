@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBContainer,
   MDBCard,
   MDBCardImage,
   MDBCardBody,
   MDBBtn,
-  MDBBtnGroup,
   MDBIcon,
 } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";

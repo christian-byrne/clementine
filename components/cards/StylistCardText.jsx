@@ -11,7 +11,7 @@ import IconGenerator from "@/utils/getIcon";
 
 const getIcon = new IconGenerator();
 
-function ModelCardText({ stylistData, textExpandedState }) {
+function StylistCardText({ stylistData, textExpandedState }) {
 
   return (
     <>
@@ -77,4 +77,4 @@ function ModelCardText({ stylistData, textExpandedState }) {
   );
 }
 
-export default ModelCardText;
+export default StylistCardText;

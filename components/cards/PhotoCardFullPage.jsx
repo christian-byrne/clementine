@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCard,
@@ -7,9 +7,9 @@ import {
   MDBCardText,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import { padNumber } from "../../utils/padNumber";
-import placeholderImg from "../../data/placeholder-image.json";
-import pathFormat from "../../utils/pathFormat";
+import { padNumber } from "@//utils/padNumber";
+import placeholderImg from "@/data/placeholder-image.json";
+import pathFormat from "@/utils/pathFormat";
 
 function PhotoCard({ photoData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
@@ -39,31 +39,8 @@ function PhotoCard({ photoData }) {
           position="top"
         />
         <MDBCardBody>
-          {/* Engagement Statistics */}
-          <div className="badge badge-secondary me-3 mb-3 p-2 clickable">
-            <div className="d-flex justify-content-center align-items-center">
-              <i
-                className="fas fa-heart me-2"
-                // style={{color: "red"}}
-              ></i>
-              <span className="font-weight-bold">
-                {photoData.likes && padNumber(photoData.likes, 5)}
-              </span>
-            </div>
-            <p className="mb-0 mt-1 small text-muted">LIKES</p>
-          </div>
-          <div className="badge badge-secondary me-3 mb-3 p-2 clickable">
-            <div className="d-flex justify-content-center align-items-center">
-              <i className="fas fa-star me-2"></i>
-              <span className="font-weight-bold">
-                {(photoData.favorites && padNumber(photoData.favorites, 5)) ||
-                  padNumber(0, 5)}
-              </span>
-            </div>
-            <p className="mb-0 mt-1 small text-muted">FAVORITES</p>
-          </div>
           {/* Model and Creator */}
-          <MDBCardText className="clickable d-flex flex-column">
+          <MDBCardText className="clickable d-flex flex-column my-0">
             <MDBTypography>
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
@@ -89,7 +66,7 @@ function PhotoCard({ photoData }) {
             </MDBTypography>
           </MDBCardText>
           {photoData.views && (
-            <MDBCardText className="d-flex flex-column">
+            <MDBCardText className="d-flex flex-column my-0">
               <MDBTypography>
                 <MDBTypography tag="small" className="text-muted">
                   VIEWS&nbsp;&nbsp;
@@ -99,7 +76,7 @@ function PhotoCard({ photoData }) {
             </MDBCardText>
           )}
           {photoData.shared && (
-            <MDBCardText className="d-flex flex-column">
+            <MDBCardText className="d-flex flex-column my-0">
               <MDBTypography>
                 <MDBTypography tag="small" className="text-muted">
                   SHARED&nbsp;&nbsp;
@@ -109,7 +86,7 @@ function PhotoCard({ photoData }) {
             </MDBCardText>
           )}
           {photoData.dateCreated && (
-            <MDBCardText className="d-flex flex-column">
+            <MDBCardText className="d-flex flex-column my-0">
               <MDBTypography>
                 <MDBTypography tag="small" className="text-muted">
                   CREATED&nbsp;&nbsp;
@@ -119,7 +96,7 @@ function PhotoCard({ photoData }) {
             </MDBCardText>
           )}
           {photoData.comments && (
-            <MDBCardText className="d-flex flex-column">
+            <MDBCardText className="d-flex flex-column my-0">
               <MDBTypography>
                 <MDBTypography tag="small" className="text-muted">
                   COMMENTS&nbsp;&nbsp;
@@ -128,6 +105,29 @@ function PhotoCard({ photoData }) {
               </MDBTypography>
             </MDBCardText>
           )}
+          {/* Engagement Statistics */}
+          <div className="badge badge-secondary me-3 mb-3 p-2 clickable">
+            <div className="d-flex justify-content-center align-items-center">
+              <i
+                className="fas fa-heart me-2"
+                // style={{color: "red"}}
+              ></i>
+              <span className="font-weight-bold">
+                {photoData.likes && padNumber(photoData.likes, 5)}
+              </span>
+            </div>
+            <p className="mb-0 mt-1 small text-muted">LIKES</p>
+          </div>
+          <div className="badge badge-secondary me-3 mb-3 p-2 clickable">
+            <div className="d-flex justify-content-center align-items-center">
+              <i className="fas fa-star me-2"></i>
+              <span className="font-weight-bold">
+                {(photoData.favorites && padNumber(photoData.favorites, 5)) ||
+                  padNumber(0, 5)}
+              </span>
+            </div>
+            <p className="mb-0 mt-1 small text-muted">FAVORITES</p>
+          </div>
         </MDBCardBody>
       </MDBCard>
     </MDBContainer>

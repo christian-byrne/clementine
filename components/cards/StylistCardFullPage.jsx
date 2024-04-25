@@ -6,7 +6,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import ModelCardText from "@/components/cards/StylistCardText";
+import StylistCardText from "@/components/cards/StylistCardText";
 import ResponsivePhotoGrid from "@/components/photo-grids/ResponsivePhotoGrid";
 import axios from "axios";
 
@@ -66,7 +66,10 @@ function StylistCardFullPage({ stylistData }) {
         )}
         {detailsExpanded ? (
           <MDBCardBody>
-            <ModelCardText modelData={stylistData} />
+            <StylistCardText
+              stylistData={stylistData}
+              textExpandedState={detailsExpanded}
+            />
             <MDBContainer className="my-3">
               <MDBBtn color="primary" className="m-1">
                 Details
