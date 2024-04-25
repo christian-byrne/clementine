@@ -31,7 +31,7 @@ function BrowsePage() {
       // if the item name is found
       if (index !== -1) setVisibleIndex(index);
     } else if (contentType === "photos") {
-      setAllDataSorted(allPhotosData);
+      setAllDataSorted(sortRecordsByKey(allPhotosData, "likes"));
       // find index of itemName in allDataSorted and set as initial visible index
       const index = allDataSorted.findIndex(
         (photo) =>
