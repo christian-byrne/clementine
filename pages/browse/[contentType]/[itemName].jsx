@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { MDBRow, MDBContainer, MDBBtn, MDBIcon } from "mdb-react-ui-kit";
+import {
+  MDBRow,
+  MDBContainer,
+  MDBBtn,
+  MDBIcon,
+  MDBTypography,
+} from "mdb-react-ui-kit";
 import { useRouter } from "next/router";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
@@ -13,6 +19,7 @@ function BrowsePage() {
 
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [allDataSorted, setAllDataSorted] = useState([]);
+  const [arrowKeyPressed, setArrowKeyPressed] = useState(false);
 
   useEffect(() => {
     if (contentType === "stylists") {
@@ -39,12 +46,14 @@ function BrowsePage() {
   const maxItems = allDataSorted.length - 1;
 
   const handleKeyDown = (event) => {
+    setArrowKeyPressed(true);
     if (event.key === "ArrowDown" || event.key === "ArrowRight") {
       setVisibleIndex((prevIndex) => (prevIndex + 1 + maxItems) % maxItems);
       event.preventDefault();
     }
   };
   const handleKeyUp = (event) => {
+    setArrowKeyPressed(true);
     if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
       event.preventDefault();
       // Account for 0 by adding maxItems and then taking the modulus
@@ -52,9 +61,8 @@ function BrowsePage() {
     }
   };
 
-
   // Swiping listener for mobile
-    let startY = 0;
+  let startY = 0;
 
   const handleTouchStart = (event) => {
     event.preventDefault();
@@ -80,6 +88,7 @@ function BrowsePage() {
     window.addEventListener("keyup", handleKeyUp);
 
     if (window.innerWidth < 768) {
+      setArrowKeyPressed(true);
       window.addEventListener("touchstart", handleTouchStart, false);
       window.addEventListener("touchend", handleTouchEnd, false);
     }
@@ -96,7 +105,34 @@ function BrowsePage() {
   return (
     allDataSorted?.length > 0 && (
       <MDBRow>
-        <MDBContainer fluid className="my-4 py-4 d-flex col-12">
+        {!arrowKeyPressed && (
+          <MDBContainer
+            fluid
+            className="d-flex flex-column align-items-end justify-content-center mt-5"
+          >
+            <MDBContainer className="col-md-5 col-lg-4 col-xl-3 col-sm-10 d-flex align-items-flex-start flex-column mx-0">
+              <MDBTypography note noteColor="light">
+                Use <strong>Arrow Keys</strong> &nbsp;
+                <MDBIcon
+                  icon={"fas fa-square-caret-right"}
+                  style={{
+                    fontSize: "1.15rem",
+                    color: "rgba(12, 12, 242, 0.38)",
+                  }}
+                />
+                &nbsp; to browse {contentType}
+              </MDBTypography>
+            </MDBContainer>
+          </MDBContainer>
+        )}
+        <MDBContainer
+          fluid
+          className={
+            !arrowKeyPressed
+              ? "mb-4 mt-2 py-4 d-flex col-12"
+              : "my-4 py-4 d-flex col-12"
+          }
+        >
           {contentType === "stylists" ? (
             <StylistCardFullPage stylistData={allDataSorted[visibleIndex]} />
           ) : contentType === "photos" ? (
