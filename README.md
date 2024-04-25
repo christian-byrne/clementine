@@ -51,6 +51,8 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] Glossary of terms in blog (OneNote Fa)
+- [ ] "Hottest Fashion Take" to user record field
 - [x] Photos on content cards -> carousels
 - [x] Responsive photo grid doesn't go to configurations that wouldnt be possible with the size of the passed photo data argument
 - [x] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
