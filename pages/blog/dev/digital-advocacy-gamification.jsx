@@ -135,10 +135,10 @@ function DigitalAdvocacyGamificationPage() {
           <br></br>
           <br></br>
           <strong>Historical Context</strong> &nbsp;&nbsp; This crossover
-          between game elements and advocacy isn't entirely new, as games aiming
+          between game elements and advocacy isn't entirely new, as <em>games</em> aiming
           for social change have roots dating back decades. These games aim to
           raise awareness and critique certain issues, such as corporate
-          practices or political decisions.
+          practices or political decisions. However, there is a difference between games meant to raise awareness and the use of game elements in non-game advocacy initiatives.
           <br></br>
           <br></br>
           <strong>Popularity Increasing with Tech</strong> &nbsp;&nbsp; This
