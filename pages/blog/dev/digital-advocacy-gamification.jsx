@@ -56,9 +56,8 @@ function DigitalAdvocacyGamificationPage() {
 
       setTimeout(() => {
         setConfetti(false);
-      }, 5000);
+      }, 4200);
     }
-
   };
 
   const setTabAsRead = (index) => {
@@ -106,9 +105,9 @@ function DigitalAdvocacyGamificationPage() {
         Gamification & Digital Advocacy
       </MDBTypography>
       <MDBRow className="m-4 p-2 mb-0">
-        <MDBTypography tag="h5" className="pt-4 mt-4 pb-2 ps-1">
+        {/* <MDBTypography tag="h5" className="pt-4 mt-4 pb-2 ps-1">
           Game Mechanics used in Digital Advocacy Gamification
-        </MDBTypography>
+        </MDBTypography> */}
         <MDBProgress>
           <MDBProgressBar
             striped
@@ -124,6 +123,7 @@ function DigitalAdvocacyGamificationPage() {
             height={screenWidth}
             recycle={false}
             numberOfPieces={200}
+            gravity={0.2}
           />
         ) : (
           ""
@@ -139,11 +139,7 @@ function DigitalAdvocacyGamificationPage() {
           ) : (
             <>
               You've read all the game mechanics. Great job! &nbsp;
-              <MDBIcon
-                fas
-                icon="check-circle"
-                className="text-success"
-              />{" "}
+              <MDBIcon fas icon="check-circle" className="text-success" />{" "}
             </>
           )}
         </MDBTypography>

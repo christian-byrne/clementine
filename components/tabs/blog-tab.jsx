@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { MDBTabsItem, MDBTabsLink, MDBIcon } from "mdb-react-ui-kit";
 
 function BlogTab({ index, handleFillClick, fillActive, name, clickHandler }) {
