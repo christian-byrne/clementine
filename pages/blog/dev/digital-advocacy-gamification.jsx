@@ -2,23 +2,13 @@ import {
   MDBContainer,
   MDBRow,
   MDBTypography,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBBtn,
-  MDBAccordion,
-  MDBAccordionItem,
   MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
   MDBTabsContent,
   MDBIcon,
-  MDBTabsPane,
   MDBProgress,
   MDBProgressBar,
+  MDBListGroup,
+  MDBListGroupItem,
 } from "mdb-react-ui-kit";
 import React, { useState, useEffect } from "react";
 import advocacyMechanics from "@/data/blog/gamification/game-mechanics/digital-advocacy-mechanics";
@@ -170,6 +160,161 @@ function DigitalAdvocacyGamificationPage() {
             />
           ))}
         </MDBTabsContent>
+      </MDBRow>
+      <hr className="hr" />
+      <MDBRow className="m-4 mt-5 p-2">
+        <MDBTypography
+          tag="h1"
+          className="display-5 noto-display-h1 mb-3 py-1 ps-0"
+        >
+          Successes, Failures, and Innovations
+        </MDBTypography>
+
+        <MDBTypography tag="h2" className="pt-3 mb-2">
+          Successes
+        </MDBTypography>
+        <MDBListGroup>
+          <MDBListGroupItem>
+            Platforms like Crowdrise that have raised millions of dollars for
+            nonprofits through gamified fundraising
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Initiatives like the TGL Awards that have recognized and celebrated
+            civic pro bono work and engaged participants in workshops
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Games like Zombies, Run! that have motivated users to exercise and
+            adopt healthier habits
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Platforms like OpenIDEO that have hosted design challenges and
+            invited users to collaborate on solutions to global challenges
+          </MDBListGroupItem>
+        </MDBListGroup>
+
+        <MDBTypography tag="h2" className="pt-3 my-2">
+          Failures
+        </MDBTypography>
+        <MDBListGroup>
+          <MDBListGroupItem>
+            Initiatives that have failed to sustain long-term engagement and
+            commitment among participants
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Platforms that have struggled to attract a diverse and inclusive
+            audience
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Games that have failed to drive meaningful social change or impact
+          </MDBListGroupItem>
+        </MDBListGroup>
+
+        <MDBTypography tag="h2" className="pt-3 my-2">
+          Innovations
+        </MDBTypography>
+        <MDBListGroup>
+          <MDBListGroupItem>
+            Platforms that have leveraged social media and digital technologies
+            to engage a wider audience
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Initiatives that have combined gamification with storytelling and
+            narrative to create immersive experiences
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Games that have used virtual reality and augmented reality to create
+            interactive and engaging experiences
+          </MDBListGroupItem>
+          <MDBListGroupItem>
+            Platforms that have integrated with existing social networks and
+            platforms to facilitate social sharing and engagement
+          </MDBListGroupItem>
+        </MDBListGroup>
+      </MDBRow>
+
+      <MDBRow className="m-4 mt-5 p-2">
+        <MDBTypography
+          tag="h1"
+          className="display-5 noto-display-h1 mb-3 py-1 ps-0"
+        >
+          Discussion
+        </MDBTypography>
+        <MDBTypography tag="h2" className="pt-3 mb-2">
+          Implications
+        </MDBTypography>
+
+        <MDBTypography tag="p" className="mb-4">
+          Gamification has the potential to revolutionize advocacy efforts by
+          engaging a wider audience, fostering collaboration and community, and
+          driving meaningful social change. By leveraging game-design elements
+          and digital technologies, civic actors can create immersive and
+          interactive experiences that motivate and inspire participants to take
+          action. Gamification can help raise awareness, mobilize resources, and
+          amplify the impact of advocacy efforts. It can also foster a sense of
+          ownership and pride among participants, encouraging them to become
+          more engaged and committed to the cause. Overall, gamification has the
+          power to transform advocacy by making it more engaging, interactive,
+          and effective.
+        </MDBTypography>
+
+        <MDBTypography tag="h2" className="pt-3 mb-2">
+          Moral Considerations
+        </MDBTypography>
+
+        <MDBTypography tag="p" className="mb-4">
+          The use of gamification in advocacy raises ethical questions about
+          privacy, security, and inclusivity. It is essential to consider the
+          potential risks and drawbacks of gamification, such as algorithmic
+          biases, privacy concerns, and the digital divide. Civic actors must
+          ensure that gamified advocacy initiatives are transparent, inclusive,
+          and respectful of participants' rights and privacy. They must also be
+          mindful of the unintended consequences of gamification, such as
+          reinforcing stereotypes or perpetuating harmful behaviors. By adopting
+          ethical guidelines and best practices, civic actors can harness the
+          power of gamification to drive positive social change while upholding
+          ethical standards and values.
+        </MDBTypography>
+
+        <MDBTypography tag="h2" className="pt-3 mb-2">
+          Opportunities
+        </MDBTypography>
+
+        <MDBTypography tag="p" className="mb-4">
+          There are many opportunities for gamification in advocacy that have
+          not been fully realized. For example, gamification could be used to
+          promote civic engagement and political participation by encouraging
+          users to vote, contact their representatives, or participate in
+          community events. Gamification could also be used to raise awareness
+          about social issues and inspire action by creating immersive and
+          interactive experiences that educate and inform the public.
+          Additionally, gamification could be used to foster collaboration and
+          cooperation among participants by creating challenges and rewards that
+          encourage teamwork and collective action. By exploring new and
+          innovative ways to gamify advocacy efforts, civic actors can unlock
+          the full potential of gamification to drive social change and create a
+          more just and equitable society.
+        </MDBTypography>
+
+        <MDBTypography tag="h2" className="pt-3 mb-2">
+          Conclusion
+        </MDBTypography>
+
+        <MDBTypography tag="p" className="mb-4">
+          Positive impacts of gamification in advocacy include increased
+          engagement and participation, enhanced collaboration and community
+          building, and greater awareness and support for social causes.
+          Gamification can motivate and inspire participants to take action,
+          drive meaningful social change, and amplify the impact of advocacy
+          efforts. However, there are also negative impacts of gamification that
+          should be addressed, such as privacy concerns, algorithmic biases, and
+          the digital divide. Civic actors must be mindful of the potential
+          risks and drawbacks of gamification and take steps to mitigate them.
+          By adopting ethical guidelines and best practices, civic actors can
+          ensure that gamified advocacy initiatives are transparent, inclusive,
+          and respectful of participants' rights and privacy. They can also
+          leverage the power of gamification to create positive social change
+          while upholding ethical standards and values.
+        </MDBTypography>
       </MDBRow>
     </MDBContainer>
   );
