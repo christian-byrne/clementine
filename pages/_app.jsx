@@ -7,7 +7,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function App({ Component, pageProps, router }) {
   // Define an array of route paths where you don't want to render the Navbar
-  const routesWithoutNavbar = ["/social-media-gamification"]; // Add your specific page path here
+  const routesWithoutNavbar = [
+    "/social-media-gamification",
+    "/blog/dev/digital-advocacy-gamification",
+  ]; // Add your specific page path here
 
   // Check if the current route is in the routesWithoutNavbar array
   const shouldRenderNavbar = !routesWithoutNavbar.includes(router.pathname);
