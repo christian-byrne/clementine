@@ -14,12 +14,12 @@ import React, { useState, useEffect } from "react";
 import advocacyMechanics from "@/data/blog/gamification/game-mechanics/digital-advocacy-mechanics";
 import BlogTab from "@/components/tabs/blog-tab";
 import BlogTabPane from "@/components/tabs/blog-tab-pane";
-import { padNumber } from "@/utils/padNumber";
 import Confetti from "react-confetti";
 
 function DigitalAdvocacyGamificationPage() {
   const [screenWidth, setScreenWidth] = useState(null);
   const [fillActiveTabCard, setFillActiveTabCard] = useState("tab1");
+  const [haveReadAll, setHaveReadAll] = useState(false);
   let readArray = [];
   for (let i = 0; i < Object.keys(advocacyMechanics).length; i++) {
     if (i == 0) {
@@ -43,6 +43,7 @@ function DigitalAdvocacyGamificationPage() {
 
     if (count === read.length) {
       setConfetti(true);
+      setHaveReadAll(true);
 
       setTimeout(() => {
         setConfetti(false);
@@ -88,13 +89,72 @@ function DigitalAdvocacyGamificationPage() {
 
   return (
     <MDBContainer fluid className="mt-5 mb-6">
+      {/* Title */}
       <MDBTypography
         tag="div"
         className="display-1 py-5 my-2 text-center noto-display-h1"
       >
         Gamification & Digital Advocacy
       </MDBTypography>
+
+      {/* Note */}
+      {!haveReadAll && (
+        <MDBContainer
+          fluid
+          className="d-flex flex-column justify-content-center mt-3"
+        >
+          <MDBContainer className="col-md-5 col-lg-4 col-xl-3 col-sm-10 d-flex align-items-flex-start flex-column ms-0">
+            <MDBTypography note noteColor="light">
+              <strong>Complete</strong> 100% on the progress bar below to see a
+              special animation 🎉
+            </MDBTypography>
+          </MDBContainer>
+          {/* <MDBContainer className="col-md-5 col-lg-4 col-xl-3 col-sm-10 d-flex align-items-flex-start flex-column ms-0">
+          <MDBTypography note noteColor="light">
+            Mechanics I found used on <strong>Social Media</strong> have{" "}
+            <span className="text-primary text-bold">blue</span> titles and
+            further details
+          </MDBTypography>
+        </MDBContainer> */}
+        </MDBContainer>
+      )}
+
+      {/* Content */}
       <MDBRow className="m-4 p-2 mb-0">
+        <MDBTypography tag="p" className="text-muted mb-4">
+          <strong>What is Gamification</strong> &nbsp;&nbsp; Gamification, the
+          integration of game-elements into non-game contexts, has surged in
+          recent years, facilitated by the widespread adoption of digital
+          platforms like social media.
+          <br></br>
+          <br></br>
+          <strong>Applied to Advocacy</strong> &nbsp;&nbsp; While businesses
+          have long employed game-design elements for marketing, civic actors,
+          including nonprofits, are now embracing gamification to achieve
+          various goals such as raising awareness and fundraising.
+          <br></br>
+          <br></br>
+          <strong>Historical Context</strong> &nbsp;&nbsp; This crossover
+          between game elements and advocacy isn't entirely new, as games aiming
+          for social change have roots dating back decades. These games aim to
+          raise awareness and critique certain issues, such as corporate
+          practices or political decisions.
+          <br></br>
+          <br></br>
+          <strong>Popularity Increasing with Tech</strong> &nbsp;&nbsp; This
+          trend is altering civic advocacy by supplementing traditional
+          strategies with mobile applications and design thinking, promising
+          increased engagement and collaboration for social causes.
+          Technological advancements have facilitated the spread of gamified
+          advocacy, with various platforms and devices enabling broader audience
+          engagement
+          <br></br>
+          <br></br>
+          <strong>Drawbacks</strong> &nbsp;&nbsp; Challenges arise, including
+          concerns about security, inclusivity, and the effectiveness of
+          gamification in driving meaningful social change.
+          <br></br>
+        </MDBTypography>
         {/* <MDBTypography tag="h5" className="pt-4 mt-4 pb-2 ps-1">
           Game Mechanics used in Digital Advocacy Gamification
         </MDBTypography> */}
@@ -207,6 +267,10 @@ function DigitalAdvocacyGamificationPage() {
           <MDBListGroupItem>
             Games that have failed to drive meaningful social change or impact
           </MDBListGroupItem>
+          <MDBListGroupItem>
+            Platforms that were not inclusive and respectful of participants'
+            rights and privacy and furthered the digital divide
+          </MDBListGroupItem>
         </MDBListGroup>
 
         <MDBTypography tag="h2" className="pt-3 my-2">
@@ -214,20 +278,17 @@ function DigitalAdvocacyGamificationPage() {
         </MDBTypography>
         <MDBListGroup>
           <MDBListGroupItem>
-            Platforms that have leveraged social media and digital technologies
-            to engage a wider audience
+            Platforms that have integrated with existing social networks and
+            platforms to facilitate social sharing and engagement through viral
+            trends and challenges
           </MDBListGroupItem>
           <MDBListGroupItem>
             Initiatives that have combined gamification with storytelling and
             narrative to create immersive experiences
           </MDBListGroupItem>
           <MDBListGroupItem>
-            Games that have used virtual reality and augmented reality to create
-            interactive and engaging experiences
-          </MDBListGroupItem>
-          <MDBListGroupItem>
-            Platforms that have integrated with existing social networks and
-            platforms to facilitate social sharing and engagement
+            Platforms that have leveraged social media and digital technologies
+            to engage a wider audience and previously unreached demographics
           </MDBListGroupItem>
         </MDBListGroup>
       </MDBRow>

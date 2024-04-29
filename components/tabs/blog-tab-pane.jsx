@@ -11,7 +11,7 @@ import {
 
 function BlogTabPane({ index, fillActive, name, data }) {
   return (
-    <MDBTabsPane open={fillActive === `tab${index}`} className="mt-4">
+    <MDBTabsPane open={fillActive === `tab${index}`} className="mt-5">
       <MDBContainer className="d-flex justify-content-start ps-0 ms-0 mb-5">
         <MDBTypography tag="h1" className="ms-0 ps-0 pe-3 noto-display-h1">
           {name}

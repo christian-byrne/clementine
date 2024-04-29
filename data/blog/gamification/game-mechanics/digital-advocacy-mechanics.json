@@ -2,23 +2,26 @@
   "Feedback": {
     "altname" : "Progress",
     "goals": [
+      "Motivate activtists to continue their efforts in a sustained manner by providing feedback on their progress",
+      "Contextualize individuals' effect on a collective action effort",
       "Create networks of engaged individuals",
       "Establish relationships with people who share common goals to build a stronger network of activists",
       "Incentivize and reward participation in advocacy efforts"
     ],
     "components": [
-      "Leaderboards",
+      "Progress Bars",
+      "Progress Visualizations",
       "Rewards and recognition",
-      "Social sharing features",
-      "Collaborative challenges",
-      "Personalized feedback"
+      "Progress Reports",
+      "Personalized feedback",
+      "Step-by-step guides/plans",
+      "Progress Loss"
     ],
     "examples": [
-      "Leaderboards on crowdfunding platforms like Crowdrise where users compete to raise the most funds for a cause",
       "Social sharing features on health and wellness apps like Zombies, Run! that encourage users to share their progress with friends and family",
       "Collaborative challenges on platforms like OpenIDEO where users work together to solve complex social issues",
       "Platforms like Avaaz that give users personalized feedback on their contributions, reinforcing their sense of ownership and connection to the cause.",
-      "350.org's Fossil Free Campaign: 350.org is a grassroots climate movement that campaigns for divestment from fossil fuels and the transition to renewable energy. As part of its Fossil Free campaign, 350.org mobilizes activists to pressure institutions such as universities, churches, and pension funds to divest from fossil fuel companies. Participants in the campaign can track the progress of divestment commitments on a global map and receive updates on new victories and opportunities for action. By engaging participants in the divestment process and highlighting their collective impact, 350.org fosters a sense of ownership and empowerment among activists fighting climate change."
+      "350.org's Fossil Free Campaign that allows users to track the progress of divestment commitments on a global map and receive updates on new victories and opportunities for action. By engaging participants in the divestment process and highlighting their collective impact, 350.org fosters a sense of progress and empowerment among activists fighting climate change."
     ]
   },
   "Competition": {
@@ -33,6 +36,8 @@
     "components": [
       "Leaderboards",
       "Points and rewards",
+      "Status Symbols",
+      "Trophy Cases",
       "Challenges and competitions",
       "Social sharing features",
       "Badges and titles"
@@ -55,15 +60,17 @@
     ],
     "components": [
       "Social sharing features",
+      "Thank-you economy",
+      "Teams and guilds",
       "Collaborative challenges",
-      "Social influence and peer pressure",
-      "Recognition and rewards",
       "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Petitions",
+      "Mentorship",
+      "Recognition and rewards",
+      "Leaderboards"
     ],
     "examples": [
+      "Initiatives that integrate with existing social networks like LinkedIn to connect professionals with opportunities for pro bono work and social impact",
       "Initiatives that integrate with existing social media like Facebook or Twitter to facilitate social sharing and engagement",
       "Platforms like EyeWire that allow users to collaborate on scientific research projects and interact with other players"
     ]
@@ -80,13 +87,18 @@
       "Create a sense of social accountability and responsibility among participants"
     ],
     "components": [
+      "Elitism",
+      "Social Prods",
+      "Brag Buttons",
+      "Guilds/Teams",
       "Social sharing features",
+      "Thank you economy",
+      "Nudges",
       "Challenges and competitions",
       "Recognition and rewards",
       "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
       "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Calls to Action"
     ],
     "examples": [
       "Platforms like Recyclebank that use social sharing features to encourage users to share their recycling efforts with friends and family",
@@ -130,6 +142,7 @@
       "Foster a sense of community and shared purpose"
     ],
     "components": [
+      "Group quests",
       "Collaborative challenges",
       "Social sharing features",
       "Recognition and rewards",
@@ -153,11 +166,12 @@
       "Create a sense of ownership and pride in participants' contributions"
     ],
     "components": [
+      "User-generated content",
+      "Creativity Challenges",
+      "Creative tools",
+      "Puzzle Solving",
       "Challenges and competitions",
-      "Social sharing features",
-      "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Altruism and social responsibility",
+      "Empowerment and Autonomy Based Tasks/processes",
       "Unpredictability and surprise"
     ],
     "examples": [
@@ -176,13 +190,12 @@
       "Reward and recognize participants for their altruistic actions"
     ],
     "components": [
-      "Points and rewards",
-      "Challenges and competitions",
-      "Social sharing features",
+      "Calls to Action",
+      "Status Symbols",
+      "Thank you economy",
+      "Mentorship",
       "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Unpredictability and surprise"
+      "Cooperation and teamwork"
     ],
     "examples": [
       "Platforms like Crowdrise that gamify charitable giving and encourage users to fundraise for nonprofits",
@@ -200,13 +213,13 @@
       "Create a sense of mystery and intrigue around the advocacy efforts"
     ],
     "components": [
-      "Challenges and competitions",
-      "Social sharing features",
-      "Recognition and rewards",
+      "Creativite Challenges and competitions",
+      "Dynamic content and events",
+      "Refreshing content",
       "Cooperation and teamwork",
       "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Unpredictability and surprise",
+      "Non-fixed Reward Systems"
     ],
     "examples": [
       "Platforms like Recyclebank that offer surprise rewards and challenges to keep users engaged and motivated",
@@ -233,11 +246,8 @@
       "Leaderboards",
       "Challenges and competitions",
       "Social sharing features",
-      "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Points Systems",
+      "Achievement Symbols"
     ],
     "examples": [
       "Initiatives like the TGL Awards that recognize and celebrate civic pro bono work and engage participants in workshops",
@@ -256,14 +266,12 @@
     ],
     "components": [
       "Challenges and competitions",
-      "Points and rewards",
       "Leaderboards",
-      "Social sharing features",
-      "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Quests",
+      "Group Quests",
+      "MiniQuests",
+      "Boss Fights",
+      "Step-by-step guides/plans"
     ],
     "examples": [
       "Platforms like Recyclebank that offer challenges and rewards to encourage users to recycle and adopt sustainable habits",
@@ -281,16 +289,11 @@
       "Create a sense of belonging and identity with the advocacy efforts"
     ],
     "components": [
+      "Virtual Goods",
+      "Social sharing features",
       "Points and rewards",
       "Badges and titles",
-      "Leaderboards",
-      "Challenges and competitions",
-      "Social sharing features",
-      "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Recognition and rewards"
     ],
     "examples": [
       "Platforms like IdeaScale that invite users to submit ideas and take ownership of the problem-solving process",
@@ -310,15 +313,9 @@
     ],
     "components": [
       "Badges and titles",
-      "Leaderboards",
-      "Points and rewards",
       "Challenges and competitions",
-      "Social sharing features",
-      "Recognition and rewards",
-      "Cooperation and teamwork",
       "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Avatars and social profiles"
     ],
     "examples": [
       "Platforms like OpenIDEO that host design challenges and invite users to share their ideas and solutions",
@@ -335,15 +332,11 @@
       "Foster a sense of empathy and understanding among participants towards groups that they may not have been exposed to or have been able to empathize with prior"
     ],
     "components": [
-      "Challenges and competitions",
-      "Points and rewards",
-      "Leaderboards",
+      "Humanity Hero",
+      "Beginner's Luck",
       "Social sharing features",
       "Recognition and rewards",
-      "Cooperation and teamwork",
-      "Creativity, innovation, and exploration",
-      "Altruism and social responsibility",
-      "Unpredictability and surprise"
+      "Altruism and social responsibility"
     ],
     "examples": [
       "Platforms like Recyclebank that use storytelling to engage users and raise awareness about environmental issues",
