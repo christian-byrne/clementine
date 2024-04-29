@@ -16,6 +16,7 @@
     "next": "^14.2.1",
     "next-redirects": "^3.2.3",
     "react": "^18",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18",
     "react-konva": "^18.2.10",
     "vercel": "^33.5.2",

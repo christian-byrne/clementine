@@ -25,6 +25,7 @@ import advocacyMechanics from "@/data/blog/gamification/game-mechanics/digital-a
 import BlogTab from "@/components/tabs/blog-tab";
 import BlogTabPane from "@/components/tabs/blog-tab-pane";
 import { padNumber } from "@/utils/padNumber";
+import Confetti from "react-confetti";
 
 function DigitalAdvocacyGamificationPage() {
   const [screenWidth, setScreenWidth] = useState(null);
@@ -39,6 +40,7 @@ function DigitalAdvocacyGamificationPage() {
   }
   const [read, setRead] = useState(readArray);
   const [progressWidth, setProgressWidth] = useState(0);
+  const [confetti, setConfetti] = useState(false);
 
   const updateProgress = () => {
     let count = 0;
@@ -48,6 +50,15 @@ function DigitalAdvocacyGamificationPage() {
       }
     });
     setProgressWidth((count / read.length) * 100);
+
+    if (count === read.length) {
+      setConfetti(true);
+
+      setTimeout(() => {
+        setConfetti(false);
+      }, 5000);
+    }
+
   };
 
   const setTabAsRead = (index) => {
@@ -107,6 +118,16 @@ function DigitalAdvocacyGamificationPage() {
             valuemax={100}
           />
         </MDBProgress>
+        {confetti && screenWidth > 768 ? (
+          <Confetti
+            width={screenWidth}
+            height={screenWidth}
+            recycle={false}
+            numberOfPieces={200}
+          />
+        ) : (
+          ""
+        )}
       </MDBRow>
       <MDBRow className="mx-4 px-2 mt-0 pt-0 mb-4 text-end">
         <MDBTypography className="py-1 mt-1 mb-0 text-muted small">
@@ -121,7 +142,7 @@ function DigitalAdvocacyGamificationPage() {
               <MDBIcon
                 fas
                 icon="check-circle"
-                className="text-secondary"
+                className="text-success"
               />{" "}
             </>
           )}
