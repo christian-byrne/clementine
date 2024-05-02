@@ -15,16 +15,15 @@ function BlogPageCard({
   containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
   detailsStartExpanded,
 }) {
-  
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
   const toggleText = () => setTextExpanded(!textExpanded);
+  const [curPhotoIndex, setCurPhotoIndex] = useState(0);
 
   const photos = [];
   for (let i = 1; i <= data.photoCount; i++) {
     photos.push(`${data.imageDirPath}/${i}.png`);
   }
 
-  const [curPhotoIndex, setCurPhotoIndex] = useState(0);
   const nextPhoto = () => {
     if (curPhotoIndex < photos.length - 1) {
       setCurPhotoIndex(curPhotoIndex + 1);
@@ -39,6 +38,8 @@ function BlogPageCard({
       setCurPhotoIndex(photos.length - 1);
     }
   };
+
+  console.log(curPhotoIndex, photos[curPhotoIndex] || placeholderImg.src);
 
   return (
     data?.title && (
@@ -62,11 +63,14 @@ function BlogPageCard({
                   transform: "translateY(-50%)",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.children[0].style.color = "black";
+                  if (e.target.children[0]) {
+                    e.target.children[0].style.color = "var(--mdb-btn-color)";
+                  }
                 }} // Change color on hover
                 onMouseLeave={(e) => {
-                  e.target.children[0].style.color =
-                    "rgba(255, 255, 255, 0.67)";
+                  if (e.target.children[0]) {
+                    e.target.children[0].style.color = "rgba(2, 2, 2, 0.67)";
+                  }
                 }} // Revert color on hover out
                 onClick={prevPhoto}
               >
@@ -74,7 +78,7 @@ function BlogPageCard({
                   icon={"fas fa-chevron-left"}
                   style={{
                     fontSize: "1.1rem",
-                    color: "rgba(248, 248, 248, 0.82)",
+                    color: "rgba(2, 2, 2, 0.82)",
                   }}
                 />
               </MDBBtn>
@@ -88,11 +92,14 @@ function BlogPageCard({
                   transform: "translateY(-50%)",
                 }}
                 onMouseEnter={(e) => {
-                  e.target.children[0].style.color = "black";
+                  if (e.target.children[0]) {
+                    e.target.children[0].style.color = "var(--mdb-btn-color)";
+                  }
                 }} // Change color on hover
                 onMouseLeave={(e) => {
-                  e.target.children[0].style.color =
-                    "rgba(255, 255, 255, 0.67)";
+                  if (e.target.children[0]) {
+                    e.target.children[0].style.color = "rgba(2, 2, 2, 0.67)";
+                  }
                 }} // Revert color on hover out
                 onClick={nextPhoto}
               >
@@ -100,7 +107,7 @@ function BlogPageCard({
                   icon={"fas fa-chevron-right"}
                   style={{
                     fontSize: "1.1rem",
-                    color: "rgba(255, 255, 255, 0.82)",
+                    color: "rgba(2, 2, 2, 0.82)",
                   }}
                 />
               </MDBBtn>
