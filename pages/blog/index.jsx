@@ -15,7 +15,7 @@ function BlogPage() {
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-4">
             {/* Featured Models Row */}
-            <MDBTypography tag="h2">Featured Articles</MDBTypography>
+            <MDBTypography tag="h2" className="my-4">Featured Articles</MDBTypography>
             <ContentRow
               colComponent={BlogPageCard}
               colData={allBlogPagesData}
