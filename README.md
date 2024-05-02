@@ -51,6 +51,13 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] Models
+- [ ] Closet Page
+- [ ] TikTok Scroller padding algorithm so footer always bottom at same y-coordinate
+- [ ] Salesforce Img2Txt implementation
+- [ ] Styles/movements directory
+- [ ] Quick Suggest Page
+    - Quick non-customized suggestions demo/page with huggingface API 
 - [ ] Glossary of terms in blog (OneNote Fa)
 - [ ] "Hottest Fashion Take" to user record field
 - [x] Photos on content cards -> carousels

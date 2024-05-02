@@ -1,43 +1,100 @@
+# Subject
 Candid photoshoot of woman wearing a "Thrift store chic" [[outfit entirely in grey, monochrome outfit, monochrome fashion, shades of grey]]
 
-Patchwork denim
-Embroidered or embellished garments
-Upcycled or DIY clothing items
-Statement footwear (e.g., vintage boots, platform shoes, sneakers)
-Boho-chic dresses and peasant tops.
-Vintage dresses and skirts
-Oversized sweaters and cardigans
-Denim jackets and jeans
-Graphic T-shirts and band shirts
-Retro blouses and button-down shirts
-Statement jackets (e.g., leather, faux fur)
-Bohemian-style tops and blouses
-Vintage blazers and coats
+
+# Fullbody
+Vintage dresses
+Chunky knitwear
+
+# Tops
+Graphic T-shirts
+band shirts
+Retro blouses
+Retro button-down shirts
+Bohemian-style blouses
+
+# Outerwear
+Denim jackets
+Oversized sweaters
+Oversized cardigans
+Boxy blazers
+Boxy sweaters
+Statement leather jacket
+Statement faux fur jacket
+Vintage blazers
+vintage coats
+Faux fur jackets
+shawls
+ponchos
+kimonos
+cardigans
+
+# Bottoms
 Midi and maxi skirts
 Wide-leg trousers and jeans
+Jeans
+
+# Themes
 Unique and quirky printed pieces
-Vintage-inspired accessories (e.g., scarves, belts, hats)
+Upcycled or DIY clothing items
+Layered and eclectic outfits
+Boho-chic dresses and peasant tops.
+
+# Accessories
+Vintage-inspired scarves
+Vintage-inspired belts
+chain belts
+wide waist belts
+Vintage handbags
+beaded bags
+box bags
+Vintage hats
+berets
+fedoras
+unique vintage brooches
+eclectic necklaces
+
+# Materials/Patterns
 Chunky knitwear
 Patchwork denim
-Embroidered or embellished garments
-Upcycled or DIY clothing items
-Statement footwear (e.g., vintage boots, platform shoes, sneakers)
-Layering pieces (e.g., vests, kimonos, shawls)
-Unique jewelry pieces (e.g., vintage brooches, eclectic necklaces)
-Boho-chic dresses and peasant tops.
-Thrifted Vintage-inspired accessories (e.g., scarves, belts, hats)
-Chunky grey knitwear
-greyscale 
-Layering pieces (e.g., grey vests, grey kimonos, grey shawls)
-Unique jewelry pieces (e.g., vintage brooches, eclectic necklaces)
+Embroidered
+embellished
+Faux fur
+Fringe
+Floral prints
 
-nerdy
+# Footwear
+vintage boots
+platform shoes
+sneakers
+loafers
+mules
+
+
+# Colors
 monochrome
 neutral color
 monochromatic outfit
 
-hyperdetailed, hyperreal style, photorealistic, 4K, professional photography, style of Anton Pieck-Cinnabar
+# Medium
+hyperdetailed
+hyperreal style
+photorealistic
+4K
+professional photography
+style of Anton Pieck-Cinnabar
 
+# Setting
+Library 
+Cafe
+Bookstore
+Thrift stores
+Vintage shops
+Flea markets
+
+# Themes
+greyscale
+nerdy
 grey clothing only
 Secondhand
 Upcycled
@@ -45,5 +102,4 @@ Bohemian
 Quirky
 Vintage finds
 Thrifted treasures
-
 monochrome clothing
