@@ -51,6 +51,9 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] Branding
+- [ ] Favicon
+- [ ] Color Theme
 - [ ] Models
 - [ ] Closet Page
 - [ ] TikTok Scroller padding algorithm so footer always bottom at same y-coordinate

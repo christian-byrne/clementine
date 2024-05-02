@@ -15,18 +15,38 @@ import {
 import ProgressBar from "@/components/progress-bars/ProgressBar";
 import pathFormat from "@/utils/pathFormat";
 import IconGenerator from "@/utils/getIcon";
+import pagesData from "@/data/pages/pages.json";
+
 const iconGen = new IconGenerator();
 
 function Navbar() {
+  const [navItemsVisible, setNavItemsVisible] = useState(pagesData.length || 99);
   const [screenWidth, setScreenWidth] = useState(null);
   const [screenHeight, setScreenHeight] = useState(null);
   const [openNav, setOpenNav] = useState(true);
+
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
     setScreenHeight(window.innerHeight);
 
     if (window.innerWidth < 992) {
+      setNavItemsVisible(99);
       document.querySelector("button.navbar-toggler").click();
+    }
+    else if (window.innerWidth < 1400) {
+      setNavItemsVisible(4);
+    }
+    else if (window.innerWidth < 1540) {
+      setNavItemsVisible(5);
+    }
+    else if (window.innerWidth < 1700) {
+      setNavItemsVisible(6);
+    }
+    else if (window.innerWidth < 1860) {
+      setNavItemsVisible(7);
+    }
+    else {
+      setNavItemsVisible(pagesData.length);
     }
   };
 
@@ -65,65 +85,19 @@ function Navbar() {
             onClick={closeNav}
           >
             {iconGen.createIcon("mainBrand", "54px")}
+            La Vie en Bleu
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
-            <MDBNavbarItem>
-              <MDBNavbarLink
-                href={pathFormat("/browse/stylists/0")}
-                onClick={closeNav}
-              >
-                Stylists
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink
-                href={pathFormat("/browse/photos/0")}
-                onClick={closeNav}
-              >
-                Photos
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/featured")} onClick={closeNav}>
-                Featured
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink
-                href={pathFormat("/leaderboards")}
-                onClick={closeNav}
-              >
-                Leaderboards
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink
-                href={pathFormat("/blog")}
-                onClick={closeNav}
-              >
-                Blog
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/dress")} onClick={closeNav}>
-                Dress
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBNavbarLink href={pathFormat("/upload")} onClick={closeNav}>
-                Upload
-              </MDBNavbarLink>
-            </MDBNavbarItem>
-            {screenWidth && screenWidth > 1540 && (
-              <MDBNavbarItem>
+            {pagesData.slice(0, navItemsVisible).map((page, index) => (
+              <MDBNavbarItem key={index}>
                 <MDBNavbarLink
-                  href={pathFormat("/creator-dashboard")}
+                  href={pathFormat(page.href)}
                   onClick={closeNav}
                 >
-                  Dashboard
+                  {page.title}
                 </MDBNavbarLink>
               </MDBNavbarItem>
-            )}
+            ))}
             {screenWidth && screenWidth > 1400 && (
               <MDBNavbarItem>
                 <MDBNavbarLink
