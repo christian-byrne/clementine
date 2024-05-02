@@ -55,7 +55,6 @@ function DigitalAdvocacyGamificationPage() {
     let tempRead = [...read];
     tempRead[index] = true;
     setRead(tempRead);
-    console.log(read);
   };
 
   const [fillActive, setFillActive] = useState("tab0");

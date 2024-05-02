@@ -45,7 +45,7 @@ function BlogPageCard({
     data?.title && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
-          {photos?.length > 1 && (
+          {photos?.length > 0 && (
             <div style={{ position: "relative" }}>
               <MDBCardImage
                 src={photos[curPhotoIndex] || placeholderImg.src}

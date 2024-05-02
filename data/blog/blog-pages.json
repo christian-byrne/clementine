@@ -1,7 +1,7 @@
 [
   {
     "titleSystemName": "socialMediaGamification",
-    "title": "Social Media Gamification",
+    "title": "Gamification for Social Media",
     "path": "/blog/dev/social-media-gamification",
     "imageDirPath": "/pictures/blog-pages/social-media-gamification",
     "category": "DEVBlog",
@@ -53,5 +53,34 @@
       "Blue is a Language \ud83d\udc99",
       "Objective Beauty \ud83d\udc84"
     ]
+  },
+  {
+    "titleSystemName": "digital-advocacy-gamification",
+    "title": "Gamification for Digital Advocacy",
+    "path": "/blog/dev/digital-advocacy-gamification",
+    "imageDirPath": "/pictures/blog-pages/digital-advocacy-gamification",
+    "category": "DEVBlog",
+    "parent": "dev",
+    "date": "2024-05-02",
+    "photoCount": 1,
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Write Review",
+      "reward": 50
+    },
+    "creator": "Christian Byrne",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, quibusdam.",
+    "likes": 100,
+    "rating": 80,
+    "requirements": "30 Minutes",
+    "tags": [
+      "#gamification",
+      "#digitaladvocacy",
+      "#dev",
+      "web",
+      "design",
+      "ux"
+    ],
+    "badges": ["DEV Diary \ud83d\udcbb", "Feel Good \ud83d\udc9a"]
   }
 ]
