@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import {
   MDBContainer,
   MDBCard,
@@ -9,17 +9,15 @@ import {
 } from "mdb-react-ui-kit";
 import BlogCardText from "@/components/cards/BlogCardText";
 import placeholderImg from "@/data/placeholder-image.json";
-import IconGenerator from "@/utils/getIcon";
-
-const getIcon = new IconGenerator();
 
 function BlogPageCard({
   data,
   containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
-  detailsStartExpanded = false,
+  detailsStartExpanded,
 }) {
+  
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
-  const toggleText = () => setTextExpanded(!detailsStartExpanded);
+  const toggleText = () => setTextExpanded(!textExpanded);
 
   const photos = [];
   for (let i = 1; i <= data.photoCount; i++) {
@@ -126,7 +124,6 @@ function BlogPageCard({
                 Read
               </MDBBtn>
             </a>
-            {/* </MDBBtnGroup> */}
           </MDBContainer>
         </MDBCard>
       </MDBContainer>
