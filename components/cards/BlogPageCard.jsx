@@ -7,7 +7,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import StylistCardText from "@/components/cards/StylistCardText";
+import BlogCardText from "@/components/cards/BlogCardText";
 import placeholderImg from "@/data/placeholder-image.json";
 import IconGenerator from "@/utils/getIcon";
 
@@ -16,7 +16,7 @@ const getIcon = new IconGenerator();
 function BlogPageCard({
   data,
   containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
-  detailsStartExpanded,
+  detailsStartExpanded = false,
 }) {
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
   const toggleText = () => setTextExpanded(!detailsStartExpanded);
@@ -109,10 +109,7 @@ function BlogPageCard({
             </div>
           )}
           <MDBCardBody>
-            <StylistCardText
-              stylistData={data}
-              textExpandedState={textExpanded}
-            />
+            <BlogCardText blogData={data} textExpandedState={textExpanded} />
           </MDBCardBody>
           <MDBContainer className="my-3">
             {/* <MDBBtnGroup aria-label="Stylist Card Buttons"> */}
