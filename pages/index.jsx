@@ -154,7 +154,7 @@ function HomePage() {
               colContainerClass={colCSSClass}
               detailsStartExpanded={breakpointsConfig.isGreater(
                 breakpoint,
-                "2k"
+                "3k"
               )}
             />
             {/* Featured Photos Row */}

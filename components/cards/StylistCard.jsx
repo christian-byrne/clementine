@@ -9,16 +9,13 @@ import {
 } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";
 import placeholderImg from "@/data/placeholder-image.json";
-import IconGenerator from "@/utils/getIcon";
 import pathFormat from "@/utils/pathFormat";
 import axios from "axios";
-
-const getIcon = new IconGenerator();
 
 function StylistCard({
   data,
   containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
-  detailsStartExpanded,
+  detailsStartExpanded = false
 }) {
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
   const toggleText = () => setTextExpanded(!textExpanded);
@@ -135,7 +132,6 @@ function StylistCard({
             />
           </MDBCardBody>
           <MDBContainer className="my-3">
-            {/* <MDBBtnGroup aria-label="Stylist Card Buttons"> */}
             <MDBBtn
               color="primary"
               className="mt-1 mx-1"
@@ -149,7 +145,6 @@ function StylistCard({
                 Use
               </MDBBtn>
             </a>
-            {/* </MDBBtnGroup> */}
           </MDBContainer>
         </MDBCard>
       </MDBContainer>
