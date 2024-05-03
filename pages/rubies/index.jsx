@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {
   MDBCard,
   MDBContainer,
-  MDBRow,
   MDBTypography,
   MDBListGroup,
   MDBListGroupItem,
@@ -21,7 +20,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
 
 // Ruby Color = rgb(221,24,63), #DD183F
