@@ -1,40 +1,300 @@
-node_modules
+# --------------------------------------------------------
+# Project-Specific
+# --------------------------------------------------------
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
+**/brand.md
 
-# testing
-/coverage
+# --------------------------------------------------------
+# TEMPLATE IGNORE LIST
+# --------------------------------------------------------
 
-# next.js
-/.next/
-/out/
+# BUILD FILES --------------------------------------------
+# Build files (Apache Ant, Grunt, Gulp, Make, etc.)
+**/build/                   
+# Python compiled files
+*.pyc                       
+# Python optimized Files
+*.pyo                       
+# Python dynamic files
+*.pyd                       
+# Python windows files
+*.pyw                       
+# Python zipped files
+*.pyz                       
+# Python windows zipped files
+*.pywz                      
+# Python cache files
+**/__pycache__/             
+# Python cache files
+**/__pycache__              
+# MyPy cache files
+**/.mypy_cache/             
+# Pytest cache files
+**/.pytest_cache/           
+# TypeScript incremental compilation
+*.tsbuildinfo               
+# Distribution files (Webpack, Parcel, Rollup; CMake, Autotools, etc.)
+**/dist/                    
+# Distribution files (Webpack, Parcel, Rollup; CMake, Autotools, etc.)
+**/dist-*                   
+# Output files (Docusaurus, Gatsby, Hugo, Jekyll, etc.)
+**/out/                     
+# Binary files (Django, Laravel, etc.)
+**/bin/                     
+# Generated files (Flex, Bison, etc.)
+**/gen/                     
+# Package files (NuGet, Composer, Cargo, etc.)
+**/pkg/                     
+# Target files (Apache Maven, sbt, Leiningen, Gradle, etc.)
+**/target/                  
+# Next.js build output
+**/.next/                   
+# Python egg-info directories
+**/*.egg-info/              
+# Python egg files
+**/*.egg                    
+# Compiled Python bytecode files
+**/*.pyc                    
 
-# production
-/build
+# DEPENDENCIES -------------------------------------------
+# Node.js dependencies
+**/node_modules       
+node_modules                
+# Yarn Plug'n'Play file
+/.pnp                       
+# Yarn Plug'n'Play file
+.pnp.js                     
+# Yarn 2 generated file
+.yarn/install-state.gz      
+# JSPM packages
+**/jspm_packages/           
+# Bower components
+**/bower_components/        
+# Composer vendor directory (Composer, npm, Bower, etc.)
+**/vendor/                  
+# npm lock file
+package-lock.json           
+# Yarn lock file
+yarn.lock                   
+# Composer lock file
+composer.lock               
+# JSPM lock file
+jspm.lock                   
+# Pipenv lock file
+Pipfile.lock                
+# Python virtual environment (venv, pyenv, etc.)
+venv/                       
+# Python virtual environment (virtualenv)
+.virtualenv                 
+# Match all virtual environment folders with common naming conventions
+.venv*/                     
 
-# misc
-.DS_Store
-*.pem
+# METADATA/MISC ------------------------------------------
+# macOS Desktop Services Store
+.DS_Store                   
+# Windows thumbnail cache
+Thumbs.db                   
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# DEBUG fILES -------------------------------------------
+# NPM debug log files
+npm-debug.log*              
+# Yarn debug log files
+yarn-debug.log*             
+# Yarn error log files
+yarn-error.log*             
+# PNPM debug log files
+pnpm-debug.log*             
+# PNPM lock file
+pnpm-lock.yaml              
+# PNPM file
+pnpmfile.js                 
+# Lerna debug log files
+lerna-debug.log*            
+# Lerna error log files
+lerna-debug.log*            
+# Lerna log files
+lerna-debug.log*            
 
-# local env files
-.env*.local
+# BACKUP FILES ------------------------------------------
+# Backup files
+**/*.bak                    
+# Backup files
+**/*.bk                     
+# Backup files
+**/*.backup                 
 
-# vercel
-.vercel
+# DEPLOYMENT FILES --------------------------------------
+# Vercel deployment files
+.vercel                     
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# ENVIRONMENT VARIABLES ---------------------------------
+# Next.js environment variable definitions
+next-env.d.ts               
+# Local environment variables
+.env*.local                 
+**/.env
+**/.env.*
+**/env.*
+.ENV
 
+# PRIVATE/SECRET FILES ----------------------------------
+# Private keys (OpenSSL)
+*.pem                       
+# Private keys (SSH, TLS/SSL, PGP)
+*.key                       
+# Private keys (Windows)
+*.pfx                       
+# Certificate files (X.509 SSL/TLS)
+*.cer                       
+# Certificate files (X.509 SSL/TLS)
+*.crt                       
+# Certificate files (PKCS#12 password-based symmetric encryption)
+*.p12                       
+# Certificate files (PKCS#12 password-based symmetric encryption Windows)
+*.pfx                       
+# GPG files (GNU Privacy Guard)
+*.gpg                       
+# GPG files (GNU Privacy Guard ASCII armored format)
+*.asc                       
+**/.secrets
+**/.secrets.*
+**/secrets.*
+**/secrets
 
-# private
-brand.md
+# LOGS --------------------------------------------------
+# Log files
+/logs/*                     
+# Log files
+**/*.log                    
+# SQLite files
+*.sqlite                    
+
+# TESTING ------------------------------------------------
+# Tox files
+**/.tox/                    
+# Pytest cache files
+**/.pytest_cache/           
+# Coverage reports
+**/.coverage                
+# Coverage reports
+coverage                    
+
+# TEMPORARY FILES ---------------------------------------
+# Temp files (Rails, Django, etc.)
+**/tmp/                     
+# Temp files (Installers)
+**/temp.*                   
+# Temp files (Windows, Applications, Scripts)
+**/temp/                    
+# Backup files
+**/*.bak                    
+# Vim swap files
+**/*.swp                    
+# Backup files (Emacs)
+**/*~                       
+
+# IDE/WORKSPACE FILES -----------------------------------
+# Visual Studio IDE
+**/.vs/                     
+# Visual Studio Solution User Options
+**/.suo                     
+# Visual Studio Code Server
+**/.vscode-server/          
+# Visual Studio Code Test
+**/.vscode-test/            
+# Visual Studio Code
+**/.vscode/                 
+# Visual Studio .NET files
+**/.ntvs_analysis.dat       
+# Visual Studio .NET files
+**/.ntvs_test_results.dat   
+# IntelliJ project files
+**/.idea/                   
+# IntelliJ workspace files
+**/.idea/workspace.xml      
+# IntelliJ modules files
+**/.idea/modules.xml        
+# IntelliJ misc files
+**/.idea/misc.xml           
+# IntelliJ web resources files
+**/.idea/webResources.xml   
+# Eclipse classpath files
+**.classpath                
+# Eclipse project files
+**.project                  
+# Eclipse settings files
+**.settings/                
+
+# COMPRESSED FILES --------------------------------------
+# 7-Zip compressed files
+**/*.7z                     
+# Apple disk image files
+**/*.dmg                    
+# Gzip compressed files
+**/*.gz                     
+# Disk image files
+**/*.iso                    
+# Java JAR files
+**/*.jar                    
+# RAR compressed files
+**/*.rar                    
+# Zip compressed files
+**/*.zip                    
+# WinZip compressed files
+**/*.zipx                   
+# Bzip2 compressed files
+**/*.bz2                    
+# XZ compressed files
+**/*.xz                     
+# Lzip compressed files
+**/*.lz                     
+# LZ4 compressed files
+**/*.lz4                    
+# LZO compressed files
+**/*.lzo                    
+# Zstandard compressed files
+**/*.zst                    
+# Zstandard compressed files
+**/*.tzst                   
+# Zstandard compressed files
+**/*.zstd                   
+# Tarball files
+**/*.tar                    
+# Tarball files
+**/*.tar.zst                
+# Tarball files
+**/*.tar.gz                 
+# Tarball files
+**/*.tar.xz                 
+# Tarball files
+**/*.tar.bz2                
+# Tarball files
+**/*.tar.lz                 
+# Tarball files
+**/*.tar.lz4                
+# Tarball files
+**/*.tar.lzo                
+
+# COMPILED BINARIES -------------------------------------
+# Object files
+**/*.o                      
+# Static library files
+**/*.a                      
+# Shared library files
+**/*.so                     
+# Windows DLL files
+**/*.dll                    
+# Executable files
+**/*.exe                    
+# Binary files
+**/*.bin                    
+# Disk images
+**/*.img                    
+# Disk images
+**/*.iso                    
+# Android APK files
+**/*.apk                    
+# macOS application bundles
+**/*.app                    
+# iOS IPA files
+**/*.ipa                    

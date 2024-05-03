@@ -49,6 +49,8 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] X-axis units on currency graph
+- [ ] Individual Badges Page
 - [x] Branding
 - [x] Favicon
 - [ ] Models
