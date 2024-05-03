@@ -17,13 +17,13 @@ function BannerVidHoverPlay({ videoSrc }) {
     <MDBCol
     onMouseEnter={handleMouseEnter}
     onMouseLeave={handleMouseLeave}
-    className="col-12 h-50 p-0 m-0 dynamic-height-col"
+    className="col-12 p-0 m-0 dynamic-height-col"
     >
       <video
         src={pathFormat("videos/animated-pics/" + videoSrc)}
         loop
         muted
-        className="video p-0 m-0"
+        className="video px-0 py-1 m-0 rounded-6"
         ref={videoRef}
       />
     </MDBCol>

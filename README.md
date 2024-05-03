@@ -53,7 +53,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 - [x] Favicon
 - [ ] Models
 - [ ] Closet Page
-- [ ] TikTok Scroller padding algorithm so footer always bottom at same y-coordinate
+- [x] TikTok Scroller padding algorithm so footer always bottom at same y-coordinate
 - [ ] Salesforce Img2Txt implementation
 - [x] Styles/movements directory
 - [ ] Quick Suggest Page

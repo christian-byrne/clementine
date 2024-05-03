@@ -39,8 +39,6 @@ function BlogPageCard({
     }
   };
 
-  console.log(curPhotoIndex, photos[curPhotoIndex] || placeholderImg.src);
-
   return (
     data?.title && (
       <MDBContainer className={containerClass}>

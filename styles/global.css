@@ -17,7 +17,7 @@ code {
 
 .video-container {
   width: 100%;
-  height: 100%;
+  height:100%;
   position: relative;
   overflow: hidden;
 }
@@ -66,7 +66,7 @@ code {
 
 @media (min-width: 1080px) {
   .dynamic-height-col {
-    height: 33vh; /* Extra large screens */
+    height: 42vh; /* Extra large screens */
   }
 }
 

@@ -66,21 +66,6 @@ class Breakpoints {
   }
 
   isLess(breakpoint1, breakpoint2) {
-    console.log("breakpoint1", breakpoint1);
-    console.log("breakpoint2", breakpoint2);
-    console.log(
-      "this.validateNumber(breakpoint1)",
-      this.validateNumber(breakpoint1)
-    );
-    console.log(
-      "this.validateNumber(breakpoint2)",
-      this.validateNumber(breakpoint2)
-    );
-
-    console.log(
-      "this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2)",
-      this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2)
-    );
     return this.validateNumber(breakpoint1) < this.validateNumber(breakpoint2);
   }
 
