@@ -17,7 +17,7 @@ function FeaturedPage() {
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-4">
             {/* Featured Models Row */}
-            <MDBTypography tag="h2" className="my-4">Featured Stylists</MDBTypography>
+            <MDBTypography tag="h1" className="my-4">Featured Stylists</MDBTypography>
             <ContentRow
               colComponent={StylistCard}
               colData={allStylistsData}
@@ -28,7 +28,7 @@ function FeaturedPage() {
               detailsStartExpanded={true}
             />
             {/* Featured Photos Row */}
-            <MDBTypography  tag="h2" className="my-4">Featured Photos</MDBTypography>
+            <MDBTypography  tag="h1" className="my-4">Featured Photos</MDBTypography>
             <ContentRow
               colComponent={PhotoCard}
               colData={allPhotosData}

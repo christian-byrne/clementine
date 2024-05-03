@@ -52,10 +52,12 @@ function sortCategories(categoryData) {
 function StyleCard({
   data,
   containerClass = "col-md-6 col-lg-6 col-sm-12 mb-4",
-  detailsStartExpanded,
+  detailsStartExpanded = false,
 }) {
   const showNCategories = 2;
-  const [categoriesExpanded, setCategoriesExpanded] = useState(showNCategories);
+  const [categoriesExpanded, setCategoriesExpanded] = useState(
+    detailsStartExpanded ? Infinity : showNCategories
+  );
   const toggleExpansion = () => {
     if (categoriesExpanded === showNCategories) {
       setCategoriesExpanded(Infinity);
@@ -63,6 +65,8 @@ function StyleCard({
       setCategoriesExpanded(showNCategories);
     }
   };
+
+  let categoriesData = sortCategories(data);
 
   return (
     data?.title && (
@@ -76,7 +80,6 @@ function StyleCard({
               position="top"
             />
           </div>
-
           <MDBCardBody>
             <a
               href={`/browse/styles/${data.title}`}
@@ -87,26 +90,15 @@ function StyleCard({
                 {hyphenToTitle(data.title)}
               </MDBTypography>
             </a>
-            {/* <div className="mb-3">
-        {stylistData.badges &&
-          stylistData.badges.length > 0 &&
-          stylistData.badges.map((badge, index) => (
-            <span key={index} className="badge badge-secondary me-2 mb-2">
-              {badge}
-            </span>
-          ))}
-      </div> */}
-            {sortCategories(data)
-              .slice(0, showNCategories)
-              .map((key, index) => {
-                return (
-                  <StyleCardCategoryTable
-                    key={index}
-                    categoryItems={data[key]}
-                    title={key}
-                  />
-                );
-              })}
+            {categoriesData.slice(0, categoriesExpanded).map((key, index) => {
+              return (
+                <StyleCardCategoryTable
+                  key={index}
+                  categoryItems={data[key]}
+                  title={key}
+                />
+              );
+            })}
           </MDBCardBody>
 
           <MDBContainer className="d-flex justify-content-start mt-md-3 mt-lg-0 mb-4 ps-4">

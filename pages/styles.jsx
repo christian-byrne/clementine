@@ -14,18 +14,17 @@ function FeaturedPage() {
       <div className="row mt-3">
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-4">
-            {/* Featured Models Row */}
-            <MDBTypography tag="h2" className="my-4">
+            <MDBTypography tag="h1" className="my-4">
               Styles
             </MDBTypography>
             <ContentRow
               colComponent={StyleCard}
               colData={allStylesData}
               sortKey="title"
-              showFirstNCols={6}
-              maxCols={30}
-              colContainerClass={"col-md-6 col-lg-6 col-sm-12 mb-4"}
-              detailsStartExpanded={true}
+              showFirstNCols={30}
+              maxCols={100}
+              colContainerClass={"col-md-6 col-lg-4 col-xl-3 col-sm-12 mb-4"}
+              detailsStartExpanded={false}
             />
           </MDBContainer>
         </main>

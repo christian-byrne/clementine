@@ -9,7 +9,7 @@ import {
 import StyleCardItemRow from "@/components/cards/StyleCardItemRow";
 
 function StyleCardCategoryTable({ categoryItems, title }) {
-  const showFirstNRows = 2;
+  const showFirstNRows = 1;
 
   const [rowsExpanded, setExpanded] = useState(showFirstNRows);
   const toggleExpansion = () => {
@@ -22,7 +22,13 @@ function StyleCardCategoryTable({ categoryItems, title }) {
 
   return (
     <>
-      <MDBTypography tag="h5" className="my-2">
+      <MDBTypography
+        tag="h5"
+        className={
+          "my-2 " +
+          (rowsExpanded == showFirstNRows ? "text-dark" : "text-black-50")
+        }
+      >
         {title}
       </MDBTypography>
       <MDBListGroup style={{ minWidth: "22rem" }} light>
