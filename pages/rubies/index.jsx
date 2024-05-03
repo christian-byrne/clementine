@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { MDBContainer, MDBRow, MDBTypography } from "mdb-react-ui-kit";
+import {
+  MDBCard,
+  MDBContainer,
+  MDBRow,
+  MDBTypography,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBBadge,
+  MDBCardTitle,
+} from "mdb-react-ui-kit";
 import formatDocTitle from "@/utils/formatDocTitle";
 import EarnCard from "@/components/cards/EarnCard";
 import ContentRow from "@/components/content-row/ContentRow";
 import Breakpoints from "@/utils/breakpoints";
+import IconGenerator from "@/utils/getIcon";
+
+const iconGen = new IconGenerator();
 
 const earnMethods = [
   {
@@ -112,6 +124,27 @@ const earnMethods = [
   },
 ];
 
+const transactionList = [
+  {
+    title: "Post Reward",
+    description: "Earned 50 rubies for posting an image",
+    date: "2024-04-29",
+    balance: 50,
+  },
+  {
+    title: "Follow Reward",
+    description: "Earned 20 rubies for following a user",
+    date: "2021-04-28",
+    balance: 20,
+  },
+  {
+    title: "Unlocked a Stylist",
+    description: "Spent 445 rubies unlocking Retrofuturism Stylist",
+    date: "2021-05-01",
+    balance: -445,
+  },
+];
+
 function RubiesPage() {
   useEffect(() => {
     document.title = formatDocTitle("Rubies");
@@ -175,9 +208,60 @@ function RubiesPage() {
             <MDBTypography tag="h1" className="my-4">
               My Rubies
             </MDBTypography>
+
+            <MDBContainer fluid className="d-flex flex-row px-0">
+              <MDBContainer className="col-6 ps-0">
+                <MDBCard className="h-100">
+                  <MDBContainer fluid className="d-flex flex-row">
+                    <MDBTypography tag="h2" className="my-4 me-0 pe-0 col-6">
+                      Current Rubies: 223
+                    </MDBTypography>
+                    <MDBContainer
+                      className="d-flex align-items-center ms-0 ps-1 my-1"
+                      style={{ width: "min-content" }}
+                    >
+                      {iconGen.createIcon("mainCurrency", "54px")}
+                    </MDBContainer>
+                  </MDBContainer>
+                </MDBCard>
+              </MDBContainer>
+              <MDBContainer className="col-6 pe-0">
+                <MDBCard className="h-100">
+                  <MDBCardTitle className="my-4 ms-3" tag="h2">
+                    Rubies History
+                  </MDBCardTitle>
+                  <MDBListGroup light className="px-4">
+                    {transactionList.map((transaction, index) => {
+                      return (
+                        <MDBListGroupItem
+                          key={index}
+                          className="d-flex justify-content-between align-items-start"
+                        >
+                          <div className="ms-2 me-auto">
+                            <div className="fw-bold">{transaction.title}</div>
+                            {transaction.description}
+                          </div>
+                          <MDBBadge
+                            pill
+                            light
+                            color={
+                              transaction.balance > 0 ? "success" : "danger"
+                            }
+                          >
+                            {transaction.balance}
+                          </MDBBadge>
+                        </MDBListGroupItem>
+                      );
+                    })}
+                  </MDBListGroup>
+                </MDBCard>
+              </MDBContainer>
+            </MDBContainer>
+
             <MDBTypography tag="h1" className="my-4">
               Earn Rubies
             </MDBTypography>
+
             <ContentRow
               colComponent={EarnCard}
               colData={earnMethods}
