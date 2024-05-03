@@ -18,11 +18,14 @@ function PhotoCard({ photoData }) {
     <MDBContainer
       className={`${
         detailsExpanded
-          ? "col-md-12 col-lg-12 col-xl-12 col-xxl-12"
-          : "col-md-11 col-lg-10 col-xl-9 col-xxl-8"
+          ? "col-md-12 col-lg-12 col-xl-12"
+          : "col-md-11 col-lg-10 col-xl-9"
       } col-sm-12 d-flex justify-content-center`}
+      style={{
+        // minHeight: "60vh",
+      }}
     >
-      <MDBCard className="d-flex flex-row">
+      <MDBCard className="d-flex flex-row w-100">
         <MDBCardImage
           src={
             photoData.imagePath
@@ -36,7 +39,8 @@ function PhotoCard({ photoData }) {
               photoData.model + " by " + photoData.creator) ||
             placeholderImg.title
           }
-          position="top"
+          position="left"
+          className="w-100"
         />
         <MDBCardBody>
           {/* Model and Creator */}

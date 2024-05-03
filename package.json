@@ -1,6 +1,6 @@
 {
-  "name": "wardrobe-webapp",
-  "version": "0.1.0",
+  "name": "la-vie-en-bleu",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

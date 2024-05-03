@@ -17,8 +17,10 @@ function App({ Component, pageProps, router }) {
 
   return (
     <>
+    <div style={{minHeight: "74vh"}}>
       {shouldRenderNavbar && <Navbar />}
       <Component {...pageProps} />
+    </div>
       <Footer />
     </>
   );

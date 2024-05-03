@@ -18,9 +18,19 @@ function BrowsePage() {
   const router = useRouter();
   const { contentType, itemName } = router.query;
 
+  const [windowHeight, setWindowHeight] = useState(1080);
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [allDataSorted, setAllDataSorted] = useState([]);
   const [arrowKeyPressed, setArrowKeyPressed] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+      console.log("Window Height: ", windowHeight);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (contentType) {
