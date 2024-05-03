@@ -188,6 +188,7 @@ function RubiesPage() {
     document.title = formatDocTitle("Rubies");
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState(1200);
   const [chartWidth, setChartWidth] = useState(600);
   const [chartHeight, setChartHeight] = useState(300);
 
@@ -250,15 +251,12 @@ function RubiesPage() {
       setChartHeight(
         window.innerHeight * 0.27 > 550 ? 550 : window.innerHeight * 0.27
       );
+
+      setWindowWidth(window.innerWidth);
     };
 
     if (typeof window !== "undefined") {
-      setChartWidth(
-        window.innerWidth * 0.42 > 1200 ? 1200 : window.innerWidth * 0.42
-      );
-      setChartHeight(
-        window.innerHeight * 0.27 > 550 ? 550 : window.innerHeight * 0.27
-      );
+      handleResize();
       window.addEventListener("resize", handleResize);
     }
 
@@ -278,8 +276,14 @@ function RubiesPage() {
               My Rubies
             </MDBTypography>
 
-            <MDBContainer fluid className="d-flex flex-row px-0">
-              <MDBContainer className="col-6 ps-0">
+            <MDBContainer fluid className="d-flex px-0 flex-wrap">
+              <MDBContainer
+                className={
+                  windowWidth > 1200 // bootstrap xl breakpoint
+                    ? "col-lg-12 col-xl-6 p-3 ps-0"
+                    : "col-lg-12 col-xl-6 p-3"
+                }
+              >
                 <MDBCard className="h-100">
                   <MDBContainer fluid className="d-flex flex-row">
                     <MDBTypography tag="h2" className="my-4 me-0 pe-0">
@@ -302,13 +306,23 @@ function RubiesPage() {
                       <XAxis />
                       <YAxis />
                       <Tooltip />
-                      <Legend />
-                      <Line type="monotone" dataKey="value" stroke="#DD183F" />
+                      <Line
+                        type="monotone"
+                        dataKey="value"
+                        stroke="#DD183F"
+                        // label={{ fill: '#DD183F', fontSize: 12, offset: 16, position: 'left'}}
+                      />
                     </LineChart>
                   </MDBContainer>
                 </MDBCard>
               </MDBContainer>
-              <MDBContainer className="col-6 pe-0">
+              <MDBContainer
+                className={
+                  windowWidth > 1200 // bootstrap xl breakpoint
+                    ? "col-lg-12 col-xl-6 p-3 pe-0"
+                    : "col-lg-12 col-xl-6 p-3"
+                }
+              >
                 <MDBCard className="h-100">
                   <MDBCardTitle className="my-4 ms-3" tag="h2">
                     Rubies History
