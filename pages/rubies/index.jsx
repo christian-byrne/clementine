@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MDBContainer, MDBRow, MDBTypography } from "mdb-react-ui-kit";
 import formatDocTitle from "@/utils/formatDocTitle";
 import EarnCard from "@/components/cards/EarnCard";
 import ContentRow from "@/components/content-row/ContentRow";
+import Breakpoints from "@/utils/breakpoints";
 
 const earnMethods = [
   {
@@ -115,6 +116,57 @@ function RubiesPage() {
   useEffect(() => {
     document.title = formatDocTitle("Rubies");
   }, []);
+  const [breakpoint, setBreakpoint] = useState("lg");
+  const [colCSSClass, setColCSSClass] = useState("col-12 ms-sm-auto pe-2");
+
+  const breakpointsConfig = new Breakpoints({
+    sm: {
+      visibleRows: 5,
+      cols: 12,
+    },
+    md: {
+      visibleRows: 4,
+      cols: 6,
+    },
+    lg: {
+      visibleRows: 3,
+      cols: 4,
+    },
+    xxl: {
+      visibleRows: 2,
+      cols: 3,
+    },
+    "2k+": {
+      visibleRows: 2,
+      cols: 2,
+    },
+    "4k": {
+      visibleRows: 2,
+      cols: 1,
+    },
+  });
+
+  const updateColCSSClass = () => {
+    if (!breakpointsConfig.isStandard(breakpoint)) {
+      setColCSSClass(`col-${breakpointsConfig[breakpoint].cols} mb-4 px-xl-2`);
+    } else {
+      setColCSSClass(breakpointsConfig.standardSizeClass);
+    }
+  };
+
+  useEffect(() => {
+    setBreakpoint(breakpointsConfig.getBreakpointName(window.innerWidth));
+    updateColCSSClass();
+    const handleResize = () => {
+      setBreakpoint(breakpointsConfig.getBreakpointName(window.innerWidth));
+      updateColCSSClass();
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [breakpoint]);
+
   return (
     <MDBContainer fluid>
       <div className="row mt-3">
@@ -131,9 +183,7 @@ function RubiesPage() {
               colData={earnMethods}
               showFirstNCols={30}
               maxCols={60}
-              colContainerClass={
-                "col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4"
-              }
+              colContainerClass={colCSSClass}
               detailsStartExpanded={true}
             />
           </MDBContainer>
