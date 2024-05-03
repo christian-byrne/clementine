@@ -6,6 +6,7 @@ function ContentRow({
   colComponent: ColComponent,
   colData,
   sortKey,
+  sortType = "asc",
   colContainerClass,
   detailsStartExpanded,
   showFirstNCols = 6,
@@ -14,7 +15,7 @@ function ContentRow({
   const [colsExpanded, setExpanded] = useState(false);
 
   // Sort the colData array by the specified sortKey
-  const allDataSorted = sortRecordsByKey(colData, sortKey);
+  const allDataSorted = sortRecordsByKey(colData, sortKey, sortType);
 
   // Slice the sorted data into visibleCols and collapsedCols based on showFirstNCols
   const visibleCols = allDataSorted.slice(0, showFirstNCols);

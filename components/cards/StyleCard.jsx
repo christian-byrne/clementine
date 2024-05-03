@@ -16,10 +16,15 @@ function sortCategories(categoryData) {
   const excludeCategories = [
     "subject",
     "lora",
+    "loras",
     "medium",
+    "mediums",
     "setting",
+    "settings",
     "title",
+    "description",
     "name",
+    "rating",
   ];
   const priorityCategories = [
     "outerwear",
@@ -31,7 +36,7 @@ function sortCategories(categoryData) {
 
   // Filter out the categories we want to exclude
   return Object.keys(categoryData)
-    .filter((category) => !excludeCategories.includes(category))
+    .filter((category) => !excludeCategories.includes(category.toLowerCase()))
     .sort((a, b) => {
       a = a.toLowerCase();
       b = b.toLowerCase();

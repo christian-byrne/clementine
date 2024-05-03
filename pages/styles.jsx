@@ -22,6 +22,7 @@ function StylesPage() {
               colComponent={StyleCard}
               colData={allStylesData}
               sortKey="title"
+              sortType="desc"
               showFirstNCols={30}
               maxCols={100}
               colContainerClass={"col-md-6 col-lg-4 col-xl-3 col-sm-12 mb-4"}
