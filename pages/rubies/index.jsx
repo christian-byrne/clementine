@@ -6,9 +6,9 @@ import PhotoCard from "@/components/cards/PhotoCard";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 
-function FeaturedPage() {
+function RubiesPage() {
   useEffect(() => {
-    document.title = "Explore | Featured";
+    document.title = document.title + " - Rubies";
   }, []);
 
   return (
@@ -44,4 +44,4 @@ function FeaturedPage() {
   );
 }
 
-export default FeaturedPage;
+export default RubiesPage;

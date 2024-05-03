@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/navbars/top/TopNavbar";
 import Footer from "@/components/footer/Footer";
+import brandData from "@/data/brand.json";
 import "@/styles/global.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -14,6 +15,10 @@ function App({ Component, pageProps, router }) {
 
   // Check if the current route is in the routesWithoutNavbar array
   const shouldRenderNavbar = !routesWithoutNavbar.includes(router.pathname);
+
+  useEffect(() => {
+    document.title = brandData.name || "";
+  }, []);
 
   return (
     <>
