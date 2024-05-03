@@ -7,47 +7,19 @@ import Breakpoints from "@/utils/breakpoints";
 
 const earnMethods = [
   {
-    title: "Bounties",
-    description: "Complete a bounty on an item to earn the posted reward.",
-    href: "/bounties",
-    linkText: "Find Bounties",
-    icon: "fas fa-sack-dollar",
-  },
-  {
-    title: "Purchase",
-    description: "Buy rubies directly to spend on items.",
-    href: "/rubies/purchase",
-    linkText: "Buy Rubies",
-    icon: "fas fa-circle-dollar-to-slot",
-  },
-  {
-    title: "Referral",
-    description: "Refer a friend to earn rubies.",
-    href: "/rubies/referral",
-    linkText: "Refer a Friend",
-    icon: "fas fa-user-friends",
-  },
-  {
-    title: "Daily Tasks",
-    description: "Earn rubies by completing all daily tasks for the day.",
-    href: "/rubies/daily-tasks",
-    linkText: "Check Daily Tasks",
-    icon: "fas fa-list-check",
-  },
-  {
-    title: "Get Tipped",
-    description: "Create and refine stylists and get tips from other users.",
-    href: "/create",
-    linkText: "Creator Dashboard",
-    icon: "fas fa-gift",
-  },
-  {
     title: "React",
     description:
       "Earn 5 rubies for every reaction you give to a post (max 50/day).",
     href: "/featured",
     linkText: "Featured Posts",
     icon: "far fa-heart",
+  },
+  {
+    title: "Bounties",
+    description: "Complete a bounty on an item to earn the posted reward.",
+    href: "/bounties",
+    linkText: "Find Bounties",
+    icon: "fas fa-sack-dollar",
   },
   {
     title: "Follow",
@@ -57,11 +29,33 @@ const earnMethods = [
     icon: "fas fa-user-plus",
   },
   {
+    title: "Generate Buzz",
+    description:
+      "Earn 1 ruby each time someone reacts to something you've made.",
+    href: "/user",
+    linkText: "My Profile",
+    icon: "fas fa-comments",
+  },
+  {
+    title: "Daily Tasks",
+    description: "Earn rubies by completing all daily tasks for the day.",
+    href: "/rubies/daily-tasks",
+    linkText: "Check Daily Tasks",
+    icon: "fas fa-list-check",
+  },
+  {
     title: "Post",
     description: "Earn 50 rubies for the first image you post each day.",
     href: "/upload/image",
     linkText: "Upload Image",
     icon: "fas fa-images",
+  },
+  {
+    title: "Referral",
+    description: "Refer a friend to earn rubies.",
+    href: "/rubies/referral",
+    linkText: "Refer a Friend",
+    icon: "fas fa-user-friends",
   },
   {
     title: "Get Suggestions",
@@ -72,20 +66,19 @@ const earnMethods = [
     icon: "fas fa-shirt",
   },
   {
+    title: "Get Tipped",
+    description: "Create and refine stylists and get tips from other users.",
+    href: "/create",
+    linkText: "Creator Dashboard",
+    icon: "fas fa-gift",
+  },
+  {
     title: "Downloads",
     description:
       "Earn 2 rubies each time someone downloads one of your stylists.",
     href: "/user",
     linkText: "My Profile",
     icon: "fas fa-download",
-  },
-  {
-    title: "Generate Buzz",
-    description:
-      "Earn 1 ruby each time someone reacts to something you've made.",
-    href: "/user",
-    linkText: "My Profile",
-    icon: "fas fa-comments",
   },
   {
     title: "Create Suggestions",
@@ -102,6 +95,13 @@ const earnMethods = [
     href: "/user",
     linkText: "My Stylists' Images",
     icon: "fas fa-camera-retro",
+  },
+  {
+    title: "Purchase",
+    description: "Buy rubies directly to spend on items.",
+    href: "/rubies/purchase",
+    linkText: "Buy Rubies",
+    icon: "fas fa-circle-dollar-to-slot",
   },
   {
     title: "Moderate",
