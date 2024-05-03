@@ -14,7 +14,17 @@ import EarnCard from "@/components/cards/EarnCard";
 import ContentRow from "@/components/content-row/ContentRow";
 import Breakpoints from "@/utils/breakpoints";
 import IconGenerator from "@/utils/getIcon";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
+// Ruby Color = rgb(221,24,63), #DD183F
 const iconGen = new IconGenerator();
 
 const earnMethods = [
@@ -138,17 +148,49 @@ const transactionList = [
     balance: 20,
   },
   {
+    title: "Daily Suggestions",
+    description: "Earned 40 rubies for getting a suggestion",
+    date: "2021-04-27",
+    balance: 40,
+  },
+  {
+    title: "Daily Suggestions",
+    description: "Earned 40 rubies for getting a suggestion",
+    date: "2021-04-26",
+    balance: 40,
+  },
+  {
     title: "Unlocked a Stylist",
     description: "Spent 445 rubies unlocking Retrofuturism Stylist",
     date: "2021-05-01",
-    balance: -445,
+    balance: -200,
   },
+  {
+    title: "Daily Tasks Completed",
+    description: "Earned 150 rubies for completing all daily tasks",
+    date: "2021-05-02",
+    balance: 150,
+  },
+];
+
+const balanceData = [
+  { name: "0", value: 123 },
+  { name: "2", value: 163 },
+  { name: "3", value: 223 },
+  { name: "4", value: 243 },
+  { name: "6", value: 273 },
+  { name: "9", value: 73 },
+  { name: "10", value: 223 },
 ];
 
 function RubiesPage() {
   useEffect(() => {
     document.title = formatDocTitle("Rubies");
   }, []);
+
+  const [chartWidth, setChartWidth] = useState(600);
+  const [chartHeight, setChartHeight] = useState(300);
+
   const [breakpoint, setBreakpoint] = useState("lg");
   const [colCSSClass, setColCSSClass] = useState("col-12 ms-sm-auto pe-2");
 
@@ -200,6 +242,33 @@ function RubiesPage() {
     };
   }, [breakpoint]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setChartWidth(
+        window.innerWidth * 0.42 > 1200 ? 1200 : window.innerWidth * 0.42
+      );
+      setChartHeight(
+        window.innerHeight * 0.27 > 550 ? 550 : window.innerHeight * 0.27
+      );
+    };
+
+    if (typeof window !== "undefined") {
+      setChartWidth(
+        window.innerWidth * 0.42 > 1200 ? 1200 : window.innerWidth * 0.42
+      );
+      setChartHeight(
+        window.innerHeight * 0.27 > 550 ? 550 : window.innerHeight * 0.27
+      );
+      window.addEventListener("resize", handleResize);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
+    };
+  }, []);
+
   return (
     <MDBContainer fluid>
       <div className="row mt-3">
@@ -213,7 +282,7 @@ function RubiesPage() {
               <MDBContainer className="col-6 ps-0">
                 <MDBCard className="h-100">
                   <MDBContainer fluid className="d-flex flex-row">
-                    <MDBTypography tag="h2" className="my-4 me-0 pe-0 col-6">
+                    <MDBTypography tag="h2" className="my-4 me-0 pe-0">
                       Current Rubies: 223
                     </MDBTypography>
                     <MDBContainer
@@ -223,6 +292,20 @@ function RubiesPage() {
                       {iconGen.createIcon("mainCurrency", "54px")}
                     </MDBContainer>
                   </MDBContainer>
+                  <MDBContainer className="my-4">
+                    <LineChart
+                      width={chartWidth}
+                      height={chartHeight}
+                      data={balanceData}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="value" stroke="#DD183F" />
+                    </LineChart>
+                  </MDBContainer>
                 </MDBCard>
               </MDBContainer>
               <MDBContainer className="col-6 pe-0">
@@ -230,7 +313,7 @@ function RubiesPage() {
                   <MDBCardTitle className="my-4 ms-3" tag="h2">
                     Rubies History
                   </MDBCardTitle>
-                  <MDBListGroup light className="px-4">
+                  <MDBListGroup light className="px-4 mb-4">
                     {transactionList.map((transaction, index) => {
                       return (
                         <MDBListGroupItem

@@ -19,7 +19,7 @@ function identifyRubyCount(text) {
   return rubyCount ? rubyCount[0] : 0;
 }
 
-// Ruby Color = rgb(221,24,63)
+// Ruby Color = rgb(221,24,63), #DD183F
 function EarnCard({
   data,
   containerClass = "col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4",

@@ -19,6 +19,7 @@
     "react-confetti": "^6.1.0",
     "react-dom": "^18",
     "react-konva": "^18.2.10",
+    "recharts": "^2.12.6",
     "vercel": "^33.5.2",
     "web-vitals": "^3.5.2"
   },
