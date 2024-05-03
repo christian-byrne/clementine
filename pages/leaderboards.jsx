@@ -3,10 +3,11 @@ import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import LeaderBoardCard from "../components/cards/LeaderBoardCard";
 import allUserData from "../data/users/all.json";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function LeaderBoardPage() {
   useEffect(() => {
-    document.title = "LeaderBoards";
+    document.title = formatDocTitle("Leaderboards");
   }, []);
 
   return (

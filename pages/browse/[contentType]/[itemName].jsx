@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import {
   MDBRow,
   MDBContainer,
@@ -12,6 +12,7 @@ import allPhotosData from "@/data/photos/all.json";
 import StylistCardFullPage from "@/components/cards/StylistCardFullPage";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
 import PhotoCardFullPage from "@/components/cards/PhotoCardFullPage";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function BrowsePage() {
   const router = useRouter();
@@ -20,6 +21,14 @@ function BrowsePage() {
   const [visibleIndex, setVisibleIndex] = useState(0);
   const [allDataSorted, setAllDataSorted] = useState([]);
   const [arrowKeyPressed, setArrowKeyPressed] = useState(false);
+
+  useEffect(() => {
+    if (contentType) {
+      document.title = formatDocTitle(
+        `Browse ${contentType.charAt(0).toUpperCase() + contentType.slice(1)}`
+      );
+    }
+  }, [contentType]);
 
   // Setting records for page depends/re-renders on router query values (contentType, itemName) updating
   useEffect(() => {
@@ -90,7 +99,6 @@ function BrowsePage() {
   };
 
   useEffect(() => {
-    document.title = "Browse";
     // Add event listener when component mounts
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);

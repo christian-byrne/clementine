@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import BannerVidHoverPlay from "@/components/videos/BannerVidHoverPlay";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 const videos = [
   "comfyUI_00008.mp4",
@@ -18,6 +19,10 @@ const videos = [
 ];
 
 const Custom404 = () => {
+  useEffect(() => {
+    document.title = formatDocTitle("404");
+  }, []);
+  
   return (
     <>
       <h1

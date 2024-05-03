@@ -3,10 +3,11 @@ import { MDBContainer, MDBTypography } from "mdb-react-ui-kit";
 import ContentRow from "@/components/content-row/ContentRow";
 import BlogPageCard from "@/components/cards/BlogPageCard";
 import allBlogPagesData from "@/data/blog/blog-pages.json";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function BlogPage() {
   useEffect(() => {
-    document.title = "Featured Articles";
+    document.title = formatDocTitle("Blog");
   }, []);
 
   return (

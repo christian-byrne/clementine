@@ -3,10 +3,11 @@ import { MDBContainer, MDBTypography } from "mdb-react-ui-kit";
 import ContentRow from "@/components/content-row/ContentRow";
 import StyleCard from "@/components/cards/StyleCard";
 import allStylesData from "@/data/styles/styles.json";
+import formatDocTitle from "@/utils/formatDocTitle";
 
-function FeaturedPage() {
+function StylesPage() {
   useEffect(() => {
-    document.title = "Styles";
+    document.title = formatDocTitle("Styles");
   }, []);
 
   return (
@@ -33,4 +34,4 @@ function FeaturedPage() {
   );
 }
 
-export default FeaturedPage;
+export default StylesPage;

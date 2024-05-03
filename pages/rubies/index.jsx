@@ -5,10 +5,11 @@ import StylistCard from "@/components/cards/StylistCard";
 import PhotoCard from "@/components/cards/PhotoCard";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function RubiesPage() {
   useEffect(() => {
-    document.title = document.title + " - Rubies";
+    document.title = formatDocTitle("Rubies");
   }, []);
 
   return (

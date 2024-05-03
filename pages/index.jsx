@@ -10,10 +10,11 @@ import allPhotosData from "@/data/photos/all.json";
 import allUserData from "@/data/users/all.json";
 import Breakpoints from "@/utils/breakpoints";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function HomePage() {
   useEffect(() => {
-    document.title = "StyleThis";
+    document.title = formatDocTitle("");
   }, []);
 
   const [breakpoint, setBreakpoint] = useState("lg");
