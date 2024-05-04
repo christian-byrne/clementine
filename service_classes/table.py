@@ -1,14 +1,22 @@
 from pathlib import Path
 import json
-from typing import Any, Iterable, List, Tuple
+import datetime
+import gzip
+import shutil
+
 from service_classes.enums.options import UpdateOption
 from service_classes.static_utils.update import UpdateUtils
 from service_classes.interfaces.interface_types import Record, Table
 from service_classes.logging.log_ import plog
+
+from typing import Any, Iterable, List, Tuple
 from termcolor import colored
 
 
 class DatabaseTable(Table):
+    MAX_BACKUPS = 5
+    MAX_COMPRESSED_BACKUPS = 100
+
     def __init__(self, table_path: Path, primary_key: str):
         self.path = table_path
         self.primary_key = primary_key
@@ -18,6 +26,7 @@ class DatabaseTable(Table):
         self.extension = table_path.suffix
         self.parent_dir = table_path.parent
         self.data = self.__load_data()
+        self.backup_data = self.data.copy()
         self.changes = []
 
     def get_records(self) -> List[Record]:
@@ -27,7 +36,29 @@ class DatabaseTable(Table):
         for record in self.data:
             yield record
 
-    def save(self) -> None:
+    def save(self, backup: bool = True) -> None:
+        existing_backups = [
+            f
+            for f in self.parent_dir.iterdir()
+            if f.suffix == self.extension and f.stem.endswith("_backup")
+        ]
+        date_str = datetime.datetime.now().strftime("%B%d%Y_%H%M")
+        new_backup_filename = (
+            self.parent_dir / f"{self.name}_{date_str}_backup{self.extension}"
+        )
+
+        if len(existing_backups) >= DatabaseTable.MAX_BACKUPS:
+            # Compress the backups and delete the original
+            for i in range(1, DatabaseTable.MAX_BACKUPS):
+                with open(existing_backups[i], "rb") as f:
+                    with gzip.open(existing_backups[i] + ".gz", "wb") as gzf:
+                        shutil.copyfileobj(f, gzf)
+
+                existing_backups[i].unlink()
+
+        with open(new_backup_filename, "w") as f:
+            json.dump(self.backup_data, f)
+
         with open(self.path, "w") as f:
             json.dump(self.data, f)
 
@@ -50,7 +81,9 @@ class DatabaseTable(Table):
             else:
                 descrip_color = "cyan"
 
-            print(f"\n{new_record[self.primary_key]}:  {colored(description, descrip_color)}")
+            print(
+                f"\n{new_record[self.primary_key]}:  {colored(description, descrip_color)}"
+            )
 
             print(colored("\nOld Record:\n", "light_yellow"))
             for field, value in old_record.items():
@@ -105,7 +138,9 @@ class DatabaseTable(Table):
             if option == UpdateOption.RECORD_OVERWRITE:
                 temp = existing_record.copy()
                 self.get_records()[self.data.index(existing_record)] = record
-                self.changes.append(("Overwritten Record", temp, existing_record.copy()))
+                self.changes.append(
+                    ("Overwritten Record", temp, existing_record.copy())
+                )
             else:
                 self.__subfield_update(
                     existing_record, record, option, allow_duplicate_subfield_values
