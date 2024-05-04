@@ -25,6 +25,7 @@ class AutoCaptioner:
         self,
         search_beams: int = 5,
         exclude_terms: List[str] = [],
+        max_resolution: int = 512,
     ):
         self.search_beams = search_beams
         # https://huggingface.co/Salesforce/blip-image-captioning-large/discussions/20
@@ -40,8 +41,12 @@ class AutoCaptioner:
         repetition_penalty: float = 1.2,
         include_conditional_caption: bool = True,
     ) -> None:
+        raw_img = Image.open(img_path).convert("RGB")
+        if raw_img.size[0] > 512 or raw_img.size[1] > 512:
+            raw_img = raw_img.resize((512, 512))
+
         general_caption = self.general_caption(
-            Image.open(img_path).convert("RGB"),
+            raw_img,
             conditional_caption,
             min_words,
             max_words,
@@ -49,6 +54,7 @@ class AutoCaptioner:
             repetition_penalty,
             self.search_beams,
         )
+
         if not include_conditional_caption:
             general_caption = general_caption.replace(conditional_caption, "")
             
