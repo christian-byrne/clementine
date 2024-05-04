@@ -11,6 +11,7 @@ import StyleCardCategoryTable from "@/components/cards/StyleCardCategoryTable";
 import placeholderImg from "@/data/placeholder-image.json";
 import pathFormat from "@/utils/pathFormat";
 import { hyphenToTitle } from "@/utils/hyphenNameToTitle";
+import CardImageCarousel from "@/components/cards/CardImageCarousel";
 
 function sortCategories(categoryData) {
   const excludeCategories = [
@@ -80,22 +81,23 @@ function StyleCard({
       break;
     }
   }
-  const [curPhotoIndex, setCurPhotoIndex] = useState(mainImageIndex);
 
   return (
     data?.title && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
-          <div style={{ position: "relative" }}>
-            <MDBCardImage
+            <CardImageCarousel
+              photos={data.images.map((image) => image.imageSrc)}
+              starterIndex={mainImageIndex}
+            />
+            {/* <MDBCardImage
               src={pathFormat(
                 data.images[curPhotoIndex].imageSrc
               )}
               alt={data.title || placeholderImg.alt}
               title={data.title || placeholderImg.title}
               position="top"
-            />
-          </div>
+            /> */}
           <MDBCardBody>
             <a
               href={`/browse/styles/${data.title}`}
