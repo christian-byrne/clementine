@@ -12,7 +12,33 @@ from constants import (
     STYLISTS_PUBLIC_DIR_NAME,
     PICTURE_EXTENSION_LIST,
 )
+from db_handlers.table import DatabaseTable
 
+
+def update_stylists_table(dry_run: bool =False):
+    project_paths = ProjectPaths()
+    stylists_db_path = project_paths.get_data_path(STYLISTS_DB_DIR_NAME)
+    stylists_table = DatabaseTable(stylists_db_path, "titleSystemName")
+
+    for stylist_dir in project_paths.get_public_path(STYLISTS_PUBLIC_DIR_NAME).iterdir():
+        if stylist_dir.is_dir():
+            stylist_record = {
+                "stylistPath": "/" / STYLISTS_PUBLIC_DIR_NAME / stylist_dir.name,
+                "stylistDirName": stylist_dir.name,
+                "stylistTitle": stylist_dir.name.replace("-", " ").title(),
+                "likes": random.randint(0, 800),
+                "favorites": random.randint(0, 600),
+                "downloads": random.randint(0, 280),
+                "shared": random.randint(0, 380),
+                "views": random.randint(0, 10000),
+                "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
+                "creator": "UNKNOWN",
+            }
+            photo_owner = find_photos_owner(stylist_dir)
+            if photo_owner:
+                stylist_record["creator"] = photo_owner
+
+            stylists_database.append(stylist_record)
 
 def update_photos_table(dry_run: bool =False):
     """
@@ -20,6 +46,8 @@ def update_photos_table(dry_run: bool =False):
     """
     fake = Faker()
     project_paths = ProjectPaths()
+    stylists_db_path = project_paths.get_data_path(STYLISTS_DB_DIR_NAME)
+    stylists_table = DatabaseTable(stylists_db_path, "titleSystemName")
 
     for stylist in project_paths.get_public_path(STYLISTS_PUBLIC_DIR_NAME).iterdir():
         stylist_path = (

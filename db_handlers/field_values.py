@@ -1,4 +1,4 @@
-from db_handlers.table_class import Table
+from db_handlers.table import Table
 from typing import Any, Protocol, Union, Iterable, Tuple
 
 

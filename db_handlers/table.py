@@ -1,14 +1,17 @@
 from pathlib import Path
 import json
-from typing import Any, Protocol, Iterable
-from db_handlers.field_values_class import ValueList
+from typing import Any, Protocol, Iterable, List, Union
+from db_handlers.field_values import ValueList
+from db_handlers.enums.options import UpdateOption
+from db_handlers.update_records import UpdateUtils
+from db_handlers.record import Record
 
 
 class Table(Protocol):
     def get_path(self) -> Path: ...
     def get_name(self) -> str: ...
-    def iter(self) -> Iterable: ...
-    def values(self, field_name: str, distinct: bool = False) -> list: ...
+    def iter(self) -> Iterable[Record]: ...
+    def find(self, primary_key: Any) -> Record: ...
     def __getitem__(self, field_name: str) -> ValueList: ...
     def __str__(self) -> str: ...
     def __eq__(self, primary_key_selector: Any) -> "Table": ...
@@ -30,9 +33,99 @@ class DatabaseTable(Table):
         self.parent_dir = table_path.parent
         self.data = self.__load_data()
 
-    def iter(self):
+    def get_records(self) -> List[Record]:
+        return self.data
+
+    def iter(self) -> Iterable[Record]:
         for record in self.data:
             yield record
+
+    def save(self) -> None:
+        with open(self.path, "w") as f:
+            json.dump(self.data, f)
+
+    def find(self, primary_key: Any) -> Record:
+        return next(
+            (record for record in self.data if record[self.primary_key] == primary_key),
+            None,
+        )
+
+    def update(
+        self,
+        option: UpdateOption,
+        new_records: List[Record],
+        allow_duplicate_subfield_values: bool = True,
+    ):
+        for record in new_records:
+            existing_record = next(
+                (
+                    rec
+                    for rec in self.data
+                    if rec[self.primary_key] == record[self.primary_key]
+                ),
+                None,
+            )
+
+            # Record Doesn't Exist
+            if not existing_record:
+                self.get_records().append(record)
+                continue
+
+            # Record Exists
+            if option == UpdateOption.RECORD_OVERWRITE:
+                self.get_records()[self.data.index(existing_record)] = record
+            else:
+                self.__subfield_update(
+                    existing_record, record, option, allow_duplicate_subfield_values
+                )
+
+    def __subfield_update(
+        self,
+        existing_record: Record,
+        record: Record,
+        option: UpdateOption,
+        allow_duplicates: bool,
+    ):
+        UpdateUtils.add_empty_fields(existing_record, record, self.primary_key)
+
+        if option in [
+            UpdateOption.SUBFIELD_APPEND_OR_OVERWRITE,
+            UpdateOption.SUBFIELD_APPEND_ONLY,
+        ]:
+            UpdateUtils.append_reference_types(
+                existing_record,
+                record,
+                self.primary_key,
+                allow_duplicates=allow_duplicates,
+            )
+            if option == UpdateOption.SUBFIELD_APPEND_OR_OVERWRITE:
+                UpdateUtils.overwrite_primitive_types(
+                    existing_record, record, self.primary_key
+                )
+
+        if option == UpdateOption.SUBFIELD_OVERWRITE:
+            UpdateUtils.overwrite_all(existing_record, record, self.primary_key)
+
+        if option in [
+            UpdateOption.SUBFIELD_SYMM_DIFF_OR_OVERWRITE,
+            UpdateOption.SUBFIELD_SYMM_DIFF_ONLY,
+        ]:
+            UpdateUtils.append_reference_types(
+                existing_record,
+                record,
+                self.primary_key,
+                allow_duplicates=allow_duplicates,
+                dict_symm_diff=True,
+            )
+            if option == UpdateOption.SUBFIELD_SYMM_DIFF_OR_OVERWRITE:
+                UpdateUtils.overwrite_primitive_types(
+                    existing_record, record, self.primary_key
+                )
+
+        if option == UpdateOption.SUBFIELD_INTERSECTION:
+            UpdateUtils.intersect_reference_types(
+                existing_record, record, self.primary_key
+            )
 
     def __load_data(self):
         with open(self.path, "r") as f:
