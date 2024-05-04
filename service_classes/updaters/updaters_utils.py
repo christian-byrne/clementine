@@ -9,6 +9,9 @@ from service_classes.constants import (
     USERS_DB_DIR_NAME,
     USERS_DB_FILE_NAME,
     USERS_DB_PK,
+    STYLES_DB_DIR_NAME,
+    STYLES_DB_FILE_NAME,
+    STYLES_DB_PK,
 )
 from service_classes.table import DatabaseTable
 
@@ -49,3 +52,15 @@ class UpdatersUtils:
         return DatabaseTable(
             ProjectPaths()().get_data_path(USERS_DB_DIR_NAME) / USERS_DB_FILE_NAME,
             USERS_DB_PK)
+
+    @staticmethod
+    def get_styles_table() -> DatabaseTable:
+        """
+        Get the Styles Table.
+
+        Returns:
+            DatabaseTable: The Styles Table.
+        """
+        return DatabaseTable(
+            ProjectPaths()().get_data_path(STYLES_DB_DIR_NAME) / STYLES_DB_FILE_NAME,
+            STYLES_DB_PK)

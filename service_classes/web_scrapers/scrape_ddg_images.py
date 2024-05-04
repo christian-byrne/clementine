@@ -43,12 +43,13 @@ class DuckDuckGoImageScraper:
                 "height": (int) Height of the image,
                 "width": (int) Width of the image,
                 "source": (str) Website source of the image,
-                "download_path": (Path) Path to the downloaded image
+                "download_path": (str) full path to the downloaded image
+                "imageSrc": (str) relative path to the downloaded image from the public directory
             },...]
         """
         ret = []
         for phrase, limit in search_phrases:
-            downloaded_photos = self.__search_scrape_images(category, phrase, limit)
+            downloaded_photos = self.__search_scrape_images(phrase, limit)
             ret += downloaded_photos
             time.sleep(self.sleep_interval)
         return ret
@@ -60,15 +61,13 @@ class DuckDuckGoImageScraper:
             truncated = results[:max_images]
             return L(truncated)
 
-    def __search_scrape_images(
-        self, category: str, search_phrase: str, max_images: int = 30
-    ) -> List[dict]:
+    def __search_scrape_images(self, search_phrase, max_images: int = 30) -> List[dict]:
         image_results = self.search_images(search_phrase, max_images)
 
         for index, result in enumerate(image_results):
-            filename = f"{search_phrase}_{index}{Path(result['image']).suffix}"
+            filename = f"{index}{Path(result['image']).suffix}"
 
-            photo_dl_path = self.dl_path / category / search_phrase / filename
+            photo_dl_path = self.dl_path / filename
 
             try:
                 res_dl_path = download_url(
@@ -83,10 +82,11 @@ class DuckDuckGoImageScraper:
                 continue
 
             plog(f"Downloaded image to {res_dl_path}")
-            result["download_path"] = photo_dl_path
+            result["download_path"] = str(photo_dl_path.resolve())
+            result["imageSrc"] = Path.relative_to(
+                photo_dl_path, self.project_paths.get_public_path("")
+            )
 
-        plog(
-            f"Images downloaded successfully to {self.dl_path / category / search_phrase}"
-        )
+        plog(f"Images downloaded successfully to {photo_dl_path}")
 
         return image_results
