@@ -6,42 +6,57 @@ class UpdateUtils:
         self.table = table
         self.primary_key = primary_key
 
-  
+    @staticmethod
+    def add_empty_fields(existing_rec: dict, record: dict, primary_key: str) -> bool:
+        changed = False
+        dont_exist = [field for field in record if field not in existing_rec]
+        if dont_exist:
+            changed = True
+        for field in dont_exist:
+            existing_rec[field] = record[field]
+        return changed
 
     @staticmethod
-    def add_empty_fields(existing_rec: dict, record: dict, primary_key: str):
+    def overwrite_all(existing_rec: dict, record: dict, primary_key: str) -> bool:
+        changed = False
         for field, value in record.items():
-            if field != primary_key and field not in existing_rec:
+            if field != primary_key and existing_rec.get(field) != value:
+                changed = True
                 existing_rec[field] = value
+        return changed
 
     @staticmethod
-    def overwrite_all(existing_rec: dict, record: dict, primary_key: str):
-        for field, value in record.items():
-            if field != primary_key:
-                existing_rec[field] = value
-
-    @staticmethod
-    def overwrite_primitive_types(existing_rec: dict, record: dict, primary_key: str):
+    def overwrite_primitive_types(existing_rec: dict, record: dict, primary_key: str) -> bool:
+        changed = False
         for field, value in record.items():
             if field != primary_key and isinstance(
                 value, (str, int, float, bool, complex, type(None))
-            ):
+            ) and existing_rec.get(field) != value:
+                changed = True
                 existing_rec[field] = value
+        return changed
 
     @staticmethod
-    def overwrite_reference_types(existing_rec: dict, record: dict, primary_key: str):
+    def overwrite_reference_types(existing_rec: dict, record: dict, primary_key: str) -> bool:
+        changed = False
         for field, value in record.items():
             if field != primary_key and not isinstance(
                 value, (str, int, float, bool, complex, type(None))
-            ):
+            ) and existing_rec.get(field) != value:
+                changed = True
                 existing_rec[field] = value
+        return changed
 
     @staticmethod
-    def intersect_reference_types(existing_rec: dict, record: dict, primary_key: str):
+    def intersect_reference_types(existing_rec: dict, record: dict, primary_key: str) -> bool:
+        changed = False
         remove = [field for field in existing_rec if field not in record]
+        if remove:
+            changed = True
         for field in remove:
             existing_rec.pop(field)
-        UpdateUtils.append_reference_types(existing_rec, record, primary_key)
+        changed = UpdateUtils.append_reference_types(existing_rec, record, primary_key)
+        return changed
 
     @staticmethod
     def append_reference_types(
@@ -50,7 +65,7 @@ class UpdateUtils:
         primary_key: str,
         allow_duplicates: bool = True,
         dict_symm_diff: bool = False,
-    ):
+    ) -> bool:
         """
         Append the reference types of the new record to the existing record.
 
@@ -62,17 +77,24 @@ class UpdateUtils:
             record (dict): The new record to append.
             primary_key (str): The primary key of the record.
         """
+        changed = False
         for field, value in record.items():
             if field != primary_key:
                 if isinstance(value, list):
+                    if len(value) != len(existing_rec.get(field, [])):
+                        changed = True
                     existing_rec[field] = UpdateUtils.append_list(
                         existing_rec.get(field, []), value, allow_duplicates
                     )
+
                 elif isinstance(value, set):
+                    if value != existing_rec.get(field, set()):
+                        changed = True
                     existing_rec[field] = UpdateUtils.append_set(
                         existing_rec.get(field, set()), value
                     )
                 elif isinstance(value, dict):
+                    changed = True # Not really accurate but this is only for logging purposes
                     if dict_symm_diff:
                         existing_rec[field] = UpdateUtils.append_dict_symmetric_diff(
                             existing_rec.get(field, {}), value
@@ -85,7 +107,9 @@ class UpdateUtils:
                 elif not isinstance(
                     value, (str, int, float, bool, complex, type(None))
                 ):
+                    changed = True
                     UpdateUtils.append_custom_class(existing_rec[field], value)
+        return changed
 
     @staticmethod
     def append_custom_class(existing_object: object, new_object: object) -> bool:

@@ -41,8 +41,8 @@ class MetaData:
         return human_readable_size
 
     def get_size(self, file_fullpath: Path) -> int:
-        def access_filesize() -> int:
-            return os.path.getsize(file_fullpath.resolve())
+        def access_filesize(path) -> int:
+            return os.path.getsize(path.resolve())
 
         size, success, error = (
             CallAttempt(
@@ -64,11 +64,11 @@ class MetaData:
     def get_path_metadata(self, fullpath: Path) -> dict:
         def access_path_metadata(file_fullpath: Path) -> dict:
             return {
-                "fullPath": file_fullpath,
-                "extension": file_fullpath.suffix,
-                "filename": file_fullpath.name,
-                "parent_dirname": file_fullpath.parent.name,
-                "parent_dirpath": file_fullpath.parent,
+                "fullPath": str(file_fullpath.resolve()),
+                "extension": str(file_fullpath.suffix),
+                "filename": str(file_fullpath.name),
+                "parentDirname": str(file_fullpath.parent.name),
+                "parentDirpath": str(file_fullpath.parent.resolve()),
             }
 
         path_metadata, success, errors = CallAttempt(
@@ -82,8 +82,8 @@ class MetaData:
     def get_time_metadata(self, fullpath: Path) -> dict:
         def access_time_metadata(file_fullpath: Path) -> dict:
             return {
-                "lastModified": os.path.getmtime(file_fullpath),
-                "lastAccessed": os.path.getatime(file_fullpath),
+                "lastModified": int(os.path.getmtime(file_fullpath)),
+                "lastAccessed": int(os.path.getatime(file_fullpath)),
                 "lastUpdated": int(time.time()),
             }
 

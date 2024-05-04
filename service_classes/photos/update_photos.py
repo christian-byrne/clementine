@@ -21,7 +21,7 @@ from service_classes.logging.log_ import plog
 
 def update_stylists_table(dry_run: bool = False):
     project_paths = ProjectPaths()
-    stylists_db_path = project_paths.get_data_path(STYLISTS_DB_DIR_NAME)
+    stylists_db_path = project_paths.get_data_path(STYLISTS_DB_DIR_NAME) / "all-backup-May2.json"
     stylists_table = DatabaseTable(stylists_db_path, STYLISTS_DB_PK)
 
     new_records = []
@@ -32,34 +32,27 @@ def update_stylists_table(dry_run: bool = False):
         if stylist_dir.is_dir() and any(stylist_dir.iterdir()):
             stylist_record = {
                 STYLISTS_DB_PK: stylist_dir.name,
-                "creator": "UNKNOWN",
             }
 
             metadata, success, error = MetaData(stylist_dir)()
             if len(error) > 0:
                 for err in error:
-                    print(
-                        f"{colored('[ERROR][METADATA CREATION]', 'light_red')} {err} for {stylist_dir}"
+                    plog(
+                        f"{colored('[ERROR][METADATA-CREATION]', 'light_red')} {err} for {stylist_dir.name}"
                     )
             else:
-                print(
-                    f"{colored('[SUCCESS][METADATA CREATION]', 'green')} for {stylist_dir}"
+                plog(
+                    f"{colored('[SUCCESS][METADATA-CREATION]', 'green')} for {stylist_dir.name}"
                 )
 
             stylist_record.update(metadata)
             new_records.append(stylist_record)
 
+    stylists_table.update(UpdateOption.SUBFIELD_APPEND_ONLY, new_records)
     if not dry_run:
-        stylists_table.update(new_records, UpdateOption.RECORD_APPEND_ONLY)
+        stylists_table.save()
     else:
-        print(f"{len(new_records)} being added to Styllists DB")
-        print(
-            f"{colored('New Records being added', 'red')} to {stylists_db_path}:\n\n{new_records}"
-        )
-        print("\n")
-        print(
-            f"{colored('Table After Update', 'red')}:\n\n{stylists_table.get_records()}"
-        )
+        stylists_table.print_changes() 
 
 
 
