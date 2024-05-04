@@ -10,6 +10,7 @@ BRAND_NAME = "La Vie en Bleu"
 STYLISTS_DB_PK = "titleSystemName"
 STYLES_DB_PK = "title"
 USERS_DB_PK = "id"
+PHOTOS_DB_PK = "imagePath"
 
 # DB Dir Names (relative to data)
 STYLISTS_DB_DIR_NAME = "stylists"
@@ -18,6 +19,13 @@ USERS_DB_DIR_NAME = "users"
 PHOTOS_DB_DIR_NAME = "photos"
 FILESYSTEM_DB_DIR_NAME = "fs-contents"
 BLOG_DB_DIR_NAME = "blog"
+
+# DB File Names
+STYLISTS_DB_FILE_NAME = "all.json"
+STYLES_DB_FILE_NAME = "styles.json"
+USERS_DB_FILE_NAME = "all.json"
+PHOTOS_DB_FILE_NAME = "all.json"
+FS_DB_FILE_NAME = "filesystem.json"
 
 # Public Dir Names (relative to public)
 STYLISTS_PUBLIC_DIR_NAME = "pictures/models"

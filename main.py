@@ -1,3 +1,3 @@
-from service_classes.photos.update_photos import update_stylists_table
+from service_classes.updaters.table_updaters import photos_add_new
 
-update_stylists_table(dry_run=True)
+photos_add_new(dry_run=True)

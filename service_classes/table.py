@@ -73,7 +73,8 @@ class DatabaseTable(Table):
                         f"{colored(field, 'white', attrs=['dark'])}: {colored(str(value), 'white')}"
                     )
 
-    def flush_changes(self) -> List[Tuple[str, Record, Record]]:
+    def flush_print_changes(self) -> List[Tuple[str, Record, Record]]:
+        self.print_changes()
         changes = self.changes
         self.changes = []
         return changes
@@ -251,7 +252,9 @@ class DatabaseTable(Table):
             for record in self.data
             if operate(record[self.primary_key], selector)
         ]
-        return DatabaseTable(self.path, self.primary_key, new_data)
+        res = DatabaseTable(self.path, self.primary_key)
+        res.data = new_data
+        return res
 
     def __getitem__(self, field_name: str):
         return [record[field_name] for record in self.data if field_name in record]
@@ -278,7 +281,7 @@ class DatabaseTable(Table):
         return len(self.data)
 
     def __str__(self) -> str:
-        return f"{self.name}"
+        return f"DataBase Table: {self.name}"
 
     def __setitem__(self, primary_key: Any, record: Any) -> None:
         for i, rec in enumerate(self.data):
