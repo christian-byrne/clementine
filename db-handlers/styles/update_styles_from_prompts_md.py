@@ -1,14 +1,16 @@
-from md_to_json import main
+from converters.md_to_json import convert
+from paths import ProjectPaths
 
 
-TARGET_DIR = "../prompts/styles"
-OUTPUT_FILENAME = "styles.json"
-EXCLUDE_LIST = [
-    "template.md",
-]
+def main():
+    project_paths = ProjectPaths()
 
-main(
-    TARGET_DIR,
-    OUTPUT_FILENAME,
-    exclude_list=EXCLUDE_LIST,
-)
+    convert(
+        project_paths.get_ai_path("prompts/styles"),
+        "styles.json",
+        exclude_list=["template.md"],
+    )
+
+
+if __name__ == "__main__":
+    main()

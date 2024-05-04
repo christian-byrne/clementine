@@ -1,19 +1,22 @@
 import json
-import os
+from paths import ProjectPaths
+from pathlib import Path
 
 
-project_name = "wardrobe"
-project_root = (
-    os.path.dirname(os.path.realpath(__file__)).split(project_name)[0] + project_name
-)
-data_path = os.path.join(project_root, "data/styles/styles.json")
-target_dir = os.path.join(project_root, "public/pictures/styles")
+def main():
+    project_paths = ProjectPaths()
+    data_path = project_paths.get_data_path("styles/styles.json")
+    target_dir = project_paths.get_public_path("pictures/styles")
 
-with open(data_path, "r") as f:
-    styles = json.load(f)
+    with open(data_path, "r") as f:
+        styles = json.load(f)
 
-for style in styles:
-    dir_name = style["title"].replace(" ", "-").lower()
-    dir_path = os.path.join(target_dir, dir_name)
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
+    for style in styles:
+        dir_name = style["title"].replace(" ", "-").lower()
+        dir_path = target_dir / Path(dir_name)
+        if not dir_path.exists():
+            dir_path.mkdir()
+
+
+if __name__ == "__main__":
+    main()

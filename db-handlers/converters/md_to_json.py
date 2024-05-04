@@ -2,7 +2,7 @@ import json
 import os
 
 
-def main(target_dir: str, output_filename: str, exclude_list: list = []):
+def convert(target_dir: str, output_filename: str, exclude_list: list = []):
     all_md_files = get_all_md_in_dir(target_dir, exclude_list)
     json_objects = []
     for md_file in all_md_files:

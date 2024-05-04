@@ -1,26 +1,29 @@
-import json
 import os
-import pathlib
-from constants import PROJECT_NAME
+from pathlib import Path
+from constants import PROJECT_DIR_NAME
+
 
 class ProjectPaths:
-    PROJECT_ROOT = (
-        os.path.dirname(os.path.realpath(__file__)).split(PROJECT_NAME)[0] + PROJECT_NAME
-    )
-    
-    def __init__(self, project_name: str) -> None:
-        self.project_name = project_name
-        self.project_root = (
-            os.path.dirname(os.path.realpath(__file__)).split(project_name)[0] + project_name
+    def __init__(self) -> None:
+        self.project_root = Path(
+            os.path.dirname(os.path.realpath(__file__)).split(PROJECT_DIR_NAME)[0]
+            + PROJECT_DIR_NAME
         )
 
-    def get_data_path(self, data_dir: str, data_filename: str) -> str:
-        return os.path.join(self.project_root, data_dir, data_filename)
+    def get_data_path(self, sub_path: str) -> Path:
+        return self.project_root / "data" / Path(sub_path)
 
-    def get_target_dir(self, target_dir: str) -> str:
-        return os.path.join(self.project_root, target_dir)
+    def get_public_path(self, sub_path: str) -> Path:
+        return self.project_root / "public" / Path(sub_path)
 
+    def get_project_root(self) -> Path:
+        return self.project_root
 
+    def get_scripts_path(self, sub_path: str) -> Path:
+        return self.project_root / "scripts" / Path(sub_path)
 
-data_path = os.path.join(PROJECT_ROOT, "data/styles/styles.json")
-target_dir = os.path.join(PROJECT_ROOT, "public/pictures/styles")
+    def get_ai_path(self, sub_path: str) -> Path:
+        return self.project_root / "ai" / Path(sub_path)
+
+    def get_db_handlers_path(self, sub_path: str) -> Path:
+        return self.project_root / "db-handlers" / Path(sub_path)

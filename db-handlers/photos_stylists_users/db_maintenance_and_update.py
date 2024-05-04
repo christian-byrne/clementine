@@ -4,61 +4,6 @@ import os
 import datetime
 import json
 
-badges = [
-    "\ud83d\ude08 Cult Classic",
-    "\ud83d\udd25 Top Rated",
-    "\ud83d\udd25 Trending",
-    "\ud83d\udd25 Top Rated",
-    "\u2600\ufe0f Summer",
-    "🏃‍♂️ Athleisure",
-    "👗 High Fashion",
-    "👟 Streetwear",
-    "👠 Urban",
-    "👖 Casual",
-    "👚 Formal",
-    "👔 Business",
-    "👕 Workwear",
-    "👢 Boots",
-    "👡 Sandals",
-    "👞 Shoes",
-    "👟 Sneakers",
-    "🧢 Hats",
-    "🕶️ Sunglasses",
-    "🧣 Scarves",
-    "🧤 Gloves",
-    "🧦 Socks",
-    "\ud83d\udda4 Neutrals",
-    "🚀 Retrofuturism",
-    "◼️ Cyber Sleek",
-    "🌈 Rainbow",
-    "🌺 Floral",
-    "🌼 Spring",
-    "🍂 Fall",
-    "❄️ Winter",
-    "🌞 Summer",
-    "🌧️ Rainy",
-    "🌾 Cottagecore",
-    "📚 Dark Academia",
-    "🧼 Clean",
-    "👗 Vintage",
-    "👚 Thriftcore",
-    "👠 Grunge",
-    "👠 Punk",
-    "👠 Goth",
-]
-
-bounty_tasks = [
-    "Refine this Model",
-    "Upload Pics",
-    "Add Tags",
-    "Write Review",
-    "Merge with $MODEL",
-    "Create New Version",
-    "Update Model",
-]
-
-names_raw = "Arwen Undómiel, Fran Walsh, Amber Waves, Becky Barnett, Luisa Rey, Leslie Matos, Ava, Kyoko, Briony Tallis, Lola Quincy, Cecilia Tallis, Claudia Wilson Gator, Linda Partridge, Virginia Woolf, Harmony Faith Lane, Harry Lockhart, Kate Mercer, Alejandro Gillick, Lady Bird, Patrick Bateman, Paul Allen, Evelyn Williams, Angela Hayes, Ricky Fitts, Lester Burnham, Terence Fletcher, Luke Glanton, Avery Cross, Jason Glanton, Romina Mendes, Lee Chandler, Joe Chandler, Randi Chandler, Elaine Robinson, Benjamin Braddock, Mrs. Robinson, Rosemary Woodhouse, Ben Bradlee, Bob Woodward, Rick Blaine, Victor Laszlo, Ilsa Lund, Annina Brandel, Cass Sheppard, Anya Thorensen, Josie Radek, Lena Double, Dwayne Hoover, Olive Hoover, Frank Ginsburg, Jim Sullivan, Michael Rezendes, Sacha Pfeiffer, Sgt. William James, Ramona Flower, Scott Pilgrim, Julie Powers, Steven Murphy, Anna Murphy, Clementine Kruczynski, Joel Barish, Travis Bickle, Tom Hansen, Summer, Jake Gittes, Ida Sessions, Evelyn Cross Mulwray, Lisa Rowe, Daisy Randone, Susanna Kaysen, Frank Costello, Colin Sullivan, Barry Egan, Lena Leonard, Juno MacGuff, Pat Solitano, Imperator Furiosa, Gogo Yubari, O-Ren Ishii, Elle Driver, Vernita Green,  Paul Atreides, Park Dong-ik, Waymond Wang, Evelyn Quan Wang, Robert Neville, Joanna Anderson, Billy Mack, Ramiz Rafi Mirza, Robin Swift, Mookie, Roger Verbal Kint, Keyser Soze, Mona Lisa Vito, Vinny Gambini, Jenny Carey Mulligan, Elizabeth Shaw, Ellen Ripley, Louise Banks, Olivia Dunham, Zoe Washburne, Kathryn Janeway, Dana Scully, Buffy Summers, Laura Roslin, Sarah Connor, Kara Thrace, Cherry Darling, Vivian Ward, Samantha Baker, Stifler's Mom, Marquise de Merteuil, Karen Silkwood, Marnie Edgar, Briony Tallis, Gilda Mundson Farrell, Matty Walker, Annie Savoy, Sverine Serizy, Gloria Swenson, Catherine Tramell, Phyllis Dietrichson, Bess McNeil, Thelma Dickinson, Alabama Whitman, Annie Porter, Marge Gunderson, Elisabet Vogler, Sally Albright, Bonnie Parker, Ada McGrath, Shoshanna Dreyfus, Alice Hyatt, Lee Holloway, Mildred Pierce, Margo Channing, Adrian Pennino Balboa, Judy Barton, Madeleine Elster, Debby Marsh, Amelie, Alex Forrest, Blanche Dubois, Paikea Apirana, Margot Tenenbaum, Holly Golightly, Mia Williams, Jessica Rabbit, Betty Elms, Diane Selwyn, Scarlett O'Hara, Louise Sawyer, Nina Sayers, Veronic Sawyer, Mia Wallace, Clarice Starling, Laurie Strode, Carrie White, Bridget Gregory, Lisbeth Salander, Jackie Brown, Sugar Kane Kowalcyzk, Hildy Johnson, Annie Hall"
-
 
 def create_img_records(model_folder, source_dir, users_db):
     """
@@ -152,7 +97,7 @@ def random_badges():
     # generate random number for badges between 0 and 3, with higher weight towards lower numbres
     num_badges = random.choices([0, 1, 2, 3], weights=[30, 50, 15, 5])[0]
     # get random badges
-    selected_badges = random.sample(badges, num_badges)
+    selected_badges = random.sample(tags, num_badges)
     return selected_badges
 
 

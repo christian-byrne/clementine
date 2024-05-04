@@ -3,6 +3,7 @@ import json
 import os
 import datetime
 import random
+from paths import ProjectPaths
 
 def backup_and_replace(old_path, new_json):
     """
@@ -37,40 +38,41 @@ def backup_and_replace(old_path, new_json):
 
     print(f"Updated {old_path} with new data")
 
-def add_attribute_in_a_db(db):
+def add_attribute_in_a_db(db: dict, attribute: str) -> list:
     """
-    Deletes an attribute from the database.
+    Adds an attribute from the database.
 
     Args:
         db (list): The db as a list of dicts
-        attribute (str): The attribute to delete.
+        attribute (str): The attribute to add.
     """
     ret = []
     for entry in db:
         entry_copy = entry.copy()
-        if "ranks" not in entry_copy:
+        if attribute not in entry_copy:
             ret.append(entry_copy)
             continue
-        cur_ranks = entry_copy["ranks"]
+        cur_ranks = entry_copy[attribute]
         new_ranks = []
         for rank in cur_ranks:
             if "#" not in rank:
                 # #X rank where X is a random number
                 rank = f"#{random.randint(1, 4500)} {rank}"
             new_ranks.append(rank)
-        entry_copy["ranks"] = new_ranks
+        entry_copy[attribute] = new_ranks
         ret.append(entry_copy)
     return ret
 
 
 if __name__ == "__main__":
-    USERS_DB_PATH = "/home/c_byrne/school/courses/game310/final-project/wardrobe/data/users/all.json"
-    MODELS_DB_PATH = "/home/c_byrne/school/courses/game310/final-project/wardrobe/data/models/all.json"
+    project_paths = ProjectPaths()
+    users_db_path = project_paths.get_data_path("users/all.json")
+    models_db_path = project_paths.get_data_path("models/all.json")
 
-    with open(USERS_DB_PATH, "r") as f:
+    with open(users_db_path, "r") as f:
         users_db = json.load(f)
-    with open(MODELS_DB_PATH, "r") as f:
+    with open(models_db_path, "r") as f:
         models_db = json.load(f)
      
-    new_users_db = add_attribute_in_a_db(users_db)
-    backup_and_replace(USERS_DB_PATH, new_users_db)
+    new_users_db = add_attribute_in_a_db(users_db, "ranks")
+    backup_and_replace(users_db_path, new_users_db)
