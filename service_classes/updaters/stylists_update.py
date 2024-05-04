@@ -15,7 +15,7 @@ from service_classes.metadata import MetaData
 from service_classes.enums.options import UpdateOption
 from service_classes.logging.log_ import plog, print_errors
 from service_classes.updaters.updaters_utils import UpdatersUtils
-from service_classes.updaters.random_generators import RanValueGenerator
+from service_classes.updaters.field_value_generators import FieldGenerator
 
 
 def add_new_stylists(dry_run: bool = False) -> None:
@@ -62,7 +62,7 @@ def populate_empty_stylists_fields(dry_run: bool = False) -> None:
         dry_run (bool, optional): Whether to save the changes or not. Defaults to False.
     """
     fake = Faker()
-    ran_generator = RanValueGenerator()
+    ran_generator = FieldGenerator()
     project_paths = ProjectPaths()
     stylists_table = UpdatersUtils.get_stylists_table()
     users_table = UpdatersUtils.get_users_table()

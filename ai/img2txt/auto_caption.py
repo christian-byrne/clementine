@@ -12,11 +12,6 @@ from transformers import (
     BlipTextConfig,
     BlipVisionConfig,
 )
-from torchvision import transforms
-
-from ai.tensor_utils import TensorImgUtils
-
-from termcolor import colored
 from typing import Tuple, List
 
 
@@ -30,6 +25,7 @@ class AutoCaptioner:
         self.search_beams = search_beams
         # https://huggingface.co/Salesforce/blip-image-captioning-large/discussions/20
         self.exclude_terms = exclude_terms + ["arafed"]
+        self.max_resolution = max_resolution
 
     def __call__(
         self,
@@ -42,8 +38,11 @@ class AutoCaptioner:
         include_conditional_caption: bool = True,
     ) -> None:
         raw_img = Image.open(img_path).convert("RGB")
-        if raw_img.size[0] > 512 or raw_img.size[1] > 512:
-            raw_img = raw_img.resize((512, 512))
+        if (
+            raw_img.size[0] > self.max_resolution
+            or raw_img.size[1] > self.max_resolution
+        ):
+            raw_img = raw_img.resize((self.max_resolution, self.max_resolution))
 
         general_caption = self.general_caption(
             raw_img,
@@ -57,7 +56,7 @@ class AutoCaptioner:
 
         if not include_conditional_caption:
             general_caption = general_caption.replace(conditional_caption, "")
-            
+
         return self.__exclude_terms(general_caption, self.exclude_terms)
 
     def __exclude_terms(self, caption: str, exclude_list: List[str]) -> str:
