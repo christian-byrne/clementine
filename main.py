@@ -11,8 +11,14 @@ from service_classes.updaters.styles_update import (
     del_removed_images_from_photos_fields,
     add_new_images_to_photos_fields,
 )
-
+from service_classes.updaters.updaters_utils import UpdatersUtils
+from service_classes.updaters.items_update import add_new_items
 
 if __name__ == "__main__":
-    del_removed_images_from_photos_fields(dry_run=False)
-    add_new_images_to_photos_fields(dry_run=False)
+    # styles_table = UpdatersUtils.get_styles_table()
+    # clothing_itmes = set()
+    # for style in styles_table:
+    #     clothing_itmes.update(style["Tops"])
+
+    # print(clothing_itmes)
+    add_new_items(dry_run=True)

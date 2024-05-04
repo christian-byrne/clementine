@@ -11,6 +11,7 @@ STYLISTS_DB_PK = "titleSystemName"
 STYLES_DB_PK = "title"
 USERS_DB_PK = "id"
 PHOTOS_DB_PK = "imagePath"
+ITEMS_DB_PK = "imageSrc"
 
 # DB Dir Names (relative to data)
 STYLISTS_DB_DIR_NAME = "stylists"
@@ -19,6 +20,7 @@ USERS_DB_DIR_NAME = "users"
 PHOTOS_DB_DIR_NAME = "photos"
 FILESYSTEM_DB_DIR_NAME = "fs-contents"
 BLOG_DB_DIR_NAME = "blog"
+ITEMS_DB_DIR_NAME = "items"
 
 # DB File Names
 STYLISTS_DB_FILE_NAME = "all.json"
@@ -26,6 +28,7 @@ STYLES_DB_FILE_NAME = "styles.json"
 USERS_DB_FILE_NAME = "all.json"
 PHOTOS_DB_FILE_NAME = "all.json"
 FS_DB_FILE_NAME = "filesystem.json"
+ITEMS_DB_FILE_NAME = "all.json"
 
 # Public Dir Names (relative to public)
 STYLISTS_PUBLIC_DIR_NAME = "pictures/models"
@@ -36,6 +39,7 @@ BLOG_ASSETS_PUBLIC_DIR_NAME = "pictures/blog-pages"
 BANNERS_PUBLIC_DIR_NAME = "pictures/banner-pics"
 ICONS_PUBLIC_DIR_NAME = "icons"
 VIDS_PUBLIC_DIR_NAME = "videos"
+ITEMS_PUBLIC_DIR_NAME = "pictures/items"
 
 
 VIDEO_EXTENSION_LIST = [

@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/retro-blouse.png",
+    "imageSrc": "pictures/items/retro-blouse.png",
+    "name": "Retro blouse",
+    "systemName": "retro-blouse",
+    "extension": ".png"
+  },
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/metallic-blouse.png",
+    "imageSrc": "pictures/items/metallic-blouse.png",
+    "name": "Metallic blouse",
+    "systemName": "metallic-blouse",
+    "extension": ".png"
+  },
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-hoodie.png",
+    "imageSrc": "pictures/items/oversized-hoodie.png",
+    "name": "Oversized hoodie",
+    "systemName": "oversized-hoodie",
+    "extension": ".png"
+  },
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-jersey.png",
+    "imageSrc": "pictures/items/oversized-jersey.png",
+    "name": "Oversized jersey",
+    "systemName": "oversized-jersey",
+    "extension": ".png"
+  },
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/polo-shirt.png",
+    "imageSrc": "pictures/items/polo-shirt.png",
+    "name": "Polo shirt",
+    "systemName": "polo-shirt",
+    "extension": ".png"
+  },
+  {
+    "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/linen-buttun-up-shirt.png",
+    "imageSrc": "pictures/items/linen-buttun-up-shirt.png",
+    "name": "Linen buttun up shirt",
+    "systemName": "linen-buttun-up-shirt",
+    "extension": ".png"
+  }
+]

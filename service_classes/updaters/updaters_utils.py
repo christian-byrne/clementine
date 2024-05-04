@@ -12,11 +12,26 @@ from service_classes.constants import (
     STYLES_DB_DIR_NAME,
     STYLES_DB_FILE_NAME,
     STYLES_DB_PK,
+    ITEMS_DB_DIR_NAME,
+    ITEMS_DB_FILE_NAME,
+    ITEMS_DB_PK,
 )
 from service_classes.table import DatabaseTable
 
 
 class UpdatersUtils:
+    @staticmethod
+    def get_items_table() -> DatabaseTable:
+        """
+        Get the Items Table.
+
+        Returns:
+            DatabaseTable: The Items Table.
+        """
+        return DatabaseTable(
+            ProjectPaths()().get_data_path(ITEMS_DB_DIR_NAME) / ITEMS_DB_FILE_NAME,
+            ITEMS_DB_PK)
+    
     @staticmethod
     def get_stylists_table() -> DatabaseTable:
         """

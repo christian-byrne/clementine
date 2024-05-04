@@ -6,7 +6,8 @@ function StyleCardItemRow({ itemName }) {
     <MDBListGroupItem className="d-flex justify-content-between align-items-center">
       <div className="d-flex align-items-center">
         <img
-          src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+        src={Math.random() * 100 % 5 === 0 ? "polo-shirt.png" : Math.random() * 100 % 3 === 0 ? "retro-blouse.png" : "oversized-jersey.png"}
+          // src="https://mdbootstrap.com/img/new/avatars/8.jpg"
           alt=""
           style={{ width: "45px", height: "45px" }}
           className="rounded-circle"
