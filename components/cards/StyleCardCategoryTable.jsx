@@ -20,6 +20,8 @@ function StyleCardCategoryTable({ categoryItems, title }) {
     }
   };
 
+
+
   return (
     <>
       <MDBTypography

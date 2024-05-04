@@ -4,6 +4,7 @@ import placeholderImg from "@/data/placeholder-image.json";
 import pathFormat from "@/utils/pathFormat";
 
 function CardImageCarousel({ photos, starterIndex: startIndex = 0 }) {
+  console.log(photos)
   const [curPhotoIndex, setCurPhotoIndex] = useState(startIndex);
   const nextPhoto = () => {
     if (curPhotoIndex < photos.length - 1) {

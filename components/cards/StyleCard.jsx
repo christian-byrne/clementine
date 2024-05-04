@@ -24,6 +24,8 @@ function sortCategories(categoryData) {
     "description",
     "name",
     "rating",
+    "photos",
+    "images"
   ];
   const priorityCategories = [
     "outerwear",
@@ -59,7 +61,7 @@ function StyleCard({
   detailsStartExpanded = false,
 }) {
   let mainImageIndex = 0;
-  for (let i = 0; i < data.images; i++) {
+  for (let i = 0; i < data.images.length; i++) {
     if (data.images[i].title === "main") {
       mainImageIndex = i;
       break;
@@ -77,8 +79,10 @@ function StyleCard({
     showNCategories = 2;
   } else if (heightDiff >= 0.2) {
     showNCategories = 3;
-  } else {
+  } else if (heightDiff >= 0.1) {
     showNCategories = 4;
+  } else {
+    showNCategories = 5;
   }
   const [categoriesExpanded, setCategoriesExpanded] = useState(
     detailsStartExpanded ? Infinity : showNCategories
@@ -181,6 +185,7 @@ function StyleCard({
               </MDBTypography>
             </a>
             {categoriesData.slice(0, categoriesExpanded).map((key, index) => {
+              console.log(data[key])
               return (
                 <StyleCardCategoryTable
                   key={index}
