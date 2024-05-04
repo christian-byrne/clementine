@@ -1,5 +1,11 @@
+
+# DEV / PROD
+ENV = "DEV"
+
+# Project/Brand Identifiers
 PROJECT_DIR_NAME = "wardrobe"
 BRAND_NAME = "La Vie en Bleu"
+
 # DB Primary Keys
 STYLISTS_DB_PK = "titleSystemName"
 STYLES_DB_PK = "title"

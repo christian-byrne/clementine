@@ -1,7 +1,3 @@
-import sys
-# sys.path.append("..")
-# sys.path.append("../..")
-
 # from faker import Faker
 from service_classes.paths import ProjectPaths
 from pathlib import Path
@@ -21,7 +17,7 @@ from service_classes.table import DatabaseTable
 from service_classes.metadata import MetaData
 from service_classes.enums.options import UpdateOption
 from termcolor import colored
-
+from service_classes.logging.log_ import plog
 
 def update_stylists_table(dry_run: bool = False):
     project_paths = ProjectPaths()
@@ -29,6 +25,7 @@ def update_stylists_table(dry_run: bool = False):
     stylists_table = DatabaseTable(stylists_db_path, STYLISTS_DB_PK)
 
     new_records = []
+
     for stylist_dir in project_paths.get_public_path(
         STYLISTS_PUBLIC_DIR_NAME
     ).iterdir():
