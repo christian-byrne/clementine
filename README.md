@@ -49,6 +49,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+- [ ] StyleCard xOverflow on small width screens
 - [ ] X-axis units on currency graph
 - [ ] Individual Badges Page
 - [x] Branding

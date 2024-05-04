@@ -6,7 +6,8 @@ import shutil
 
 from service_classes.enums.options import UpdateOption
 from service_classes.static_utils.update import UpdateUtils
-from service_classes.interfaces.interface_types import Record, Table
+from service_classes.field_values import FieldValues
+from service_classes.interfaces.interface_types import Record, Table, ValueList
 from service_classes.logging.log_ import plog
 
 from typing import Any, Iterable, List, Tuple
@@ -290,8 +291,8 @@ class DatabaseTable(Table):
         res.data = new_data
         return res
 
-    def __getitem__(self, field_name: str):
-        return [record[field_name] for record in self.data if field_name in record]
+    def __getitem__(self, field_name: str) -> ValueList:
+        return FieldValues(self, field_name, [record[field_name] for record in self.data])
 
     def __eq__(self, primary_key_selector: Any) -> Table:
         return self.__find_matches(primary_key_selector, "eq")

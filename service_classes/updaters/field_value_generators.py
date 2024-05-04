@@ -6,7 +6,6 @@ from pathlib import Path
 import re
 import time
 
-
 from service_classes.constants import PICTURE_EXTENSION_LIST
 from service_classes.paths import ProjectPaths
 from service_classes.table import DatabaseTable
@@ -32,12 +31,51 @@ class FieldGenerator:
         "posing for a picture",
         "posing forpicture",
         "posing for a photo",
+        "walking down",
+        "in front of",
+        "street photography",
+        "young woman",
         "with blonde hair",
         "the models",
+        "her hand",
+        "model poses",
+        "sotne wall",
+        "her hair",
+        "walk down",
+        "cell phone",
+        "two women are",
+        "two women",
+        "young man stands",
+        "fashion show",
+        "young man",
+        "checks her",
         "a woman",
         "dressed ",
         "style of",
         "photo of",
+        "talking",
+        "camera",
+        "costume",
+        "photograph",
+        "photoshopping",
+        "poses",
+        "stands",
+        "sitting",
+        "man is",
+        "walking",
+        "standing",
+        "holding",
+        "wearing",
+        "room",
+        "curb",
+        " man ",
+        "sits",
+        "model",
+        "wears",
+        "young",
+        "poses",
+        "portrait",
+        "hair",
     ]
     REPLACE_WITH_COMMAS = [
         " and ",
@@ -45,6 +83,9 @@ class FieldGenerator:
         " with ",
         " in the ",
         " in ",
+        " is ",
+        " on a ",
+        " on the ",
         " on ",
         " by ",
         " for ",
@@ -82,19 +123,18 @@ class FieldGenerator:
         self.max_resolution = max_resolution
         self.fake = Faker()
         self.gamification_fields = FieldGenerator.get_gamification_fields()
-        self.corpus = " ".join(self.gamification_fields["description_corpus"])
+        self.corpus = ", ".join(self.gamification_fields["description_corpus"]).replace(". ", ", ")
         self.text_model = markovify.Text(self.corpus)
 
         self.tag_caption_args = [
-            ("dressed in the style of ", 8, 16, 1.5, 1.2),
-            # ("the models are wearing ", 8, 16, 1.2, 1.3),
-            # ("photo of woman wearing clothes inspired by ", 8, 16, 1.1, 1.2),
+            ("the models are wearing ", 8, 16, 1.2, 1.3),
             ("photo clothes inspired by ", 8, 16, 1.1, 1.2),
-            # ("in the art style of ", 8, 16, 1.1, 1.2),
+            ("dressed in the style of ", 8, 16, 1.5, 1.2),
+            ("in the art style of ", 8, 16, 1.1, 1.2),
             ("colors and patterns of ", 8, 16, 1.1, 1.2),
-
-            # ("a fashion shoot for ", 8, 16, 0.9, 1.2),
+            ("photo of woman wearing clothes inspired by ", 8, 16, 1.1, 1.2),
             # ("fashion style reminscent of ", 8, 16, 1.1, 1.2),
+            # ("a fashion shoot for ", 8, 16, 0.9, 1.2),
             # ("photo of clothes that go great with ", 8, 16, 1.5, 1.2),
             # ("clothing and acessories in the style of ", 1, 3, 0.8, 1.5),
             # ("look your best wearing ", 40, 80, 0.5, 1.5),
@@ -115,7 +155,9 @@ class FieldGenerator:
         with open(json_path, "r") as f:
             return json.load(f)
 
-    def append_emojis_to_tags(self, tags: Set[str], max_emojis: int = 3, remove_duplicates: bool = True) -> Set[str]:
+    def append_emojis_to_tags(
+        self, tags: Set[str], max_emojis: int = 3, remove_duplicates: bool = True
+    ) -> Set[str]:
         new_tags = set()
         for tag in tags:
             generated_emojis = self.txt2emoji.translate(tag)
@@ -129,6 +171,35 @@ class FieldGenerator:
                 new_tags.add(tag)
 
         return new_tags
+
+    def __clean_tags(self, tags: Set[str]) -> Set[str]:
+        ret = tags.copy()
+        for replace_preps in FieldGenerator.REPLACE_WITH_COMMAS:
+            if replace_preps.strip() in tags:
+                ret.remove(replace_preps.strip())
+            tags = ret.copy()
+
+            lstripped = replace_preps.lstrip()
+            for tag in tags:
+                if tag.startswith(lstripped) and tag in ret:
+                    ret.add(tag[len(lstripped) :].strip())
+                    ret.remove(tag)
+            tags = ret.copy()
+
+            rstripped = replace_preps.rstrip()
+            for tag in tags:
+                if tag.endswith(rstripped) and tag in ret:
+                    ret.add(tag[: -len(rstripped)].strip())
+                    ret.remove(tag)
+
+            tags = ret.copy()
+
+        for replace_preps in FieldGenerator.REPLACE_WITH_COMMAS:
+            if replace_preps.strip() in tags and replace_preps.strip() in ret:
+                ret.remove(replace_preps.strip())
+            tags = ret.copy()
+
+        return ret
 
     def stylist_tags(self, stylist_dir: Path, max_pictures: int = 16):
         start_time = time.time()
@@ -144,12 +215,10 @@ class FieldGenerator:
                 break
             tags.update(self.picture_tags(img))
             count += 1
-
+        tags = self.__clean_tags(tags)
+        plog(f"\nTags cleaned and concatenated for photos in {stylist_dir.stem} {tags}")
         plog(
             f"Time taken to generate tags for photos in {stylist_dir.stem} {time.time() - start_time:.0f}"
-        )
-        plog(
-            f"Time remaining ~{(time.time() - start_time) * (max_pictures - count):.0f} seconds"
         )
         return tags
 
@@ -187,7 +256,7 @@ class FieldGenerator:
             # Process tags
             tags = self.__split_long_tags(tags)
             tags = [tag.strip().strip(",").strip() for tag in tags]
-            plog(f"Tags {tags}")
+            plog(f"Tags (pre-cleaned) {tags}")
             all_tags.update(tags)
 
         return self.__gen_tags(arg_list[1:], all_tags, img_path)

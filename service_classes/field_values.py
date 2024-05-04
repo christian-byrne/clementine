@@ -109,6 +109,9 @@ class FieldValues(ValueList):
         return FieldValues(
             self.table, self.field_name, self.get_values() + other.get_values()
         )
+    
+    def __str__(self) -> str:
+        return str(self.values)
 
     def __eq__(self, selector) -> ValueList:
         return self.__find_matches(selector, "eq")[0]
