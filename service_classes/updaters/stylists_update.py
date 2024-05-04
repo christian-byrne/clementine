@@ -130,21 +130,20 @@ def populate_empty_stylists_fields(
                 "views": random.randint(0, 100000),
                 "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
                 "communityUnlock": ran_generator.community_unlock(bool(bounty)),
+                "bounties": bounty,
+                "badges": list(badges),
             }
 
             stylist_overwrite_record = {
                 STYLISTS_DB_PK: stylist_dir.name,
-                "badges": list(badges),
                 "title": stylist_dir.name.replace("-", " ").title(),
                 "imageSrc": "/"
                 + str(Path.relative_to(grid_file, project_paths.get_public_path(""))),
-                "bounties": bounty,
                 "description": (
                     description
                     if description
                     else "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 ),
-                "requirements": requirements,
             }
             cur_record = stylists_table == stylist_dir.name
             if cur_record["creator"][0] not in ["Kate Mercer", "Lady Bird"]:
@@ -154,6 +153,7 @@ def populate_empty_stylists_fields(
                 STYLISTS_DB_PK: stylist_dir.name,
                 # "comments": ran_generator.random_comments(),
                 "tags": list(stylist_tags),
+                "requirements": requirements,
             }
 
             metadata, success, error = MetaData(stylist_dir)()

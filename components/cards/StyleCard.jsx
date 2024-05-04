@@ -73,13 +73,24 @@ function StyleCard({
 
   let categoriesData = sortCategories(data);
 
+  let mainImageIndex = 0;
+  for (let i = 0; i < data.images; i++) {
+    if (data.images[i].title === "main") {
+      mainImageIndex = i;
+      break;
+    }
+  }
+  const [curPhotoIndex, setCurPhotoIndex] = useState(mainImageIndex);
+
   return (
     data?.title && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
           <div style={{ position: "relative" }}>
             <MDBCardImage
-              src={pathFormat(`pictures/styles/${data.title}/1.png`)}
+              src={pathFormat(
+                data.images[curPhotoIndex].imageSrc
+              )}
               alt={data.title || placeholderImg.alt}
               title={data.title || placeholderImg.title}
               position="top"

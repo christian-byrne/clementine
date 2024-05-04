@@ -65,7 +65,12 @@ class DuckDuckGoImageScraper:
         image_results = self.search_images(search_phrase, max_images)
 
         for index, result in enumerate(image_results):
-            filename = f"{index}{Path(result['image']).suffix}"
+            increment = 1
+            filename = f"{index+increment}{Path(result['image']).suffix}"
+
+            while os.path.exists(self.dl_path / filename):
+                increment += 1
+                filename = f"{index+increment}{Path(result['image']).suffix}"
 
             photo_dl_path = self.dl_path / filename
 
@@ -87,6 +92,6 @@ class DuckDuckGoImageScraper:
                 photo_dl_path, self.project_paths.get_public_path("")
             )
 
-        plog(f"Images downloaded successfully to {photo_dl_path}")
+        plog(f"Images downloaded successfully to {self.dl_path}")
 
         return image_results

@@ -71,17 +71,17 @@ function PhotoCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {data.modelTitle && (
+              {data.stylistTitle && (
                 <a
-                  href={`/browse/photos/${data.imageFileName
+                  href={`/browse/stylists/${data.stylistTitleSystemName
                     .replace(".png", "")
                     .replace(".jpg", "")
                     .replace(".jpeg", "")}`}
                 >
-                  {data.modelTitle}
+                  {data.stylistTitle}
                 </a>
               )}
-              {data.modelTitle && data.creator ? (
+              {data.stylistTitle && data.creator ? (
                 <span className="text-muted">&nbsp;by&nbsp;</span>
               ) : (
                 ""
