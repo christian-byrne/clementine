@@ -21,8 +21,9 @@ def update_stylists_table(dry_run: bool =False):
     stylists_table = DatabaseTable(stylists_db_path, "titleSystemName")
 
     for stylist_dir in project_paths.get_public_path(STYLISTS_PUBLIC_DIR_NAME).iterdir():
-        if stylist_dir.is_dir():
+        if stylist_dir.is_dir() and any(stylist_dir.iterdir()):
             stylist_record = {
+                
                 "stylistPath": "/" / STYLISTS_PUBLIC_DIR_NAME / stylist_dir.name,
                 "stylistDirName": stylist_dir.name,
                 "stylistTitle": stylist_dir.name.replace("-", " ").title(),

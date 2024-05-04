@@ -1,5 +1,9 @@
 PROJECT_DIR_NAME = "wardrobe"
 BRAND_NAME = "La Vie en Bleu"
+# DB Primary Keys
+STYLISTS_DB_PK = "titleSystemName"
+STYLES_DB_PK = "title"
+USERS_DB_PK = "id"
 
 # DB Dir Names (relative to data)
 STYLISTS_DB_DIR_NAME = "stylists"
