@@ -14,7 +14,7 @@ from constants import (
 )
 
 
-def update_photos_table():
+def update_photos_table(dry_run: bool =False):
     """
     Update the photos table with the latest images.
     """
@@ -34,7 +34,6 @@ def update_photos_table():
             ]
             for image in images:
                 image_record = {
-
                     "imagePath": "/" / STYLISTS_PUBLIC_DIR_NAME / stylist.name / image.name,
                     "stylistPath": "/" / STYLISTS_PUBLIC_DIR_NAME / stylist.name,
                     "stylistTitle": stylist.name.replace("-", " ").title(),
