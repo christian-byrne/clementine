@@ -281,6 +281,7 @@ class DatabaseTable(Table):
                 return existing_primary_key > selector_primary_key
             elif operator == "ge":
                 return existing_primary_key >= selector_primary_key
+            return False
 
         new_data = [
             record

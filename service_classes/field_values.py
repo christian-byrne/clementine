@@ -1,6 +1,7 @@
+import random
+
 from typing import Any, Union, Iterable, Tuple
-from service_classes.interfaces.table_interface import Table
-from service_classes.interfaces.field_values_interface import ValueList
+from service_classes.interfaces.interface_types import ValueList, Table
 
 
 class FieldValues(ValueList):
@@ -8,6 +9,9 @@ class FieldValues(ValueList):
         self.table = table
         self.field_name = field_name
         self.values = values
+
+    def sample(self, k: int) -> ValueList:
+        return random.sample(self.get_values(), k)
 
     def get_values(self) -> list:
         return self.values

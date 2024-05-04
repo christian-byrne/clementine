@@ -26,4 +26,7 @@ class ProjectPaths:
         return self.project_root / "ai" / Path(sub_path)
 
     def get_db_handlers_path(self, sub_path: str) -> Path:
-        return self.project_root / "db-handlers" / Path(sub_path)
+        return self.project_root / "service_classes" / Path(sub_path)
+
+    def __call__(self):
+        return self
