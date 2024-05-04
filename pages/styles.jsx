@@ -25,7 +25,7 @@ function StylesPage() {
               sortType="desc"
               showFirstNCols={30}
               maxCols={100}
-              colContainerClass={"col-md-6 col-lg-4 col-xl-3 col-sm-12 mb-4"}
+              colContainerClass={"col-md-6 col-lg-4 col-xxl-3 col-sm-12 mb-4"}
               detailsStartExpanded={false}
             />
           </MDBContainer>

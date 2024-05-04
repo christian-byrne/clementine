@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  MDBContainer,
-  MDBCard,
-  MDBCardImage,
-  MDBCardBody,
-  MDBBtn,
-  MDBIcon,
-} from "mdb-react-ui-kit";
+import { MDBContainer, MDBCard, MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";
 import CardImageCarousel from "@/components/cards/CardImageCarousel";
-import placeholderImg from "@/data/placeholder-image.json";
-import pathFormat from "@/utils/pathFormat";
 import axios from "axios";
 
 function StylistCard({
   data,
   containerClass = "col-md-6 col-lg-4 col-sm-12 mb-4",
-  detailsStartExpanded = false
+  detailsStartExpanded = false,
 }) {
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
   const toggleText = () => setTextExpanded(!textExpanded);
@@ -40,14 +31,11 @@ function StylistCard({
       });
   }, [photosFolder]);
 
-
   return (
     data?.title && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
-          <CardImageCarousel
-            photos={photos}
-            />
+          <CardImageCarousel photos={photos} />
           <MDBCardBody>
             <StylistCardText
               stylistData={data}
