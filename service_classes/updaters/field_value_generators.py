@@ -64,11 +64,17 @@ class FieldGenerator:
         " like ",
         " from ",
         " as ",
+        " her ",
+        " his ",
+        " their ",
+        " its ",
+        " our ",
+        " my ",
     ]
 
     def __init__(self, max_resolution: int = 512) -> None:
         self.img2txt = AutoCaptioner(
-            5,
+            4,
             exclude_terms=FieldGenerator.IMG2TXT_EXCLUDE_TERMS,
             max_resolution=max_resolution,
         )
@@ -81,11 +87,15 @@ class FieldGenerator:
 
         self.tag_caption_args = [
             ("dressed in the style of ", 8, 16, 1.5, 1.2),
+            # ("the models are wearing ", 8, 16, 1.2, 1.3),
+            # ("photo of woman wearing clothes inspired by ", 8, 16, 1.1, 1.2),
+            ("photo clothes inspired by ", 8, 16, 1.1, 1.2),
+            # ("in the art style of ", 8, 16, 1.1, 1.2),
+            ("colors and patterns of ", 8, 16, 1.1, 1.2),
+
             # ("a fashion shoot for ", 8, 16, 0.9, 1.2),
-            ("the models are wearing ", 8, 16, 1, 1.2),
             # ("fashion style reminscent of ", 8, 16, 1.1, 1.2),
-            ("photo of woman wearing clothes inspired by ", 8, 16, 1.1, 1.2),
-            ("photo of clothes that go great with ", 8, 16, 1.5, 1.2),
+            # ("photo of clothes that go great with ", 8, 16, 1.5, 1.2),
             # ("clothing and acessories in the style of ", 1, 3, 0.8, 1.5),
             # ("look your best wearing ", 40, 80, 0.5, 1.5),
         ]
@@ -127,7 +137,6 @@ class FieldGenerator:
             for img in stylist_dir.iterdir()
             if img.is_file() and img.suffix in PICTURE_EXTENSION_LIST
         ]
-        plog(f"Images {images}")
         tags = set()
         count = 0
         for img in images:
@@ -137,7 +146,10 @@ class FieldGenerator:
             count += 1
 
         plog(
-            f"Time taken to generate tags for photos in {stylist_dir.stem} {time.time() - start_time}"
+            f"Time taken to generate tags for photos in {stylist_dir.stem} {time.time() - start_time:.0f}"
+        )
+        plog(
+            f"Time remaining ~{(time.time() - start_time) * (max_pictures - count):.0f} seconds"
         )
         return tags
 
@@ -253,6 +265,6 @@ class FieldGenerator:
         return bounty
 
     def random_tags(self):
-        num_badges = random.choices([0, 1, 2, 3, 4], weights=[8, 32, 27, 18, 15])[0]
+        num_badges = random.choices([0, 1, 2, 3, 4], weights=[37, 43, 10, 7, 3])[0]
         selected_badges = random.sample(self.gamification_fields["tags"], num_badges)
         return selected_badges

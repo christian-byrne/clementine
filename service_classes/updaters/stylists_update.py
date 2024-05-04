@@ -8,9 +8,7 @@ from service_classes.constants import (
     STYLISTS_PUBLIC_DIR_NAME,
     STYLISTS_DB_PK,
     ENV,
-    USERS_DB_PK
 )
-from service_classes.table import DatabaseTable
 from service_classes.metadata import MetaData
 from service_classes.enums.options import UpdateOption
 from service_classes.logging.log_ import plog, print_errors
@@ -72,11 +70,31 @@ def populate_empty_stylists_fields(dry_run: bool = False) -> None:
     append_records = []
     fill_empty_records = []
 
+    count = 0
     for stylist_dir in project_paths.get_public_path(
         STYLISTS_PUBLIC_DIR_NAME
     ).iterdir():
         if stylist_dir.is_dir():
             bounty = ran_generator.bounty(stylists_table)
+
+            # Tags generated from img2txt on the stylist's pictures
+            stylist_tags = ran_generator.stylist_tags(stylist_dir, max_pictures=1)
+            # First 6 tags can go to the requirements field
+            requirements = list(stylist_tags)[:6]
+            # Next 3 tags can go to the badges field
+            if len(stylist_tags) > 6:
+                badges = " ".join(list(stylist_tags)[6:9])
+            else:
+                badges = " ".join(list(stylist_tags))
+            badges = ran_generator.append_emojis_to_tags(set(badges))
+            badges.update(
+                ran_generator.random_tags()
+            )  # Pad with random tags from master list
+            # Remaining tags can go to the description field
+            if len(stylist_tags) > 9:
+                description = ", ".join(list(stylist_tags)[9:])
+            else:
+                description = ran_generator.description()
 
             # Fallback name
             grid_file = project_paths.get_public_path(
@@ -94,42 +112,51 @@ def populate_empty_stylists_fields(dry_run: bool = False) -> None:
                 "shared": random.randint(0, 1000),
                 "views": random.randint(0, 100000),
                 "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
+                "communityUnlock": ran_generator.community_unlock(bool(bounty)),
             }
 
             stylist_overwrite_record = {
                 STYLISTS_DB_PK: stylist_dir.name,
+                "badges": list(badges),
                 "title": stylist_dir.name.replace("-", " ").title(),
                 "imageSrc": "/"
                 + str(Path.relative_to(grid_file, project_paths.get_public_path(""))),
                 "bounties": bounty,
-                "description": ran_generator.description(),
+                "description": (
+                    description
+                    if description
+                    else "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                ),
+                "requirements": requirements,
             }
             cur_record = stylists_table == stylist_dir.name
             if cur_record["creator"][0] == "UNKNOWN":
                 stylist_overwrite_record["creator"] = user_name_vals.sample(1)[0]
-            
+
             stylist_append_record = {
                 STYLISTS_DB_PK: stylist_dir.name,
                 # "comments": ran_generator.random_comments(),
-                "requirements": "Lorem, ipsum dolor.",
-                "badges": ran_generator.random_tags(),
-                "communityUnlock": ran_generator.community_unlock(bool(bounty)),
+                "tags": list(stylist_tags),
             }
 
             metadata, success, error = MetaData(stylist_dir)()
             print_errors(error, stylist_dir.name)
 
             stylist_overwrite_record.update(metadata)
-            
+
             overwrite_records.append(stylist_overwrite_record)
             append_records.append(stylist_append_record)
             fill_empty_records.append(stylist_fill_empty_record)
+            
+            plog(f"\nUpdated {count}/{len(stylists_table)} Records\n\n")
+        count += 1
 
     stylists_table.update(UpdateOption.EMPTY_SUBFIELDS_ONLY, fill_empty_records)
     stylists_table.update(UpdateOption.SUBFIELD_OVERWRITE, overwrite_records)
     stylists_table.update(UpdateOption.SUBFIELD_APPEND_ONLY, append_records)
-    
+
     if dry_run and ENV == "DEV":
         stylists_table.print_changes()
     else:
         stylists_table.save()
+

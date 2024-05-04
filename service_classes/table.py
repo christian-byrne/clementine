@@ -20,8 +20,6 @@ class DatabaseTable(Table):
     def __init__(self, table_path: Path, primary_key: str):
         self.path = table_path
         self.primary_key = primary_key
-        plog(f"Loading Table: {table_path}")
-
         self.name = table_path.stem
         self.extension = table_path.suffix
         self.parent_dir = table_path.parent
