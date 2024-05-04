@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 import time
 from typing import List, Tuple, Dict
-from db_handlers.call_wrapper import CallAttempt
+from service_classes.errors.call_wrapper import CallAttempt
 
 
 class MetaData:

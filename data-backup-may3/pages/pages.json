@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Stylists",
+    "href": "/browse/stylists/0"
+  },
+  {
+    "title" : "Photos",
+    "href" : "/browse/photos/0"
+  },
+  {
+    "title" : "Featured",
+    "href" : "/featured"
+  },
+  {
+    "title" : "Leaderboards",
+    "href" : "/leaderboards"
+  },
+  {
+    "title" : "Blog",
+    "href" : "/blog"
+  },
+  {
+    "title" : "Styles",
+    "href" : "/styles"
+  },
+  {
+    "title" : "Dress",
+    "href" : "/dress"
+  },
+  {
+    "title" : "My Closet",
+    "href" : "/my-closet"
+  },
+  {
+    "title" : "Create",
+    "href" : "/create"
+  }
+]

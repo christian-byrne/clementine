@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from constants import PROJECT_DIR_NAME
+from service_classes.constants import PROJECT_DIR_NAME
 
 
 class ProjectPaths:

@@ -26,6 +26,3 @@ class CallAttempt:
             return self.result, self.success, self.error
         else:
             return fallback, self.success, self.error
-
-
-

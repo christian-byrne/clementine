@@ -1,7 +1,5 @@
-from pathlib import Path
 from typing import Any, Dict, List
-from db_handlers.enums.options import UpdateOption
-from db_handlers.table import Table, DatabaseTable
+from service_classes.interfaces.interface_types import Table
 
 class UpdateUtils:
     def __init__(self, table: Table, primary_key: str):
