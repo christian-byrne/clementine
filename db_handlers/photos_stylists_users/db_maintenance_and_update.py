@@ -5,49 +5,7 @@ import datetime
 import json
 
 
-def create_img_records(model_folder, source_dir, users_db):
-    """
-    Create image records for the given model folder and source directory.
 
-    Args:
-        model_folder (list): List of model names.
-        source_dir (str): Path to the source directory.
-
-    Returns:
-        list: List of image records.
-    """
-    pics_database = []
-    for model in model_folder:
-        model_path = os.path.join(source_dir, model)
-        images = [
-            f
-            for f in os.listdir(model_path)
-            if os.path.isfile(os.path.join(model_path, f)) and "grid" not in f
-        ]
-        print(f"Adding {len(images)} images for {model} to photos database.")
-        for image in images:
-            image_record = {
-                "imagePath": f"/pictures/models/{model}/{image}",
-                "modelPath": f"/pictures/models/{model}",
-                "modelTitle": model.replace("-", " ").title(),
-                "modelDirName": model,
-                "imageFileName": image,
-                "likes": random.randint(0, 1000),
-                "favorites": random.randint(0, 1000),
-                "downloads": random.randint(0, 1000),
-                "shared": random.randint(0, 1000),
-                "views": random.randint(0, 100000),
-                "dateCreated": fake.date_this_year().strftime("%B %d, %Y"),
-                "creator": "UNKNOWN",
-            }
-            photo_owner = find_photos_owner(model, users_db)
-            if photo_owner:
-                image_record["creator"] = photo_owner
-
-            pics_database.append(image_record)
-
-    print(f"\n\n\nAdded a total of {len(pics_database)} images to photos database.\n\n")
-    return pics_database
 
 
 def find_photos_owner(model, users_db):
