@@ -30,6 +30,8 @@ function DressPage() {
               badgeHref="/featured"
               tableRowComponent={StylistTableRow}
               tableData={allStylistsData}
+              horizontal={false}
+              multiSelect={false}
             />
             <hr className="my-4"/>
             <SelectionRow
@@ -39,6 +41,8 @@ function DressPage() {
               badgeHref="/featured"
               tableRowComponent={ItemTableRow}
               tableData={allItemsData}
+              horizontal={false}
+              multiSelect={true}
             />
             <MDBTypography tag="h1" className="my-4">
               Featured Photos

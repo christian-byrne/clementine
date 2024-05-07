@@ -4,8 +4,6 @@ function TagBadges({ badgesData, windowWidth, breakpoints, badgeClass = "badge-s
 
   const getBadgeCount = (width) => {
     for (let key in breakpoints) {
-        console.log("key: ", key);
-        console.log("breakpoints[key]: ", breakpoints[key]);
       if (width < key) {
         return breakpoints[key];
       }

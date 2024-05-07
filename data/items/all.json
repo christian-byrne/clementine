@@ -4,41 +4,53 @@
     "imageSrc": "pictures/items/retro-blouse.png",
     "name": "Retro blouse",
     "systemName": "retro-blouse",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "March 24, 2024",
+    "dateLastUsed" : "March 24, 2024"
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/metallic-blouse.png",
     "imageSrc": "pictures/items/metallic-blouse.png",
     "name": "Metallic blouse",
     "systemName": "metallic-blouse",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "March 8, 2024",
+    "dateLastUsed" : "March 12, 2024"
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-hoodie.png",
     "imageSrc": "pictures/items/oversized-hoodie.png",
     "name": "Oversized hoodie",
     "systemName": "oversized-hoodie",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "February 1, 2024",
+    "dateLastUsed" : "February 27, 2024"
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-jersey.png",
     "imageSrc": "pictures/items/oversized-jersey.png",
     "name": "Oversized jersey",
     "systemName": "oversized-jersey",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "February 7, 2024",
+    "dateLastUsed" : "February 27, 2024"
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/polo-shirt.png",
     "imageSrc": "pictures/items/polo-shirt.png",
     "name": "Polo shirt",
     "systemName": "polo-shirt",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "February 14, 2024",
+    "dateLastUsed" : "February 27, 2024"
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/linen-buttun-up-shirt.png",
     "imageSrc": "pictures/items/linen-buttun-up-shirt.png",
     "name": "Linen buttun up shirt",
     "systemName": "linen-buttun-up-shirt",
-    "extension": ".png"
+    "extension": ".png",
+    "dateCreated": "October 21, 2023",
+    "dateLastUsed" : "February 27, 2024"
   }
 ]

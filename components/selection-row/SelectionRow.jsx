@@ -16,13 +16,27 @@ function SelectionRow({
   tableRowComponent: TableRowComponent,
   tableData,
   maxHeight = "20vh",
+  horizontal = false,
+  multiSelect = false,
 }) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedRowIndices, setSelectedRowIndices] = useState([0]);
 
-  // Table rows are rendered in reverse order, so set default as last row when tableData is loaded
-  useEffect(() => {
-    setSelectedIndex(tableData.length > 0 ? 0 : null);
-  }, [tableData]);
+  const toggleRowSelected = (rowIndex) => {
+    if (!multiSelect) {
+      setSelectedRowIndices([rowIndex]);
+    }
+    else {
+      let temp = [...selectedRowIndices]
+      if (temp.includes(rowIndex)) {
+        temp = temp.filter((i) => i != rowIndex);
+      }
+      else {
+        temp.push(rowIndex);
+      }
+      console.log("Selected Index: ", temp);
+      setSelectedRowIndices(temp);
+    }
+  };
 
   return (
     <MDBContainer
@@ -56,7 +70,7 @@ function SelectionRow({
                 >
                   {tableData?.length}
                   <span className="visually-hidden">
-                    number of stylists available to you
+                    {badgeText}: number available to you
                   </span>
                 </MDBBadge>
               </a>
@@ -80,8 +94,9 @@ function SelectionRow({
           <SelectionTable
             rowComponent={TableRowComponent}
             data={tableData}
-            selectedIndex={selectedIndex}
-            selectedUpdater={setSelectedIndex}
+            selectedIndex={selectedRowIndices}
+            selectedUpdater={toggleRowSelected}
+            horizontal={horizontal}
           />
         )}
       </MDBContainer>

@@ -1,15 +1,20 @@
 import React from "react";
 import { MDBListGroup } from "mdb-react-ui-kit";
 
-function StylistTable({
+function SelectionTable({
   data,
   selectedIndex,
   selectedUpdater,
   rowComponent: RowComponent,
   minWidth = "22rem",
+  horizontal = false,
 }) {
   return (
-    <MDBListGroup style={{ minWidth: minWidth }} light>
+    <MDBListGroup style={{ minWidth: minWidth }} light
+      className={
+        horizontal ? "list-group-horizontal" : ""
+      }
+    >
       {data.map((record, index) => (
         <RowComponent
           key={index}
@@ -23,4 +28,4 @@ function StylistTable({
   );
 }
 
-export default StylistTable;
+export default SelectionTable;
