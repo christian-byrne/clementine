@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   MDBContainer,
+  MDBRow,
+  MDBBtn,
   MDBTypography,
   MDBBadge,
   MDBIcon,
@@ -9,6 +11,7 @@ import {
 function SelectionRow({
   title,
   badgeText,
+  iconClass,
   badgeHref,
   tableComponent: TableComponent,
   tableData,
@@ -22,28 +25,51 @@ function SelectionRow({
   }, [tableData]);
 
   return (
-    <MDBContainer fluid className="d-flex flow-row">
-      <MDBTypography tag="h1" className="my-4">
-        <MDBIcon
-          fas
-          icon="1"
-          size="1x"
-          className="m-3 text-center pt-2 text-primary"
-        />
-        {title}
-      </MDBTypography>
-      <MDBTypography className="mt-5">
-        <a href={badgeHref}>
-          <MDBBadge className="ms-3">{badgeText}</MDBBadge>
-        </a>
-      </MDBTypography>
-      <MDBContainer className="overflow-auto" style={{ maxHeight: maxHeight }}>
+    <MDBContainer fluid className="d-flex flow-row justify-content-between flex-wrap">
+      <MDBContainer className="d-flex justify-content-start flex-fill col-xl-5 col-lg-4 col-md-12">
+        {title && (
+          <MDBTypography tag="h1">
+            {iconClass && (
+              <MDBIcon
+                fas
+                icon={iconClass || "user"}
+                size="1x"
+                className="m-3 text-center pt-2 text-primary"
+              />
+            )}
+            {title}
+          </MDBTypography>
+        )}
+        {badgeText && (
+          <a href={badgeHref} className="h5 pt-2">
+            <MDBBadge className="ms-2">{badgeText}</MDBBadge>
+            <MDBBadge
+              color="success"
+              light
+              pill
+              className="position-absolute translate-middle"
+            >
+              {tableData?.length}
+              <span className="visually-hidden">
+                number of stylists available to you
+              </span>
+            </MDBBadge>
+          </a>
+        )}
+      </MDBContainer>
+      <MDBContainer
+        fluid
+        className="overflow-auto flex-fill col-xl-7 col-lg-8 col-md-12"
+        style={{ maxHeight: maxHeight }}
+      >
         {tableData?.length > 0 && (
-          <TableComponent
-            data={tableData}
-            selectedIndex={selectedIndex}
-            selectedUpdater={setSelectedIndex}
-          />
+          <>
+            <TableComponent
+              data={tableData}
+              selectedIndex={selectedIndex}
+              selectedUpdater={setSelectedIndex}
+            />
+          </>
         )}
       </MDBContainer>
     </MDBContainer>

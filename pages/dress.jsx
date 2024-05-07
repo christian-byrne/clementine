@@ -31,11 +31,14 @@ function DressPage() {
               tableComponent={StylistTable}
               tableData={allStylistsData}
             />
-            
-
-            
-            
-            {/* Featured Photos Row */}
+            <hr className="my-4"/>
+            <SelectionRow
+              title="Choose your Starting Items"
+              badgeText=""
+              badgeHref="/featured"
+              tableComponent={StylistTable}
+              tableData={allStylistsData}
+            />
             <MDBTypography tag="h1" className="my-4">
               Featured Photos
             </MDBTypography>
