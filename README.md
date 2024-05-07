@@ -49,6 +49,16 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 
 ### TODO
 
+
+- [ ] small image/svg/icon property for items/stylists/etc.
+  - [ ] use in tables
+  - [ ] use in .... 
+- [ ] Create model page
+  - [ ] merge n existing styles indicating n weight for each
+  - [ ] merge existing style with new photos drag and drop
+- [ ] Dress page
+  - [ ] choose from stylist list (table mapping user pkeys to saved or accessible Stylist pkeys)
+  - [ ] choose input items from closet (table which includes Item records)
 - [ ] StyleCard xOverflow on small width screens
 - [ ] X-axis units on currency graph
 - [ ] Individual Badges Page
