@@ -1,25 +1,25 @@
 import React from "react";
 
-function TagBadges({ badgesData, windowWidth }) {
+function TagBadges({ badgesData, windowWidth, breakpoints }) {
+
+  const getBadgeCount = (width) => {
+    for (let key in breakpoints) {
+        console.log("key: ", key);
+        console.log("breakpoints[key]: ", breakpoints[key]);
+      if (width < key) {
+        return breakpoints[key];
+      }
+    }
+    return Infinity;
+  }
+
   return (
     <>
       {badgesData?.length > 0 &&
         badgesData
           .slice(
             0,
-            windowWidth < 576
-              ? 3
-              : windowWidth < 768
-              ? 2
-              : windowWidth < 1600
-              ? 4
-              : windowWidth < 1800
-              ? 1
-              : windowWidth < 3200
-              ? 2
-              : windowWidth < 3920
-              ? 3
-              : Infinity
+            getBadgeCount(windowWidth)
           )
           .map((badge, index) => (
             <span key={index} className="badge badge-secondary me-2 mb-2">

@@ -37,7 +37,14 @@ function StylistCardText({ stylistData, textExpandedState = false }) {
           <MDBCardTitle>{stylistData.title}</MDBCardTitle>
         </a>
         <div className="mb-3">
-          <TagBadges badgesData={stylistData.badges} windowWidth={windowWidth} />
+          <TagBadges badgesData={stylistData.badges} windowWidth={windowWidth} breakpoints={{
+            576: 3,
+            768: 2,
+            1600: 4,
+            1800: 1,
+            3200: 2,
+            3920: 3
+          }} />
         </div>
         {/* Community Unlock */}
         {stylistData.communityUnlock &&

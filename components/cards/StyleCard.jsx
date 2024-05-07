@@ -185,7 +185,6 @@ function StyleCard({
               </MDBTypography>
             </a>
             {categoriesData.slice(0, categoriesExpanded).map((key, index) => {
-              console.log(data[key])
               return (
                 <StyleCardCategoryTable
                   key={index}
