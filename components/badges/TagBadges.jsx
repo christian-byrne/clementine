@@ -1,6 +1,6 @@
 import React from "react";
 
-function TagBadges({ badgesData, windowWidth, breakpoints }) {
+function TagBadges({ badgesData, windowWidth, breakpoints, badgeClass = "badge-secondary" }) {
 
   const getBadgeCount = (width) => {
     for (let key in breakpoints) {
@@ -22,7 +22,7 @@ function TagBadges({ badgesData, windowWidth, breakpoints }) {
             getBadgeCount(windowWidth)
           )
           .map((badge, index) => (
-            <span key={index} className="badge badge-secondary me-2 mb-2">
+            <span key={index} className={`badge ${badgeClass} me-2 mb-2`}>
               {badge.charAt(0).toUpperCase() + badge.slice(1)}
             </span>
           ))}

@@ -8,15 +8,18 @@ import {
 } from "mdb-react-ui-kit";
 import StylistTableRow from "@/components/tables/StylistTableRow";
 
-function StylistTable({ data, title }) {
+function StylistTable({ data, selectedIndex, selectedUpdater }) {
   return (
     <>
-      <MDBTypography tag="h5" className={"my-2 "}>
-        {title}
-      </MDBTypography>
       <MDBListGroup style={{ minWidth: "22rem" }} light>
         {data.map((stylist, index) => (
-          <StylistTableRow key={index} stylistData={stylist} />
+          <StylistTableRow
+            key={index}
+            index={index}
+            stylistData={stylist}
+            selected={selectedIndex}
+            selectedUpdater={selectedUpdater}
+          />
         ))}
       </MDBListGroup>
       {/* <MDBContainer className="d-flex justify-content-center mb-3 mt-md-3 mt-lg-0">

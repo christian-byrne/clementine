@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBContainer,
   MDBTypography,
@@ -12,7 +12,15 @@ function SelectionRow({
   badgeHref,
   tableComponent: TableComponent,
   tableData,
+  maxHeight = "20vh",
 }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Table rows are rendered in reverse order, so set default as last row when tableData is loaded
+  useEffect(() => {
+    setSelectedIndex(tableData.length > 0 ? 0 : null);
+  }, [tableData]);
+
   return (
     <MDBContainer fluid className="d-flex flow-row">
       <MDBTypography tag="h1" className="my-4">
@@ -29,9 +37,14 @@ function SelectionRow({
           <MDBBadge className="ms-3">{badgeText}</MDBBadge>
         </a>
       </MDBTypography>
-
-      <MDBContainer className="overflow-auto" style={{ maxHeight: "20vh" }}>
-        {tableData?.length > 0 && <TableComponent data={tableData} />}
+      <MDBContainer className="overflow-auto" style={{ maxHeight: maxHeight }}>
+        {tableData?.length > 0 && (
+          <TableComponent
+            data={tableData}
+            selectedIndex={selectedIndex}
+            selectedUpdater={setSelectedIndex}
+          />
+        )}
       </MDBContainer>
     </MDBContainer>
   );

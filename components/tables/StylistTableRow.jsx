@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MDBListGroupItem, MDBBadge, MDBBtn } from "mdb-react-ui-kit";
 import TagBadges from "@/components/badges/TagBadges";
 
-function StylistTableRow({ stylistData }) {
+function StylistTableRow({ index, stylistData, selected, selectedUpdater }) {
   const imgSize = 65;
   const [windowWidth, setWindowWidth] = useState(1200);
 
@@ -15,32 +15,48 @@ function StylistTableRow({ stylistData }) {
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }
-  , [windowWidth]);
+  }, [windowWidth]);
 
-  
+
+  const setAsSelected = () => {
+    console.log("Selected Index: ", index);
+    selectedUpdater(index);
+  }
 
   return (
     stylistData && (
-    <MDBListGroupItem className="d-flex justify-content-between align-items-center">
-      <div className="d-flex align-items-center">
-        <img
-          src={stylistData.imageSrc || `https://via.placeholder.com/${imgSize}`}
-          alt=""
-          style={{ width: `${imgSize}px`, height: `${imgSize}px` }}
-          className="rounded-circle"
-        />
-        <div className="ms-3">
-          <p className="fw-bold mb-1">{stylistData.title}</p>
-          <p className="text-muted mb-0">
-            <TagBadges badgesData={stylistData.badges} />
+      <MDBListGroupItem
+        className={
+          "d-flex justify-content-between align-items-center px-3" +
+          (selected == index ? " bg-secondary bg-gradient bg-opacity-25 shadow-4 rounded-3" : "")
+        }
+      >
+        <div className="d-flex align-items-center">
+          <img
+            src={
+              stylistData.imageSrc || `https://via.placeholder.com/${imgSize}`
+            }
+            alt=""
+            style={{ width: `${imgSize}px`, height: `${imgSize}px` }}
+            className="rounded-circle"
+          />
+          <div className="ms-3">
+            <p className="fw-bold mb-1">{stylistData.title}</p>
+            <p className="text-muted mb-0">
+              <TagBadges badgesData={stylistData.badges} 
+              badgeClass={
+                selected == index ? "badge-light" : "badge-secondary"
+              }
+              />
             </p>
+          </div>
         </div>
-      </div>
-      <MDBBtn color="primary" size="sm">
-        Select
-      </MDBBtn>
-    </MDBListGroupItem>
+        <MDBBtn color="primary" size="sm"
+        onClick={setAsSelected}
+        >
+          Select
+        </MDBBtn>
+      </MDBListGroupItem>
     )
   );
 }
