@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { MDBListGroupItem, MDBBadge, MDBBtn } from "mdb-react-ui-kit";
+import { MDBListGroupItem, MDBBtn } from "mdb-react-ui-kit";
 import TagBadges from "@/components/badges/TagBadges";
 
-function StylistTableRow({ index, stylistData, selected, selectedUpdater }) {
+function StylistTableRow({ index, data, selected, selectedUpdater }) {
   const imgSize = 65;
   const [windowWidth, setWindowWidth] = useState(1200);
 
@@ -23,7 +23,7 @@ function StylistTableRow({ index, stylistData, selected, selectedUpdater }) {
   };
 
   return (
-    stylistData && (
+    data && (
       <MDBListGroupItem
         className={
           "d-flex justify-content-between align-items-center px-3" +
@@ -35,17 +35,17 @@ function StylistTableRow({ index, stylistData, selected, selectedUpdater }) {
         <div className="d-flex align-items-center">
           <img
             src={
-              stylistData?.imageSrc || `https://via.placeholder.com/${imgSize}`
+              data?.imageSrc || `https://via.placeholder.com/${imgSize}`
             }
             alt=""
             style={{ width: `${imgSize}px`, height: `${imgSize}px` }}
             className="rounded-circle"
           />
           <div className="ms-3">
-            <p className="fw-bold mb-1">{stylistData.title}</p>
+            <p className="fw-bold mb-1">{data.title}</p>
             <p className="text-muted mb-0">
               <TagBadges
-                badgesData={stylistData.badges}
+                badgesData={data.badges}
                 badgeClass={
                   selected == index ? "badge-light" : "badge-secondary"
                 }

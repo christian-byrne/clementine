@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import {
   MDBContainer,
   MDBTypography,
-  MDBIcon,
-  MDBBadge,
 } from "mdb-react-ui-kit";
 import ContentRow from "@/components/content-row/ContentRow";
 import PhotoCard from "@/components/cards/PhotoCard";
@@ -11,8 +9,10 @@ import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import formatDocTitle from "@/utils/formatDocTitle";
 import SelectionRow from "@/components/selection-row/SelectionRow";
-import StylistTable from "@/components/tables/StylistTable";
+import ItemTableRow from "@/components/tables/item/ItemTableRow";
+import StylistTableRow from "@/components/tables/stylist/StylistTableRow";
 // TODO: replace with data stylists unlocked/saved/accessible/etc mapped to user pkey in relational db
+import allItemsData from "@/data/items/all.json";
 
 function DressPage() {
   useEffect(() => {
@@ -28,7 +28,7 @@ function DressPage() {
               title="Choose a Stylist"
               badgeText="View All Stylists"
               badgeHref="/featured"
-              tableComponent={StylistTable}
+              tableRowComponent={StylistTableRow}
               tableData={allStylistsData}
             />
             <hr className="my-4"/>
@@ -37,8 +37,8 @@ function DressPage() {
               subtext="Select items from your closet as a starting point. The stylist will complete the look."
               badgeText=""
               badgeHref="/featured"
-              tableComponent={StylistTable}
-              tableData={allStylistsData}
+              tableRowComponent={ItemTableRow}
+              tableData={allItemsData}
             />
             <MDBTypography tag="h1" className="my-4">
               Featured Photos

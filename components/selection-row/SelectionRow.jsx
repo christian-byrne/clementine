@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   MDBContainer,
-  MDBRow,
-  MDBBtn,
   MDBTypography,
   MDBBadge,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import SelectionTable from "@/components/tables/SelectionTable";
 
 function SelectionRow({
   title,
@@ -14,7 +13,7 @@ function SelectionRow({
   badgeText,
   iconClass,
   badgeHref,
-  tableComponent: TableComponent,
+  tableRowComponent: TableRowComponent,
   tableData,
   maxHeight = "20vh",
 }) {
@@ -78,13 +77,12 @@ function SelectionRow({
         style={{ maxHeight: maxHeight }}
       >
         {tableData?.length > 0 && (
-          <>
-            <TableComponent
-              data={tableData}
-              selectedIndex={selectedIndex}
-              selectedUpdater={setSelectedIndex}
-            />
-          </>
+          <SelectionTable
+            rowComponent={TableRowComponent}
+            data={tableData}
+            selectedIndex={selectedIndex}
+            selectedUpdater={setSelectedIndex}
+          />
         )}
       </MDBContainer>
     </MDBContainer>
