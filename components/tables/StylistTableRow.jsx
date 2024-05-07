@@ -35,7 +35,7 @@ function StylistTableRow({ index, stylistData, selected, selectedUpdater }) {
         <div className="d-flex align-items-center">
           <img
             src={
-              stylistData.imageSrc || `https://via.placeholder.com/${imgSize}`
+              stylistData?.imageSrc || `https://via.placeholder.com/${imgSize}`
             }
             alt=""
             style={{ width: `${imgSize}px`, height: `${imgSize}px` }}

@@ -33,7 +33,8 @@ function DressPage() {
             />
             <hr className="my-4"/>
             <SelectionRow
-              title="Choose your Starting Items"
+              title="Choose your Items"
+              subtext="Select items from your closet as a starting point. The stylist will complete the look."
               badgeText=""
               badgeHref="/featured"
               tableComponent={StylistTable}
