@@ -10,7 +10,8 @@ import PhotoCard from "@/components/cards/PhotoCard";
 import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import formatDocTitle from "@/utils/formatDocTitle";
-import StylistTableScrollable from "@/components/tables/StylistTableScrollable";
+import SelectionRow from "@/components/selection-row/SelectionRow";
+import StylistTable from "@/components/tables/StylistTable";
 // TODO: replace with data stylists unlocked/saved/accessible/etc mapped to user pkey in relational db
 
 function DressPage() {
@@ -23,29 +24,15 @@ function DressPage() {
       <div className="row mt-3">
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-4">
-            {/* Featured Models Row */}
-            <MDBContainer className="d-flex flow-row">
-              <MDBTypography tag="h1" className="my-4">
-                <MDBIcon
-                  fas
-                  icon="1"
-                  size="1x"
-                  className="m-3 text-center pt-2 text-primary"
-                />
-                Choose Stylist
-              </MDBTypography>
-              <MDBTypography className="mt-5">
-                <a href="/featured">
-                <MDBBadge className="ms-2">Browse Stylists</MDBBadge>
-                </a>
-              </MDBTypography>
+            <SelectionRow
+              title="Choose a Stylist"
+              badgeText="View All Stylists"
+              badgeHref="/featured"
+              tableComponent={StylistTable}
+              tableData={allStylistsData}
+            />
+            
 
-            {allStylistsData?.length > 0 && (
-              <StylistTableScrollable stylistData={allStylistsData} />
-            )}
-
-
-            </MDBContainer>
             
             
             {/* Featured Photos Row */}
