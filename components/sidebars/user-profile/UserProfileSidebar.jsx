@@ -11,6 +11,7 @@ import {
 } from "mdb-react-ui-kit";
 import SocialStatsBadges from "../../badges/SocialStatsBadges";
 import pathFormat from "@/utils/pathFormat";
+import { camelCaseToTitle } from "@/utils/camelCaseToTitle";
 
 function createLeaderboardRanks(ranks) {
   let ret = [];
@@ -87,13 +88,11 @@ function UserProfileSidebar({ userData }) {
 
         {/* Profile Picture */}
         <img
-          src={
-            pathFormat(
+          src={pathFormat(
             "/pictures/pfps/" +
-            userData["name"].replaceAll(" ", "-").toLowerCase() +
-            "-3.png"
-            )
-          }
+              userData["name"].replaceAll(" ", "-").toLowerCase() +
+              "-3.png"
+          )}
           alt="User Avatar"
           className="img-fluid rounded-circle mb-3"
         />
@@ -171,81 +170,88 @@ function UserProfileSidebar({ userData }) {
         <SocialStatsBadges {...userData} />
 
         {/* Hot Take Section */}
-        <MDBContainer className="my-3">
-          <h5>Hottest Fashion Take 🌟</h5>
-          {/* TODO: Add a user-generated hot take */}
-          {/* For Wednesday: */}
-          {/* <p>Fashion fades, but darkness is forever</p> */}
-          {/* For Adele: */}
-          <p>"Dress like you're already famous."</p>
-        </MDBContainer>
-
-        {/* Divider */}
-        <hr className="my-3" />
+        {userData.bio && (
+          <MDBContainer className="my-3">
+            <h5>Bio 🌟</h5>
+            {Object.keys(userData.bio).map((keyName, index) => (
+              <p key={index}>
+                <span className="text-muted small">
+                  {camelCaseToTitle(keyName)}
+                </span>
+                &nbsp;&nbsp;
+                {userData.bio[keyName]}
+              </p>
+            ))}
+          </MDBContainer>
+        )}
 
         {/* Badges Section */}
         {userData["badges"] && (
-          <MDBContainer className="my-2">
-            <h5 className="mt-3 mb-3">Badges</h5>
-            {/* <!-- Badges Row 1: S-Tier --> */}
-            <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-              {userData["badges"]["tier1"]?.map((badge, index) => (
-                <div className="me-3 mb-3 w-25" key={index}>
-                  <img
-                    src={pathFormat(badge.src)}
-                    alt={badge.alt}
-                    className="img-fluid rounded-circle"
-                    title={badge.title}
-                  />
-                </div>
-              ))}
+          <>
+            {/* Divider */}
+            <hr className="my-3" />
+            <MDBContainer className="my-2">
+              <h5 className="mt-3 mb-3">Badges</h5>
+              {/* <!-- Badges Row 1: S-Tier --> */}
+              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                {userData["badges"]["tier1"]?.map((badge, index) => (
+                  <div className="me-3 mb-3 w-25" key={index}>
+                    <img
+                      src={pathFormat(badge.src)}
+                      alt={badge.alt}
+                      className="img-fluid rounded-circle"
+                      title={badge.title}
+                    />
+                  </div>
+                ))}
+              </MDBContainer>
+              {/* <!-- Badges Row 2: A-Tier --> */}
+              {userData["badges"]?.["tier2"] && (
+                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                  {userData["badges"]["tier2"].map((badge, index) => (
+                    <div className="me-3 mb-3 w-25" key={index}>
+                      <img
+                        src={pathFormat(badge.src)}
+                        alt={badge.alt}
+                        className="img-fluid rounded-circle"
+                        title={badge.title}
+                      />
+                    </div>
+                  ))}
+                </MDBContainer>
+              )}
+              {/* <!-- Badges Row 3: B-Tier --> */}
+              {userData["badges"]?.["tier3"] && (
+                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                  {userData["badges"]["tier3"].map((badge, index) => (
+                    <div className="me-3 mb-3 w-25" key={index}>
+                      <img
+                        src={pathFormat(badge.src)}
+                        alt={badge.alt}
+                        className="img-fluid rounded-circle"
+                        title={badge.title}
+                      />
+                    </div>
+                  ))}
+                </MDBContainer>
+              )}
+              {/* <!-- Badges Row 4: C-Tier --> */}
+              {userData["badges"]?.["tier4"] && (
+                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                  {userData["badges"]["tier4"].map((badge, index) => (
+                    <div className="me-3 mb-3 w-25" key={index}>
+                      <img
+                        src={pathFormat(badge.src)}
+                        alt={badge.alt}
+                        className="img-fluid rounded-circle"
+                        title={badge.title}
+                      />
+                    </div>
+                  ))}
+                </MDBContainer>
+              )}
             </MDBContainer>
-            {/* <!-- Badges Row 2: A-Tier --> */}
-            {userData["badges"]?.["tier2"] && (
-              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                {userData["badges"]["tier2"].map((badge, index) => (
-                  <div className="me-3 mb-3 w-25" key={index}>
-                    <img
-                      src={pathFormat(badge.src)}
-                      alt={badge.alt}
-                      className="img-fluid rounded-circle"
-                      title={badge.title}
-                    />
-                  </div>
-                ))}
-              </MDBContainer>
-            )}
-            {/* <!-- Badges Row 3: B-Tier --> */}
-            {userData["badges"]?.["tier3"] && (
-              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                {userData["badges"]["tier3"].map((badge, index) => (
-                  <div className="me-3 mb-3 w-25" key={index}>
-                    <img
-                      src={pathFormat(badge.src)}
-                      alt={badge.alt}
-                      className="img-fluid rounded-circle"
-                      title={badge.title}
-                    />
-                  </div>
-                ))}
-              </MDBContainer>
-            )}
-            {/* <!-- Badges Row 4: C-Tier --> */}
-            {userData["badges"]?.["tier4"] && (
-              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                {userData["badges"]["tier4"].map((badge, index) => (
-                  <div className="me-3 mb-3 w-25" key={index}>
-                    <img
-                      src={pathFormat(badge.src)}
-                      alt={badge.alt}
-                      className="img-fluid rounded-circle"
-                      title={badge.title}
-                    />
-                  </div>
-                ))}
-              </MDBContainer>
-            )}
-          </MDBContainer>
+          </>
         )}
 
         {/* Achievements Section */}
@@ -264,11 +270,10 @@ function UserProfileSidebar({ userData }) {
                 </div>
               ))}
             </MDBContainer>
+            {/* Divider */}
+            <hr className="my-3" />
           </>
         )}
-
-        {/* Divider */}
-        <hr className="my-3" />
 
         {/* Favorites Section */}
         <h5 className="mt-3 mb-3">Favorites</h5>

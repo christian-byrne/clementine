@@ -99,6 +99,11 @@
     "location": "Tucson, AZ",
     "modelCount": 36,
     "name": "Kate Mercer",
+        "bio": {
+      "hottestFashionTake": "Form over function",
+      "favoriteBrand": "Patagonia",
+      "favoriteColor": "Olive Green"
+    },
     "nameSystem": "kate-mercer",
     "ownModels": ["y2k-maximalism"],
     "phone": "555-555-5555",
@@ -261,6 +266,11 @@
       "metamorphosis-(ballerina-x-grunge)",
       "ballerina-disco"
     ],
+    "bio": {
+      "hottestFashionTake": "Dress like you're already famous.",
+      "favoriteBrand": "Gucci",
+      "favoriteColor": "Gold"
+    },
     "phone": "555-555-5555",
     "ranks": [
       "#1 Creator in Wellington \ud83c\uddf3\ud83c\uddff",
@@ -288,50 +298,50 @@
     "username": "astarisborn",
     "views": 99991842,
     "statuses": [
-{
-"date": "Dec 2022",
-"text": "Confidence is my favorite accessory."
-},
-{
-"date": "Nov 2023",
-"text": "Fashion is an expression of my inner song."
-},
-{
-"date": "Dec 2023",
-"text": "Who needs diamonds when you've got sequins?"
-},
-{
-"date": "Oct 2024",
-"text": "Fashion is my therapy, and my wardrobe is my canvas."
-},
-{
-"date": "Jul 2024",
-"text": "Red lipstick and high heels: my armor for any occasion."
-},
-{
-"date": "May 2024",
-"text": "Dressing up isn't just about clothes; it's about feeling empowered."
-},
-{
-"date": "Mar 2024",
-"text": "When in doubt, add a touch of vintage charm."
-},
-{
-"date": "Jan 2024",
-"text": "There's nothing like the perfect little black dress to boost your confidence."
-},
-{
-"date": "Sep 2023",
-"text": "In a world full of trends, I'll always choose timeless elegance."
-},
-{
-"date": "Jul 2023",
-"text": "True style is about embracing your curves and celebrating your uniqueness."
-},
-{
-"date": "Apr 2023",
-"text": "Every outfit tells a story; what's yours saying today?"
-}
+      {
+        "date": "Dec 2022",
+        "text": "Confidence is my favorite accessory."
+      },
+      {
+        "date": "Nov 2023",
+        "text": "Fashion is an expression of my inner song."
+      },
+      {
+        "date": "Dec 2023",
+        "text": "Who needs diamonds when you've got sequins?"
+      },
+      {
+        "date": "Oct 2024",
+        "text": "Fashion is my therapy, and my wardrobe is my canvas."
+      },
+      {
+        "date": "Jul 2024",
+        "text": "Red lipstick and high heels: my armor for any occasion."
+      },
+      {
+        "date": "May 2024",
+        "text": "Dressing up isn't just about clothes; it's about feeling empowered."
+      },
+      {
+        "date": "Mar 2024",
+        "text": "When in doubt, add a touch of vintage charm."
+      },
+      {
+        "date": "Jan 2024",
+        "text": "There's nothing like the perfect little black dress to boost your confidence."
+      },
+      {
+        "date": "Sep 2023",
+        "text": "In a world full of trends, I'll always choose timeless elegance."
+      },
+      {
+        "date": "Jul 2023",
+        "text": "True style is about embracing your curves and celebrating your uniqueness."
+      },
+      {
+        "date": "Apr 2023",
+        "text": "Every outfit tells a story; what's yours saying today?"
+      }
     ]
   },
   {
@@ -460,6 +470,11 @@
     "modelCount": 36,
     "name": "Wednesday Addams",
     "nameSystem": "wednesday-addams",
+    "bio": {
+      "hottestFashionTake": "Fashion fades, but darkness is forever",
+      "favoriteBrand": "Balenciaga",
+      "favoriteColor": "Black"
+    },
     "ownModels": [
       "balenciaga-but-it's-emo",
       "goth-x-byzantine",
@@ -2936,6 +2951,11 @@
     "location": "South Robert, OR",
     "modelCount": 6,
     "name": "Josie Radek",
+        "bio": {
+      "hottestFashionTake": "Science chic is my vibe.",
+      "favoriteBrand": "NASA",
+      "favoriteColor": "Teal"
+    },
     "nameSystem": "josie-radek",
     "phone": "692-979-6414",
     "score": 952241,
@@ -2969,6 +2989,11 @@
     "location": "New Adam, MP",
     "modelCount": 59,
     "name": "Lena Double",
+    "bio": {
+      "hottestFashionTake": "Subdued yet enigmatic, like the shimmer.",
+      "favoriteBrand": "AllSaints",
+      "favoriteColor": "Pale Grey"
+    },
     "nameSystem": "lena-double",
     "ownModels": ["crocheted-streetwear"],
     "phone": "(707)983-0117x4866",
@@ -3024,6 +3049,11 @@
     "location": "Thompsonside, SD",
     "modelCount": 49,
     "name": "Dwayne Hoover",
+    "bio" : {
+      "hottestFashionTake": "I'm a car dealer, but I'm also a fashion dealer.",
+      "favoriteBrand": "Ford",
+      "favoriteColor": "Mustang Red"
+    },
     "nameSystem": "dwayne-hoover",
     "phone": "(770)597-1402x35574",
     "score": 219578,
@@ -3081,6 +3111,11 @@
     "location": "West Reneefurt, VI",
     "modelCount": 65,
     "name": "Olive Hoover",
+    "bio" : {
+    "hottestFashionTake": "Embrace your unique sparkle, even in a world of glitz and glam.",
+    "favoriteBrand": "DIY Couture",
+    "favoriteColor": "Sunflower Yellow"
+    },
     "nameSystem": "olive-hoover",
     "phone": "+1-488-761-8774x501",
     "score": 673318,
@@ -3168,6 +3203,11 @@
     "location": "Angelaport, PR",
     "modelCount": 44,
     "name": "Jim Sullivan",
+    "bio": {
+      "hottestFashionTake": "I'm a cowboy, baby.",
+      "favoriteBrand": "Wrangler",
+      "favoriteColor": "Desert Sand"
+    },
     "nameSystem": "jim-sullivan",
     "phone": "001-353-751-2941x393",
     "score": 841512,
@@ -3208,6 +3248,11 @@
     "location": "North Paul, MS",
     "modelCount": 32,
     "name": "Michael Rezendes",
+    "bio" : {
+      "hottestFashionTake": "I'm a journalist, but I'm also a fashion journalist.",
+      "favoriteBrand": "The Boston Globe",
+      "favoriteColor": "Newsprint Black"
+    },
     "nameSystem": "michael-rezendes",
     "phone": "+1-356-456-1042x61938",
     "score": 494279,
@@ -4313,6 +4358,11 @@
     "location": "West Hannah, MT",
     "modelCount": 75,
     "name": "Juno MacGuff",
+        "bio": {
+      "hottestFashionTake": "Quirky, cool, slightly sardonic but not so much that it makes me unlikeable, and a little bit retro.",
+      "favoriteBrand": "Vintage",
+      "favoriteColor": "Mustard Yellow"
+    },
     "nameSystem": "juno-macguff",
     "phone": "(270)693-3668",
     "score": 525184,
@@ -4596,6 +4646,11 @@
     "location": "South David, UT",
     "modelCount": 48,
     "name": "Paul Atreides",
+        "bio": {
+      "hottestFashionTake": "Regal attire fit for a ruler.",
+      "favoriteBrand": "Armani",
+      "favoriteColor": "Royal Blue"
+    },
     "nameSystem": "paul-atreides",
     "phone": "+1-561-805-5978x6561",
     "score": 100337,
@@ -8089,6 +8144,11 @@
     "location": "Timville, KY",
     "modelCount": 77,
     "name": "Laurie Strode",
+        "bio": {
+      "hottestFashionTake": "Always dress ready for a showdown.",
+      "favoriteBrand": "Levi's",
+      "favoriteColor": "Dark Blue"
+    },
     "nameSystem": "laurie-strode",
     "phone": "(799)545-6545x49317",
     "ranks": ["#749 Survivor", "#524 Horror Icon", "#4291 Final Girl"],
@@ -8497,6 +8557,11 @@
     "titles": ["Hacker Heroine", "Swedish Savant", "Dragon Tattoo Temptress"],
     "totalRatings": 34826,
     "username": "i think im a replicant",
+    "bio": {
+      "hottestFashionTake": "In a world of humans, be impeccably replicant.",
+      "favoriteBrand": "Alexander McQueen",
+      "favoriteColor": "Silver"
+    },
     "views": 33389752934
   }
 ]
