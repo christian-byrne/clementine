@@ -60,8 +60,8 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 - [x] Dress page
   - [x] choose from stylist list (table mapping user pkeys to saved or accessible Stylist pkeys)
   - [x] choose input items from closet (table which includes Item records)
-- [ ] StyleCard xOverflow on small width screens
-- [ ] X-axis units on currency graph
+- [x] StyleCard xOverflow on small width screens
+- [x] X-axis units on currency graph
 - [ ] Individual Badges Page
 - [x] Branding
 - [x] Favicon

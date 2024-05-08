@@ -33,7 +33,7 @@ function StyleCardCategoryTable({ categoryItems, title }) {
       >
         {title}
       </MDBTypography>
-      <MDBListGroup style={{ minWidth: "22rem" }} light>
+      <MDBListGroup light>
         {categoryItems.slice(0, rowsExpanded).map((item, index) => {
           return <StyleCardItemRow key={index} itemName={item} />;
         })}

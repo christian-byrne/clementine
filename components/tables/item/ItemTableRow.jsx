@@ -34,9 +34,11 @@ function ItemTableRow({ index, data, selected, selectedUpdater }) {
             </p>
           </div>
         </div>
-        <MDBBtn color="primary" size="sm" onClick={setSelfSelected}>
+        {selected && (
+          <MDBBtn color="primary" size="sm" onClick={setSelfSelected}>
           {selected.includes(index) ? "Unselect" : "Select"}
         </MDBBtn>
+        )}
       </MDBListGroupItem>
     )
   );
