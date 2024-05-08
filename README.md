@@ -54,9 +54,9 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 - [ ] small image/svg/icon property for items/stylists/etc.
   - [ ] use in tables
   - [ ] use in .... 
-- [ ] Create model page
-  - [ ] merge n existing styles indicating n weight for each
-  - [ ] merge existing style with new photos drag and drop
+- [x] Create Stylist page
+  - [x] merge n existing styles indicating n weight for each
+  - [x] merge existing style with new photos drag and drop
 - [x] Dress page
   - [x] choose from stylist list (table mapping user pkeys to saved or accessible Stylist pkeys)
   - [x] choose input items from closet (table which includes Item records)
@@ -65,13 +65,12 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 - [ ] Individual Badges Page
 - [x] Branding
 - [x] Favicon
-- [ ] Models
 - [ ] Closet Page
 - [x] TikTok Scroller padding algorithm so footer always bottom at same y-coordinate
 - [ ] Salesforce Img2Txt implementation
 - [x] Styles/movements directory
 - [ ] Glossary of terms in blog (OneNote Fa)
-- [ ] "Hottest Fashion Take" to user record field
+- [x] "bio" to user record field
 - [x] Photos on content cards -> carousels
 - [x] Responsive photo grid doesn't go to configurations that wouldnt be possible with the size of the passed photo data argument
 - [x] Overlaid caption title on scroller view should be flush with bottom in 3-row grid view
@@ -85,8 +84,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
   - [ ] Demo
   - [ ] Signup form
 - [x] Currency Page
-- [ ] Dress/Suggestions Page 
-- [ ] Improve lazy loading and async loading on user, leaderboard pages
+- [x] Dress/Suggestions Page 
 - [ ] scrollbars on mobile (leaderboard)
 - [x] Pause github actions workflow while using Vercel
 - [x] Model/Post Page more like civ post

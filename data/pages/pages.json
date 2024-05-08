@@ -33,6 +33,10 @@
   },
   {
     "title" : "Create",
-    "href" : "/create"
+    "href" : "/create/refine"
+  },
+  {
+    "title" : "Merge",
+    "href" : "/create/merge"
   }
 ]
