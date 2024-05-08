@@ -50,7 +50,7 @@ Populated with 200+ AI-generated users, each with their own set of cohesive data
 ### TODO
 
 
-- [ ] Cards accept badge breakpoitns arg from Pages and pass to TagBadges component when appropriate (given differing card col sizings per page)
+- [ ] Cards accept badge breakpoint arg from Pages and pass to TagBadges component when appropriate (given differing card col sizings per page)
 - [ ] small image/svg/icon property for items/stylists/etc.
   - [ ] use in tables
   - [ ] use in .... 

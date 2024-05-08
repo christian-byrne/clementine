@@ -2,7 +2,7 @@
   {
     "badges": [
       "sunglasses \ud83d\udc53\ud83d\ude0e",
-      "window sill \ud83e\ude9f\ud83e\ude9f\ud83e\ude9f",
+      "edgy \ud83d\udda4\ud83d\udc57",
       "hats \ud83e\udde2\ud83c\udfa9"
     ],
     "bounties": {},
@@ -82,11 +82,7 @@
     "shared": 417,
     "views": 3802,
     "dateCreated": "March 24, 2024",
-    "communityUnlock": {
-      "goal": 300,
-      "progress": 300,
-      "message": "UNLOCKED \ud83c\udf89 for all Users"
-    },
+    "communityUnlock": {},
     "description": "green hat, white crop tops, white crop top, shorts, plaid skirts, latex, black leather pants, street fashion, black leather jackets, black leather jacket, purple, graphic t - shirt, white t -, t - shirt while, short shorts, jeans, floor, mail box, photo, japanese culture, black hoodie, denim shorts, street, bag, punk girl, street corner, american flag, city street"
   },
   {
@@ -252,11 +248,15 @@
     "description": "white, glasses, leather jacket, purse, sunglasses, moon, handbag, black leather clothes, latex, dark side, latex outfit, handbags, futuristic suit, black leather jacket, futuristic technology, blonde ed woman, black"
   },
   {
-    "bounties": {},
+    "bounties": {
+      "status": "BOUNTY AVAILABLE",
+      "message": "Make a Winter Version",
+      "reward": 725
+    },
     "creator": "Waymond Wang",
     "badges": [
       "\ud83d\udc5f Streetwear",
-      "blue outfits \ud83d\udc99\ud83d\udc55\ud83d\udc56",
+      "blue \ud83d",
       "\ud83d\udd25 Top Rated",
       "\u2600\ufe0f Summer",
       "city \ud83c\udfd9\ufe0f\ud83c\udf03",
@@ -264,9 +264,6 @@
     ],
     "imageSrc": "/pictures/models/ballerina-disco/ballerina-disco-grid-2x2.png",
     "communityUnlock": {
-      "goal": 750,
-      "progress": 741,
-      "message": "Contribute to unlock for all users!"
     },
     "rating": 94,
     "requirements": [
@@ -632,9 +629,9 @@
   },
   {
     "badges": [
-      "\ud83e\uddfc Clean",
+      "Hiking \ud83c\udf3f",
       "jackets \ud83e\udde5",
-      "fashion \ud83d\udc57\ud83d\udc60\ud83d\udc60\ud83d\udc83",
+      "Outdoors \ud83c\udf3f",
       "coat \ud83e\udde5\ud83e\udde5\ud83e\udde5"
     ],
     "bounties": {},
@@ -1541,11 +1538,7 @@
     "shared": 834,
     "views": 49415,
     "dateCreated": "April 07, 2024",
-    "communityUnlock": {
-      "goal": 700,
-      "progress": 555,
-      "message": "145 more rubies to unlock for all users!"
-    },
+    "communityUnlock": {},
     "description": "fashion industry, blonde ed woman, silver outfits, star trek, futuristic woman, blue eyes, bow tie, 80s's, photo, bow ties, silver, neon, shiny leather jacket, flowers, silver leather, flower, black skirt, suit, long blonde, neon lights, neon background, versa versa versa"
   },
   {

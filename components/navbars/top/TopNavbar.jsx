@@ -22,12 +22,10 @@ const iconGen = new IconGenerator();
 function Navbar() {
   const [navItemsVisible, setNavItemsVisible] = useState(pagesData.length || 99);
   const [screenWidth, setScreenWidth] = useState(null);
-  const [screenHeight, setScreenHeight] = useState(null);
   const [openNav, setOpenNav] = useState(true);
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
-    setScreenHeight(window.innerHeight);
 
     if (window.innerWidth < 992) {
       setNavItemsVisible(99);
@@ -53,7 +51,6 @@ function Navbar() {
   useEffect(() => {
     handleResize();
     setScreenWidth(window.innerWidth);
-    setScreenHeight(window.innerHeight);
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -80,11 +77,11 @@ function Navbar() {
         </MDBNavbarToggler>
         <MDBCollapse navbar open={openNav}>
           <MDBNavbarBrand
-            className="clickable"
+            className="clickable ps-2"
             href={pathFormat("/")}
             onClick={closeNav}
           >
-            {iconGen.createIcon("mainBrand", "54px")}
+            {iconGen.createIcon("mainBrand", "64px")}
             La Vie en Bleu
           </MDBNavbarBrand>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">

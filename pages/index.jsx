@@ -53,35 +53,39 @@ function HomePage() {
     },
     xxxl: {
       visibleRows: 2,
-      cols: 4,
+      cols: 6,
     },
     wi: {
       visibleRows: 2,
-      cols: 4,
+      cols: 6,
     },
     "wi+": {
       visibleRows: 2,
-      cols: 4,
+      cols: 6,
     },
     "2k": {
       visibleRows: 2,
-      cols: 4,
+      cols: 6,
     },
     "2k+": {
       visibleRows: 2,
-      cols: 3,
+      cols: 4,
     },
     "3k": {
       visibleRows: 2,
-      cols: 3,
+      cols: 4,
     },
     "3k+": {
       visibleRows: 2,
-      cols: 2,
+      cols: 4,
+    },
+    "3k++": {
+      visibleRows: 2,
+      cols: 3,
     },
     "4k": {
       visibleRows: 2,
-      cols: 2,
+      cols: 3,
     },
     "8k": {
       visibleRows: 2,
@@ -101,12 +105,12 @@ function HomePage() {
     if (breakpointsConfig.isLess(breakpoint, "wi")) {
       setLeaderBoardsHidden(true);
       setContentRowsClass("col-xl-12 ms-sm-auto pe-2");
-    } else if (breakpointsConfig.isLess(breakpoint, "2k++")) {
+    } else if (breakpointsConfig.isLess(breakpoint, "3k")) {
       setLeaderBoardsHidden(false);
       setContentRowsClass("col-7 ms-sm-auto pe-2");
       setLeaderBoardClass("col-5 ms-sm-auto");
       setLeaderBoardVisibleCols(1);
-    } else if (breakpointsConfig.isLess(breakpoint, "3k+")) {
+    } else if (breakpointsConfig.isLess(breakpoint, "4k")) {
       setLeaderBoardsHidden(false);
       setContentRowsClass("col-7 ms-sm-auto pe-2");
       setLeaderBoardClass("col-5 ms-sm-auto");
@@ -137,7 +141,7 @@ function HomePage() {
   return (
     <MDBContainer fluid>
       <MDBRow className="mt-3">
-        {/* Content Rows */}
+        {/* Content Preview */}
         <MDBCol className={contentRowsClass}>
           <MDBContainer fluid className="mt-4">
             {/* Featured Models Row */}
@@ -152,10 +156,7 @@ function HomePage() {
               }
               maxCols={30}
               colContainerClass={colCSSClass}
-              detailsStartExpanded={breakpointsConfig.isGreater(
-                breakpoint,
-                "3k"
-              )}
+              detailsStartExpanded={false}
             />
             {/* Featured Photos Row */}
             <TitleText text="Featured Photos" />
@@ -163,23 +164,21 @@ function HomePage() {
               colComponent={PhotoCard}
               colData={allPhotosData}
               sortKey="likes"
-              showFirstNCols={(breakpointsConfig[breakpoint].visibleRows *
-                (12 / breakpointsConfig[breakpoint].cols)) * 4}
+              showFirstNCols={
+                breakpointsConfig[breakpoint].visibleRows *
+                (12 / breakpointsConfig[breakpoint].cols) *
+                4
+              }
               maxCols={50}
               colContainerClass={colCSSClass}
-              detailsStartExpanded={breakpointsConfig.isGreater(
-                breakpoint,
-                "2k"
-              )}
+              detailsStartExpanded={false}
             />
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}
         {!leaderBoardsHidden && (
           <MDBCol className={leaderBoardClass}>
-            {/* <MDBCol className="ms-sm-auto"> */}
             <MDBContainer className="mt-4">
-              {/* <TitleText text="Leaderboards" /> */}
               <LeaderBoardCard
                 leaderBoardName={"Style Stars"}
                 description={"Users who have the most motion"}

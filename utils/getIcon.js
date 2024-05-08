@@ -18,10 +18,10 @@ class IconGenerator {
             },
             "mainBrand" : {
                 "type": "brand",
-                "filename": "brand-robot_lady.png",
+                "filename": "brand-cyborg_audrey-3.png",
                 "alt" : "Brand Logo",
                 "style" : {
-                    "opacity": "0.85",
+                    "opacity": "0.96",
                     "borderRadius": "28%",
                 },
                 "className": "rounded",
