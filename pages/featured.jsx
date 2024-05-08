@@ -17,7 +17,6 @@ function FeaturedPage() {
       <div className="row mt-3">
         <main role="main" className="col-md-12 ms-sm-auto col-lg-12 px-md-4">
           <MDBContainer fluid className="mt-4">
-            {/* Featured Models Row */}
             <MDBTypography tag="h1" className="my-4">Featured Stylists</MDBTypography>
             <ContentRow
               colComponent={StylistCard}
@@ -28,7 +27,6 @@ function FeaturedPage() {
               colContainerClass={"col-md-6 col-lg-4 col-sm-12 mb-4"}
               detailsStartExpanded={false}
             />
-            {/* Featured Photos Row */}
             <MDBTypography  tag="h1" className="my-4">Featured Photos</MDBTypography>
             <ContentRow
               colComponent={PhotoCard}

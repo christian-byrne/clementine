@@ -8,7 +8,7 @@ function StylistTableRow({ index, data, selected, selectedUpdater }) {
 
   const setSelfSelected = () => {
     selectedUpdater(index);
-  }
+  };
 
   useEffect(() => {
     function handleResize() {

@@ -134,16 +134,10 @@ const earnMethods = [
 
 const transactionList = [
   {
-    title: "Post Reward",
-    description: "Earned 50 rubies for posting an image",
-    date: "2024-04-29",
-    balance: 50,
-  },
-  {
-    title: "Follow Reward",
-    description: "Earned 20 rubies for following a user",
-    date: "2021-04-28",
-    balance: 20,
+    title: "Daily Suggestions",
+    description: "Earned 40 rubies for getting a suggestion",
+    date: "2021-04-26",
+    balance: 40,
   },
   {
     title: "Daily Suggestions",
@@ -152,10 +146,16 @@ const transactionList = [
     balance: 40,
   },
   {
-    title: "Daily Suggestions",
-    description: "Earned 40 rubies for getting a suggestion",
-    date: "2021-04-26",
-    balance: 40,
+    title: "Follow Reward",
+    description: "Earned 20 rubies for following a user",
+    date: "2021-04-28",
+    balance: 20,
+  },
+  {
+    title: "Post Reward",
+    description: "Earned 50 rubies for posting an image",
+    date: "2024-04-29",
+    balance: 50,
   },
   {
     title: "Unlocked a Stylist",
@@ -166,19 +166,19 @@ const transactionList = [
   {
     title: "Daily Tasks Completed",
     description: "Earned 150 rubies for completing all daily tasks",
-    date: "2021-05-02",
+    date: "2021-05-03",
     balance: 150,
   },
 ];
 
 const balanceData = [
-  { name: "0", value: 123 },
-  { name: "2", value: 163 },
-  { name: "3", value: 223 },
-  { name: "4", value: 243 },
-  { name: "6", value: 273 },
-  { name: "9", value: 73 },
-  { name: "10", value: 223 },
+  { name: "0", date: "April 24", value: 123 },
+  { name: "1", date: "April 26", value: 163 },
+  { name: "2", date: "April 27", value: 203 },
+  { name: "3", date: "April 28", value: 223 },
+  { name: "4", date: "April 29", value: 273 },
+  { name: "8", date: "May 1", value: 73 },
+  { name: "10", date: "May 3", value: 223 },
 ];
 
 function RubiesPage() {
@@ -301,7 +301,9 @@ function RubiesPage() {
                       data={balanceData}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis />
+                      <XAxis 
+                        dataKey="date"
+                      />
                       <YAxis />
                       <Tooltip />
                       <Line
