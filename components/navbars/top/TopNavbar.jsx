@@ -102,7 +102,7 @@ function Navbar() {
               <MDBNavbarItem>
                 <MDBNavbarLink
                   className="my-0"
-                  href={pathFormat("/currency")}
+                  href={pathFormat("/daily-tasks")}
                   onClick={closeNav}
                 >
                   DAILY TASKS (3/9)

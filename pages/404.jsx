@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 import BannerVidHoverPlay from "@/components/videos/BannerVidHoverPlay";
 import formatDocTitle from "@/utils/formatDocTitle";

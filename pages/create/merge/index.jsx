@@ -28,7 +28,7 @@ function MergeStylistsPage() {
             />
             <hr className="my-4" />
             <SelectionRow
-              title="Select Merge Stylists"
+              title="Select Stylists to Merge"
               subtext="Select some other stylists to be merged with the base stylist."
               badgeText="View All Stylists"
               badgeHref="/featured"

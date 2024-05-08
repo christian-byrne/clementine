@@ -29,8 +29,8 @@ function MergeStylistsPage() {
             />
             <hr className="my-4" />
             <UploadRow
-              title="Upload Stylist Images"
-              subtext="Upload images to be merged with the base stylist."
+              title="Upload Images"
+              subtext="Upload images to serve as the training data for your new stylist."
               iconClass="user"
               maxHeight="28vh"
               minHeight="22vh"
