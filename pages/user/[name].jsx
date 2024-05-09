@@ -5,20 +5,7 @@ import UserProfileSidebar from "@/components/sidebars/user-profile/UserProfileSi
 import StylistCard from "@/components/cards/StylistCard";
 import TitleText from "@/components/title-text/TitleText";
 import PhotoCard from "@/components/cards/PhotoCard";
-import allUserData from "@/data/users/all.json";
-import allStylistsData from "@/data/stylists/all.json";
-import allPhotosData from "@/data/photos/all.json";
-import { getOneUser } from "@/utils/getOneUser";
-
-function getStylistByName(stylistName) {
-  if (typeof stylistName !== "string") {
-    // If stylistName is not a string, return null or handle it appropriately
-    return null;
-  }
-  return allStylistsData.find(
-    (stylist) => stylist.titleSystemName === stylistName
-  );
-}
+import formatDocTitle from "@/utils/formatDocTitle";
 
 function UserProfilePage() {
   const router = useRouter();
@@ -27,68 +14,83 @@ function UserProfilePage() {
   const [userStylists, setUserStylists] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      const userName = router.query.name;
-      if (userName) {
+    if (router.query.name) {
+      const fetchData = async () => {
         try {
-          const data = await getOneUser(allUserData, userName);
+          const response = await fetch(
+            `/api/get/user/byName?userSystemName=${router.query.name}`
+          );
+          const data = await response.json();
           setUserProfileData(data);
 
-          // Fetch and process user models asynchronously if ownModels and ownModels.length > 0
-          if (!data.ownModels || data.ownModels.length === 0) {
-            return;
-          }
-
-          const userStylistsPromises = data.ownModels.map(
-            async (stylistName) => {
-              try {
-                const stylist = await getStylistByName(stylistName);
-                return stylist; // Assuming getStylistByName returns a model object
-              } catch (error) {
-                console.error("Error fetching user stylist:", error);
-                // Handle error if necessary
-              }
-            }
-          );
-          const userStylists = await Promise.all(userStylistsPromises);
-
-          setUserStylists(userStylists.filter((stylist) => stylist !== null));
-
-          const filteredPhotos = allPhotosData.filter((photo) => {
-            if (data.ownModels.includes(photo.modelDirName)) {
-              return true;
-            }
-          });
-
-          setUserPhotos(filteredPhotos);
         } catch (error) {
           console.error("Error fetching user data:", error);
-          // Handle error if necessary
         }
-      }
-    }
+      };
 
-    fetchData();
+      fetchData();
+    }
   }, [router.query.name]);
 
   useEffect(() => {
-    if (userProfileData) {
-      document.title = `${userProfileData.username || "User Profile"} | WD`;
+    if (userProfileData?.id) {
+      console.log("userProfileData", userProfileData);
+      const fetchStylists = async () => {
+        try {
+          if (userProfileData?.ownmodels?.length > 0) {
+            const stylistResponse = await fetch(
+              `/api/get/user/stylists?userId=${userProfileData.id}`
+            );
+            const stylistData = await stylistResponse.json();
+            console.log("stylistData", stylistData);
+            setUserStylists(stylistData);
+          }
+
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+
+      fetchStylists();
     }
   }, [userProfileData]);
 
-  if (!userProfileData) {
-    return null; // Or loading indicator, error message, etc.
-  }
+
+    useEffect(() => {
+      if (userProfileData?.id) {
+      const fetchPhotos = async () => {
+        try {
+
+          const photoResponse = await fetch(
+            `/api/get/photos/byCreatorId?creatorId=${userProfileData.id}`
+          );
+          const photoData = await photoResponse.json();
+          setUserPhotos(photoData);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      };
+
+      fetchPhotos();
+    }
+  }, [userProfileData]);
+
+  useEffect(() => {
+    if (userProfileData) {
+      formatDocTitle(userProfileData.username || "User Profile");
+    }
+  }, [userProfileData]);
 
   return (
     <MDBContainer fluid>
-      <div className="row mt-3">
+      <div className="row mt-4">
         <div className="col-md-3 d-none d-md-block bg-light sidebar">
-          <UserProfileSidebar userData={userProfileData} />
+          {userProfileData?.name && (
+            <UserProfileSidebar userData={userProfileData} />
+          )}
         </div>
         <main role="main" className="col-md-9 ms-sm-auto col-lg-9 px-md-4">
-          <MDBContainer fluid className="mt-5">
+          <MDBContainer fluid className="mt-3">
             <MDBRow>
               {userStylists?.length > 0 && (
                 <>
@@ -97,7 +99,7 @@ function UserProfilePage() {
                     <StylistCard
                       data={stylist}
                       key={index}
-                      detailsStartExpanded={true}
+                      detailsStartExpanded={false}
                     />
                   ))}
                 </>

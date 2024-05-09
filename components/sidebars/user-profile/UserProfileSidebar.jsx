@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBCollapse,
@@ -26,6 +26,66 @@ function createLeaderboardRanks(ranks) {
 }
 
 function UserProfileSidebar({ userData }) {
+  const [badgesData, setBadgesData] = useState(null);
+  const [achievementsData, setAchievementsData] = useState(null);
+  const [socialMediaIcons, setSocialMediaIcons] = useState(null);
+
+  useEffect(() => {
+    if (userData["badges"]) {
+      const fetchBadges = async () => {
+        try {
+          const response = await fetch(
+            `/api/get/game-elements/badges?badgeIdArray=${userData[
+              "badges"
+            ].flat()}`
+          );
+          const data = await response.json();
+          setBadgesData(data);
+        } catch (error) {
+          console.error("Error fetching badges data:", error);
+        }
+      };
+
+      fetchBadges();
+    }
+
+    if (userData["achievements"]) {
+      const fetchAchievements = async () => {
+        try {
+          const response = await fetch(
+            `/api/get/game-elements/achievements?achievementIdArray=${userData[
+              "achievements"
+            ].flat()}`
+          );
+          const data = await response.json();
+          setAchievementsData(data);
+        } catch (error) {
+          console.error("Error fetching achievements data:", error);
+        }
+      };
+
+      fetchAchievements();
+    }
+
+    if (userData["socialicons"]) {
+      const fetchSocialIcons = async () => {
+        try {
+          const response = await fetch(
+            `/api/get/game-elements/social-icons?socialIconIdArray=${userData[
+              "socialicons"
+            ].flat()}`
+          );
+          const data = await response.json();
+          setSocialMediaIcons(data);
+        } catch (error) {
+          console.error("Error fetching social icons data:", error);
+        }
+      }
+
+      fetchSocialIcons();
+    }
+  }, [userData]);
+
   // Function to create the user-generated status elements
   const createUserStatusElements = () => {
     if (!userData["statuses"]) {
@@ -101,7 +161,7 @@ function UserProfileSidebar({ userData }) {
         <MDBContainer className="d-flex flex-column justify-content-center pe-4">
           <h5>{userData["username"]}</h5>
           <p className="text-muted text-sm">
-            <small>Joined {userData["joinDate"]}</small>
+            <small>Joined {userData["joindate"]}</small>
           </p>
           {/* Ranking Status */}
           {userData["ranks"] && (
@@ -124,9 +184,9 @@ function UserProfileSidebar({ userData }) {
         )}
 
         {/* Social Media Icons */}
-        {userData["socialIcons"] && userData["socialIcons"].length > 0 && (
+        {socialMediaIcons && (
           <MDBContainer className="mt-3">
-            {userData["socialIcons"].map((icon, index) => (
+            {socialMediaIcons.map((icon, index) => (
               <img
                 key={index}
                 src={icon.url}
@@ -186,7 +246,7 @@ function UserProfileSidebar({ userData }) {
         )}
 
         {/* Badges Section */}
-        {userData["badges"] && (
+        {badgesData && (
           <>
             {/* Divider */}
             <hr className="my-3" />
@@ -194,21 +254,23 @@ function UserProfileSidebar({ userData }) {
               <h5 className="mt-3 mb-3">Badges</h5>
               {/* <!-- Badges Row 1: S-Tier --> */}
               <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                {userData["badges"]["tier1"]?.map((badge, index) => (
-                  <div className="me-3 mb-3 w-25" key={index}>
-                    <img
-                      src={pathFormat(badge.src)}
-                      alt={badge.alt}
-                      className="img-fluid rounded-circle"
-                      title={badge.title}
-                    />
-                  </div>
-                ))}
+                {badgesData.map((badge, index) =>
+                  badge.tier === 1 ? (
+                    <div className="me-3 mb-3 w-25" key={index}>
+                      <img
+                        src={pathFormat(badge.src)}
+                        alt={badge.alt}
+                        className="img-fluid rounded-circle"
+                        title={badge.title}
+                      />
+                    </div>
+                  ) : null
+                )}
               </MDBContainer>
               {/* <!-- Badges Row 2: A-Tier --> */}
-              {userData["badges"]?.["tier2"] && (
-                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                  {userData["badges"]["tier2"].map((badge, index) => (
+              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                {badgesData.map((badge, index) =>
+                  badge.tier === 2 ? (
                     <div className="me-3 mb-3 w-25" key={index}>
                       <img
                         src={pathFormat(badge.src)}
@@ -217,13 +279,13 @@ function UserProfileSidebar({ userData }) {
                         title={badge.title}
                       />
                     </div>
-                  ))}
-                </MDBContainer>
-              )}
+                  ) : null
+                )}
+              </MDBContainer>
               {/* <!-- Badges Row 3: B-Tier --> */}
-              {userData["badges"]?.["tier3"] && (
-                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                  {userData["badges"]["tier3"].map((badge, index) => (
+              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                {badgesData.map((badge, index) =>
+                  badge.tier === 3 ? (
                     <div className="me-3 mb-3 w-25" key={index}>
                       <img
                         src={pathFormat(badge.src)}
@@ -232,34 +294,34 @@ function UserProfileSidebar({ userData }) {
                         title={badge.title}
                       />
                     </div>
-                  ))}
-                </MDBContainer>
-              )}
-              {/* <!-- Badges Row 4: C-Tier --> */}
-              {userData["badges"]?.["tier4"] && (
-                <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-                  {userData["badges"]["tier4"].map((badge, index) => (
+                  ) : null
+                )}
+              </MDBContainer>
+              <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
+                {badgesData.map((badge, index) =>
+                  badge.tier === 4 ? (
                     <div className="me-3 mb-3 w-25" key={index}>
                       <img
+                        
                         src={pathFormat(badge.src)}
                         alt={badge.alt}
                         className="img-fluid rounded-circle"
                         title={badge.title}
                       />
                     </div>
-                  ))}
-                </MDBContainer>
-              )}
+                  ) : null
+                )}
+              </MDBContainer>
             </MDBContainer>
           </>
         )}
 
         {/* Achievements Section */}
-        {userData["achievements"]?.length > 0 && (
+        {achievementsData && (
           <>
             <h5 className="mt-3 mb-3">Achievements</h5>
             <MDBContainer className="d-flex justify-content-center align-items-center mb-3">
-              {userData["achievements"].map((achievement, index) => (
+              {achievementsData.map((achievement, index) => (
                 <div className="me-3 mb-3 w-25" key={index}>
                   <img
                     src={pathFormat(achievement.src)}
@@ -281,7 +343,7 @@ function UserProfileSidebar({ userData }) {
         {/* Footer */}
         <MDBCardFooter>
           <MDBCardText className="text-muted">
-            <small>Member Since: {userData.joinDate}</small>
+            <small>Member Since: {userData.joindate}</small>
           </MDBCardText>
         </MDBCardFooter>
       </MDBCardBody>

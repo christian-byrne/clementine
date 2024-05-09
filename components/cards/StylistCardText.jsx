@@ -30,7 +30,7 @@ function StylistCardText({ stylistData, textExpandedState = false }) {
     textExpandedState !== undefined && (
       <>
         <a
-          href={`/browse/stylists/${stylistData.titleSystemName}`}
+          href={`/browse/stylists/${stylistData.titlesystemname}`}
           // prevent blue hyperlink color
           style={{ color: "inherit" }}
         >
@@ -46,18 +46,18 @@ function StylistCardText({ stylistData, textExpandedState = false }) {
             3920: 3
           }} />
         </div>
-        {/* Community Unlock */}
-        {stylistData.communityUnlock &&
-          stylistData.communityUnlock.goal &&
-          stylistData.communityUnlock.progress && (
+        {/* Community unlock */}
+        {stylistData.communityunlock &&
+          stylistData.communityunlock.goal &&
+          stylistData.communityunlock.progress && (
             <MDBCardText className="text-muted">
               <MDBTypography tag="strong">
-                {stylistData.communityUnlock.progress}/
-                {stylistData.communityUnlock.goal}
+                {stylistData.communityunlock.progress}/
+                {stylistData.communityunlock.goal}
               </MDBTypography>
               {getIcon.createIcon("mainCurrency")}
-              {stylistData.communityUnlock.message &&
-                stylistData.communityUnlock.message}
+              {stylistData.communityunlock.message &&
+                stylistData.communityunlock.message}
             </MDBCardText>
           )}
         {/* Bounty Offers */}

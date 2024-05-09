@@ -14,11 +14,11 @@ import pathFormat from "@/utils/pathFormat";
 function PhotoCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0" }) {
 
   return (
-    data?.imagePath && (
+    data?.imagepath && (
       <MDBContainer className={containerClass}>
         <MDBCard className="h-100 d-flex d-column">
           <a
-            href={`/browse/photos/${data.imageFileName
+            href={`/browse/photos/${data.imagefilename
               .replace(".png", "")
               .replace(".jpg", "")
               .replace(".jpeg", "")}`}
@@ -26,9 +26,9 @@ function PhotoCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0
             <MDBCardImage
             className="clickable"
               src={
-                data.imagePath
-                  ? pathFormat(data.imagePath)
-                  : pathFormat(placeholderImg.imagePath)
+                data.imagepath
+                  ? pathFormat(data.imagepath)
+                  : pathFormat(placeholderImg.imagepath)
               }
               alt={data.model || placeholderImg.alt}
               title={
@@ -71,17 +71,17 @@ function PhotoCard({ data, containerClass="col-md-6 col-lg-4 col-sm-12 mb-4 mx-0
               <MDBTypography tag="small" className="text-muted">
                 MADE WITH&nbsp;&nbsp;
               </MDBTypography>
-              {data.stylistTitle && (
+              {data.stylisttitle && (
                 <a
-                  href={`/browse/stylists/${data.stylistTitleSystemName
+                  href={`/browse/stylists/${data.stylisttitlesystemname
                     .replace(".png", "")
                     .replace(".jpg", "")
                     .replace(".jpeg", "")}`}
                 >
-                  {data.stylistTitle}
+                  {data.stylisttitle}
                 </a>
               )}
-              {data.stylistTitle && data.creator ? (
+              {data.stylisttitle && data.creator ? (
                 <span className="text-muted">&nbsp;by&nbsp;</span>
               ) : (
                 ""

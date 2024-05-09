@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBCard, MDBCardBody, MDBBtn } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";
 import CardImageCarousel from "@/components/cards/CardImageCarousel";
-import axios from "axios";
+import getStylistImagePaths from "@/utils/getImages";
 
 function StylistCard({
   data,
@@ -12,23 +12,12 @@ function StylistCard({
   const [textExpanded, setTextExpanded] = useState(detailsStartExpanded);
   const toggleText = () => setTextExpanded(!textExpanded);
 
-  const [photos, setPhotos] = useState([data.imageSrc]);
+  const [photos, setPhotos] = useState([data.imagesrc]);
 
-  const photosFolder = data.titleSystemName;
+  const photosFolder = data.titlesystemname;
+
   useEffect(() => {
-    axios
-      .get("/api/getImages", {
-        params: {
-          folderName: photosFolder,
-          exclude: "test-image",
-        },
-      })
-      .then((response) => {
-        setPhotos(response.data.imageFiles);
-      })
-      .catch((error) => {
-        console.log("Error fetching images: ", error);
-      });
+    setPhotos(getStylistImagePaths(photosFolder));
   }, [photosFolder]);
 
   return (
@@ -51,7 +40,7 @@ function StylistCard({
             >
               Details
             </MDBBtn>
-            <a href={`/browse/stylists/${data.titleSystemName}`}>
+            <a href={`/browse/stylists/${data.titlesystemname}`}>
               <MDBBtn color="success" className="mt-1 mx-1">
                 Use
               </MDBBtn>
