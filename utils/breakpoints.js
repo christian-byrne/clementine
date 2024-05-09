@@ -18,6 +18,7 @@ class Breakpoints {
       "3k++": 3520,
       "4k": 3840,
       "4k+": 4320,
+      "8k": 7680,
     };
     this.breakpointsBySize = Object.fromEntries(
       Object.entries(this.breakpointsByName).map(([key, value]) => [value, key])
@@ -32,6 +33,14 @@ class Breakpoints {
         this[breakpointName] = prev;
       }
     }
+    
+    // Get the final breakpoint value that is passed in the customConfig
+    let largestCustomBreakpoint = Object.keys(customConfig).reduce(
+      (prev, current) =>
+        this.validateNumber(prev) > this.validateNumber(current) ? prev : current
+    );
+    // Use highest user-defined as fallback (otherwise fallback might not contain custom properties)
+    this["8k"] = customConfig[largestCustomBreakpoint];
 
     this.standardSizeClass = `col-xs-${this.xs.cols} col-sm-${this.sm.cols} col-md-${this.md.cols} col-lg-${this.lg.cols} col-xl-${this.xl.cols}`;
   }
@@ -59,6 +68,7 @@ class Breakpoints {
         return breakpoint;
       }
     }
+    return "8k";
   }
 
   isGreater(breakpoint1, breakpoint2) {

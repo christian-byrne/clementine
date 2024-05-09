@@ -6,7 +6,27 @@
     "systemName": "retro-blouse",
     "extension": ".png",
     "dateCreated": "March 24, 2024",
-    "dateLastUsed" : "March 24, 2024"
+    "dateLastUsed" : "March 24, 2024",
+    "id" : 1,
+    "aliases" : [
+      "retro top",
+      "retro shirt",
+      "vintage blouse",
+      "vintage top",
+      "retroblouse",
+      "retrotop",
+      "retroshirt",
+      "70s blouse",
+      "70s top"
+    ],
+    "tags" : [
+      "retro",
+      "vintage",
+      "70s",
+      "blouse",
+      "top",
+      "shirt"
+    ]
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/metallic-blouse.png",
@@ -15,7 +35,30 @@
     "systemName": "metallic-blouse",
     "extension": ".png",
     "dateCreated": "March 8, 2024",
-    "dateLastUsed" : "March 12, 2024"
+    "dateLastUsed" : "March 12, 2024",
+    "id" : 2,
+    "aliases" : [
+      "metallic top",
+      "metallic shirt",
+      "shiny blouse",
+      "shiny top",
+      "metallicblouse",
+      "metallictop",
+      "metallicshirt",
+      "shinyblouse",
+      "shinytop"
+    ],
+    "tags" : [
+      "metallic",
+      "shiny",
+      "blouse",
+      "top",
+      "shirt",
+      "retrofuturism",
+      "neo-futurism",
+      "futuristic",
+      "futurism"
+    ]
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-hoodie.png",
@@ -24,7 +67,29 @@
     "systemName": "oversized-hoodie",
     "extension": ".png",
     "dateCreated": "February 1, 2024",
-    "dateLastUsed" : "February 27, 2024"
+    "dateLastUsed" : "February 27, 2024",
+    "id" : 3,
+    "aliases" : [
+      "oversized sweatshirt",
+      "oversized jumper",
+      "oversized pullover",
+      "oversizedhoodie",
+      "oversizedsweatshirt",
+      "oversizedjumper",
+      "oversizedpullover"
+    ],
+    "tags" : [
+      "oversized",
+      "hoodie",
+      "sweatshirt",
+      "jumper",
+      "pullover",
+      "casual",
+      "comfy",
+      "comfortable",
+      "boxfit",
+      "boxy"
+    ]
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/oversized-jersey.png",
@@ -33,7 +98,30 @@
     "systemName": "oversized-jersey",
     "extension": ".png",
     "dateCreated": "February 7, 2024",
-    "dateLastUsed" : "February 27, 2024"
+    "dateLastUsed" : "February 27, 2024",
+    "id" : 4,
+    "aliases" : [
+      "oversized sports jersey",
+      "oversized sports shirt",
+      "oversized sports top",
+      "oversizedjersey",
+      "oversizedsportsjersey",
+      "oversizedsportsshirt",
+      "oversizedsportstop"
+    ],
+    "tags" : [
+      "oversized",
+      "jersey",
+      "sports",
+      "athletic",
+      "sporty",
+      "sportswear",
+      "athleisure",
+      "athleticwear",
+      "athletic-wear",
+      "athleisurewear",
+      "athleisure-wear"
+    ]
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/polo-shirt.png",
@@ -42,7 +130,27 @@
     "systemName": "polo-shirt",
     "extension": ".png",
     "dateCreated": "February 14, 2024",
-    "dateLastUsed" : "February 27, 2024"
+    "dateLastUsed" : "February 27, 2024",
+    "id" : 5,
+    "aliases" : [
+      "polo top",
+      "polo blouse",
+      "poloshirt",
+      "polotop",
+      "poloblouse"
+    ],
+    "tags" : [
+      "polo",
+      "shirt",
+      "top",
+      "blouse",
+      "collared",
+      "collar",
+      "preppy",
+      "preppie",
+      "preppystyle",
+      "preppie-style"
+    ]
   },
   {
     "path": "/home/c_byrne/school/courses/game310/final-project/wardrobe/public/pictures/items/linen-buttun-up-shirt.png",
@@ -51,6 +159,35 @@
     "systemName": "linen-buttun-up-shirt",
     "extension": ".png",
     "dateCreated": "October 21, 2023",
-    "dateLastUsed" : "February 27, 2024"
+    "dateLastUsed" : "February 27, 2024",
+    "id" : 6,
+    "aliases" : [
+      "linen buttun up top",
+      "linen buttun up blouse",
+      "linenbuttunupshirt",
+      "linenbuttunuptop",
+      "linenbuttunupblouse",
+      "linen buttonup",
+      "linen buttondown",
+      "linen button-up",
+      "linenbuttonup"
+    ],
+    "tags" : [
+      "linen",
+      "button up",
+      "button down",
+      "shirt",
+      "top",
+      "blouse",
+      "collared",
+      "collar",
+      "casual",
+      "comfortable",
+      "comfort",
+      "comfy",
+      "linen shirt",
+      "linen top",
+      "linen blouse"
+    ]
   }
 ]

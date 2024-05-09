@@ -1,0 +1,32 @@
+[
+    {
+        "src": "/icons/badges/00125-974876523.png",
+        "alt": "Eclectic",
+        "title": "Eclectic",
+        "id": 1
+    },
+    {
+        "src": "/icons/badges/00124-2754537806.png",
+        "alt": "Hot Streak - 30 Days",
+        "title": "Hot Streak - 30 Days",
+        "id": 2
+    },
+    {
+        "src": "/icons/badges/00123-2754537805.png",
+        "alt": "Top 1%",
+        "title": "Top 1%",
+        "id": 3
+    },
+    {
+        "src": "/icons/badges/00122-2754537804.png",
+        "alt": "Adored",
+        "title": "Adored",
+        "id": 4
+    },
+    {
+        "src": "/icons/badges/00121-2754537803.png",
+        "alt": "Can't Miss",
+        "title": "Can't Miss",
+        "id": 5
+    }
+]

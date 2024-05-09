@@ -4,7 +4,7 @@
 
 **/brand.md
 data-backup-*
-**/*_backup.json
+**/**backup**.json
 
 # --------------------------------------------------------
 # TEMPLATE IGNORE LIST
@@ -300,3 +300,4 @@ coverage
 **/*.app                    
 # iOS IPA files
 **/*.ipa                    
+.vercel

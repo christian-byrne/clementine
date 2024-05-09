@@ -25,7 +25,7 @@ function sortCategories(categoryData) {
     "name",
     "rating",
     "photos",
-    "images"
+    "images",
   ];
   const priorityCategories = [
     "outerwear",

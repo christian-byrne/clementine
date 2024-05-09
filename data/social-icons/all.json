@@ -1,0 +1,52 @@
+[
+    {
+        "url": "https://simpleicons.org/icons/instagram.svg",
+        "alt": "Instagram",
+        "id": 1
+    },
+    {
+        "url": "https://simpleicons.org/icons/twitter.svg",
+        "alt": "Twitter",
+        "id": 2
+    },
+    {
+        "url": "https://simpleicons.org/icons/tiktok.svg",
+        "alt": "TikTok",
+        "id": 3
+    },
+    {
+        "url": "https://simpleicons.org/icons/facebook.svg",
+        "alt": "Facebook",
+        "id": 4
+    },
+    {
+        "url": "https://simpleicons.org/icons/whatsapp.svg",
+        "alt": "WhatsApp",
+        "id": 5
+    },
+    {
+        "url": "https://simpleicons.org/icons/youtube.svg",
+        "alt": "YouTube",
+        "id": 6
+    },
+    {
+        "url": "https://simpleicons.org/icons/discord.svg",
+        "alt": "Discord",
+        "id": 7
+    },
+    {
+        "url": "https://simpleicons.org/icons/pinterest.svg",
+        "alt": "Pinterest",
+        "id": 8
+    },
+    {
+        "url": "https://simpleicons.org/icons/snapchat.svg",
+        "alt": "Snapchat",
+        "id": 9
+    },
+    {
+        "url": "https://simpleicons.org/icons/linkedin.svg",
+        "alt": "LinkedIn",
+        "id": 10
+    }
+]
