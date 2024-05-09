@@ -1,4 +1,6 @@
 import React from "react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Navbar from "@/components/navbars/top/TopNavbar";
 import Footer from "@/components/footer/Footer";
 import "@/styles/global.css";
@@ -17,11 +19,13 @@ function App({ Component, pageProps, router }) {
 
   return (
     <>
-    <div style={{minHeight: "74vh"}}>
-      {shouldRenderNavbar && <Navbar />}
-      <Component {...pageProps} />
-    </div>
+      <div style={{ minHeight: "74vh" }}>
+        {shouldRenderNavbar && <Navbar />}
+        <Component {...pageProps} />
+      </div>
       <Footer />
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
