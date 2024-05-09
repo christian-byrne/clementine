@@ -1,4 +1,7 @@
 function sortRecordsByKey(data, key, order = "asc") {
+  if (key == false) { 
+    return data;
+  }
   let returnRecords = [];
   if (data == null || data.length === 0) {
     console.error("Data is empty or not in the correct format");

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBCardImage, MDBTypography } from "mdb-react-ui-kit";
-import placeholderImg from "../../data/placeholder-image.json";
+import placeholderImg from "@/data/placeholder-image.json";
 import pathFormat from "@/utils/pathFormat";
 
-function ResponsivePhotoGrid({ photos, altPrefix, titlePrefix }) {
+function ResponsivePhotoGrid({ photos, altPrefix, titlePrefix, detailsExpanded }) {
   // 1st image is the grid
   const [screenWidth, setScreenWidth] = useState(null);
   const [screenHeight, setScreenHeight] = useState(null);
@@ -236,19 +236,21 @@ function ResponsivePhotoGrid({ photos, altPrefix, titlePrefix }) {
             />
           </>
         )}
-      <MDBTypography
-        tag="div"
-        // className="display-5 py-3 my-2 text-center"
-        className="position-absolute bottom-0 start-50 translate-middle text-with-outline"
-        // Create text-outline so text is visible on any background
-        style={{
-          backgroundColor: "rgba(0,0,0,0.04)",
-          borderRadius: "0.5rem",
-          fontSize: "1.5rem",
-        }}
-      >
-        {titlePrefix}
-      </MDBTypography>
+      {!detailsExpanded && (
+        <MDBTypography
+          tag="div"
+          // className="display-5 py-3 my-2 text-center"
+          className="position-absolute bottom-0 start-50 translate-middle text-with-outline"
+          // Create text-outline so text is visible on any background
+          style={{
+            backgroundColor: "rgba(0,0,0,0.04)",
+            borderRadius: "0.5rem",
+            fontSize: "1.5rem",
+          }}
+        >
+          {titlePrefix}
+        </MDBTypography>
+      )}
     </MDBContainer>
   );
 }

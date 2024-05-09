@@ -8,7 +8,7 @@ import {
 } from "mdb-react-ui-kit";
 import StylistCardText from "@/components/cards/StylistCardText";
 import ResponsivePhotoGrid from "@/components/photo-grids/ResponsivePhotoGrid";
-import axios from "axios";
+import getStylistImagePaths from "@/utils/getImages";
 
 function StylistCardFullPage({ stylistData }) {
   const [detailsExpanded, setDetailsExpanded] = useState(false);
@@ -17,19 +17,7 @@ function StylistCardFullPage({ stylistData }) {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("/api/getImages", {
-        params: {
-          folderName: photosFolder,
-          exclude: "test-image",
-        },
-      })
-      .then((response) => {
-        setPhotos(response.data.imageFiles);
-      })
-      .catch((error) => {
-        console.log("Error fetching images: ", error);
-      });
+    setPhotos(getStylistImagePaths(photosFolder));
   }, [photosFolder]);
 
   // Use conditional check to ensure that only accessing window object in the browser
@@ -62,6 +50,7 @@ function StylistCardFullPage({ stylistData }) {
             photos={photos}
             altPrefix={stylistData.title}
             titlePrefix={stylistData.title}
+            detailsExpanded={detailsExpanded}
           />
         )}
         {detailsExpanded ? (

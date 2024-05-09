@@ -80,7 +80,7 @@ function UserProfileSidebar({ userData }) {
         } catch (error) {
           console.error("Error fetching social icons data:", error);
         }
-      }
+      };
 
       fetchSocialIcons();
     }
@@ -302,7 +302,6 @@ function UserProfileSidebar({ userData }) {
                   badge.tier === 4 ? (
                     <div className="me-3 mb-3 w-25" key={index}>
                       <img
-                        
                         src={pathFormat(badge.src)}
                         alt={badge.alt}
                         className="img-fluid rounded-circle"
@@ -343,7 +342,9 @@ function UserProfileSidebar({ userData }) {
         {/* Footer */}
         <MDBCardFooter>
           <MDBCardText className="text-muted">
-            <small>Member Since: {userData.joindate}</small>
+            {userData.joindate && (
+              <small>Member Since: {userData.joindate}</small>
+            )}
           </MDBCardText>
         </MDBCardFooter>
       </MDBCardBody>

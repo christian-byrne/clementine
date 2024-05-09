@@ -5,7 +5,6 @@ import LeaderBoardCard from "@/components/cards/LeaderBoardCard";
 import StylistCard from "@/components/cards/StylistCard";
 import PhotoCard from "@/components/cards/PhotoCard";
 import TitleText from "@/components/title-text/TitleText";
-import allStylistsData from "@/data/stylists/all.json";
 import allPhotosData from "@/data/photos/all.json";
 import allUserData from "@/data/users/all.json";
 import Breakpoints from "@/utils/breakpoints";
@@ -25,6 +24,32 @@ function HomePage() {
     "col-9 ms-sm-auto pe-2"
   );
   const [leaderBoardClass, setLeaderBoardClass] = useState("col-5 ms-sm-auto");
+  const [stylistData, setStylistData] = useState(null);
+  const [photoData, setPhotoData] = useState(null);
+
+  useEffect(() => {
+    const fetchFeaturedStylists = async () => {
+      try {
+        const response = await fetch("/api/get/stylists/n-stylists?n=30");
+        const data = await response.json();
+        setStylistData(data);
+      } catch (error) {
+        console.error("Error fetching featured stylists:", error);
+      }
+    };
+    const fetchFeaturedPhotos = async () => {
+      try {
+        const response = await fetch("/api/get/photos/n-photos?n=60");
+        const data = await response.json();
+        setPhotoData(data);
+      } catch (error) {
+        console.error("Error fetching featured photos:", error);
+      }
+    };
+
+    fetchFeaturedPhotos();
+    fetchFeaturedStylists();
+  }, []);
 
   const breakpointsConfig = new Breakpoints({
     xs: {
@@ -146,24 +171,28 @@ function HomePage() {
           <MDBContainer fluid className="mt-4">
             {/* Featured Models Row */}
             <TitleText text="Featured Stylists" />
-            <ContentRow
-              colComponent={StylistCard}
-              colData={allStylistsData}
-              sortKey="rating"
-              showFirstNCols={
-                breakpointsConfig[breakpoint].visibleRows *
-                (12 / breakpointsConfig[breakpoint].cols)
-              }
-              maxCols={30}
-              colContainerClass={colCSSClass}
-              detailsStartExpanded={false}
-            />
+            {stylistData && (
+              <ContentRow
+                colComponent={StylistCard}
+                colData={stylistData}
+                sortKey={false}
+                showFirstNCols={
+                  breakpointsConfig[breakpoint].visibleRows *
+                  (12 / breakpointsConfig[breakpoint].cols)
+                }
+                maxCols={30}
+                colContainerClass={colCSSClass}
+                detailsStartExpanded={false}
+              />
+            )}
             {/* Featured Photos Row */}
             <TitleText text="Featured Photos" />
+            {photoData && (
+
             <ContentRow
               colComponent={PhotoCard}
-              colData={allPhotosData}
-              sortKey="likes"
+              colData={photoData}
+              sortKey={false}
               showFirstNCols={
                 breakpointsConfig[breakpoint].visibleRows *
                 (12 / breakpointsConfig[breakpoint].cols) *
@@ -173,6 +202,7 @@ function HomePage() {
               colContainerClass={colCSSClass}
               detailsStartExpanded={false}
             />
+            )}
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}
