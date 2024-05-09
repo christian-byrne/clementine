@@ -20,7 +20,6 @@ export default async function getSocialMediaIcons(req, res) {
       return res.status(404).json({ error: "No social icons found" });
     }
 
-    console.log(result.rows);
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error getting social icons:", error);

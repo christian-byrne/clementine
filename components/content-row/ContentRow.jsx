@@ -1,73 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBRow, MDBBtn } from "mdb-react-ui-kit";
-import sortRecordsByKey from "@/utils/sortRecordsByKey";
 
 function ContentRow({
   colComponent: ColComponent,
-  colData,
-  sortKey,
-  sortType = "asc",
-  colContainerClass,
+  dataRecords,
+  colClassName,
   detailsStartExpanded,
-  showFirstNCols = 6,
-  maxCols = 50,
+  expandedNum,
+  maxNum,
 }) {
-  const [colsExpanded, setExpanded] = useState(false);
+  const [visibleCols, setVisibleCols] = useState(expandedNum);
+  const [colsExpanded, setColsExpanded] = useState(false);
 
-  // Sort the colData array by the specified sortKey
-  const allDataSorted = sortRecordsByKey(colData, sortKey, sortType);
+  useEffect(() => {
+    if (colsExpanded) {
+      setVisibleCols(maxNum);
+    } else {
+      setVisibleCols(expandedNum);
+    }
+  }, [dataRecords, expandedNum, maxNum, colsExpanded]);
 
-  // Slice the sorted data into visibleCols and collapsedCols based on showFirstNCols
-  const visibleCols = allDataSorted.slice(0, showFirstNCols);
-  const collapsedCols = allDataSorted.slice(
-    showFirstNCols,
-    maxCols > 0 ? maxCols : allDataSorted.length
-  );
-
-  // Function to toggle expansion state
   const toggleExpansion = () => {
-    setExpanded(!colsExpanded);
+    setColsExpanded(!colsExpanded);
   };
 
   return (
-    <MDBRow>
-      {visibleCols.length > 0 && (
+    dataRecords?.length > 0 && (
+      <MDBRow>
         <>
-          {visibleCols.map((colData, index) => (
+          {dataRecords.slice(0, visibleCols).map((colData, index) => (
             <ColComponent
               key={index}
               data={colData}
-              containerClass={colContainerClass}
+              containerClass={colClassName}
               detailsStartExpanded={detailsStartExpanded}
             />
           ))}
-        </>
-      )}
-      {collapsedCols.length > 0 && (
-        <>
-          <div
-            style={{
-              display: colsExpanded ? "flex" : "none",
-              flexWrap: "wrap",
-            }}
-          >
-            {collapsedCols.map((colData, index) => (
-              <ColComponent
-                key={index + visibleCols.length}
-                data={colData}
-                containerClass={colContainerClass}
-                detailsStartExpanded={detailsStartExpanded}
-              />
-            ))}
-          </div>
           <MDBContainer className="d-flex justify-content-center mb-3 mt-md-3 mt-lg-0">
             <MDBBtn onClick={toggleExpansion} size="sm" color="secondary">
               {colsExpanded ? "Show Less" : "Show More"}
             </MDBBtn>
           </MDBContainer>
         </>
-      )}
-    </MDBRow>
+      </MDBRow>
+    )
   );
 }
 

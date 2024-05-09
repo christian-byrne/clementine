@@ -33,7 +33,6 @@ function SelectionRow({
       else {
         temp.push(rowIndex);
       }
-      console.log("Selected Index: ", temp);
       setSelectedRowIndices(temp);
     }
   };

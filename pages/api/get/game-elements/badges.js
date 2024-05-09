@@ -20,7 +20,6 @@ export default async function getBadges(req, res) {
       return res.status(404).json({ error: "No Badges found" });
     }
 
-    console.log(result.rows);
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error getting badges:", error);

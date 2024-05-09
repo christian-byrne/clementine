@@ -15,7 +15,6 @@ export default async function getNStylists(req, res) {
       return res.status(404).json({ error: "No stylists not found" });
     }
 
-    console.log(result.rows);
     res.status(200).json(result.rows);
   } catch (error) {
     console.error("Error getting and sorting stylists:", error);

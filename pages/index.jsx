@@ -5,15 +5,15 @@ import LeaderBoardCard from "@/components/cards/LeaderBoardCard";
 import StylistCard from "@/components/cards/StylistCard";
 import PhotoCard from "@/components/cards/PhotoCard";
 import TitleText from "@/components/title-text/TitleText";
-import allPhotosData from "@/data/photos/all.json";
 import allUserData from "@/data/users/all.json";
 import Breakpoints from "@/utils/breakpoints";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
 import formatDocTitle from "@/utils/formatDocTitle";
+import PhotosRow from "@/components/content-row/PhotosRow";
 
 function HomePage() {
   useEffect(() => {
-    document.title = formatDocTitle("");
+    document.title = formatDocTitle(null);
   }, []);
 
   const [breakpoint, setBreakpoint] = useState("lg");
@@ -25,7 +25,6 @@ function HomePage() {
   );
   const [leaderBoardClass, setLeaderBoardClass] = useState("col-5 ms-sm-auto");
   const [stylistData, setStylistData] = useState(null);
-  const [photoData, setPhotoData] = useState(null);
 
   useEffect(() => {
     const fetchFeaturedStylists = async () => {
@@ -37,17 +36,6 @@ function HomePage() {
         console.error("Error fetching featured stylists:", error);
       }
     };
-    const fetchFeaturedPhotos = async () => {
-      try {
-        const response = await fetch("/api/get/photos/n-photos?n=60");
-        const data = await response.json();
-        setPhotoData(data);
-      } catch (error) {
-        console.error("Error fetching featured photos:", error);
-      }
-    };
-
-    fetchFeaturedPhotos();
     fetchFeaturedStylists();
   }, []);
 
@@ -187,22 +175,19 @@ function HomePage() {
             )}
             {/* Featured Photos Row */}
             <TitleText text="Featured Photos" />
-            {photoData && (
-
-            <ContentRow
+            <PhotosRow
               colComponent={PhotoCard}
-              colData={photoData}
-              sortKey={false}
-              showFirstNCols={
+              colClassName={colCSSClass}
+              expandedNum={
                 breakpointsConfig[breakpoint].visibleRows *
                 (12 / breakpointsConfig[breakpoint].cols) *
                 4
               }
-              maxCols={50}
-              colContainerClass={colCSSClass}
+              maxNum={50}
+              sortField={"likes"}
+              sortOrder={"asc"}
               detailsStartExpanded={false}
             />
-            )}
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}

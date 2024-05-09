@@ -34,7 +34,6 @@ function UserProfilePage() {
 
   useEffect(() => {
     if (userProfileData?.id) {
-      console.log("userProfileData", userProfileData);
       const fetchStylists = async () => {
         try {
           if (userProfileData?.ownmodels?.length > 0) {
@@ -42,7 +41,6 @@ function UserProfilePage() {
               `/api/get/user/stylists?userId=${userProfileData.id}`
             );
             const stylistData = await stylistResponse.json();
-            console.log("stylistData", stylistData);
             setUserStylists(stylistData);
           }
 

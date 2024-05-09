@@ -31,7 +31,6 @@ export default async function getPhotosByCreatorId(req, res) {
     }
 
 
-    console.log(stylistNames)
     const result = await sql`
       SELECT *
       FROM photos
