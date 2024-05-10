@@ -6,21 +6,21 @@ function PhotosRow({
   sortField,
   sortOrder,
   colClassName,
-  expandedNum,
+  initialVisibleNum,
   maxNum = 50,
 }) {
   const [photoData, setPhotoData] = useState([]);
+  const [maxRequested, setMaxRequested] = useState(maxNum);
 
   useEffect(() => {
     const fetchFeaturedPhotos = async () => {
       try {
-        let reqURL = `/api/get/photos/n-photos?count=${maxNum}&sortOrder=${
+        let reqURL = `/api/get/photos/n-photos?count=${maxRequested}&sortOrder=${
           sortOrder.toUpperCase() || "DESC"
         }`;
         if (sortField) {
           reqURL += `&sortField=${sortField}`;
         }
-        console.log("reqURL:", reqURL);
 
         const response = await fetch(reqURL);
         const data = await response.json();
@@ -31,15 +31,16 @@ function PhotosRow({
     };
 
     fetchFeaturedPhotos();
-  }, [sortField, sortOrder, maxNum]);
+  }, [sortField, sortOrder, maxNum, maxRequested]);
 
   return (
     photoData?.length > 0 && (
       <ContentRow
         colComponent={PhotoCard}
         colData={photoData}
-        expandedNum={expandedNum || 9}
-        maxNum={maxNum || 60}
+        initialVisibleNum={initialVisibleNum || 9}
+        maxRequested={maxRequested}
+        setMaxRequested={setMaxRequested}
         colClassName={colClassName || "col-md-6 col-lg-4 col-sm-12 mb-4 mx-0"}
         dataRecords={photoData}
       />

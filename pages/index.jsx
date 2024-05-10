@@ -178,12 +178,12 @@ function HomePage() {
             <PhotosRow
               colComponent={PhotoCard}
               colClassName={colCSSClass}
-              expandedNum={
+              initialVisibleNum={
                 breakpointsConfig[breakpoint].visibleRows *
                 (12 / breakpointsConfig[breakpoint].cols) *
                 4
               }
-              maxNum={50}
+              maxRequested={50}
               sortField={"likes"}
               sortOrder={"asc"}
               detailsStartExpanded={false}
