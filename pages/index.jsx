@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { MDBRow, MDBContainer, MDBCol } from "mdb-react-ui-kit";
-import ContentRow from "@/components/content-row/ContentRow";
 import LeaderBoardCard from "@/components/cards/LeaderBoardCard";
 import StylistCard from "@/components/cards/StylistCard";
 import PhotoCard from "@/components/cards/PhotoCard";
@@ -10,6 +9,7 @@ import Breakpoints from "@/utils/breakpoints";
 import sortRecordsByKey from "@/utils/sortRecordsByKey";
 import formatDocTitle from "@/utils/formatDocTitle";
 import PhotosRow from "@/components/content-row/PhotosRow";
+import StylistsRow from "@/components/content-row/StylistsRow";
 
 function HomePage() {
   useEffect(() => {
@@ -157,23 +157,20 @@ function HomePage() {
         {/* Content Preview */}
         <MDBCol className={contentRowsClass}>
           <MDBContainer fluid className="mt-4">
-            {/* Featured Models Row */}
             <TitleText text="Featured Stylists" />
-            {stylistData && (
-              <ContentRow
-                colComponent={StylistCard}
-                colData={stylistData}
-                sortKey={false}
-                showFirstNCols={
-                  breakpointsConfig[breakpoint].visibleRows *
-                  (12 / breakpointsConfig[breakpoint].cols)
-                }
-                maxCols={30}
-                colContainerClass={colCSSClass}
-                detailsStartExpanded={false}
-              />
-            )}
-            {/* Featured Photos Row */}
+            <StylistsRow
+              colComponent={StylistCard}
+              colClassName={colCSSClass}
+              initialVisibleNum={
+                breakpointsConfig[breakpoint].visibleRows *
+                (12 / breakpointsConfig[breakpoint].cols)
+              }
+              maxNum={20}
+              colData={stylistData}
+              sortField={"rating"}
+              sortOrder={"DESC"}
+              detailsStartExpanded={false}
+            />
             <TitleText text="Featured Photos" />
             <PhotosRow
               colComponent={PhotoCard}
@@ -183,10 +180,9 @@ function HomePage() {
                 (12 / breakpointsConfig[breakpoint].cols) *
                 4
               }
-              maxRequested={50}
+              maxRequested={30}
               sortField={"likes"}
-              sortOrder={"asc"}
-              detailsStartExpanded={false}
+              sortOrder={"DESC"}
             />
           </MDBContainer>
         </MDBCol>

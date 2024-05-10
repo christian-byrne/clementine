@@ -46,7 +46,7 @@ function ContentRow({
               Show More
             </MDBBtn>
             {contentIsExpanded && (
-              <MDBBtn onClick={showLess} size="sm" color="secondary">
+              <MDBBtn onClick={showLess} size="sm" color="secondary" className="ms-4 ms-lg-2">
                 Show Less
               </MDBBtn>
             )}

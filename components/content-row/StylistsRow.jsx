@@ -1,50 +1,53 @@
 import React, { useEffect, useState } from "react";
 import ContentRow from "@/components/content-row/ContentRow";
-import PhotoCard from "@/components/cards/PhotoCard";
+import StylistCard from "@/components/cards/StylistCard";
 
-function PhotosRow({
+function StylistsRow({
   sortField,
   sortOrder,
   colClassName,
   initialVisibleNum,
   maxNum,
+  detailsStartExpanded,
 }) {
-  const [photoData, setPhotoData] = useState([]);
+  const [stylistsData, setStylistData] = useState([]);
   const [maxRequested, setMaxRequested] = useState(maxNum || 20);
 
   useEffect(() => {
-    const fetchFeaturedPhotos = async () => {
+    const fetchFeaturedStylists = async () => {
       try {
-        let reqURL = `/api/get/photos/sorted-n?count=${maxRequested}&sortOrder=${
+        let reqURL = `/api/get/stylists/sorted-n?count=${maxRequested}&sortOrder=${
           sortOrder.toUpperCase() || "DESC"
         }`;
         if (sortField) {
           reqURL += `&sortField=${sortField}`;
         }
 
+        console.log("reqURL:", reqURL)
         const response = await fetch(reqURL);
         const data = await response.json();
-        setPhotoData(data);
+        setStylistData(data);
       } catch (error) {
-        console.error("Error fetching featured photos:", error);
+        console.error("Error fetching featured stylists:", error);
       }
     };
 
-    fetchFeaturedPhotos();
+    fetchFeaturedStylists();
   }, [sortField, sortOrder, maxNum, maxRequested]);
 
   return (
-    photoData?.length > 0 && (
+    stylistsData?.length > 0 && (
       <ContentRow
-        colComponent={PhotoCard}
-        colData={photoData}
+        colComponent={StylistCard}
+        colData={stylistsData}
         initialVisibleNum={initialVisibleNum || 9}
         maxRequested={maxRequested}
         setMaxRequested={setMaxRequested}
         colClassName={colClassName || "col-md-6 col-lg-4 col-sm-12 mb-4 mx-0"}
-        dataRecords={photoData}
+        dataRecords={stylistsData}
+        detailsStartExpanded={detailsStartExpanded}
       />
     )
   );
 }
-export default PhotosRow;
+export default StylistsRow;
