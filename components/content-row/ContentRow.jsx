@@ -47,21 +47,23 @@ function ContentRow({
               detailsStartExpanded={detailsStartExpanded}
             />
           ))}
-          <MDBContainer className="d-flex justify-content-center mb-3 mt-md-3 mt-lg-0">
-            <MDBBtn onClick={showMore} size="sm" color="secondary">
-              Show More
-            </MDBBtn>
-            {contentIsExpanded && (
-              <MDBBtn
-                onClick={showLess}
-                size="sm"
-                color="secondary"
-                className="ms-4 ms-lg-2"
-              >
-                Show Less
+          {dataRecords.length > visibleColCount && (
+            <MDBContainer className="d-flex justify-content-center mb-3 mt-md-3 mt-lg-0">
+              <MDBBtn onClick={showMore} size="sm" color="secondary">
+                Show More
               </MDBBtn>
-            )}
-          </MDBContainer>
+              {contentIsExpanded && (
+                <MDBBtn
+                  onClick={showLess}
+                  size="sm"
+                  color="secondary"
+                  className="ms-4 ms-lg-2"
+                >
+                  Show Less
+                </MDBBtn>
+              )}
+            </MDBContainer>
+          )}
         </>
       </MDBRow>
     )

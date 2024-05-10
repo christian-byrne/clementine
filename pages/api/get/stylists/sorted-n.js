@@ -34,7 +34,7 @@ export default async function getSortedNStylists(req, res) {
         } else if (sortField === "likes") {
           result =
             await sql`SELECT * FROM stylists ORDER BY likes ASC LIMIT ${count}`;
-        } else if (sortField === "dateCreated") {
+        } else if (sortField === "dateCreated" || sortField === "datecreated") {
           result =
             await sql`SELECT * FROM stylists ORDER BY datecreated ASC LIMIT ${count}`;
         } else if (sortField === "favorites") {

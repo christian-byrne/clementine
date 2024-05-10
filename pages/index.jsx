@@ -4,9 +4,7 @@ import LeaderBoardCard from "@/components/cards/LeaderBoardCard";
 import StylistCard from "@/components/cards/StylistCard";
 import PhotoCard from "@/components/cards/PhotoCard";
 import TitleText from "@/components/title-text/TitleText";
-import allUserData from "@/data/users/all.json";
 import Breakpoints from "@/utils/breakpoints";
-import sortRecordsByKey from "@/utils/sortRecordsByKey";
 import formatDocTitle from "@/utils/formatDocTitle";
 import PhotosRow from "@/components/content-row/PhotosRow";
 import StylistsRow from "@/components/content-row/StylistsRow";
@@ -25,6 +23,8 @@ function HomePage() {
   );
   const [leaderBoardClass, setLeaderBoardClass] = useState("col-5 ms-sm-auto");
   const [stylistData, setStylistData] = useState(null);
+  const [visiblePhotos, setVisiblePhotos] = useState(0);
+  const [visibleStylists, setVisibleStylists] = useState(0);
 
   useEffect(() => {
     const fetchFeaturedStylists = async () => {
@@ -136,12 +136,26 @@ function HomePage() {
     }
   };
 
+  const updateToFlush = () => {
+    setVisiblePhotos(
+      breakpointsConfig[breakpoint].visibleRows *
+        Math.floor(12 / breakpointsConfig[breakpoint].cols) *
+        3
+    );
+    setVisibleStylists(
+      breakpointsConfig[breakpoint].visibleRows *
+        Math.floor(12 / breakpointsConfig[breakpoint].cols)
+    );
+  };
+
   useEffect(() => {
     setBreakpoint(breakpointsConfig.getBreakpointName(window.innerWidth));
+    updateToFlush();
     updateColCSSClass();
     updateLeaderBoards();
     const handleResize = () => {
       setBreakpoint(breakpointsConfig.getBreakpointName(window.innerWidth));
+      updateToFlush();
       updateColCSSClass();
       updateLeaderBoards();
     };
@@ -157,33 +171,34 @@ function HomePage() {
         {/* Content Preview */}
         <MDBCol className={contentRowsClass}>
           <MDBContainer fluid className="mt-4">
-            <TitleText text="Featured Stylists" />
-            <StylistsRow
-              colComponent={StylistCard}
-              colClassName={colCSSClass}
-              initialVisibleNum={
-                breakpointsConfig[breakpoint].visibleRows *
-                (12 / breakpointsConfig[breakpoint].cols)
-              }
-              maxNum={20}
-              colData={stylistData}
-              sortField={"rating"}
-              sortOrder={"DESC"}
-              detailsStartExpanded={false}
-            />
-            <TitleText text="Featured Photos" />
-            <PhotosRow
-              colComponent={PhotoCard}
-              colClassName={colCSSClass}
-              initialVisibleNum={
-                breakpointsConfig[breakpoint].visibleRows *
-                (12 / breakpointsConfig[breakpoint].cols) *
-                4
-              }
-              maxRequested={30}
-              sortField={"likes"}
-              sortOrder={"DESC"}
-            />
+            {visibleStylists > 0 && (
+              <>
+                <TitleText text="Featured Stylists" />
+                <StylistsRow
+                  colComponent={StylistCard}
+                  colClassName={colCSSClass}
+                  initialVisibleNum={visibleStylists}
+                  maxNum={18}
+                  colData={stylistData}
+                  sortField={"rating"}
+                  sortOrder={"DESC"}
+                  detailsStartExpanded={false}
+                />
+              </>
+            )}
+            {visiblePhotos > 0 && (
+              <>
+                <TitleText text="Featured Photos" />
+                <PhotosRow
+                  colComponent={PhotoCard}
+                  colClassName={colCSSClass}
+                  initialVisibleNum={visiblePhotos}
+                  maxNum={40}
+                  sortField={"likes"}
+                  sortOrder={"DESC"}
+                />
+              </>
+            )}
           </MDBContainer>
         </MDBCol>
         {/* Leaderboard Preview */}
@@ -208,11 +223,10 @@ function HomePage() {
                 description={"Users who have make great content"}
                 visibleColumns={["modelcount"]}
                 maxRows={9}
-                socialBadges={[
-                  "totalratings",
-                  "downloads",
-                  "favorites",
-                ].slice(0, leaderBoardVisibleCols)}
+                socialBadges={["totalratings", "downloads", "favorites"].slice(
+                  0,
+                  leaderBoardVisibleCols
+                )}
                 containerClassName="col-12 my-3 mx-0 px-0"
               />
               <LeaderBoardCard

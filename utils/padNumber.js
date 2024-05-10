@@ -1,6 +1,15 @@
 export function padNumber(number, targetWidth, justify = "center") {
   if (!number) return " ".repeat(targetWidth);
 
+  // if number is a string but represents a number, convert to number
+  if (
+    typeof number === "string" &&
+    isFinite(number) &&
+    !isNaN(parseFloat(number))
+  ) {
+    number = Number(number);
+  }
+
   const powerLabels = ["", "k", "M", "B", "T", "Q"];
   let curNumber = number;
   let labelIndex = 0;
@@ -27,7 +36,7 @@ export function padNumber(number, targetWidth, justify = "center") {
       numberString.substring(0, 3) + "," + numberString.substring(3);
   }
   numberString += powerLabels[labelIndex];
-  return numberString
+  return numberString;
 }
 
 function replaceTrailingZeros(numberString, index, justify) {
@@ -35,7 +44,9 @@ function replaceTrailingZeros(numberString, index, justify) {
     return numberString + " ";
   }
   if (numberString.charAt(index) == ".") {
-    return numberString.substring(0, index) + " " + numberString.substring(index + 1);
+    return (
+      numberString.substring(0, index) + " " + numberString.substring(index + 1)
+    );
   }
   if (numberString.charAt(index) != "0") {
     return numberString;
@@ -43,13 +54,17 @@ function replaceTrailingZeros(numberString, index, justify) {
 
   if ((justify === "center" && index % 2 === 0) || justify === "right") {
     return replaceTrailingZeros(
-      numberString.substring(0, index) + " " + numberString.substring(index + 1),
+      numberString.substring(0, index) +
+        " " +
+        numberString.substring(index + 1),
       index - 1,
       justify
     );
   } else {
     return replaceTrailingZeros(
-      " " + numberString.substring(0, index) + numberString.substring(index + 1),
+      " " +
+        numberString.substring(0, index) +
+        numberString.substring(index + 1),
       index,
       justify
     );

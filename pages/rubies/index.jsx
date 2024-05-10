@@ -52,7 +52,7 @@ const earnMethods = [
     title: "Generate Buzz",
     description:
       "Earn 1 ruby each time someone reacts to something you've made.",
-    href: "/user",
+    href: "/user/wednesday-addams",
     linkText: "My Profile",
     icon: "fas fa-comments",
   },
@@ -96,7 +96,7 @@ const earnMethods = [
     title: "Downloads",
     description:
       "Earn 2 rubies each time someone downloads one of your stylists.",
-    href: "/user",
+    href: "/user/wednesday-addams",
     linkText: "My Profile",
     icon: "fas fa-download",
   },
@@ -104,7 +104,7 @@ const earnMethods = [
     title: "Create Suggestions",
     description:
       "Earn 4 rubies each time one of your stylists is used to make a suggestion.",
-    href: "/user",
+    href: "/user/wednesday-addams",
     linkText: "My Stylists",
     icon: "fas fa-lightbulb",
   },
@@ -112,7 +112,7 @@ const earnMethods = [
     title: "Stylist Images",
     description:
       "Earn 50 rubies each time someone uses one of your stylists to make an image.",
-    href: "/user",
+    href: "/user/wednesday-addams",
     linkText: "My Stylists' Images",
     icon: "fas fa-camera-retro",
   },
@@ -301,9 +301,7 @@ function RubiesPage() {
                       data={balanceData}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis 
-                        dataKey="date"
-                      />
+                      <XAxis dataKey="date" />
                       <YAxis />
                       <Tooltip />
                       <Line
@@ -361,11 +359,10 @@ function RubiesPage() {
 
             <ContentRow
               colComponent={EarnCard}
-              colData={earnMethods}
-              showFirstNCols={30}
-              maxCols={60}
-              colContainerClass={colCSSClass}
-              detailsStartExpanded={true}
+              colClassName={colCSSClass}
+              dataRecords={earnMethods}
+              initialVisibleNum={30}
+              maxRequested={60}
             />
           </MDBContainer>
         </main>
