@@ -192,8 +192,8 @@ function HomePage() {
             <MDBContainer className="mt-4">
               <LeaderBoardCard
                 leaderBoardName={"Style Stars"}
+                sortField={"views"}
                 description={"Users who have the most motion"}
-                leaderBoardData={sortRecordsByKey(allUserData, "views")}
                 visibleColumns={["views"]}
                 maxRows={9}
                 socialBadges={["likes", "favorites", "downloads"].slice(
@@ -204,13 +204,12 @@ function HomePage() {
               />
               <LeaderBoardCard
                 leaderBoardName={"Who to Follow"}
+                sortField={"modelcount"}
                 description={"Users who have make great content"}
-                leaderBoardData={sortRecordsByKey(allUserData, "modelCount")}
-                visibleColumns={["modelCount"]}
+                visibleColumns={["modelcount"]}
                 maxRows={9}
                 socialBadges={[
-                  "averageRating",
-                  "totalRatings",
+                  "totalratings",
                   "downloads",
                   "favorites",
                 ].slice(0, leaderBoardVisibleCols)}
@@ -218,10 +217,10 @@ function HomePage() {
               />
               <LeaderBoardCard
                 leaderBoardName={"Most Influential"}
+                sortField={"downloads"}
                 description={
                   "Users with the most downloads and used suggestions"
                 }
-                leaderBoardData={sortRecordsByKey(allUserData, "downloads")}
                 visibleColumns={["location"]}
                 maxRows={12}
                 socialBadges={["downloads", "favorites", "views"].slice(
@@ -232,11 +231,11 @@ function HomePage() {
               />
               <LeaderBoardCard
                 leaderBoardName={"Most Decorated"}
+                sortField={"awards"}
                 description={
                   "Users with the most badges, titles, and achievements"
                 }
-                leaderBoardData={sortRecordsByKey(allUserData, "badgeCount")}
-                visibleColumns={["badgeCount"]}
+                visibleColumns={["badgecount"]}
                 maxRows={13}
                 socialBadges={["downloads", "likes", "favorites"].slice(
                   0,

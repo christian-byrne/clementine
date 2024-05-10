@@ -15,7 +15,7 @@ import { padNumber } from "@/utils/padNumber";
 import pathFormat from "@/utils/pathFormat";
 
 function LeaderBoardCard({
-  leaderBoardData,
+  sortField,
   visibleColumns,
   maxRows,
   leaderBoardName,
@@ -23,6 +23,7 @@ function LeaderBoardCard({
   socialBadges,
   containerClassName = "col-md-12 col-lg-6 col-sm-12 my-3",
 }) {
+  const [leaderBoardData, setLeaderBoardData] = useState([]);
   const [numVisibleBadges, setNumVisibleBadges] = useState(1);
   const [overflowX, setOverflowX] = useState("visible");
 
@@ -47,22 +48,35 @@ function LeaderBoardCard({
   };
 
   useEffect(() => {
-    // Adjust the number of visible badges on mount
     adjustNumVisibleBadges();
     adjustOverflowX();
 
-    // Add resize listener
     const handleResize = () => {
       adjustNumVisibleBadges();
       adjustOverflowX();
     };
     window.addEventListener("resize", handleResize);
 
-    // Clean up resize listener
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    const fetchSortedUsers = async () => {
+      try {
+        const response = await fetch(
+          `/api/get/users/sorted-n?sortField=${sortField}&count=${maxRows}`
+        );
+        const data = await response.json();
+        setLeaderBoardData(data);
+      } catch (error) {
+        console.error("Error fetching sorted users:", error);
+      }
+    };
+
+    fetchSortedUsers();
+  }, [sortField]);
 
   return (
     leaderBoardData?.length > 0 && (
@@ -167,46 +181,21 @@ function LeaderBoardCard({
                             </div>
                           </td>
                         )}
-                        {/** second, get the social stats badges and put them in a column */}
                         <td className="px-0 pt-4 pb-2">
                           <SocialStatsBadges
-                            likes={
-                              socialBadges.includes("likes")
-                                ? member.likes
-                                : null
-                            }
-                            downloads={
-                              socialBadges.includes("downloads")
-                                ? member.downloads
-                                : null
-                            }
-                            favorites={
-                              socialBadges.includes("favorites")
-                                ? member.favorites
-                                : null
-                            }
-                            totalRatings={
-                              socialBadges.includes("totalRatings")
-                                ? member.totalRatings
-                                : null
-                            }
-                            averageRating={
-                              socialBadges.includes("averageRating")
-                                ? member.averageRating
-                                : null
-                            }
+                            userData={leaderBoardData[index]}
+                            fields={socialBadges}
                             style={{ flexWrap: "nowrap" }}
-                            numVisibleBadges={numVisibleBadges} // Pass numVisibleBadges as prop
+                            numVisibleBadges={numVisibleBadges}
                           />
                         </td>
                         {visibleColumns?.length > 0 &&
                           visibleColumns.map((column, index) => {
                             const cellData = member[column];
                             const cellContent =
-                              typeof cellData === "number"
-                                ? padNumber(cellData, 6)
+                              typeof cellData === "number" || column == "views"
+                                ? padNumber(cellData, 4)
                                 : cellData || "";
-
                             return <td key={index}>{cellContent}</td>;
                           })}
                       </tr>

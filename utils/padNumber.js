@@ -1,32 +1,57 @@
+export function padNumber(number, targetWidth, justify = "center") {
+  if (!number) return " ".repeat(targetWidth);
 
-export function padNumber(number, targetWidth) {
-    // If number is falsy, return targetWidth spaces
-    if (!number) return " ".repeat(targetWidth);
+  const powerLabels = ["", "k", "M", "B", "T", "Q"];
+  let curNumber = number;
+  let labelIndex = 0;
+  while (curNumber >= 1000 && labelIndex < powerLabels.length) {
+    curNumber /= 1000;
+    labelIndex++;
+  }
 
-    let formattedNumber = "";
-    // Check if the number is greater than 1000
-    if (number >= 1000) {
-        // Divide by 1000 and round to two decimal places
-        const dividedNumber = (number / 1000).toFixed(1);
-        // Add commas if necessary after dividing by 1000
-        formattedNumber = addCommas(dividedNumber);
-        // Append "k" to indicate thousands
-        formattedNumber += "k";
-    } else {
-        // If the number is less than or equal to 1000, no need for division
-        formattedNumber = String(number);
-    }
+  let roundTo = targetWidth - 2;
+  let needComma = false;
+  if (Math.floor(curNumber).toString().length > 3) {
+    roundTo--;
+    needComma = true;
+  }
 
-    // Pad the formatted number with spaces to reach the target width
-    return formattedNumber.padStart(targetWidth, " ");
-};
-
-function addCommas(numberString) {
-    // Split the number string into integer and decimal parts
-    const [integerPart, decimalPart] = numberString.split(".");
-    // Add commas to the integer part
-    const integerWithCommas = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    // Combine integer part with decimal part, if any
-    return decimalPart ? `${integerWithCommas}.${decimalPart}` : integerWithCommas;
+  let numberString = curNumber.toFixed(roundTo).toString();
+  numberString = replaceTrailingZeros(
+    numberString,
+    numberString.length - 1,
+    justify
+  );
+  if (needComma) {
+    numberString =
+      numberString.substring(0, 3) + "," + numberString.substring(3);
+  }
+  numberString += powerLabels[labelIndex];
+  return numberString
 }
 
+function replaceTrailingZeros(numberString, index, justify) {
+  if (!numberString || index <= 0) {
+    return numberString + " ";
+  }
+  if (numberString.charAt(index) == ".") {
+    return numberString.substring(0, index) + " " + numberString.substring(index + 1);
+  }
+  if (numberString.charAt(index) != "0") {
+    return numberString;
+  }
+
+  if ((justify === "center" && index % 2 === 0) || justify === "right") {
+    return replaceTrailingZeros(
+      numberString.substring(0, index) + " " + numberString.substring(index + 1),
+      index - 1,
+      justify
+    );
+  } else {
+    return replaceTrailingZeros(
+      " " + numberString.substring(0, index) + numberString.substring(index + 1),
+      index,
+      justify
+    );
+  }
+}

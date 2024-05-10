@@ -1,14 +1,17 @@
 import { sql } from "@vercel/postgres";
 
 export default async function getSortedNUsers(req, res) {
-  if (!req.query.count) {
-    return res.status(400).json({
-      error: "Missing required fields: count",
-    });
+
+  let count;
+  let sqlCmd = "";
+  
+  if ("count" in req.query) {
+    count = req.query.count;
+  }
+  else {
+    count = 10;
   }
 
-  const count = req.query.count;
-  let sqlCmd = "";
   try {
     let result;
     if ("sortField" in req.query && "sortOrder" in req.query) {

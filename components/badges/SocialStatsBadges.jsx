@@ -1,40 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MDBContainer } from "mdb-react-ui-kit";
 import { padNumber } from "@/utils/padNumber";
+import { MDBBadge, MDBIcon } from "mdb-react-ui-kit";
 
-function SocialStatsBadges({
-  likes,
-  downloads,
-  favorites,
-  totalRatings,
-  averageRating,
-  numVisibleBadges
-}) {
-  const badges = [
-    { key: 'likes', icon: 'fas fa-heart', label: 'LIKES', value: likes },
-    { key: 'downloads', icon: 'fas fa-download', label: 'DOWNLOADS', value: downloads },
-    { key: 'favorites', icon: 'fas fa-star', label: 'FAVORITES', value: favorites },
-    { key: 'totalRatings', icon: 'fas fa-star', label: `${padNumber(totalRatings, 4)} ratings`, value: averageRating }
-  ];
+function SocialStatsBadges({ userData, fields, numVisibleBadges = 3 }) {
+  const [visibleBadgeFields, setVisibleBadgeFields] = useState([]);
+  const badgeConfig = {
+    likes: { icon: "fas fa-heart", label: "LIKES" },
+    downloads: {
+      icon: "fas fa-download",
+      label: "DOWNLOADS",
+    },
+    favorites: { icon: "fas fa-star", label: "FAVORITES" },
+    totalratings: {
+      key: "totalratings",
+      icon: "fas fa-star",
+    },
+    views: { icon: "fas fa-eye", label: "VIEWS" },
+    badgecount: { icon: "fas fa-award", label: "AWARDS" },
+    achievementcount: {
+      icon: "fas fa-trophy",
+      label: "ACHIEVEMENTS",
+    },
+    titlecount: {
+      icon: "fas fa-crown",
+      label: "TITLES",
+    },
+    score: { icon: "fas fa-trophy", label: "SCORE" },
+    modelcount: { icon: "fas fa-cube", label: "MODELS" },
+  };
+
+  useEffect(() => {
+    if (userData) {
+      setVisibleBadgeFields(fields.slice(0, numVisibleBadges));
+    }
+  }, [userData, fields, numVisibleBadges]);
 
   return (
-    <MDBContainer className="mb-3 d-flex flex-wrap">
-      {badges
-        .filter(badge => badge.value > 0)
-        .slice(0, numVisibleBadges)
-        .map(({ key, icon, label, value }) => (
-          <div key={key} className="badge badge-secondary me-2 mb-2 p-2">
+    visibleBadgeFields?.length > 0 &&
+    userData && (
+      <MDBContainer className="mb-3 d-flex flex-wrap">
+        {visibleBadgeFields.map((fieldName, index) => (
+          <div key={index} className="badge badge-secondary me-2 mb-2 p-2">
             <div className="d-flex justify-content-center align-items-center">
-              {/* Icon */}
-              <i className={icon + " me-2"}></i>
-              {/* Value */}
-              <span className="font-weight-bold">{padNumber(value, 4)}</span>
+              <i className={badgeConfig[fieldName].icon + " me-2"}></i>
+              <span className="font-weight-bold">
+                {fieldName === "totalratings"
+                  ? userData.averagerating
+                  : !userData[fieldName]
+                  ? 0
+                  : padNumber(userData[fieldName], 3) || 0}
+              </span>
             </div>
-            {/* Label */}
-            <p className="mb-0 mt-1 small text-muted">{label}</p>
+            <p className="mb-0 mt-1 small text-muted">
+              {fieldName === "totalratings"
+                ? userData.totalratings
+                : badgeConfig[fieldName].label}
+            </p>
           </div>
         ))}
-    </MDBContainer>
+      </MDBContainer>
+    )
   );
 }
 

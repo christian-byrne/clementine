@@ -40,7 +40,7 @@ function StylistsRow({
       <ContentRow
         colComponent={StylistCard}
         colData={stylistsData}
-        initialVisibleNum={initialVisibleNum || 9}
+        initialVisibleNum={initialVisibleNum}
         maxRequested={maxRequested}
         setMaxRequested={setMaxRequested}
         colClassName={colClassName || "col-md-6 col-lg-4 col-sm-12 mb-4 mx-0"}
