@@ -34,7 +34,7 @@ function LeaderBoardCard({
     } else if (windowWidth > 1950) {
       setNumVisibleBadges(2);
     } else {
-      setNumVisibleBadges(1); // Adjust this value as needed
+      setNumVisibleBadges(1);
     }
   };
 

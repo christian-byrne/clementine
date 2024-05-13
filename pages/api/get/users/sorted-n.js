@@ -1,110 +1,62 @@
 import { sql } from "@vercel/postgres";
 
 export default async function getSortedNUsers(req, res) {
-
   let count;
   let sqlCmd = "";
-  
   if ("count" in req.query) {
     count = req.query.count;
-  }
-  else {
+  } else {
     count = 10;
   }
 
   try {
     let result;
-    if ("sortField" in req.query && "sortOrder" in req.query) {
+    if ("sortField" in req.query) {
       const sortField = req.query.sortField;
-      const sortOrder = req.query.sortOrder;
-      sqlCmd = `SELECT * FROM users ORDER BY ${sortField} ${sortOrder} LIMIT ${count}`;
+      sqlCmd = `SELECT * FROM users ORDER BY ${sortField} DESC LIMIT ${count}`;
 
-      // Cannot send field names as template literal args with the sql function
-      if (sortOrder.toUpperCase() === "ASC") {
-        if (sortField === "score") {
-          result =
-            await sql`SELECT * FROM users ORDER BY score ASC LIMIT ${count}`;
-        } else if (
-          sortField === "nameSystem" ||
-          sortField === "name" ||
-          sortField === "namesystem"
-        ) {
-          result =
-            await sql`SELECT * FROM users ORDER BY namesystem ASC LIMIT ${count}`;
-        } else if (sortField === "awards") {
-          result =
-            await sql`SELECT * FROM users ORDER BY CONCAT(badgecount, achievementcount, titlecount) ASC LIMIT ${count}`;
-        } else if (sortField === "likes") {
-          result =
-            await sql`SELECT * FROM users ORDER BY likes ASC LIMIT ${count}`;
-        } else if (sortField === "joindate" || sortField === "joinDate") {
-          result =
-            await sql`SELECT * FROM users ORDER BY joindate ASC LIMIT ${count}`;
-        } else if (sortField === "favorites") {
-          result =
-            await sql`SELECT * FROM users ORDER BY favorites ASC LIMIT ${count}`;
-        } else if (sortField === "downloads") {
-          result =
-            await sql`SELECT * FROM users ORDER BY downloads ASC LIMIT ${count}`;
-        } else if (sortField === "lastActive" || sortField === "lastactive") {
-          result =
-            await sql`SELECT * FROM users ORDER BY lastactive ASC LIMIT ${count}`;
-        } else if (sortField === "modelCount" || sortField === "modelcount") {
-          result =
-            await sql`SELECT * FROM users ORDER BY modelcount ASC LIMIT ${count}`;
-        }
-        else if (sortField === "views") {
-          result =
-            await sql`SELECT * FROM users ORDER BY views ASC LIMIT ${count}`;
-        }
-        else {
-          result = await sql`SELECT * FROM users LIMIT ${count}`;
-        }
-      } else if (sortOrder.toUpperCase() === "DESC") {
-        if (sortField === "score") {
-          result =
-            await sql`SELECT * FROM users ORDER BY score DESC LIMIT ${count}`;
-        } else if (
-          sortField === "nameSystem" ||
-          sortField === "name" ||
-          sortField === "namesystem"
-        ) {
-          result =
-            await sql`SELECT * FROM users ORDER BY namesystem DESC LIMIT ${count}`;
-        } else if (sortField === "awards") {
-          result =
-            await sql`SELECT * FROM users ORDER BY CONCAT(badgecount, achievementcount, titlecount) DESC LIMIT ${count}`;
-        } else if (sortField === "likes") {
-          result =
-            await sql`SELECT * FROM users ORDER BY likes DESC LIMIT ${count}`;
-        } else if (sortField === "joindate" || sortField === "joinDate") {
-          result =
-            await sql`SELECT * FROM users ORDER BY joindate DESC LIMIT ${count}`;
-        } else if (sortField === "favorites") {
-          result =
-            await sql`SELECT * FROM users ORDER BY favorites DESC LIMIT ${count}`;
-        } else if (sortField === "downloads") {
-          result =
-            await sql`SELECT * FROM users ORDER BY downloads DESC LIMIT ${count}`;
-        } else if (sortField === "lastActive" || sortField === "lastactive") {
-          result =
-            await sql`SELECT * FROM users ORDER BY lastactive DESC LIMIT ${count}`;
-        } else if (sortField === "modelCount" || sortField === "modelcount") {
-          result =
-            await sql`SELECT * FROM users ORDER BY modelcount DESC LIMIT ${count}`;
-        } else if (sortField === "views") {
-          result =
-            await sql`SELECT * FROM users ORDER BY views DESC LIMIT ${count}`;
-        } else {
-          result = await sql`SELECT * FROM users LIMIT ${count}`;
-        }
+      if (sortField === "score") {
+        result =
+          await sql`SELECT * FROM users ORDER BY score DESC LIMIT ${count}`;
+      } else if (
+        sortField === "nameSystem" ||
+        sortField === "name" ||
+        sortField === "namesystem"
+      ) {
+        result =
+          await sql`SELECT * FROM users ORDER BY namesystem DESC LIMIT ${count}`;
+      } else if (sortField === "awards") {
+        result =
+          await sql`SELECT * FROM users ORDER BY CONCAT(badgecount, achievementcount, titlecount) DESC LIMIT ${count}`;
+      } else if (sortField === "likes") {
+        result =
+          await sql`SELECT * FROM users ORDER BY likes DESC LIMIT ${count}`;
+      } else if (sortField === "joindate" || sortField === "joinDate") {
+        result =
+          await sql`SELECT * FROM users ORDER BY joindate DESC LIMIT ${count}`;
+      } else if (sortField === "favorites") {
+        result =
+          await sql`SELECT * FROM users ORDER BY favorites DESC LIMIT ${count}`;
+      } else if (sortField === "downloads") {
+        result =
+          await sql`SELECT * FROM users ORDER BY downloads DESC LIMIT ${count}`;
+      } else if (sortField === "lastActive" || sortField === "lastactive") {
+        result =
+          await sql`SELECT * FROM users ORDER BY lastactive DESC LIMIT ${count}`;
+      } else if (sortField === "modelCount" || sortField === "modelcount") {
+        result =
+          await sql`SELECT * FROM users ORDER BY modelcount DESC LIMIT ${count}`;
+      } else if (sortField === "views") {
+        result =
+          await sql`SELECT * FROM users ORDER BY views DESC LIMIT ${count}`;
+      } else {
+        result = await sql`SELECT * FROM users LIMIT ${count}`;
       }
     } else {
       sqlCmd = `SELECT * FROM users LIMIT ${count}`;
       result = await sql`SELECT * FROM users LIMIT ${count}`;
     }
 
-    console.log("sqlCmd:", sqlCmd);
     if (result.rows.length === 0) {
       return res.status(404).json({
         error: "No users found",

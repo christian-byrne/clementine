@@ -95,7 +95,7 @@ Populated with AI-generated content/posts/pictures and 200+ users, each with the
 <summary>Click to expand</summary>
 
 
-
+- [ ] when navbar items are removed, a triple dot expand takes their place, instead of just straight up removing routes
 - [ ] Site-wide search
   - [ ] search bar in navbar
   - [ ] search page
