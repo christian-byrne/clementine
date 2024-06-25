@@ -1,0 +1,1 @@
+docker exec -it inference-api /bin/bash
