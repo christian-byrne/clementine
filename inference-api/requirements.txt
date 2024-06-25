@@ -1,0 +1,15 @@
+requests
+websocket_client==1.2.3
+transformers>=4.25.1
+torch
+torchsde
+torchvision
+torchaudio
+einops
+safetensors>=0.4.2
+aiohttp
+pyyaml
+Pillow
+scipy
+tqdm
+psutil

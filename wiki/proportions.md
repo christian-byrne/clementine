@@ -1,9 +1,9 @@
-# Proportions - A Foundation
+# Proportions Reference
 
 
-## The Golden Ratio
+<!-- ## The Golden Ratio
 
-The golden ratio is a special number approximately equal to 1.618033988749895. It appears many times in geometry, art, architecture and other areas. The golden ratio also appears in the human body. The golden ratio is often called the "divine proportion," because of its frequency in the natural world. The golden ratio is the ratio of 1 to 1.618.
+The golden ratio is a special number approximately equal to 1.618033988749895. It appears many times in geometry, art, architecture and other areas. The golden ratio also appears in the human body. The golden ratio is often called the "divine proportion," because of its frequency in the natural world. The golden ratio is the ratio of 1 to 1.618. -->
 
 ## Ideal Ratios of the Human Body
 

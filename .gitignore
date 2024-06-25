@@ -2,6 +2,9 @@
 # Project-Specific
 # --------------------------------------------------------
 
+todo.md
+**/**references.md
+**/**dev_constants.py
 **/brand.md
 data-backup-*
 **/**backup**.json

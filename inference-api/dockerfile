@@ -1,0 +1,29 @@
+ARG PORT 
+
+# Use an official Python runtime as a parent image
+FROM ghcr.io/ai-dock/comfyui:pytorch-2.2.2-py3.10-cuda-12.1.0-runtime-22.04-719fb2c
+
+WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Make port PORT available to the world outside this container
+EXPOSE $PORT
+
+# Define environment variable
+ENV PYTHONUNBUFFERED 1
+ENV PORT $PORT
+RUN echo "Port is $PORT"
+
+RUN apt-get update && apt-get install -y git openssh-client
+RUN git clone git@github.com:christian-byrne/sd-dev-scripts.git
+
+RUN pip install comfy-cli
+RUN comfy env
+RUN comfy set-default /app/ComfyUI
+
+CMD ["python", "main.py"]
