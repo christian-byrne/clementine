@@ -4,6 +4,7 @@ import uuid
 from pathlib import Path
 import time
 import logging
+import base64
 
 try:
     import websocket
@@ -19,8 +20,6 @@ except ImportError as e:
 class ComfyClient:
     """
     Represents a client for interacting with the Comfy server using a WebSocket connection.
-
-    See: https://github.com/comfyanonymous/ComfyUI/blob/master/script_examples/websockets_api_example.py
 
     Args:
       workflow (Workflow): The workflow object representing the desired workflow to be executed. Required methods are get_workflow_dict() for returning the workflow json data as a dict and parse_node_name().
@@ -43,6 +42,7 @@ class ComfyClient:
         self,
         workflow,
         server_url: str = "http://localhost",
+        server_path_parts: str = "",
         max_connect_attempts: int = 10,
         port: int = 8188,
         log_level: int = logging.DEBUG,
@@ -58,6 +58,17 @@ class ComfyClient:
             self.websock_url = self.server_url.replace("http", "ws")
         else:
             self.websock_url = f"ws://{self.server_url}"
+        self.websock_url += server_path_parts
+
+        credentials = "user:p"
+        encoded_credentials = base64.b64encode(credentials.encode("utf-8")).decode(
+            "utf-8"
+        )
+        # self.headers = {
+        #     "Authorization": f"Basic {encoded_credentials}",
+        # }
+        self.headers = {
+        }
 
         self.client_id = str(uuid.uuid4())
         self.client_id_truncated = self.client_id.split("-")[0]
@@ -69,6 +80,8 @@ class ComfyClient:
         self.logger.info(
             f"New Comfy Client Created at {time.strftime('%Y-%m-%d_%H:%M:%S')}\n"
         )
+        self.logger.debug(f"WebSocket URL: {self.websock_url}\n")
+        self.logger.debug(f"Headers: {self.headers}\n")
 
     def is_connected(self):
         """
@@ -97,6 +110,7 @@ class ComfyClient:
             try:
                 self.__websocket.connect(
                     f"{self.websock_url}/ws?clientId={self.client_id}",
+                    # header=self.headers
                 )
             except ConnectionRefusedError:
                 self.logger.debug(

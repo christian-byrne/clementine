@@ -42,7 +42,9 @@ class ComfyAPIWorkflow:
             workflow_template_path.name.replace(".json", "") + f"-{self.name}.json"
         )
         self.workflows_dir = workflow_template_path.parent
+        print(self.workflows_dir)
         self.path = self.workflows_dir / self.filename
+        print(self.path)
 
         self.__set_workflow()
         self.__set_node_mappings()
